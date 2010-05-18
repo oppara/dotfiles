@@ -1,0 +1,36 @@
+// http://tidy.sourceforge.net/docs/quickref.html
+// http://www.w3.org/People/Raggett/tidy/
+
+//Character Encoding Options
+char-encoding: raw
+newline: LF
+
+// HTML, XHTML, XML Options
+alt-text: 
+// bare: yes 
+clean: yes
+drop-font-tags: yes
+drop-proprietary-attributes: yes
+input-xml: no
+numeric-entities: yes
+output-xml: no
+output-xhtml: yes
+//preserve-entities: yes
+quote-marks: yes
+quote-nbsp: yes
+uppercase-tags: no
+uppercase-attributes: no
+
+// Diagnostics Options
+show-warnings: yes
+
+// Pretty Print Options
+break-before-br: no
+indent: auto
+indent-spaces: 2
+markup: yes
+wrap: 0
+
+// Miscellaneous Options
+quiet: yes
+tidy-mark: no

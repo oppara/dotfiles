@@ -1,0 +1,12 @@
+[user]
+	name = oppara
+	email = oppara@oppara.tv
+[core]
+	excludesfile = ~/.gitignore
+[color]
+	ui = auto
+[alias]
+	st = status 
+	co = checkout
+	ci = commit
+    lo = log --graph --color --pretty=format:'%Cblue%x09%h %cn %Creset%ci %x09%s %Cred%d %Creset'

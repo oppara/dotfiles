@@ -1,0 +1,65 @@
+# change default escape from ctrl-a to backtick
+# default was ^Aa
+escape ^Oo
+
+# iTerm上で起動時にウインドウサイズが変化するのを抑制
+termcapinfo xterm-256color 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm:is=\E[r\E[m\E[2J\E[H\E[?7h\E[?1;4;6l'
+
+altscreen on
+startup_message off
+vbell off 
+autodetach on
+defflow off
+nethack on
+defscrollback 5000
+# don't remove windows from the window list as soon as window process exits.
+zombie kr # k: destory window, r: resurrect window
+
+
+hardstatus on
+hardstatus alwayslastline
+hardstatus string "%{= dw}%-w%{=u dw} %n* %t %{-}%+w  %= "
+
+hardcopydir ~/.screen/hardcopy
+bufferfile ~/.screen/screen-exchange
+
+bind \ kill
+bind s # reset s key
+bind ' ' windowlist -b 
+
+# encoding aliases
+bind ^E eval 'echo -p "Encoding? -- Cp932 / Euc-jp / Utf-8"' 'command -c enc'
+bind -c enc C eval 'encoding "sjis"'    'echo "cp932"'
+bind -c enc E eval 'encoding "euc-jp"'  'echo "euc-jp"'
+bind -c enc U eval 'encoding "utf-8"'   'echo "utf-8"'
+
+
+# resion focus(like vi)
+bind j focus down
+bind k focus up
+bind h focus top
+bind l focus bottom
+
+# continuous resion focus(like vi)
+bind ^J eval 'focus down' 'echo "Focus region: "' 'command -c cfocus'
+bind ^K eval 'focus up' 'echo "Focus region: "' 'command -c cfocus'
+bind -c cfocus ^J eval 'focus down' 'echo "Focus region: "' 'command -c cfocus'
+bind -c cfocus ^K eval 'focus up' 'echo "Focus region: "' 'command -c cfocus'
+
+# # continuous resion resize.
+# # orverride default `r'(wrap) mapping.
+bind ^r eval 'echo "Resize region:"' 'command -c cresize'
+bind -c cresize j eval 'resize +1' 'echo "Resize region:"' 'command -c cresize'
+bind -c cresize k eval 'resize -1' 'echo "Resize region:"' 'command -c cresize'
+bind -c cresize = eval 'resize =' 'echo "Resize region:"' 'command -c cresize'
+bind -c cresize n eval 'resize min' 'echo "Resize region:"' 'command -c cresize'
+bind -c cresize x eval 'resize max' 'echo "Resize region:"' 'command -c cresize'
+bind -c cresize s split
+bind -c cresize ^S split
+bind -c cresize o only
+bind -c cresize ^O only
+bind -c cresize r remove
+bind -c cresize ^R remove
+
+
+# http://yoka.at.webry.info/200802/article_1.html

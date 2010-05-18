@@ -1,0 +1,263 @@
+/* hatena */  
+.cb {
+  clear: both;
+}
+span.highlight {
+    color: black;
+    background-color: yellow;
+}
+img.photo {
+    float: right;
+    margin: 10px;
+    border: 0;
+}
+a.keyword {
+    text-decoration: none;
+    border-bottom: 1px solid #d0d0d0;
+}
+
+div.body {
+    line-height:200%;
+}
+p.sectionfooter{
+    font-size:0.8em;
+}
+
+/* --------------------- */  
+body {
+    background-image: url("http://www.oppara.tv/hatena/head.jpg");
+    background-position:top center;
+    background-repeat:repeat-x;
+    background-color:#fefeef;
+    color:#805555;
+}
+a, a:link { color:#D50808; }
+a:visited { color:#8a0606; }
+a:hover { color:#E5433B; }
+
+h2 a{ color:#805555; }
+h2 a:link{ color:#805555; }
+h2 a:visited{ color:#805555; }
+
+/* headding */  
+a.keyword:link { color:#674949;text-decoration: none }
+a.keyword:visited { color:#674949;text-decoration: none }
+a.keyword:hover { color:#674949;text-decoration: none }
+a.keyword:active{ color:#674949;text-decoration: none }
+
+.section {
+    margin-bottom:3px;
+}
+
+.section h3 {
+    margin:1em 0;
+    padding:0em 0.4em;
+    padding-right:8em;
+    font-size:1.1em;
+    /*border-bottom:2px solid #bbb;
+    display:inline;*/  
+}
+/*.section h3&gt;*{
+    margin-top:1em;
+}*/  
+
+.section h4 {
+    font-size:1em;
+    margin:1em 0 0.3em 0;
+    border:0px solid #bbb;
+    /*border-bottom:1px solid #bbb;
+    padding:0.1em 0.4em;
+    padding-right:4em;
+    display:inline;*/  
+}
+.section h4:before { content: "■□ "; }
+/*.section h4&gt;p{
+    margin-top:1em;
+}*/  
+
+
+/* list */  
+div.section ul,ol{
+    margin:0;
+    padding:0;
+    margin-left:2em;
+    margin-top:0.7em;
+}
+div.section li{
+    margin-left:0.5em;
+}
+div.section ul ul{
+    margin:0;
+    padding:0;
+    margin-left:1em;
+}
+div.section ol ol{
+    margin:0;
+    padding:0;
+    margin-left:1em;
+    /*dislilay: list-item;
+    list-style-tyupe:hiragana-iroha;*/  
+}
+
+
+div.section dl{
+    margin-left:2em;
+    font-size:0.9em;
+/*     border-width: thin;
+    border-style: solid;
+    border-color: #E8E8E8 #CCC #CCC #E8E8E8; */  
+    padding: 0.5em;
+}
+div.section dl dt{
+    margin:0;
+    padding:0;
+}
+div.section dl dd{
+    margin-bottom:0.5em;
+}
+
+/* preもの */  
+div.section code, pre{
+    font-family: Courier, Monaco, serif;
+    background: #E8E8E8; 
+    border-width: thin;
+    border-style: solid;
+    border-color: #E8E8E8 #CCC #CCC #E8E8E8;
+    margin: 0 0.1em;
+    padding: 0 0.1em;
+}
+
+div.section pre{
+    line-height:145%;
+    border-top:1px solid #ddd;
+    border-left:1px solid #ddd;
+    border-bottom:1px solid #999;
+    border-right:1px solid #999;
+    margin:0.5em;
+    margin-left:1em;
+    font-size:0.9em;
+    color:#654848;
+    margin-top:1em;
+    background: url("http://www.oppara.tv/hatena/blockquote.gif") 50% 50% repeat scroll #fefeef;
+    max-height: 400px;
+    overflow-x: auto; /* IE */  
+    overflow-y: auto; /* IE */  
+    overflow: auto; /* CSS2.1 */  
+}
+
+div.section blockquote{
+    line-height:145%;
+    border:1px solid #E8E8E8;
+    margin-left:1em;
+    padding: .4em;
+    font-size:0.9em;
+    background-color:#8d8d84;
+    color: #fff;
+    margin:0.5em;
+}
+div.section blockquote p{
+    margin:0;
+}
+div.section blockquote a.keyword {
+    text-decoration: none;
+    color: #fff;
+}
+
+
+/* table */  
+.section table {
+    font-size:1em;
+    margin:1em;
+    background-color: #fefeef;
+    border-collapse:collapse;
+}
+.section th {
+    font-weight:normal;
+    background-color: #ECD6D6;
+    border:1px solid #805555;
+    padding:4px 6px;
+}
+.section td {
+    padding:3px 6px;
+    background-color: #fefeef;
+    border:1px solid #805555;
+}
+
+div.section p{
+    margin-left:1em;
+}
+
+
+/* --------------------- */  
+
+/* header, footer */  
+ul.hatena-section li{
+    font-size:0.8em;
+    margin:0;
+    padding:.2em 0;
+    margin-left:3em;
+    list-style-type:disc;
+    list-style-positon:inside;
+}
+div.hatena-profile{
+    margin:0;
+    padding:0;
+    font-size:0.8em;
+}
+div.hatena-profile p {
+  float: left;
+}
+p.hatena-profile-id{
+    margin-right: 2em;
+}
+form.hatena-sectioncategory{
+    margin:0;
+    padding:0;
+    margin-bottom:-1em;
+    text-align:right;
+}
+
+.hatena-modulebody ul li a {
+ text-decoration:none;
+}
+.hatena-modulebody ul li a:hover {
+ text-decoration:underline;
+}
+
+div.hatena-moduletitle{
+ color:#805555;
+ border-bottom:1px solid #805555;
+}
+
+div.hatena-moduletitle a{
+color:#805555;
+}
+
+div.hatena-moduletitle a:visited{
+color:#805555;
+}
+#hogehoge div.calendar {
+    margin:0 1em;
+    text-align:right;
+    font-size:0.8em;
+    margin-top:-2.6em;
+}
+
+.opp{
+    margin:-2em 2em;
+    margin-top:3em;
+    padding:0;
+    font-size:0.8em;
+    text-align:right;
+}
+
+div.footnote {
+  margin-left:2em;
+  border:1px dashed #805555;
+  margin-bottom:2em;
+}
+p.footnote{
+  margin:.5em;
+  padding:0;
+  line-height:120%;
+}
