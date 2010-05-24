@@ -8,7 +8,7 @@ export PATH=~/bin:\
 /usr/local/bin:\
 /usr/local/php/bin:\
 /usr/local/mysql/bin:\
-/usr/local/pgsql/bin:\
+/usr/local/postgresql/bin:\
 /usr/local/mtasc:\
 /opt/local/bin:\
 /Developer/Tools:\
