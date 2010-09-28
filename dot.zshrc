@@ -52,14 +52,9 @@ export SVN_EDITOR='vi'
 export GIT_EDITOR='vi'
 export GIT_PAGER='lv -c'
 
-# javascript lint
-alias jsl='~/bin/jsl -conf ~/bin/jsl.default.conf -process'
-
 ## YUI Compressor
 alias com='java -jar ~/bin/yuicompressor.jar'
 
-## svk push --verbatim
-alias svkpush='/opt/local/bin/svk push --verbatim'
 
 ## 補完機能の強化
 autoload -U compinit
