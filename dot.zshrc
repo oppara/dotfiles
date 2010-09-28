@@ -46,10 +46,11 @@ alias vim='~/bin/mvim  --remote-silent'
         # open -a Vim "$i"
     # done;
 # }
-export SVN_EDITOR='~/bin/vim'
-export EDITOR='~/bin/vim'
-export GIT_EDITOR='~/bin/vim'
-export GIT_PAGER='/bin/cat'
+
+export EDITOR='vi'
+export SVN_EDITOR='vi'
+export GIT_EDITOR='vi'
+export GIT_PAGER='lv -c'
 
 # javascript lint
 alias jsl='~/bin/jsl -conf ~/bin/jsl.default.conf -process'
