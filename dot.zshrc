@@ -34,11 +34,8 @@ alias la='ls -a'
 alias ll='ls -lh'
 
 ## vim
-alias vi='/usr/bin/vim'
-# alias vi='/opt/local/bin/vim'
-# alias vim='~/bin/mvim --remote-silent'
+alias vi='~/bin/vim'
 alias vim='~/bin/mvim  --remote-silent'
-# alias vi='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
 # alias vim='/Applications/MacVim.app/Contents/MacOS/Vim -g --remote-silent'
 # alias vim='open -a Vim'
 # function vim() {
@@ -49,9 +46,9 @@ alias vim='~/bin/mvim  --remote-silent'
         # open -a Vim "$i"
     # done;
 # }
-export SVN_EDITOR='/usr/bin/vim'
-export EDITOR='/usr/bin/vim'
-export GIT_EDITOR='/usr/bin/vim'
+export SVN_EDITOR='~/bin/vim'
+export EDITOR='~/bin/vim'
+export GIT_EDITOR='~/bin/vim'
 export GIT_PAGER='/bin/cat'
 
 # javascript lint
