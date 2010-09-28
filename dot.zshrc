@@ -230,15 +230,6 @@ export LSCOLORS=ExFxCxdxBxegedabagacad
 export LS_COLORS='di=01;34:ln=01;35:so=01;32:ex=01;31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
 zstyle ':completion:*' list-colors 'di=;34;1' 'ln=;35;1' 'so=;32;1' 'ex=31;1' 'bd=46;34' 'cd=43;34'
     
-# http://webtech-walker.com/archive/2009/10/06093250.html
-# zshから辞書を引く
-function alc() {
-if [ $# != 0 ]; then
-    w3m "http://eow.alc.co.jp/$*/UTF-8/?ref=sa"
-else
-    echo 'usage: alc word'
-fi
-}
 
 
 RESET="%{${reset_color}%}"
@@ -326,12 +317,13 @@ fi
 # http://www.vim.org/scripts/script.php?script_id=2098
 export __CF_USER_TEXT_ENCODING="0x1F5:0x08000100:14"
 
+
+# http://webtech-walker.com/archive/2009/10/06093250.html
+# zshから辞書を引く
 function alc() {
 if [ $# != 0 ]; then
-  w3m "http://eow.alc.co.jp/$*/UTF-8/?ref=sa" | /usr/bin/less +37 
+    w3m "http://eow.alc.co.jp/$*/UTF-8/?ref=sa"
 else
-  echo 'usage: alc word'
+    echo 'usage: alc word'
 fi
 }
-
-[ -f ~/.zshrc.mine ] && source ~/.zshrc.mine
