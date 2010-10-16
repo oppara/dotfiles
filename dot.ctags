@@ -1,6 +1,13 @@
 --jcode=utf8
---regex-javascript=/^[ \t]*(['"]?)([A-Za-z0-9_.]+)\1[ \t]*[:=][ \t]*function[ \t]*\(/\2/I,inner/i
---langmap=javascript:.js
---regex-javascript=/^(.*).prototype *= *(.*)/\1/p,prototype/
---regex-javascript=/^[ \t]*(.*) *: *function/\1/m,method/
---regex-javascript=/^[ \t]*(var | *)(.*) *= *{/\2/o,object/
+
+--langmap=PHP:.php.inc
+--php-kinds=cfd
+
+--langdef=js
+--langmap=js:.js
+--regex-js=/([A-Za-z0-9._$]+)[ \t]*[:=][ \t]*\{/\1/,object/
+--regex-js=/([A-Za-z0-9._$()]+)[ \t]*[:=][ \t]*function[ \t]*\(/\1/,function/
+--regex-js=/function[ \t]+([A-Za-z0-9._$]+)[ \t]*([^)])/\1/,function/
+--regex-js=/([A-Za-z0-9._$]+)[ \t]*[:=][ \t]*\[/\1/,array/
+--regex-js=/([^= ]+)[ \t]*=[ \t]*[^""]'[^'']*/\1/,string/
+--regex-js=/([^= ]+)[ \t]*=[ \t]*[^'']"[^""]*/\1/,string/"']}
