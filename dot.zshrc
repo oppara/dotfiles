@@ -50,11 +50,13 @@ alias vim='~/bin/mvim  --remote-silent'
 export EDITOR='vi'
 export SVN_EDITOR='vi'
 export GIT_EDITOR='vi'
-export GIT_PAGER='lv -c'
+# export GIT_PAGER='lv -c'
+export GIT_PAGER='cat'
 
 ## YUI Compressor
 alias com='java -jar ~/bin/yuicompressor.jar'
 
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" 
 
 ## 補完機能の強化
 autoload -U compinit
@@ -327,3 +329,5 @@ else
     echo 'usage: alc word'
 fi
 }
+
+source $HOME/perl5/perlbrew/etc/bashrc
