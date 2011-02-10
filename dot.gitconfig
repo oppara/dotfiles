@@ -3,6 +3,7 @@
 	email = oppara@oppara.tv
 [core]
 	excludesfile = ~/.gitignore
+	editor = /Users/oppara/local/bin/vim
 [color]
 	ui = auto
 [alias]
