@@ -33,6 +33,10 @@ alias ls='ls -F'
 alias la='ls -a'
 alias ll='ls -lh'
 
+## pear
+alias pear='pear -C /usr/local/php/etc/pear.conf $@'
+alias pearpear=pear
+
 ## vim
 alias vi='~/bin/vim'
 alias vim='~/bin/mvim  --remote-silent'
