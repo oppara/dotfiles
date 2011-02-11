@@ -309,7 +309,7 @@ chpwd() {
 
  
 ## 最後に打ったコマンドステータス行に
-if [ "$TERM" = "screen" ]; then
+if [ "$TERM" = "screen-bce" ]; then
 # if [ "$TERM" != "xterm-color" ]; then
  preexec() {
    # see [zsh-workers:13180]
