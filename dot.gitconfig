@@ -3,12 +3,14 @@
 	email = oppara@oppara.tv
 [core]
 	excludesfile = ~/.gitignore
-	editor = /Users/oppara/local/bin/vim
+    editor = ~/bin/vim
+    pager = lv -c
+    autoCRLF = false
 [color]
 	ui = auto
 [alias]
-	st = status 
+	st = status
 	co = checkout
 	ci = commit
     lo = log --graph --color --pretty=format:'%Cblue%x09%h %cn %Creset%ci %x09%s %Cred%d %Creset'
-    ll = log -10 --graph --color --pretty=format:'%Cblue%x09%h %cn %Creset%ci %x09%s %Cred%d %Creset'
+    ll = log --graph -10 --decorate --color --date=short --pretty=format:'%C(yellow)%x09%h%Creset %Cblue%cn %Creset%ci  %s%Cgreen%d%Creset'
