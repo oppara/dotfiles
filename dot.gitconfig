@@ -1,17 +1,18 @@
 [user]
-	name = oppara
-	email = oppara@oppara.tv
+    name = oppara
+    email = oppara@oppara.tv
 [core]
-	excludesfile = ~/.gitignore
+    excludesfile = ~/.gitignore
     editor = ~/bin/vim
     pager = lv -c
     autoCRLF = false
 [color]
-	ui = auto
+    ui = auto
 [alias]
-	st = status
-	co = checkout
-	ci = commit
+    st = status
+    co = checkout
+    ci = commit
     lo = log --graph --color --pretty=format:'%Cblue%x09%h %cn %Creset%ci %x09%s %Cred%d %Creset'
     ll = log --graph -10 --decorate --color --date=short --pretty=format:'%C(yellow)%x09%h%Creset %Cblue%cn %Creset%ci  %s%Cgreen%d%Creset'
-    mf = merge --no-ff
+    me = merge --no-ff
+    au = add -u
