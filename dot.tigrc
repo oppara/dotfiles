@@ -1,2 +1,4 @@
 set show-rev-graph = yes
 bind generic L !git reflog
+
+color cursor red default underline
