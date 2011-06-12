@@ -17,3 +17,5 @@
     me = merge --no-ff
     au = add -u
     rs = remote -v show
+
+; vim: expandtab ts=4 sw=4 ff=unix ft=gitconfig
