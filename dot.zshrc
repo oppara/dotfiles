@@ -33,6 +33,9 @@ alias ls='ls -F'
 alias la='ls -a'
 alias ll='ls -lh'
 
+## history
+alias hs='history'
+
 ## pear
 alias pear='pear -C /usr/local/php/etc/pear.conf $@'
 alias pearpear=pear
@@ -60,7 +63,7 @@ export GIT_PAGER='cat'
 ## YUI Compressor
 alias com='java -jar ~/bin/yuicompressor.jar'
 
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" 
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
 ## 補完機能の強化
 autoload -U compinit
@@ -83,14 +86,14 @@ alias -g W="| w3m -T text/html"
 #    PROMPT="%B%{[31m%}%/#%{[m%}%b "
 #    PROMPT2="%B%{[31m%}%_#%{31m[m%}%b "
 #    SPROMPT="%B%{[31m%}%r is correct? [n,y,a,e]:%{[m%}%b "
-#    [ -n "${REMOTEHOST}${SSH_CONNECTION}" ] && 
+#    [ -n "${REMOTEHOST}${SSH_CONNECTION}" ] &&
 #        PROMPT="%{^[[33m%}${HOST%%.*} ${PROMPT}"
 #    ;;
 #*)
 #    PROMPT="%{[37m%}%/%%%{[m%} "
 #    PROMPT2="%{[37m%}%_%%%{[m%} "
 #    SPROMPT="%{[37m%}%r is correct? [n,y,a,e]:%{[m%} "
-#    [ -n "${REMOTEHOST}${SSH_CONNECTION}" ] && 
+#    [ -n "${REMOTEHOST}${SSH_CONNECTION}" ] &&
 #        PROMPT="%{[33m%}${HOST%%.*} ${PROMPT}"
 #    ;;
 #esac
@@ -129,7 +132,7 @@ bindkey "^P" history-beginning-search-backward-end
 bindkey "^N" history-beginning-search-forward-end
 
 ## Viキーバインド
-## bindkey -v  
+## bindkey -v
 ## bindkey '^R' history-incremental-search-backward
 
 ## 設定しないと環境変数 EDITORやVISUALを参照するので設定
@@ -235,7 +238,7 @@ alias ls="ls -G"
 export LSCOLORS=ExFxCxdxBxegedabagacad
 export LS_COLORS='di=01;34:ln=01;35:so=01;32:ex=01;31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
 zstyle ':completion:*' list-colors 'di=;34;1' 'ln=;35;1' 'so=;32;1' 'ex=31;1' 'bd=46;34' 'cd=43;34'
-    
+
 
 
 RESET="%{${reset_color}%}"
@@ -284,7 +287,7 @@ function rprompt-git-current-branch {
 #                  color=%F{red}
                  color=$RED
          fi
-              
+
         echo "($color$name$action%f%b)"
 }
 
@@ -292,7 +295,7 @@ setopt prompt_subst
 
 _update_rprompt () {
   RPROMPT=`rprompt-git-current-branch`
-} 
+}
 
 precmd() {
     _update_rprompt
@@ -302,12 +305,12 @@ precmd() {
         print -nP '\ek%24<*<%~%<<\e\\'
     fi
 }
- 
+
 chpwd() {
   _update_rprompt
 }
 
- 
+
 ## 最後に打ったコマンドステータス行に
 if [ "$TERM" = "screen-bce" ]; then
 # if [ "$TERM" != "xterm-color" ]; then
