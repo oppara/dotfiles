@@ -20,3 +20,5 @@
     df = diff -b
 
 ; vim: expandtab ts=4 sw=4 ff=unix ft=gitconfig
+[rerere]
+	enabled = true
