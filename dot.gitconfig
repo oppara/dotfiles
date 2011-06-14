@@ -1,6 +1,8 @@
+; vim: expandtab ts=4 sw=4 sts=4 ff=unix ft=gitconfig
 [user]
     name = oppara
     email = oppara@oppara.tv
+
 [core]
     excludesfile = ~/.gitignore
     editor = ~/bin/vim
@@ -8,6 +10,7 @@
     autoCRLF = false
 [color]
     ui = auto
+
 [alias]
     st = status
     co = checkout
@@ -19,6 +22,5 @@
     rs = remote -v show
     df = diff -b
 
-; vim: expandtab ts=4 sw=4 ff=unix ft=gitconfig
 [rerere]
-	enabled = true
+    enabled = true
