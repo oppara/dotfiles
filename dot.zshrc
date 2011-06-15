@@ -289,7 +289,7 @@ local WHITE=$'%{[37m%}'
 # http://gist.github.com/214109
 # sudo port install zsh-devel @4.3.10 +doc +pcre +utf8
 #
-autoload -Uz VCS_INFO_get_data_git; VCS_INFO_get_data_git 2> /dev/null
+# autoload -Uz VCS_INFO_get_data_git; VCS_INFO_get_data_git 2> /dev/null
 
 function rprompt-git-current-branch {
         local name st color gitdir action
