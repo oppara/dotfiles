@@ -289,9 +289,12 @@ local WHITE=$'%{[37m%}'
 # http://gist.github.com/214109
 # sudo port install zsh-devel @4.3.10 +doc +pcre +utf8
 #
-# autoload -Uz VCS_INFO_get_data_git; VCS_INFO_get_data_git 2> /dev/null
+autoload -Uz VCS_INFO_get_data_git; VCS_INFO_get_data_git 2> /dev/null
 
-function rprompt-git-current-branch {
+autoload -Uz colors
+colors
+
+function get_vsc_info {
         local name st color gitdir action
         if [[ "$PWD" =~ '/¥.git(/.*)?$' ]]; then
                 return
@@ -306,17 +309,13 @@ function rprompt-git-current-branch {
 
         st=`git status 2> /dev/null`
         if [[ -n `echo "$st" | grep "^nothing to"` ]]; then
-#                 color=%F{green}
-                color=$GREEN
+                color=%F{green}
         elif [[ -n `echo "$st" | grep "^nothing added"` ]]; then
-#                 color=%F{yellow}
-                color=$YELLOW
+                 color=%F{yellow}
         elif [[ -n `echo "$st" | grep "^# Untracked"` ]]; then
-#                 color=%B%F{red}
-                color=$RED
+                color=%B%F{red}
         else
-#                  color=%F{red}
-                 color=$RED
+                 color=%F{red}
          fi
 
         echo "($color$name$action%f%b)"
@@ -325,7 +324,7 @@ function rprompt-git-current-branch {
 setopt prompt_subst
 
 _update_rprompt () {
-  RPROMPT=`rprompt-git-current-branch`
+  RPROMPT=`get_vsc_info`
 }
 
 precmd() {
