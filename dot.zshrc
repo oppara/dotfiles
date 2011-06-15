@@ -207,7 +207,7 @@ limit coredumpsize 102400
 ## 出力の文字列末尾に改行コードが無い場合でも表示
 unsetopt promptcr
 
-## 色を使う
+## PROMPT 変数の中の変数参照をプロンプト表示時に展開
 setopt prompt_subst
 
 
@@ -320,8 +320,6 @@ function get_vsc_info {
 
         echo "($color$name$action%f%b)"
 }
-
-setopt prompt_subst
 
 _update_rprompt () {
   RPROMPT=`get_vsc_info`
