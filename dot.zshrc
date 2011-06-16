@@ -366,3 +366,6 @@ fi
 }
 
 source $HOME/perl5/perlbrew/etc/bashrc
+
+
+# vim: ft=zsh
