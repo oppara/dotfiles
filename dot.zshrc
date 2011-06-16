@@ -293,33 +293,50 @@ SPROMPT="correct: %R -> %r ? "
 #
 autoload -Uz VCS_INFO_get_data_git; VCS_INFO_get_data_git 2> /dev/null
 
+# http://d.hatena.ne.jp/mollifier/20100113/p1
+autoload -Uz vcs_info
+zstyle ':vcs_info:*' enable svn hg bzr
+zstyle ':vcs_info:*' formats '[%s-%b]'
+zstyle ':vcs_info:svn:*' formats '[%b]'
+zstyle ':vcs_info:*' actionformats '[%s-%b|%a]'
+zstyle ':vcs_info:svn:*' actionformats '[%b|%a]'
+zstyle ':vcs_info:(svn|bzr):*' branchformat '%b:r%r'
+zstyle ':vcs_info:bzr:*' use-simple true
+
 function get_vsc_info {
-        local name st color gitdir action
-        if [[ "$PWD" =~ '/¥.git(/.*)?$' ]]; then
-                return
-        fi
-        name=$(basename "`git symbolic-ref HEAD 2> /dev/null`")
-        if [[ -z $name ]]; then
-                return
-        fi
+  local name st color gitdir action
+  if [[ "$PWD" =~ '/¥.git(/.*)?$' ]]; then
+    return
+  fi
 
-        gitdir=`git rev-parse --git-dir 2> /dev/null`
-        action=`VCS_INFO_git_getaction "$gitdir"` && action="($action)"
+  name=$(basename "`git symbolic-ref HEAD 2> /dev/null`")
+  if [[ -z $name ]]; then
+    psvar=()
+    LANG=en_US.UTF-8 vcs_info
+    [[ -n "$vcs_info_msg_0_" ]] && psvar[1]="$vcs_info_msg_0_"
+    # echo "%1(v|%F{green}%1v%f|)"
+    echo "%{${fg[green]}%}$vcs_info_msg_0_%{$reset_color%}"
+    return
+  fi
 
-        st=`git status 2> /dev/null`
-        if [[ -n `echo "$st" | grep "^nothing to"` ]]; then
-                color=${fg[green]}
-        elif [[ -n `echo "$st" | grep "^nothing added"` ]]; then
-                 color=${fg[yellow]}
-        elif [[ -n `echo "$st" | grep "^# Untracked"` ]]; then
-                color=${fg[red]}
-        else
-                 color=${fg[red]}
-         fi
 
-         # %{...%} は囲まれた文字列がエスケープシーケンスであることを明示する
-         # これをしないと右プロンプトの位置がずれる
-         echo "(%{$color%}$name%{$reset_color%})"
+  gitdir=`git rev-parse --git-dir 2> /dev/null`
+  action=`VCS_INFO_git_getaction "$gitdir"` && action="($action)"
+
+  st=`git status 2> /dev/null`
+  if [[ -n `echo "$st" | grep "^nothing to"` ]]; then
+    color=${fg[green]}
+  elif [[ -n `echo "$st" | grep "^nothing added"` ]]; then
+    color=${fg[yellow]}
+  elif [[ -n `echo "$st" | grep "^# Untracked"` ]]; then
+    color=${fg[red]}
+  else
+    color=${fg[red]}
+  fi
+
+  # %{...%} は囲まれた文字列がエスケープシーケンスであることを明示する
+  # これをしないと右プロンプトの位置がずれる
+  echo "(%{$color%}$name%{$reset_color%})"
 }
 
 update_rprompt () {
