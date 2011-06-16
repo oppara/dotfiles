@@ -56,13 +56,29 @@ export GIT_EDITOR='vi'
 export GIT_PAGER='cat'
 
 
+# global alias
+alias -g C="| pbcopy"
+alias -g G="| grep"
+alias -g L="| less"
+alias -g T="| tail"
+alias -g H="| head"
+alias -g V="| vi -R -"
+alias -g W="| w3m -T text/html"
+
 ## ls
-alias ls='ls -F'
 alias la='ls -lha'
 alias ll='ls -lh'
 
+## http://journal.mycom.co.jp/column/zsh/009/index.html
+alias ls="ls -G"
+export LSCOLORS=ExFxCxdxBxegedabagacad
+export LS_COLORS='di=01;34:ln=01;35:so=01;32:ex=01;31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
+zstyle ':completion:*' list-colors 'di=;34;1' 'ln=;35;1' 'so=;32;1' 'ex=31;1' 'bd=46;34' 'cd=43;34'
+
+
 ## history
 alias hs='history'
+
 
 ## pear
 alias pear='pear -C /usr/local/php/etc/pear.conf $@'
@@ -73,21 +89,6 @@ alias kcode='~/bin/kcode -i utf8 -o utf8'
 
 ## YUI Compressor
 alias com='java -jar ~/bin/yuicompressor.jar'
-
-# https://rvm.beginrescueend.com/
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
-
-# http://webtech-walker.com/archive/2010/04/22173415.html
-[[ -s "$HOME/perl5/perlbrew/etc/bashrc" ]] && source $HOME/perl5/perlbrew/etc/bashrc
-
-# global alias
-alias -g C="| pbcopy"
-alias -g G="| grep"
-alias -g L="| less"
-alias -g T="| tail"
-alias -g H="| head"
-alias -g V="| vi -R -"
-alias -g W="| w3m -T text/html"
 
 ## 補完機能の強化
 autoload -U compinit
@@ -276,15 +277,6 @@ setopt auto_param_keys
 ## ディレクトリ名の補完で末尾の / を自動的に付加し、次の補完に備える
 setopt auto_param_slash
 
-## http://journal.mycom.co.jp/column/zsh/009/index.html
-# export LSCOLORS=exfxcxdxbxegedabagacad
-# export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
-# zstyle ':completion:*' list-colors 'di=34' 'ln=35' 'so=32' 'ex=31' 'bd=46;34' 'cd=43;34'
-
-alias ls="ls -G"
-export LSCOLORS=ExFxCxdxBxegedabagacad
-export LS_COLORS='di=01;34:ln=01;35:so=01;32:ex=01;31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
-zstyle ':completion:*' list-colors 'di=;34;1' 'ln=;35;1' 'so=;32;1' 'ex=31;1' 'bd=46;34' 'cd=43;34'
 
 
 
