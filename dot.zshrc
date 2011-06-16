@@ -339,8 +339,11 @@ chpwd() {
 }
 
 
-# http://www.vim.org/scripts/script.php?script_id=2098
-export __CF_USER_TEXT_ENCODING="0x1F5:0x08000100:14"
+if [ `uname` = 'Darwin' ]; then
+    # http://kana.github.com/config/vim/fakeclip.html#fakeclip-multibyte-on-mac
+    # http://developer.apple.com/library/mac/#documentation/CoreFoundation/Reference/CFStringRef/Reference/reference.html
+    export __CF_USER_TEXT_ENCODING="0x1F5:0x08000100:14"
+fi
 
 
 # http://webtech-walker.com/archive/2009/10/06093250.html
