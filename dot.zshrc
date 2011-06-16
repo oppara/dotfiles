@@ -73,12 +73,13 @@ alias com='java -jar ~/bin/yuicompressor.jar'
 autoload -U compinit
 compinit
 
-## o
-# Usage:
-# % pwd C
+# global alias
 alias -g C="| pbcopy"
 alias -g G="| grep"
-alias -g L="| lv"
+alias -g L="| less"
+alias -g T="| tail"
+alias -g H="| head"
+alias -g V="| vi -R -"
 alias -g W="| w3m -T text/html"
 
 
