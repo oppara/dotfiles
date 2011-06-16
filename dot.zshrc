@@ -332,21 +332,32 @@ function get_vsc_info {
         echo "($color$name$action%f%b)"
 }
 
-_update_rprompt () {
+update_rprompt () {
   RPROMPT=`get_vsc_info`
 }
 
 precmd() {
-    _update_rprompt
+    update_rprompt
     ## カレントディレクトリをコマンドステータス行に
-    # if [[ "$TERM" = "screen" ]]; then
-    if [[ "$TERM" != "xterm-color" ]]; then
+    [ 0 -lt `is_screen` ] && \
         print -nP '\ek%24<*<%~%<<\e\\'
-    fi
 }
 
 chpwd() {
-  _update_rprompt
+  update_rprompt
+}
+
+function preexec() {
+    [ 0 -lt `is_screen` ] && \
+        echo -ne "\ek#${1%% *}\e\\"
+}
+
+function is_screen() {
+  if [ "$TERM" = "screen-bce" -o "$TERM" = "screen" ]; then
+    echo 1
+  else
+    echo 0
+  fi
 }
 
 # http://webtech-walker.com/archive/2009/10/06093250.html
