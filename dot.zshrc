@@ -19,14 +19,25 @@ $PATH:\
 /Users/oppara/Sites/try/php/cake/cake/console
 
 
+## rvm
+## https://rvm.beginrescueend.com/
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+
+## perlbrew
+## http://webtech-walker.com/archive/2010/04/22173415.html
+[[ -s "$HOME/perl5/perlbrew/etc/bashrc" ]] && source $HOME/perl5/perlbrew/etc/bashrc
+
+## fakeclip
+## http://kana.github.com/config/vim/fakeclip.html#fakeclip-multibyte-on-mac
+## http://developer.apple.com/library/mac/#documentation/CoreFoundation/Reference/CFStringRef/Reference/reference.html
 if [ `uname` = 'Darwin' ]; then
-  # http://kana.github.com/config/vim/fakeclip.html#fakeclip-multibyte-on-mac
-  # http://developer.apple.com/library/mac/#documentation/CoreFoundation/Reference/CFStringRef/Reference/reference.html
   export __CF_USER_TEXT_ENCODING="0x1F5:0x08000100:14"
 fi
 
+
 ## less
 export LESSCHARSET=utf-8
+
 
 ## lv
 lv=`which lv 2> /dev/null`
