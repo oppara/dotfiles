@@ -367,15 +367,5 @@ function is_screen() {
   fi
 }
 
-# http://webtech-walker.com/archive/2009/10/06093250.html
-# zshから辞書を引く
-function alc() {
-if [ $# != 0 ]; then
-    w3m "http://eow.alc.co.jp/$*/UTF-8/?ref=sa"
-else
-    echo 'usage: alc word'
-fi
-}
-
 
 # vim: ft=zsh
