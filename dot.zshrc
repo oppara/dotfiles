@@ -18,19 +18,36 @@ export PATH=~/bin:\
 $PATH:\
 /Users/oppara/Sites/try/php/cake/cake/console
 
-## kcode
-alias kcode='~/bin/kcode -i utf8 -o utf8'
+
+if [ `uname` = 'Darwin' ]; then
+  # http://kana.github.com/config/vim/fakeclip.html#fakeclip-multibyte-on-mac
+  # http://developer.apple.com/library/mac/#documentation/CoreFoundation/Reference/CFStringRef/Reference/reference.html
+  export __CF_USER_TEXT_ENCODING="0x1F5:0x08000100:14"
+fi
 
 ## less
 export LESSCHARSET=utf-8
-alias  le='less'
 
-export LV='-Ou8'
-test -x /opt/local/bin/lv && alias less=/opt/local/bin/lv
+## lv
+lv=`which lv 2> /dev/null`
+if [[ -n `echo "$lv" | grep "^/"` ]]; then
+  export LV='-Ou8'
+fi
+
+
+## vim
+alias vi='~/bin/vim'
+alias vim='~/bin/mvim  --remote-silent'
+export EDITOR='vi'
+export SVN_EDITOR='vi'
+export GIT_EDITOR='vi'
+# export GIT_PAGER='lv -c'
+export GIT_PAGER='cat'
+
 
 ## ls
 alias ls='ls -F'
-alias la='ls -a'
+alias la='ls -lha'
 alias ll='ls -lh'
 
 ## history
@@ -40,25 +57,8 @@ alias hs='history'
 alias pear='pear -C /usr/local/php/etc/pear.conf $@'
 alias pearpear=pear
 
-## vim
-alias vi='~/bin/vim'
-alias vim='~/bin/mvim  --remote-silent'
-# alias vim='/Applications/MacVim.app/Contents/MacOS/Vim -g --remote-silent'
-# alias vim='open -a Vim'
-# function vim() {
-    # for i in "$@"; do;
-        # if [ ! -e "$i" ];then
-            # touch "$i"
-        # fi
-        # open -a Vim "$i"
-    # done;
-# }
-
-export EDITOR='vi'
-export SVN_EDITOR='vi'
-export GIT_EDITOR='vi'
-# export GIT_PAGER='lv -c'
-export GIT_PAGER='cat'
+## kcode
+alias kcode='~/bin/kcode -i utf8 -o utf8'
 
 ## YUI Compressor
 alias com='java -jar ~/bin/yuicompressor.jar'
@@ -69,10 +69,6 @@ alias com='java -jar ~/bin/yuicompressor.jar'
 # http://webtech-walker.com/archive/2010/04/22173415.html
 [[ -s "$HOME/perl5/perlbrew/etc/bashrc" ]] && source $HOME/perl5/perlbrew/etc/bashrc
 
-## 補完機能の強化
-autoload -U compinit
-compinit
-
 # global alias
 alias -g C="| pbcopy"
 alias -g G="| grep"
@@ -81,6 +77,10 @@ alias -g T="| tail"
 alias -g H="| head"
 alias -g V="| vi -R -"
 alias -g W="| w3m -T text/html"
+
+## 補完機能の強化
+autoload -U compinit
+compinit
 
 
 #-----------------------------------------------------------------------------
@@ -342,14 +342,6 @@ precmd() {
 chpwd() {
   _update_rprompt
 }
-
-
-if [ `uname` = 'Darwin' ]; then
-    # http://kana.github.com/config/vim/fakeclip.html#fakeclip-multibyte-on-mac
-    # http://developer.apple.com/library/mac/#documentation/CoreFoundation/Reference/CFStringRef/Reference/reference.html
-    export __CF_USER_TEXT_ENCODING="0x1F5:0x08000100:14"
-fi
-
 
 # http://webtech-walker.com/archive/2009/10/06093250.html
 # zshから辞書を引く
