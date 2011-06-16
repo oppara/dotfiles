@@ -339,18 +339,6 @@ chpwd() {
 }
 
 
-## 最後に打ったコマンドステータス行に
-if [ "$TERM" = "screen-bce" ]; then
-# if [ "$TERM" != "xterm-color" ]; then
- preexec() {
-   # see [zsh-workers:13180]
-   # http://www.zsh.org/mla/workers/2000/msg03993.html
-   emulate -L zsh
-   local -a cmd; cmd=(${(z)2})
-   echo -n "k$cmd[1]:t\\"
- }
-fi
-
 # http://www.vim.org/scripts/script.php?script_id=2098
 export __CF_USER_TEXT_ENCODING="0x1F5:0x08000100:14"
 
