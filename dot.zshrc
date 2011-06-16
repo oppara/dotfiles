@@ -63,7 +63,11 @@ export GIT_PAGER='cat'
 ## YUI Compressor
 alias com='java -jar ~/bin/yuicompressor.jar'
 
+# https://rvm.beginrescueend.com/
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+
+# http://webtech-walker.com/archive/2010/04/22173415.html
+[[ -s "$HOME/perl5/perlbrew/etc/bashrc" ]] && source $HOME/perl5/perlbrew/etc/bashrc
 
 ## 補完機能の強化
 autoload -U compinit
@@ -355,8 +359,6 @@ else
     echo 'usage: alc word'
 fi
 }
-
-source $HOME/perl5/perlbrew/etc/bashrc
 
 
 # vim: ft=zsh
