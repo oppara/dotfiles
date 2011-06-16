@@ -256,6 +256,10 @@ zstyle ':completion:*' list-colors 'di=;34;1' 'ln=;35;1' 'so=;32;1' 'ex=31;1' 'b
 #-----------------------------------------------------------------------------
 # prompt
 #-----------------------------------------------------------------------------
+
+autoload -Uz colors
+colors
+
 #case ${UID} in
 #0)
 #    PROMPT="%B%{[31m%}%/#%{[m%}%b "
@@ -281,19 +285,6 @@ RPROMPT=''
 SPROMPT="correct: %R -> %r ? "
 
 
-
-
-RESET="%{${reset_color}%}"
-local BLACK=$'%{[30m%}'
-local RED=$'%{[31m%}'
-local GREEN=$'%{[32m%}'
-local YELLOW=$'%{[33m%}'
-local BLUE=$'%{[34m%}'
-local PURPLE=$'%{[35m%}'
-local LIGHT_BLUE=$'%{[36m%}'
-local WHITE=$'%{[37m%}'
-
-
 #
 # Show branch name in Zsh's right prompt
 # http://d.hatena.ne.jp/uasi/20091025/1256458798
@@ -301,9 +292,6 @@ local WHITE=$'%{[37m%}'
 # sudo port install zsh-devel @4.3.10 +doc +pcre +utf8
 #
 autoload -Uz VCS_INFO_get_data_git; VCS_INFO_get_data_git 2> /dev/null
-
-autoload -Uz colors
-colors
 
 function get_vsc_info {
         local name st color gitdir action
@@ -320,16 +308,18 @@ function get_vsc_info {
 
         st=`git status 2> /dev/null`
         if [[ -n `echo "$st" | grep "^nothing to"` ]]; then
-                color=%F{green}
+                color=${fg[green]}
         elif [[ -n `echo "$st" | grep "^nothing added"` ]]; then
-                 color=%F{yellow}
+                 color=${fg[yellow]}
         elif [[ -n `echo "$st" | grep "^# Untracked"` ]]; then
-                color=%B%F{red}
+                color=${fg[red]}
         else
-                 color=%F{red}
+                 color=${fg[red]}
          fi
 
-        echo "($color$name$action%f%b)"
+         # %{...%} は囲まれた文字列がエスケープシーケンスであることを明示する
+         # これをしないと右プロンプトの位置がずれる
+         echo "(%{$color%}$name%{$reset_color%})"
 }
 
 update_rprompt () {
