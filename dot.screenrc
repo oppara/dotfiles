@@ -18,7 +18,7 @@ defbce "on"
 
 altscreen on
 startup_message off
-vbell off 
+vbell off
 autodetach on
 defflow off
 nethack on
@@ -30,14 +30,14 @@ zombie kr # k: destory window, r: resurrect window
 
 hardstatus on
 hardstatus alwayslastline
-hardstatus string "%{= dw}%-w%{=u dw} %n* %t %{-}%+w  %= "
+hardstatus string "%{= dw}%-w%{=u dw} %n* %t %{-}%+w  %= [%02c]"
 
 hardcopydir ~/.screen/hardcopy
 bufferfile ~/.screen/screen-exchange
 
 bind \ kill
 bind s # reset s key
-bind ' ' windowlist -b 
+bind ' ' windowlist -b
 
 # encoding aliases
 bind ^E eval 'echo -p "Encoding? -- Cp932 / Euc-jp / Utf-8"' 'command -c enc'
