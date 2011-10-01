@@ -3,8 +3,12 @@ export LANG=ja_JP.UTF-8
 export SHELL=/opt/local/bin/zsh
 export MANPATH=$MANPATH:/opt/local/man
 
+export ANDROID_SDK=~/sdk/android-sdk-macosx
+
 ## PATH
 export PATH=~/bin:\
+$ANDROID_SDK/tools:\
+$ANDROID_SDK/platform-tools:\
 /usr/local/bin:\
 /usr/local/php/bin:\
 /usr/local/mysql/bin:\
