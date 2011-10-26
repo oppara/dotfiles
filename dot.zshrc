@@ -15,6 +15,7 @@ $ANDROID_SDK/platform-tools:\
 /usr/local/postgresql/bin:\
 /usr/local/mtasc:\
 /opt/local/bin:\
+/opt/local/sbin:\
 /Developer/Tools:\
 /usr/local/sbin:\
 /usr/bin:/usr/sbin:\
