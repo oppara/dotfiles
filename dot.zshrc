@@ -77,7 +77,7 @@ alias hs='history'
 
 
 ## pear
-alias pear='pear -C /usr/local/php/etc/pear.conf $@'
+alias pear='pear -c /usr/local/php/etc/.pearrc $@'
 alias pearpear=pear
 
 ## kcode
