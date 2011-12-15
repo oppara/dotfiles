@@ -58,9 +58,6 @@ export SVN_EDITOR='vi'
 export GIT_EDITOR='vi'
 
 
-## git
-alias gl='git ll|head'
-
 # global alias
 alias -g C="| pbcopy"
 alias -g G="| grep"
