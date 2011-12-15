@@ -86,6 +86,8 @@ alias hs='history'
 alias pear='pear -C /usr/local/php/etc/pear.conf $@'
 alias pearpear=pear
 
+alias urlencode="php -r 'echo urlencode(fgets(STDIN));'"
+
 ## kcode
 alias kcode='~/bin/kcode -i utf8 -o utf8'
 
