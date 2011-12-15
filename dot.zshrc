@@ -56,7 +56,7 @@ alias vi='~/bin/vim'
 alias vim='~/bin/mvim  --remote-silent'
 export EDITOR='vi'
 export SVN_EDITOR='vi'
-export GIT_EDITOR='vi'
+export GIT_EDITOR='~/bin/vim'
 
 
 ## git
