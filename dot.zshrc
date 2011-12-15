@@ -75,6 +75,9 @@ alias ls="ls -G"
 ## history
 alias hs='history'
 
+# git
+alias gl='git ll|head -20'
+
 
 ## pear
 alias pear='pear -c /usr/local/php/etc/.pearrc $@'
