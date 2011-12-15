@@ -59,9 +59,6 @@ export SVN_EDITOR='vi'
 export GIT_EDITOR='~/bin/vim'
 
 
-## git
-alias gl='git ll|head'
-
 # global alias
 alias -g C="| pbcopy"
 alias -g G="| grep"
@@ -81,9 +78,12 @@ alias ls="ls -G"
 ## history
 alias hs='history'
 
+# git
+alias gl='git ll|head -20'
+
 
 ## pear
-alias pear='pear -C /usr/local/php/etc/pear.conf $@'
+alias pear='pear -c /usr/local/php/etc/.pearrc $@'
 alias pearpear=pear
 
 alias urlencode="php -r 'echo urlencode(fgets(STDIN));'"
