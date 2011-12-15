@@ -255,9 +255,10 @@ setopt auto_param_slash
 #-----------------------------------------------------------------------------
 
 ## http://journal.mycom.co.jp/column/zsh/009/index.html
-export LSCOLORS=ExFxCxdxBxegedabagacad
-export LS_COLORS='di=01;34:ln=01;35:so=01;32:ex=01;31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
-zstyle ':completion:*' list-colors 'di=;34;1' 'ln=;35;1' 'so=;32;1' 'ex=31;1' 'bd=46;34' 'cd=43;34'
+# export LSCOLORS=ExFxCxdxBxegedabagacad
+export LSCOLORS=ExCxFxdxBxegedabagacad
+export LS_COLORS='di=01;34:ln=01;32:so=01;35:ex=01;31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
+zstyle ':completion:*' list-colors 'di=;34;1' 'ln=;32;1' 'so=;35;1' 'ex=31;1' 'bd=46;34' 'cd=43;34'
 
 #-----------------------------------------------------------------------------
 # prompt
