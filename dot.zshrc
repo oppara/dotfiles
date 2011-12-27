@@ -74,6 +74,15 @@ alias la='ls -lha'
 alias ll='ls -lh'
 alias ls="ls -G"
 
+case "${OSTYPE}" in
+freebsd*|darwin*)
+  alias ls="ls -G -w"
+  ;;
+linux*)
+  alias ls="ls --color"
+  ;;
+esac
+
 
 ## history
 alias hs='history'
