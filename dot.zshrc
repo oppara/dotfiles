@@ -21,8 +21,6 @@ if [ `uname` = 'Darwin' ]; then
 fi
 
 
-
-
 ## vim
 alias vi='~/bin/vim'
 alias vim='~/bin/mvim  --remote-silent'
@@ -42,10 +40,6 @@ alias -g W="| w3m -T text/html"
 
 
 ## ls
-alias la='ls -lha'
-alias ll='ls -lh'
-alias ls="ls -G"
-
 case "${OSTYPE}" in
 freebsd*|darwin*)
   alias ls="ls -G -w"
@@ -54,6 +48,8 @@ linux*)
   alias ls="ls --color"
   ;;
 esac
+alias la='ls -lha'
+alias ll='ls -lh'
 
 
 ## history
@@ -62,18 +58,23 @@ alias hs='history'
 # git
 alias gl='git ll|head -20'
 
-
-## pear
-alias pear='pear -c /usr/local/php/etc/.pearrc $@'
-alias pearpear=pear
-
 alias urlencode="php -r 'echo urlencode(fgets(STDIN));'"
 
+## pear
+if test -x /usr/local/php/bin/pear; then
+    alias pear='/usr/local/php/bin/pear -c /usr/local/php/etc/.pearrc $@'
+    alias pearpear='/usr/local/php/bin/pear $@'
+fi
+
 ## kcode
-alias kcode='~/bin/kcode -i utf8 -o utf8'
+if test -x ~/bin/kcode; then
+    alias kcode='~/bin/kcode -i utf8 -o utf8'
+fi
 
 ## YUI Compressor
-alias com='java -jar ~/bin/yuicompressor.jar'
+if test -x ~/bin/yuicompressor.jar; then
+    alias com='java -jar ~/bin/yuicompressor.jar'
+fi
 
 
 #-----------------------------------------------------------------------------
