@@ -1,28 +1,9 @@
 
-export LANG=ja_JP.UTF-8
-export SHELL=/opt/local/bin/zsh
-export MANPATH=$MANPATH:/opt/local/man
 
-export ANDROID_SDK=~/sdk/android-sdk-macosx
-
-## PATH
-export PATH=~/bin:\
-$ANDROID_SDK/tools:\
-$ANDROID_SDK/platform-tools:\
-/usr/local/bin:\
-/usr/local/php/bin:\
-/usr/local/mysql/bin:\
-/usr/local/postgresql/bin:\
-/usr/local/mtasc:\
-/opt/local/bin:\
-/opt/local/sbin:\
-/Developer/Tools:\
-/usr/local/sbin:\
-/usr/bin:/usr/sbin:\
-/bin:/sbin:\
-$PATH:\
-/Users/oppara/Sites/try/php/cake/cake/console
-
+if [ -d ~/sdk/android-sdk-macosx ]; then
+    export ANDROID_SDK=~/sdk/android-sdk-macosx
+    export PATH=~/bin:$ANDROID_SDK/tools:$ANDROID_SDK/platform-tools:$PATH
+fi
 
 ## rvm
 ## https://rvm.beginrescueend.com/
@@ -40,15 +21,6 @@ if [ `uname` = 'Darwin' ]; then
 fi
 
 
-## less
-export LESSCHARSET=utf-8
-
-
-## lv
-lv=`which lv 2> /dev/null`
-if [[ -n `echo "$lv" | grep "^/"` ]]; then
-  export LV='-Ou8'
-fi
 
 
 ## vim
@@ -56,7 +28,7 @@ alias vi='~/bin/vim'
 alias vim='~/bin/mvim  --remote-silent'
 export EDITOR='vi'
 export SVN_EDITOR='vi'
-export GIT_EDITOR='~/bin/vim'
+export GIT_EDITOR='vi'
 
 
 # global alias
