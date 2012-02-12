@@ -1,3 +1,4 @@
-if [ -f ~/.bashrc ]; then
-. ~/.bashrc
-fi
+IGNOREEOF=1
+
+[ -f ~/.bashrc ] && source ~/.bashrc
+
