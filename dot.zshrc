@@ -1,32 +1,8 @@
 
 
-if [ -d ~/sdk/android-sdk-macosx ]; then
-    export ANDROID_SDK=~/sdk/android-sdk-macosx
-    export PATH=~/bin:$ANDROID_SDK/tools:$ANDROID_SDK/platform-tools:$PATH
-fi
-
-## rvm
-## https://rvm.beginrescueend.com/
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
-
-## perlbrew
-## http://webtech-walker.com/archive/2010/04/22173415.html
-[[ -s "$HOME/perl5/perlbrew/etc/bashrc" ]] && source $HOME/perl5/perlbrew/etc/bashrc
-
-## fakeclip
-## http://kana.github.com/config/vim/fakeclip.html#fakeclip-multibyte-on-mac
-## http://developer.apple.com/library/mac/#documentation/CoreFoundation/Reference/CFStringRef/Reference/reference.html
-if [ `uname` = 'Darwin' ]; then
-  export __CF_USER_TEXT_ENCODING="0x1F5:0x08000100:14"
-fi
-
-
 ## vim
 alias vi='~/bin/vim'
 alias vim='~/bin/mvim  --remote-silent'
-export EDITOR='vi'
-export SVN_EDITOR='vi'
-export GIT_EDITOR='vi'
 
 
 # global alias

@@ -1,0 +1,96 @@
+# Common rc file for login shells
+
+export LANG=ja_JP.UTF-8
+
+# PATH #{{{1
+
+export PATH="/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin"
+export MANPATH="/usr/local/share/man:/usr/local/man:/usr/share/man"
+
+if [ "${OSTYPE%%[^a-z]*}" = 'darwin' ]; then
+  ## To use pbcopy/pbpaste with UTF-8 encoding.
+  ## http://kana.github.com/config/vim/fakeclip.html#fakeclip-multibyte-on-mac
+  ## http://developer.apple.com/library/mac/#documentation/CoreFoundation/Reference/CFStringRef/Reference/reference.html
+  export __CF_USER_TEXT_ENCODING=${__CF_USER_TEXT_ENCODING/:*:/:0x08000100:}
+
+  test -d /opt/local/sbin && PATH="/opt/local/sbin:$PATH"
+  test -d /opt/local/bin && PATH="/opt/local/bin:$PATH"
+  test -d /opt/local/share/man && MANPATH="/opt/local/share/man:$MANPATH"
+
+  test -d /Developer/Tools && PATH="/Developer/Tools:$PATH"
+  test -d /Developer/usr/share/man && MANPATH="/Developer/usr/share/man:$MANPATH"
+
+  if [ -d ~/sdk/android-sdk-macosx ]; then
+      export ANDROID_SDK=~/sdk/android-sdk-macosx
+      export PATH="${ANDROID_SDK}/tools:${ANDROID_SDK}/platform-tools:$PATH"
+  fi
+fi
+
+for i in /usr/local/{mysql,postgresql,php}; do
+    if [ -d "${i}/bin" ]; then
+        PATH="${i}/bin:$PATH"
+    fi
+    if [ -d "${i}/man" ]; then
+        MANPATH="${i}/man:$MANPATH"
+    fi
+done
+
+test -d ~/local/bin && PATH="~/local/bin:$PATH"
+test -d ~/local/share/man && MANPATH="~/local/share/man:$MANPATH"
+test -d ~/bin && PATH="~/bin:$PATH"
+
+
+
+# SHELL #{{{1
+
+if test -x /opt/local/bin/zsh; then
+    export SHELL=/opt/local/bin/zsh
+elif test -x /usr/local/bin/zsh; then
+    export SHELL=/usr/local/bin/zsh
+elif test -x /usr/bin/zsh; then
+    export SHELL=/usr/bin/zsh
+elif test -x /bin/zsh; then
+    export SHELL=/bin/zsh
+fi
+
+
+
+# PAGER #{{{1
+
+if test -x /opt/local/bin/lv; then
+    export PAGER=/opt/local/bin/lv
+    export LV='-Ou8'
+elif test -x /usr/local/bin/lv; then
+    export PAGER=/usr/local/bin/lv
+    export LV='-Ou8'
+else
+    export PAGER=/usr/bin/less
+fi
+
+export LESSCHARSET=utf-8
+
+
+# EDITOR #{{{1
+
+export EDITOR=vim
+export GIT_EDITOR=vim
+export SNV_EDITOR=vim
+
+
+# Misc #{{{1
+
+export BLOCKSIZE=k
+export TZ=JST-9
+
+
+## rvm
+## https://rvm.beginrescueend.com/
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+
+
+## perlbrew
+## http://webtech-walker.com/archive/2010/04/22173415.html
+[[ -s "$HOME/perl5/perlbrew/etc/bashrc" ]] && source $HOME/perl5/perlbrew/etc/bashrc
+
+
+# vim: filetype=sh foldmethod=marker
