@@ -358,5 +358,5 @@ function is_screen() {
   fi
 }
 
-
+[ -f ~/.zshrc.local ] && source ~/.zshrc.local
 # vim: ft=zsh
