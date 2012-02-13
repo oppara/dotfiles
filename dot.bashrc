@@ -1,3 +1,5 @@
+ulimit -c 0  # Don't create core dumps
+
 export LANG=ja_JP.UTF-8
 #export LANG=ja_JP.eucJP
 

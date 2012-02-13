@@ -1,4 +1,4 @@
-
+ulimit -c 0  # Don't create core dumps
 
 ## vim
 alias vi='~/bin/vim'
