@@ -1,8 +1,10 @@
 ulimit -c 0  # Don't create core dumps
 
 ## vim
+alias v='vim'
 alias vi='~/bin/vim'
-alias vim='~/bin/mvim  --remote-silent'
+alias vim='~/bin/vim'
+alias mvim='~/bin/mvim  --remote-silent'
 
 
 # global alias
