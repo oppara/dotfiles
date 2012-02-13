@@ -1,43 +1,15 @@
 ulimit -c 0  # Don't create core dumps
 
-export LANG=ja_JP.UTF-8
-#export LANG=ja_JP.eucJP
-
-export LV='-Ou8'
 
 #export PROMPT_COMMAND 'echo -ne "\033k[$(PWD | sed "s#^$HOME#\~#;s#^\(\~*/[^/]*/\).*\(/[^/]*\)#\1...\2#")]\033\\"'
 export PROMPT_COMMAND='echo -ne "\033]0;$PWD\007"'
-#
-# path
-#
-# ¥Ç¥Õ¥©¥ë¥È¤Îperl¤ò»ÈÍÑ¤¹¤ë¤¿¤á/usr/local/bin¤òÀè¤ËÀßÄê¤¹¤ë
-export PATH=~/bin:\
-/usr/local/bin:\
-/usr/local/php/bin:\
-/usr/local/mysql/bin:\
-/usr/local/pgsql/bin:\
-/usr/local/mtasc:\
-/opt/local/bin:\
-/Developer/Tools:\
-/usr/local/sbin:\
-/usr/bin:/usr/sbin:\
-/bin:/sbin:\
-$PATH
-
-#function pmver() {perl -M$1 -le "print $1->VERSION";}
-
 
 export PS1='\[\]\u > \w\n\$ '
 
 export CDPATH=:~/Sites
 
-alias vi='/opt/local/bin/vim'
-alias vim='/opt/local/bin/gvim -p'
 #/Applications/MacPorts/Vim/Vim.app/Contents/MacOS/Vim
 #alias vim='~/bin/gvim --remote-tab-silent'
-
-export SVN_EDITOR='/opt/local/bin/vim'
-export EDITOR='/opt/local/bin/vim'
 
 # http://d.hatena.ne.jp/kasahi/20070529/1180450135
 # export SCREENDIR="~/.screen"
@@ -54,13 +26,13 @@ alias jsl='~/bin/jsl -conf ~/bin/jsl.default.conf -process'
 alias com='java -jar ~/bin/yuicompressor.jar'
 
 
-# i19n man¤ò¥¤¥ó¥¹¥È¡¼¥ë¤·¤¿¾ì¹ç
+# i19n manã‚’ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«ã—ãŸå ´åˆ
 #alias man='LANG=ja_JP.UTF-8 /usr/bin/man'
 #export MANPAGER="/usr/local/i18nman/bin/lv -c -Iu8"
 #export LV="-Oe"
 
 
-# perl -MConfig -MExtUtils::Install -e '($FULLEXT="XML-RSS";$FULLEXT=shift)=~s{-}{/}g;uninstall "$Config{sitearchexp}/auto/$FULLEXT/.packlist", 1'"'" 
+# perl -MConfig -MExtUtils::Install -e '($FULLEXT="XML-RSS";$FULLEXT=shift)=~s{-}{/}g;uninstall "$Config{sitearchexp}/auto/$FULLEXT/.packlist", 1'"'"
 
 
 # http://d.hatena.ne.jp/holidays-l/20070601/p1
@@ -79,7 +51,7 @@ function myemacs
 alias emacs="myemacs"
 
 #
-# `ls`¤Î½ĞÎÏ¤Î¥«¥é¡¼ÀßÄê
+# `ls`ã®å‡ºåŠ›ã®ã‚«ãƒ©ãƒ¼è¨­å®š
 #
 export CLICOLOR=YES
 #
@@ -100,8 +72,8 @@ export CLICOLOR=YES
 # G     bold cyan
 # H     bold light grey; looks like bright white
 # x     default foreground or background
-# ÂçÊ¸»ú¾®Ê¸»ú´Ø·¸¤Ê¤·¡££²Ê¸»ú°ìÁÈ¡£¥Õ¥©¥¢¥°¥é¥ó¥É¥«¥é¡¼¡¢¥Ğ¥Ã¥¯¥°¥é¥¦¥ó¥É¥«¥é¡¼¤ÎÁÈ¤ß¹ç¤ï¤»¡£
-# ¤è¤¯¤ï¤«¤é¤ó¤â¤Î¤Ï¡¢ÀÖÎĞ¤Ë¤·¤Æ¤¤¤ë
+# å¤§æ–‡å­—å°æ–‡å­—é–¢ä¿‚ãªã—ã€‚ï¼’æ–‡å­—ä¸€çµ„ã€‚ãƒ•ã‚©ã‚¢ã‚°ãƒ©ãƒ³ãƒ‰ã‚«ãƒ©ãƒ¼ã€ãƒãƒƒã‚¯ã‚°ãƒ©ã‚¦ãƒ³ãƒ‰ã‚«ãƒ©ãƒ¼ã®çµ„ã¿åˆã‚ã›ã€‚
+# ã‚ˆãã‚ã‹ã‚‰ã‚“ã‚‚ã®ã¯ã€èµ¤ç·‘ã«ã—ã¦ã„ã‚‹
 #
 export LSCOLORS=GxCxBCBCBdBCBCBhBCBCEd
 
@@ -116,14 +88,14 @@ export LSCOLORS=GxCxBCBCBdBCBCBhBCBCEd
 # 9.   executable with setgid bit set
 # 10.  directory writable to others, with sticky bit
 # 11.  directory writable to others, without stickybit
-# 
+#
 # cvs
 #
 export CVSROOT=${HOME}/cvsroot
 #export CVSROOT=:pserver:oppara@127.0.0.1:/Users/oppara/cvsroot
 #export CVSROOT=:pserver:oohara@192.9.200.13:/Volumes/devsrv/cvsroot
 
-# 
+#
 # java
 #
 export JAVA_HOME=/Library/Java/Home
@@ -141,8 +113,8 @@ export JAVA_HOME=/Library/Java/Home
 #export PATH; PATH="$HOME/bin/ImageMagick/bin:$PATH"
 #export DYLD_LIBRARY_PATH="$HOME/bin/ImageMagick-6.2.1/lib"
 
-## ¥¿¥¤¥È¥ë¤Ë¸½ºß¤Î¥Ç¥£¥ì¥¯¥È¥ê¤òÉ½¼¨
-# case $TERM in              
+## ã‚¿ã‚¤ãƒˆãƒ«ã«ç¾åœ¨ã®ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã‚’è¡¨ç¤º
+# case $TERM in
 # #         xterm*|rxvt*|Eterm)
 # #         PROMPT_COMMAND='echo -ne "\033]0;[$(pwd | sed "s#^$HOME#\~#;s#^\(\~*/[^/]*/\).*\(/[^/]*\)#\1...\2#")]\007"'
 # #         #PROMPT_COMMAND='echo -ne "\033]0;[$(pwd | sed "s#^$HOME#\~#;")]\007"'
@@ -153,3 +125,4 @@ export JAVA_HOME=/Library/Java/Home
 # esac
 # PROMPT_COMMAND='echo -ne "\033]0;$(whoami)@$(hostname):$(pwd)\007"'
 
+# vim: ft=sh
