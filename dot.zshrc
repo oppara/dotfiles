@@ -34,6 +34,8 @@ alias ll='ls -lh'
 alias hs='history'
 
 # git
+alias g='git'
+alias gs='git svn'
 alias gl='git ll|head -20'
 
 alias urlencode="php -r 'echo urlencode(fgets(STDIN));'"
