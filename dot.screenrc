@@ -59,11 +59,6 @@ bind k focus up
 bind h focus top
 bind l focus bottom
 
-# continuous resion focus(like vi)
-bind ^J eval 'focus down' 'echo "Focus region: "' 'command -c cfocus'
-bind ^K eval 'focus up' 'echo "Focus region: "' 'command -c cfocus'
-bind -c cfocus ^J eval 'focus down' 'echo "Focus region: "' 'command -c cfocus'
-bind -c cfocus ^K eval 'focus up' 'echo "Focus region: "' 'command -c cfocus'
 
 # # continuous resion resize.
 # # orverride default `r'(wrap) mapping.
