@@ -62,7 +62,7 @@ bind l focus bottom
 
 # # continuous resion resize.
 # # orverride default `r'(wrap) mapping.
-bind ^r eval 'echo "Resize region:"' 'command -c cresize'
+bind ^R eval 'command -c cresize' 'echo "Resize region:"'
 bind -c cresize j eval 'resize +1' 'echo "Resize region:"' 'command -c cresize'
 bind -c cresize k eval 'resize -1' 'echo "Resize region:"' 'command -c cresize'
 bind -c cresize = eval 'resize =' 'echo "Resize region:"' 'command -c cresize'
@@ -70,6 +70,8 @@ bind -c cresize n eval 'resize min' 'echo "Resize region:"' 'command -c cresize'
 bind -c cresize x eval 'resize max' 'echo "Resize region:"' 'command -c cresize'
 bind -c cresize s split
 bind -c cresize ^S split
+bind -c cresize v split -v
+bind -c cresize ^V split -v
 bind -c cresize o only
 bind -c cresize ^O only
 bind -c cresize r remove
