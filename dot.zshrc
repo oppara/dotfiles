@@ -338,6 +338,28 @@ function is_screen() {
   fi
 }
 
+# http://blog.monoweb.info/article/2011120320.html
+sudo() {
+  local args
+  case $1 in
+    vi|vim)
+      args=()
+      for arg in $@[2,-1]
+      do
+        if [ $arg[1] = '-' ]; then
+          args[$(( 1+$#args ))]=$arg
+        else
+          args[$(( 1+$#args ))]="sudo:$arg"
+        fi
+      done
+      command vim $args
+      ;;
+    *)
+      command sudo $@
+      ;;
+  esac
+}
+
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
 
 # vim: ft=zsh
