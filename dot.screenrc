@@ -39,11 +39,18 @@ bind \ kill
 bind s # reset s key
 bind ' ' windowlist -b
 
+# http://yskwkzhr.blogspot.com/2011/12/quickly-switch-gnu-screen-encoding.html
 # encoding aliases
-bind ^E eval 'echo -p "Encoding? -- Cp932 / Euc-jp / Utf-8"' 'command -c enc'
-bind -c enc C eval 'encoding "sjis"'    'echo "cp932"'
-bind -c enc E eval 'encoding "euc-jp"'  'echo "euc-jp"'
-bind -c enc U eval 'encoding "utf-8"'   'echo "utf-8"'
+bind ^E eval 'command -c sencoding' 'echo "switch window encoding to: [u]tf8 [e]ucjp [s]jis / with env [U]tf8 [E]ucjp [S]jis"'
+bind -c sencoding ^U eval 'encoding utf8'  'info'
+bind -c sencoding u  eval 'encoding utf8'  'info'
+bind -c sencoding ^E eval 'encoding eucjp' 'info'
+bind -c sencoding e  eval 'encoding eucjp' 'info'
+bind -c sencoding ^S eval 'encoding sjis'  'info'
+bind -c sencoding s  eval 'encoding sjis'  'info'
+bind -c sencoding U  eval 'encoding utf8'  '!!!echo "export LANG=ja_JP.UTF-8"' 'info'
+bind -c sencoding E  eval 'encoding eucjp' '!!!echo "export LANG=ja_JP.eucJP"' 'info'
+bind -c sencoding S  eval 'encoding sjis'  '!!!echo "export LANG=ja_JP.sjis"'  'info'
 
 
 # resion focus(like vi)
