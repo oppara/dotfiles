@@ -80,5 +80,4 @@ bind -c cresize ^O only
 bind -c cresize r remove
 bind -c cresize ^R remove
 
-
-# http://yoka.at.webry.info/200802/article_1.html
+# vim: ft=screen
