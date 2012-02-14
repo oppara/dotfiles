@@ -2,7 +2,7 @@
 # default was ^Aa
 escape ^Oo
 
-# iTerm上で起動時にウインドウサイズが変化するのを抑制
+# iTerm荳翫〒襍ｷ蜍墓凾縺ｫ繧ｦ繧､繝ｳ繝峨え繧ｵ繧､繧ｺ縺悟､牙喧縺吶ｋ縺ｮ繧呈椛蛻ｶ
 termcapinfo xterm-256color 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm:is=\E[r\E[m\E[2J\E[H\E[?7h\E[?1;4;6l'
 
 # http://pjkh.com/articles/2008/07/09/osx-iterm-screen-vim-256-colors/
