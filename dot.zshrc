@@ -42,7 +42,7 @@ alias urlencode="php -r 'echo urlencode(fgets(STDIN));'"
 
 ## pear
 if test -x /usr/local/php/bin/pear; then
-    alias pear='/usr/local/php/bin/pear -c /usr/local/php/etc/.pearrc $@'
+    alias pear='/usr/local/php/bin/pear -C /usr/local/php/etc/pear.conf -c /usr/local/php/etc/.pearrc $@'
     alias pearpear='/usr/local/php/bin/pear $@'
 fi
 
