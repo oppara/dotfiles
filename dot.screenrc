@@ -2,7 +2,7 @@
 # default was ^Aa
 escape ^Oo
 
-# iTerm上で起動時にウインドウサイズが変化するのを抑制
+# iTerm荳翫〒襍ｷ蜍墓凾縺ｫ繧ｦ繧､繝ｳ繝峨え繧ｵ繧､繧ｺ縺悟､牙喧縺吶ｋ縺ｮ繧呈椛蛻ｶ
 termcapinfo xterm-256color 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm:is=\E[r\E[m\E[2J\E[H\E[?7h\E[?1;4;6l'
 
 # http://pjkh.com/articles/2008/07/09/osx-iterm-screen-vim-256-colors/
@@ -39,11 +39,18 @@ bind \ kill
 bind s # reset s key
 bind ' ' windowlist -b
 
+# http://yskwkzhr.blogspot.com/2011/12/quickly-switch-gnu-screen-encoding.html
 # encoding aliases
-bind ^E eval 'echo -p "Encoding? -- Cp932 / Euc-jp / Utf-8"' 'command -c enc'
-bind -c enc C eval 'encoding "sjis"'    'echo "cp932"'
-bind -c enc E eval 'encoding "euc-jp"'  'echo "euc-jp"'
-bind -c enc U eval 'encoding "utf-8"'   'echo "utf-8"'
+bind ^E eval 'command -c sencoding' 'echo "switch window encoding to: [u]tf8 [e]ucjp [s]jis / with env [U]tf8 [E]ucjp [S]jis"'
+bind -c sencoding ^U eval 'encoding utf8'  'info'
+bind -c sencoding u  eval 'encoding utf8'  'info'
+bind -c sencoding ^E eval 'encoding eucjp' 'info'
+bind -c sencoding e  eval 'encoding eucjp' 'info'
+bind -c sencoding ^S eval 'encoding sjis'  'info'
+bind -c sencoding s  eval 'encoding sjis'  'info'
+bind -c sencoding U  eval 'encoding utf8'  '!!!echo "export LANG=ja_JP.UTF-8"' 'info'
+bind -c sencoding E  eval 'encoding eucjp' '!!!echo "export LANG=ja_JP.eucJP"' 'info'
+bind -c sencoding S  eval 'encoding sjis'  '!!!echo "export LANG=ja_JP.sjis"'  'info'
 
 
 # resion focus(like vi)
@@ -52,15 +59,10 @@ bind k focus up
 bind h focus top
 bind l focus bottom
 
-# continuous resion focus(like vi)
-bind ^J eval 'focus down' 'echo "Focus region: "' 'command -c cfocus'
-bind ^K eval 'focus up' 'echo "Focus region: "' 'command -c cfocus'
-bind -c cfocus ^J eval 'focus down' 'echo "Focus region: "' 'command -c cfocus'
-bind -c cfocus ^K eval 'focus up' 'echo "Focus region: "' 'command -c cfocus'
 
 # # continuous resion resize.
 # # orverride default `r'(wrap) mapping.
-bind ^r eval 'echo "Resize region:"' 'command -c cresize'
+bind ^R eval 'command -c cresize' 'echo "Resize region:"'
 bind -c cresize j eval 'resize +1' 'echo "Resize region:"' 'command -c cresize'
 bind -c cresize k eval 'resize -1' 'echo "Resize region:"' 'command -c cresize'
 bind -c cresize = eval 'resize =' 'echo "Resize region:"' 'command -c cresize'
@@ -68,10 +70,11 @@ bind -c cresize n eval 'resize min' 'echo "Resize region:"' 'command -c cresize'
 bind -c cresize x eval 'resize max' 'echo "Resize region:"' 'command -c cresize'
 bind -c cresize s split
 bind -c cresize ^S split
+bind -c cresize v split -v
+bind -c cresize ^V split -v
 bind -c cresize o only
 bind -c cresize ^O only
 bind -c cresize r remove
 bind -c cresize ^R remove
 
-
-# http://yoka.at.webry.info/200802/article_1.html
+# vim: ft=screen
