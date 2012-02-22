@@ -20,6 +20,7 @@
     au = add -u
     rs = remote -v show
     df = diff -b
+    dc = diff -b --cached
 
 [rerere]
     enabled = true
