@@ -20,8 +20,8 @@ if [ "${OSTYPE%%[^a-z]*}" = 'darwin' ]; then
   test -d /Developer/Tools && PATH="/Developer/Tools:$PATH"
   test -d /Developer/usr/share/man && MANPATH="/Developer/usr/share/man:$MANPATH"
 
-  if [ -d ~/sdk/android-sdk-macosx ]; then
-      export ANDROID_SDK=~/sdk/android-sdk-macosx
+  if [ -d "$HOME/sdk/android-sdk-macosx" ]; then
+      export ANDROID_SDK="$HOME/sdk/android-sdk-macosx"
       export PATH="${ANDROID_SDK}/tools:${ANDROID_SDK}/platform-tools:$PATH"
   fi
 fi
@@ -35,9 +35,9 @@ for i in /usr/local/{mysql,postgresql,php}; do
     fi
 done
 
-test -d ~/local/bin && PATH="~/local/bin:$PATH"
-test -d ~/local/share/man && MANPATH="~/local/share/man:$MANPATH"
-test -d ~/bin && PATH="~/bin:$PATH"
+test -d "$HOME/local/bin" && PATH="$HOME/local/bin:$PATH"
+test -d "$HOME/local/share/man" && MANPATH="$HOME/local/share/man:$MANPATH"
+test -d "$HOME/bin" && PATH="$HOME/bin:$PATH"
 
 
 
