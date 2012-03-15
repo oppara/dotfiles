@@ -1,3 +1,5 @@
+[ -f ~/.common_profile ] && source ~/.common_profile
+
 ulimit -c 0  # Don't create core dumps
 
 ## vim
