@@ -362,6 +362,10 @@ sudo() {
   esac
 }
 
+# http://kimoto.hatenablog.com/entry/2012/03/13/123608
+bindkey -s 'P' 'ps auxw'
+bindkey -s 'G' '| grep '
+
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
 
 # vim: ft=zsh
