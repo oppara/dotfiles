@@ -366,6 +366,10 @@ sudo() {
 bindkey -s 'P' 'ps auxw'
 bindkey -s 'G' '| grep '
 
+# http://blog.glidenote.com/blog/2012/02/29/autojump-zsh/
+# sudo sh ./install.sh --local --prefix /usr/local --zsh
+[ -f /usr/local/etc/profile.d/autojump.zsh ] && source /usr/local/etc/profile.d/autojump.zsh
+
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
 
 # vim: ft=zsh
