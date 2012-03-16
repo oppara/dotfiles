@@ -363,8 +363,8 @@ sudo() {
 }
 
 # http://kimoto.hatenablog.com/entry/2012/03/13/123608
-bindkey -s 'P' 'ps auxw'
-bindkey -s 'G' '| grep '
+bindkey -s 'ppp' 'ps auxw'
+bindkey -s 'ggg' '| grep '
 
 # http://blog.glidenote.com/blog/2012/02/29/autojump-zsh/
 # sudo sh ./install.sh --local --prefix /usr/local --zsh
