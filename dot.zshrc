@@ -366,6 +366,15 @@ sudo() {
 bindkey -s 'ppp' 'ps auxw'
 bindkey -s 'ggg' '| grep '
 
+
+# http://openlab.dino.co.jp/2009/05/18/202918541.html
+if test -x /opt/local/bin/lgrep; then
+    alias lgrep-r="find . -type d -name .svn -prune -o -type f -print | xargs lgrep"
+elif test -x /usr/local/bin/lprep; then
+    alias lgrep-r="find . -type d -name .svn -prune -o -type f -print | xargs lgrep"
+fi
+
+
 # http://blog.glidenote.com/blog/2012/02/29/autojump-zsh/
 # sudo sh ./install.sh --local --prefix /usr/local --zsh
 [ -f /usr/local/etc/profile.d/autojump.zsh ] && source /usr/local/etc/profile.d/autojump.zsh
