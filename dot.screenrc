@@ -35,6 +35,10 @@ caption always '%?%F%{= gW}%:%{= Kk}%?%2n%f%07=%t (%e)%?%P *** copy/paste mode *
 hardcopydir ~/.screen/hardcopy
 bufferfile ~/.screen/screen-exchange
 
+bindkey -m ' ' eval 'stuff \040' 'writebuf' 'exec sh -c "/usr/bin/pbcopy < ~/.screen/screen-exchange"'
+bindkey -m Y   eval 'stuff Y'    'writebuf' 'exec sh -c "/usr/bin/pbcopy < ~/.screen/screen-exchange"'
+bindkey -m W   eval 'stuff W'    'writebuf' 'exec sh -c "/usr/bin/pbcopy < ~/.screen/screen-exchange"'
+
 bind \ kill
 bind s # reset s key
 bind ' ' windowlist -b
