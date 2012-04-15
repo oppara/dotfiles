@@ -364,7 +364,6 @@ sudo() {
 
 # http://kimoto.hatenablog.com/entry/2012/03/13/123608
 bindkey -s 'ppp' 'ps auxw'
-bindkey -s 'ggg' '| grep '
 
 
 # http://openlab.dino.co.jp/2009/05/18/202918541.html
