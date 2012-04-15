@@ -29,8 +29,8 @@ zombie kr # k: destory window, r: resurrect window
 
 
 hardstatus on
-hardstatus alwayslastline '%{= .g}%H%{-} %L=%-w%45L>%{=u g.} %n %t %{-}%+w %-17<%=%m/%d %02c:%s'
-caption always '%?%F%{= gW}%:%{= Kk}%?%2n%f%07=%t (%e)%?%P *** copy/paste mode ***%:%?%='
+hardstatus alwayslastline '%{= .W}%H%{-} %L=%-w%45L>%{=u Wk} %n %t %{-}%+w %-17<%=%m/%d %02c:%s'
+caption always '%?%F%{= Wk}%:%{= Kk}%?%2n%f%07=%t (%e)%?%P *** copy/paste mode ***%:%?%='
 
 hardcopydir ~/.screen/hardcopy
 bufferfile ~/.screen/screen-exchange
