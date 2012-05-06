@@ -99,7 +99,7 @@ export TZ=JST-9
 
 ## rvm
 ## https://rvm.beginrescueend.com/
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" && PATH=$PATH:$HOME/.rvm/bin
 
 
 ## perlbrew
