@@ -70,6 +70,20 @@ fi
 export LESSCHARSET=utf-8
 
 
+# MY_VIM #{{{1
+
+if test -x "$HOME/local/bin/vim"; then
+    export MY_VIM="$HOME/local/bin/vim"
+elif test -x "$HOME/bin/vim"; then
+    export MY_VIM="$HOME/bin/vim"
+elif test -x /usr/local/bin/vim; then
+    export MY_VIM=/usr/local/bin/vim
+elif test -x /usr/bin/vim; then
+    export MY_VIM=/usr/bin/vim
+fi
+
+
+
 # EDITOR #{{{1
 
 export EDITOR=vim
