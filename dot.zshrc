@@ -15,7 +15,8 @@ alias -g G="| grep"
 alias -g L="| less"
 alias -g T="| tail"
 alias -g H="| head"
-alias -g V="| vi -R -"
+alias -g X="| xargs"
+alias -g R="| vi -R -"
 alias -g W="| w3m -T text/html"
 
 
