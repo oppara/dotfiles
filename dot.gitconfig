@@ -21,6 +21,7 @@
     rs = remote -v show
     df = diff -b
     dc = diff -b --cached
+    dm = diff -b master --name-only
 
 [rerere]
     enabled = true
