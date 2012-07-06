@@ -34,7 +34,7 @@ alias ll='ls -lh'
 
 
 ## history
-alias hs='history'
+alias hs='history 1'
 
 # git
 alias g='git'
