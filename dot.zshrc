@@ -59,6 +59,15 @@ if test -x ~/bin/yuicompressor.jar; then
     alias com='java -jar ~/bin/yuicompressor.jar'
 fi
 
+## alc
+function alc() {
+  if [ $# != 0 ]; then
+    w3m "http://eow.alc.co.jp/$*/UTF-8/?ref=sa" | less +38
+  else
+    w3m "http://www.alc.co.jp/"
+  fi
+}
+
 
 #-----------------------------------------------------------------------------
 # option, autoload
