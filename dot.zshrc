@@ -86,6 +86,9 @@ setopt hist_verify
 ## ヒストリを共有
 setopt share_history
 
+## ヒストリは含まない
+setopt hist_no_store
+
 ## 直前と同じコマンドをヒストリに追加しない
 setopt hist_ignore_dups
 
