@@ -12,7 +12,7 @@
     ui = auto
 
 [alias]
-    st = status -s -b
+    st = status
     co = checkout
     ci = commit -v
     ll = log --graph -50 --decorate --color --date=short --pretty=format:'%C(yellow)%x09%h%Creset %Cblue%cn %Creset%ci  %s%Cgreen%d%Creset'
