@@ -54,6 +54,11 @@ if test -x ~/bin/kcode; then
     alias kcode='~/bin/kcode -i utf8 -o utf8'
 fi
 
+## growlnotify
+if test -x /usr/local/bin/growlnotify; then
+    alias gn="growlnotify -m '$*'"
+fi
+
 ## YUI Compressor
 if test -x ~/bin/yuicompressor.jar; then
     alias com='java -jar ~/bin/yuicompressor.jar'
