@@ -18,6 +18,8 @@ alias -g H="| head"
 alias -g X="| xargs"
 alias -g R="| vi -R -"
 alias -g W="| w3m -T text/html"
+# http://osxdaily.com/2012/07/17/send-a-notification-badge-to-the-terminal-dock-icon-when-a-task-is-finished/
+alias -g DOCK="&& tput bel"
 
 
 ## ls
