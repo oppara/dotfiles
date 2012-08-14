@@ -131,7 +131,7 @@
 	<key>BlinkText</key>
 	<false/>
 	<key>CommandString</key>
-	<string>/usr/local/bin/screen</string>
+	<string>/usr/local/bin/tmux </string>
 	<key>CursorBlink</key>
 	<true/>
 	<key>CursorColor</key>
