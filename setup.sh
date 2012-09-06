@@ -6,6 +6,7 @@ dotfiles=$(ls |grep '^dot\.')
 for file in $dotfiles
 do
 
+    org=${file}
     # osx用の設定
     if echo "$file" | grep 'mac\.' > /dev/null; then
         if [ "${OSTYPE%%[^a-z]*}" != 'darwin' ]; then
@@ -14,7 +15,7 @@ do
         file=${file/mac./}
     fi
 
-    src="${pwd}/${file}"
+    src="${pwd}/${org}"
     target="${HOME}/${file#dot}"
 
     # ファイルやディレクトリが存在する場合はスキップ
