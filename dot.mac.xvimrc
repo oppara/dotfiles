@@ -10,9 +10,11 @@ imap <C-j> <Esc>
 omap <C-j> <Esc>
 
 
-nmap ,,  :write<cr>
-imap ,,  <Esc>:write<cr>
-
+imap <C-a> <esc>^i
+imap <C-f> <Right>
+imap <C-e> <esc>A
+imap <C-b> <Left>
+imap <C-D>  <Del>
 
 " ビジュアルモード時vで行末まで選択
 vmap v $
