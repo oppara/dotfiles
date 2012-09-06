@@ -1,3 +1,24 @@
 " XVim
-" https://github.com/JugglerShu/XVim/blob/master/Documents/Users/FeatureList.m://github.com/JugglerShu/XVim/blob/master/Documents/Users/FeatureList.md
+" https://github.com/JugglerShu/XVim/blob/master/Documents/Users/FeatureList.md
+
+set noincsearch
+set smartcase
+
+nmap <C-j> <Esc>
+vmap <C-j> <Esc>
+imap <C-j> <Esc>
+omap <C-j> <Esc>
+
+
+nmap ,,  :write<cr>
+imap ,,  <Esc>:write<cr>
+
+
+" ビジュアルモード時vで行末まで選択
+vmap v $
+
+" like screen
+vmap <space> y
+
+nmap 0 ^
 
