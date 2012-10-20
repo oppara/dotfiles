@@ -16,6 +16,7 @@ if [ "${OSTYPE%%[^a-z]*}" = 'darwin' ]; then
   test -d /opt/local/sbin && PATH="/opt/local/sbin:$PATH"
   test -d /opt/local/bin && PATH="/opt/local/bin:$PATH"
   test -d /opt/local/share/man && MANPATH="/opt/local/share/man:$MANPATH"
+  test -d /usr/local/share/npm/bin && PATH="/usr/local/share/npm/bin:$PATH"
 
   test -d /Developer/Tools && PATH="/Developer/Tools:$PATH"
   test -d /Developer/usr/share/man && MANPATH="/Developer/usr/share/man:$MANPATH"
