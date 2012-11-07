@@ -383,7 +383,7 @@ sudo() {
 }
 
 # http://kimoto.hatenablog.com/entry/2012/03/13/123608
-bindkey -s P 'ps auxw'
+bindkey -s PP 'ps auxw'
 bindkey -s GG ' | grep '
 
 
