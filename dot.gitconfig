@@ -22,6 +22,7 @@
     df = diff -b
     dc = diff -b --cached
     dn = diff -b master --name-only
+    cp = cherry-pick
 
 [rerere]
     enabled = true
