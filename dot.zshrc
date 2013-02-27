@@ -405,6 +405,18 @@ elif test -x /usr/local/bin/lprep; then
     alias lgrep-r="find . -type d -name .svn -prune -o -type f -print | xargs lgrep"
 fi
 
+# http://blog.glidenote.com/blog/2013/02/26/jumping-to-the-finder-location-in-terminal/
+# open current directory in Finder
+alias f='open .'
+# cd to the path of the front Finder window
+cdf() {
+  target=`osascript -e 'tell application "Finder" to if (count of Finder windows) > 0 then get POSIX path of (target of front Finder window as text)'`
+  if [ "$target" != "" ]; then
+    cd "$target"; pwd
+  else
+    echo 'No Finder window found' >&2
+  fi
+}
 
 # http://blog.glidenote.com/blog/2012/02/29/autojump-zsh/
 # sudo sh ./install.sh --local --prefix /usr/local --zsh
