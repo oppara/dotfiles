@@ -2,6 +2,10 @@
 
 ulimit -c 0  # Don't create core dumps
 
+## https://github.com/zsh-users/zsh-completions
+fpath=(/usr/local/share/zsh-completions $fpath)
+
+
 ## vim
 alias v="$MY_VIM"
 alias vi="$MY_VIM"
