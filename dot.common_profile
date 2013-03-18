@@ -98,9 +98,6 @@ export BLOCKSIZE=k
 export TZ=JST-9
 
 
-## rvm
-## https://rvm.beginrescueend.com/
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" && PATH=$PATH:$HOME/.rvm/bin
 
 ## rbenv
 if test -x /usr/local/bin/rbenv; then
