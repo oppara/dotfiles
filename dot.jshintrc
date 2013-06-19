@@ -1,0 +1,38 @@
+// vim: expandtab ts=2 sw=2 sts=2 ff=unix ft=json
+{
+  // "strict": true,
+  "indent": 2,
+  "camelcase": true,
+  "bitwise": true,
+  "curly": true,
+  "eqeqeq": true,
+  "immed": true,
+  "latedef": true,
+  "newcap": true,
+  "noarg": true,
+  "noempty": true,
+  "nonew": true,
+  "quotmark": "single",
+  "regexp": true,
+  "undef": true,
+  "unused": true,
+  "trailing": true,
+  "maxdepth": 3,
+
+  "browser": true,
+  "devel": true,
+  "dojo": true,
+  "jquery": true,
+  "mootools": true,
+  "node": true,
+  "prototypejs": true,
+  "worker": true,
+  "yui": true,
+  "globals": {
+    "_": false,
+    "Backbone": false
+  },
+
+  "white":     true
+
+}
