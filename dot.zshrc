@@ -5,6 +5,8 @@ ulimit -c 0  # Don't create core dumps
 ## https://github.com/zsh-users/zsh-completions
 fpath=(/usr/local/share/zsh-completions $fpath)
 
+## http://osxdaily.com/2013/07/16/quick-external-ip-address-command-line/
+alias getmyip='curl ifconfig.me'
 
 ## vim
 alias v="$MY_VIM"
