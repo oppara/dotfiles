@@ -26,5 +26,10 @@
     ; merge, rebase をもとに戻す
     ab = reset --hard ORIG_HEAD
 
+    ;http://d.hatena.ne.jp/thinca/20130925/1380099336
+    ignore = update-index --assume-unchanged
+    unignore = update-index --no-assume-unchanged
+    ignored = !git ls-files -v | grep "^[a-z]"
+
 [rerere]
     enabled = true
