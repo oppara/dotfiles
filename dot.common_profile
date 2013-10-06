@@ -106,9 +106,7 @@ if test -x /usr/local/bin/rbenv; then
 fi
 
 
-## perlbrew
-## http://webtech-walker.com/archive/2010/04/22173415.html
-[[ -s "$HOME/perl5/perlbrew/etc/bashrc" ]] && source $HOME/perl5/perlbrew/etc/bashrc
-
+## perlenv
+if which plenv > /dev/null; then eval "$(plenv init -)"; fi
 
 # vim: filetype=sh foldmethod=marker
