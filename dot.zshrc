@@ -393,24 +393,6 @@ bindkey -s PP 'ps auxw'
 bindkey -s GG ' | grep '
 
 
-# http://qiita.com/items/1f2c7793944b1f6cc346
-show_buffer_stack() {
-  POSTDISPLAY="
-@stack: $LBUFFER"
-  zle push-line-or-edit
-}
-zle -N show_buffer_stack
-setopt noflowcontrol
-bindkey '^Q' show_buffer_stack
-
-
-# http://openlab.dino.co.jp/2009/05/18/202918541.html
-if test -x /opt/local/bin/lgrep; then
-    alias lgrep-r="find . -type d -name .svn -prune -o -type f -print | xargs lgrep"
-elif test -x /usr/local/bin/lprep; then
-    alias lgrep-r="find . -type d -name .svn -prune -o -type f -print | xargs lgrep"
-fi
-
 # http://blog.glidenote.com/blog/2013/02/26/jumping-to-the-finder-location-in-terminal/
 # open current directory in Finder
 alias f='open .'
