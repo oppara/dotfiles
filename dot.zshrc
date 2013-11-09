@@ -410,6 +410,27 @@ cdf() {
 # sudo sh ./install.sh --local --prefix /usr/local --zsh
 [ -f /usr/local/etc/profile.d/autojump.zsh ] && source /usr/local/etc/profile.d/autojump.zsh
 
+
+# https://github.com/junegunn/fzf
+# CTRL-T - Paste the selected file path into the command line
+fzf-file-widget() {
+  LBUFFER+=$(
+      find * -path '*/\\.*' -prune \
+      -o -type f -print \
+      -o -type l -print 2> /dev/null | fzf)
+  zle redisplay
+}
+zle     -N   fzf-file-widget
+bindkey '^T' fzf-file-widget
+
+# CTRL-R - Paste the selected command from history into the command line
+fzf-history-widget() {
+  LBUFFER+=$(history -100 | fzf +s | sed "s/ *[0-9]* *//")
+  zle redisplay
+}
+zle     -N   fzf-history-widget
+bindkey '^R' fzf-history-widget
+
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
 
 # vim: ft=zsh
