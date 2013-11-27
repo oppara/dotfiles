@@ -6,10 +6,13 @@
 [core]
     excludesfile = ~/.gitignore
     editor = ~/bin/vim
-    pager = lv -c
     autoCRLF = false
 [color]
     ui = auto
+[pager]
+    log = diff-highlight | less
+    show = diff-highlight | less
+    diff = diff-highlight | less
 
 [alias]
     st = status
