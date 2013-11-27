@@ -25,6 +25,13 @@ if [ "${OSTYPE%%[^a-z]*}" = 'darwin' ]; then
       export ANDROID_SDK="$HOME/sdk/android-sdk-macosx"
       export PATH="${ANDROID_SDK}/tools:${ANDROID_SDK}/platform-tools:$PATH"
   fi
+  test -d /usr/local/apache-maven && PATH="/Developer/Tools:$PATH"
+fi
+
+if [ -d "/usr/local/apache-maven" ]; then
+    export M3_HOME=/usr/local/apache-maven
+    M3="${M3_HOME}/bin"
+    PATH="$M3:$PATH"
 fi
 
 for i in /usr/local/{mysql,postgresql,php}; do
