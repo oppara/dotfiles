@@ -1,4 +1,7 @@
 set show-rev-graph = yes
+
 bind generic L !git reflog
+bind generic g move-first-line
+bind generic G move-last-line
 
 color cursor red default underline
