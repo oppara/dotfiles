@@ -7,12 +7,15 @@
     excludesfile = ~/.gitignore
     editor = ~/bin/vim
     autoCRLF = false
+    pager = $PAGER
+
 [color]
     ui = auto
+
 [pager]
-    log = diff-highlight | less
-    show = diff-highlight | less
-    diff = diff-highlight | less
+    log = diff-highlight | $PAGER
+    show = diff-highlight | $PAGER
+    diff = diff-highlight | $PAGER
 
 [alias]
     st = status
