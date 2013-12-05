@@ -65,16 +65,14 @@ fi
 
 # PAGER #{{{1
 
-if test -x /opt/local/bin/lv; then
-    export PAGER=/opt/local/bin/lv
-    export LV='-Ou8'
-elif test -x /usr/local/bin/lv; then
-    export PAGER=/usr/local/bin/lv
-    export LV='-Ou8'
+if which lv >/dev/null; then
+  PAGER=lv
 else
-    export PAGER=/usr/bin/less
+  PAGER=less
 fi
-
+export PAGER
+export LV="-c -l"
+export LESS="--LONG-PROMPT --RAW-CONTROL-CHARS"
 export LESSCHARSET=utf-8
 
 
