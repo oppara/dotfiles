@@ -13,9 +13,9 @@
     ui = auto
 
 [pager]
-    log = diff-highlight | $PAGER
-    show = diff-highlight | $PAGER
-    diff = diff-highlight | $PAGER
+    log = diff-highlight | less -c
+    show = diff-highlight | less -c
+    diff = diff-highlight | less -c
 
 [alias]
     st = status
