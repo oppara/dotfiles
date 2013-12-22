@@ -32,3 +32,5 @@ do
     echo "ln -s ${target}"
 
 done
+
+echo "done."
