@@ -49,6 +49,9 @@ alias g='git'
 alias gs='git svn'
 alias gl='git ll|head -20'
 
+# http://gitignore.io/cli
+function gi() { curl http://gitignore.io/api/$@ ;}
+
 alias urlencode="php -r 'echo urlencode(fgets(STDIN));'"
 
 ## pear
