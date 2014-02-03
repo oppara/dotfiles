@@ -14,6 +14,8 @@ alias vi="$MY_VIM"
 alias vim="$MY_VIM"
 alias mvim='~/bin/mvim  --remote-silent'
 
+alias synergy='/Applications/Synergy.app/Contents/MacOS/Synergy &'
+
 
 # global alias
 alias -g C="| pbcopy"
