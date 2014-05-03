@@ -393,10 +393,6 @@ sudo() {
   esac
 }
 
-# http://kimoto.hatenablog.com/entry/2012/03/13/123608
-bindkey -s PP 'ps auxw'
-bindkey -s GG ' | grep '
-
 
 # http://blog.glidenote.com/blog/2013/02/26/jumping-to-the-finder-location-in-terminal/
 # open current directory in Finder
