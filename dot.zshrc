@@ -2,6 +2,8 @@
 
 ulimit -c 0  # Don't create core dumps
 
+typeset -U path cdpath fpath manpath
+
 ## https://github.com/zsh-users/zsh-completions
 fpath=(/usr/local/share/zsh-completions $fpath)
 
