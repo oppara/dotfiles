@@ -51,26 +51,4 @@ tap oppara/homebrew
 install oppara/homebrew/wcwidth
 
 
-tap phinze/cask
-install brew-cask
-
-cask install appcleaner
-cask install bitcasa
-cask install bittorrent-sync
-cask install carbon-copy-cloner
-cask install cheatsheet
-cask install dropbox
-cask install firefox
-cask install google-chrome
-cask install zeroxed
-
-cask install launchrocket
-cask install virtualbox
-cask install vagrant
-
-cask install oppara/homebrew/mi-beta
-cask install oppara/homebrew/macvim-kaoriya
-
-
 cleanup
-cask cleanup

@@ -1,0 +1,27 @@
+# https://github.com/caskroom
+# Usage: `brew bundle Caskfile`
+
+install phinze/cask/brew-cask
+tap caskroom/versions
+tap caskroom/fonts
+
+cask install launchrocket
+cask install virtualbox
+cask install vagrant
+
+cask install appcleaner
+cask install bitcasa
+cask install bittorrent-sync
+cask install carbon-copy-cloner
+cask install cheatsheet
+cask install dropbox
+cask install firefox
+cask install google-chrome
+cask install zeroxed
+
+cask install oppara/homebrew/mi-beta
+cask install oppara/homebrew/macvim-kaoriya
+cask install oppara/homebrew/font-migu-2m
+
+
+cask cleanup
