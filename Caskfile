@@ -23,5 +23,18 @@ cask install oppara/homebrew/mi-beta
 cask install oppara/homebrew/macvim-kaoriya
 cask install oppara/homebrew/font-migu-2m
 
+# Quick Look plugins
+# https://github.com/sindresorhus/quick-look-plugins
+cask install betterzipql
+cask install qlcolorcode
+cask install qlmarkdown
+cask install qlprettypatch
+cask install qlstephen
+cask install quicklook-csv
+cask install quicklook-json
+cask install suspicious-package
+cask install webp-quicklook
+cask install quicklook-japanese-text
+
 
 cask cleanup
