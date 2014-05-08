@@ -114,7 +114,6 @@ fi
 ## perlenv
 if which plenv > /dev/null; then eval "$(plenv init -)"; fi
 
-## Link Homebrew casks in `/Applications` rather than `~/Applications`
-export HOMEBREW_CASK_OPTS="--appdir=/Applications"
+export HOMEBREW_CASK_OPTS="--appdir=/Applications --caskroom=/usr/local/Caskroom"
 
 # vim: filetype=sh foldmethod=marker
