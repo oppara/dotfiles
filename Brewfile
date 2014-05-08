@@ -37,7 +37,6 @@ install nkf
 install cmigemo
 install imagemagick
 install sqlmap
-install tidy --HEAD
 install tree
 install webkit2png
 install bash
