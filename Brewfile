@@ -1,54 +1,64 @@
+# Usage: `brew bundle Brewfile`
+
 update
 
 
-install --with-pcre git || brew upgrade --with-pcre git || true
-install --disable-etcdir zsh || brew upgrade --disable-etcdir zsh || true
-install --with-lua vim || brew upgrade --with-lua vim || true
-install tmux
-install zsh-completions
-install tig
-install --wrap-pbcopy-and-pbpaste --wrap-launchctl reattach-to-user-namespace
-install --default-names gnu-sed
+# PATH=$(brew --prefix coreutils)"/libexec/gnubin:$PATH"
 install coreutils
-install gettext
-install re2c
-install mcrypt
-install readline
-install automake
-install wget
-install nkf
-install cmigemo
-install lv
-install xz
-install jq
+install findutils --default-names
+install gnu-sed --default-names
+
+install oppara/homebrew/wcwidth
+
+install zsh --disable-etcdir || brew upgrade zsh --disable-etcdir || true
+install zsh-completions
+
+install vim --with-lua --with-luajit || brew upgrade vim --with-lua --with-luajit || true
+install tmux
+install reattach-to-user-namespace --wrap-pbcopy-and-pbpaste --wrap-launchctl
+
+install git --with-pcre || brew upgrade git --with-pcre || true
+install tig
 install hub
 install git-now
 install git-ftp
 install svn
 install hg
+
 install the_silver_searcher
+install wget --enable-iri
+install automake
+install gettext
+install readline
+install re2c
+install mcrypt
+install lv
+install nkf
+install cmigemo
 install imagemagick
-install --enable-memcached --with-blackhole-storage-engine --with-archive-storage-engine mysql
+install sqlmap
+install tidy --HEAD
+install tree
+install webkit2png
+install bash
+
+install jq
+install homebrew/binary/jsl
+
+install mysql --enable-memcached --with-blackhole-storage-engine --with-archive-storage-engine mysql
 install postgresql
+
 install rbenv
 install ruby-build
 install plenv
 install perl-build
 install nodenv
-install boot2docker
-
-tap homebrew/binary
-install homebrew/binary/jsl
-install homebrew/binary/packer
-
-
-tap josegonzalez/php
 install josegonzalez/php/phpenv
 install josegonzalez/php/php-build
 
+install boot2docker
+install homebrew/binary/packer
 
-tap oppara/homebrew
-install oppara/homebrew/wcwidth
 
-
+# Remove outdated versions from the cellar
 cleanup
