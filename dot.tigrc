@@ -1,4 +1,6 @@
 set show-rev-graph = yes
+set show-id = yes
+set split-view-height = 80%
 
 bind generic L !git reflog
 bind generic g move-first-line
