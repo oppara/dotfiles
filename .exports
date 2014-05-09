@@ -1,0 +1,47 @@
+export LANG=ja_JP.UTF-8
+export LC_LANG=ja_JP.UTF-8
+
+export BLOCKSIZE=k
+export TZ=JST-9
+
+export HISTSIZE=100000
+export SAVEHIST=$HISTSIZE
+export HISTFILESIZE=$HISTSIZE
+export HISTCONTROL=ignoredups
+export HISTIGNORE="ls:cd:cd -:pwd:exit:date:* --help"
+
+export EDITOR=vim
+export GIT_EDITOR=vim
+export SNV_EDITOR=vim
+
+## To use pbcopy/pbpaste with UTF-8 encoding.
+## http://kana.github.com/config/vim/fakeclip.html#fakeclip-multibyte-on-mac
+## http://developer.apple.com/library/mac/#documentation/CoreFoundation/Reference/CFStringRef/Reference/reference.html
+export __CF_USER_TEXT_ENCODING=${__CF_USER_TEXT_ENCODING/:*:/:0x08000100:}
+
+export HOMEBREW_CASK_OPTS="--appdir=/Applications --caskroom=/usr/local/Caskroom"
+
+
+if which lv >/dev/null; then
+    export PAGER=lv
+    export LV="-c -l"
+else
+    export PAGER=less
+fi
+
+export MANPAGER="less -RX"
+export LESS="--LONG-PROMPT --RAW-CONTROL-CHARS"
+export LESSCHARSET=utf-8
+export LESS_TERMCAP_mb=$'\E[01;31m'       # begin blinking
+export LESS_TERMCAP_md=$'\E[01;38;5;74m'  # begin bold
+export LESS_TERMCAP_me=$'\E[0m'           # end mode
+export LESS_TERMCAP_se=$'\E[0m'           # end standout-mode
+export LESS_TERMCAP_so=$'\E[38;5;246m'    # begin standout-mode - info box
+export LESS_TERMCAP_ue=$'\E[0m'           # end underline
+export LESS_TERMCAP_us=$'\E[04;38;5;146m' # begin underline
+
+export GREP_OPTIONS="--binary-files=without-match --color=auto"
+export GREP_COLOR="1;31"
+
+
+# vim: ft=sh fdm=marker

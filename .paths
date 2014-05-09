@@ -1,0 +1,30 @@
+export PATH="/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin"
+export MANPATH="/usr/local/share/man:/usr/local/man:/usr/share/man"
+
+test -d "/Applications/Xcode.app/Contents/Developer/Tools" && PATH="/Applications/Xcode.app/Contents/Developer/Tools:$PATH"
+test -d "/Applications/Xcode.app/Contents/Developer/usr/share/man" && MANPATH="/Applications/Xcode.app/Contents/Developer/usr/share/man:$MANPATH"
+
+for app in /usr/local/{mysql,postgresql,php}; do
+    if [ -d "${app}/bin" ]; then
+        PATH="${app}/bin:$PATH"
+    fi
+    if [ -d "${app}/man" ]; then
+        MANPATH="${app}/man:$MANPATH"
+    fi
+done
+unset app
+
+test -d /usr/local/share/npm/bin && PATH="/usr/local/share/npm/bin:$PATH"
+
+## rbenv
+test -d "${HOME}/.rbenv" &&  eval "$(rbenv init -)"
+
+## plenv
+test -d "${HOME}/.plenv" &&  eval "$(plenv init -)"
+
+
+test -d "$HOME/local/bin" && PATH="$HOME/local/bin:$PATH"
+test -d "$HOME/local/share/man" && MANPATH="$HOME/local/share/man:$MANPATH"
+test -d "$HOME/bin" && PATH="$HOME/bin:$PATH"
+
+# vim: ft=sh fdm=marker

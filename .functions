@@ -1,0 +1,17 @@
+
+## gitignore.io #{{{1
+# http://gitignore.io/cli
+function gi() {
+    curl "http://www.gitignore.io/api/$@";
+}
+
+## alc #{{{1
+function alc() {
+  if [ $# != 0 ]; then
+    w3m "http://eow.alc.co.jp/$*/UTF-8/?ref=sa" | less +38
+  else
+    w3m "http://www.alc.co.jp/"
+  fi
+}
+
+# vim: ft=sh fdm=marker

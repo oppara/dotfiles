@@ -1,4 +1,4 @@
-[ -f ~/.common_profile ] && source ~/.common_profile
+HISTFILE="${HOME}/.zsh-history"
 
 ulimit -c 0  # Don't create core dumps
 
@@ -6,17 +6,6 @@ typeset -U path cdpath fpath manpath
 
 ## https://github.com/zsh-users/zsh-completions
 fpath=(/usr/local/share/zsh-completions $fpath)
-
-## http://osxdaily.com/2013/07/16/quick-external-ip-address-command-line/
-alias getmyip='curl ifconfig.me'
-
-## vim
-alias v="$MY_VIM"
-alias vi="$MY_VIM"
-alias vim="$MY_VIM"
-alias mvim='~/bin/mvim  --remote-silent'
-
-alias synergy='/Applications/Synergy.app/Contents/MacOS/Synergy &'
 
 
 # global alias
@@ -31,64 +20,6 @@ alias -g W="| w3m -T text/html"
 # http://osxdaily.com/2012/07/17/send-a-notification-badge-to-the-terminal-dock-icon-when-a-task-is-finished/
 alias -g DOCK="&& tput bel"
 
-
-## ls
-case "${OSTYPE}" in
-freebsd*|darwin*)
-  alias ls="ls -G -w"
-  ;;
-linux*)
-  alias ls="ls --color"
-  ;;
-esac
-alias la='ls -lha'
-alias ll='ls -lh'
-
-
-## history
-alias hs='history 1'
-
-# git
-alias g='git'
-alias gs='git svn'
-alias gl='git ll|head -20'
-
-# http://gitignore.io/cli
-function gi() { curl http://gitignore.io/api/$@ ;}
-
-alias urlencode="php -r 'echo urlencode(fgets(STDIN));'"
-
-## pear
-if test -x /usr/local/php/bin/pear; then
-    alias pear='/usr/local/php/bin/pear -C /usr/local/php/etc/pear.conf -c /usr/local/php/etc/.pearrc $@'
-    alias pearpear='/usr/local/php/bin/pear $@'
-fi
-
-## kcode
-if test -x ~/bin/kcode; then
-    alias kcode='~/bin/kcode -i utf8 -o utf8'
-fi
-
-## growlnotify
-if test -x /usr/local/bin/growlnotify; then
-    alias gn="growlnotify -m '$*'"
-fi
-
-## YUI Compressor
-if test -x ~/bin/yuicompressor.jar; then
-    alias com='java -jar ~/bin/yuicompressor.jar'
-fi
-
-## alc
-function alc() {
-  if [ $# != 0 ]; then
-    w3m "http://eow.alc.co.jp/$*/UTF-8/?ref=sa" | less +38
-  else
-    w3m "http://www.alc.co.jp/"
-  fi
-}
-
-
 #-----------------------------------------------------------------------------
 # option, autoload
 #-----------------------------------------------------------------------------
@@ -96,9 +27,6 @@ function alc() {
 autoload -U compinit
 compinit
 
-HISTFILE=$HOME/.zsh-history
-HISTSIZE=100000
-SAVEHIST=100000
 
 ## ヒストリを呼び出してから実行する間に一旦編集
 setopt hist_verify
@@ -397,8 +325,6 @@ sudo() {
 
 
 # http://blog.glidenote.com/blog/2013/02/26/jumping-to-the-finder-location-in-terminal/
-# open current directory in Finder
-alias f='open .'
 # cd to the path of the front Finder window
 cdf() {
   target=`osascript -e 'tell application "Finder" to if (count of Finder windows) > 0 then get POSIX path of (target of front Finder window as text)'`

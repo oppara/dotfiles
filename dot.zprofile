@@ -1,5 +1,8 @@
-[ -f ~/.common_profile ] && source ~/.common_profile
+export DOTFILES="${HOME}/dotfiles"
 
-[ -f ~/.zshrc ] && source ~/.zshrc
+for file in ${DOTFILES}/.{paths,exports,aliases,functions}; do
+    test -r "$file" && test -f "$file" && source "$file"
+done
+unset file
 
 # vim: ft=zsh

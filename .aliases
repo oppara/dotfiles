@@ -1,0 +1,85 @@
+
+## open current directory in Finder
+alias o='open .'
+
+## vim
+alias v="vim"
+# alias mvim="~/bin/mvim  --remote-silent"
+
+## git
+alias g="git"
+alias gs="git svn"
+alias gl="git ll|head -20"
+
+## history
+alias h="history 1"
+
+## diff
+alias df="diff -uBb"
+
+## ls
+if ls --color > /dev/null 2>&1; then # GNU `ls`
+    alias ls="ls --color"
+else # BSD `ls`
+    alias ls="ls -G -w"
+fi
+alias la='ls -lha'
+alias ll='ls -lh'
+
+## ip addresses
+alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
+alias localip="ipconfig getifaddr en0"
+
+## Canonical hex dump
+command -v hd > /dev/null || alias hd="hexdump -C"
+
+##  OS X has no `md5sum` and `sha1sum`
+command -v md5sum > /dev/null || alias md5sum="md5"
+command -v sha1sum > /dev/null || alias sha1sum="shasum"
+
+# Recursively delete `.DS_Store` files
+alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
+
+## urlencode
+alias urlencode="php -r 'echo urlencode(fgets(STDIN));'"
+
+## pear
+if test -x "/usr/local/php/bin/pear"; then
+    alias pear="/usr/local/php/bin/pear -C /usr/local/php/etc/pear.conf -c /usr/local/php/etc/.pearrc $@"
+fi
+
+## kcode
+if test -x "${HOME}/bin/kcode"; then
+    alias kcode="${HOME}/bin/kcode -i utf8 -o utf8"
+fi
+
+## synergy
+alias synergy="/Applications/Synergy.app/Contents/MacOS/Synergy &"
+
+## growlnotify
+if test -x "/usr/local/bin/growlnotify"; then
+    alias gn="growlnotify -m '$*'"
+fi
+
+# JavaScriptCore REPL
+jscbin="/System/Library/Frameworks/JavaScriptCore.framework/Versions/A/Resources/jsc"
+test -e "${jscbin}" && alias jsc="${jscbin}"
+unset jscbin
+
+# Ring the terminal bell, and put a badge on Terminal.app's Dock icon
+# http://osxdaily.com/2012/07/17/send-a-notification-badge-to-the-terminal-dock-icon-when-a-task-is-finished/
+alias badge="tput bel"
+
+## Show/hide hidden files in Finder
+alias show="defaults write com.apple.finder AppleShowAllFiles -bool true && killall Finder"
+alias hide="defaults write com.apple.finder AppleShowAllFiles -bool false && killall Finder"
+
+# sound
+alias mu="osascript -e 'set volume output muted true'"
+alias vu="osascript -e 'set volume output volume (output volume of (get volume settings) + 30)'"
+
+
+## reload
+alias reload="exec $SHELL -l"
+
+# vim: ft=zsh fdm=marker
