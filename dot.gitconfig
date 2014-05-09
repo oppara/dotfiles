@@ -35,6 +35,8 @@
     ; merge, rebase をもとに戻す
     ab = reset --hard ORIG_HEAD
     empty = commit -q --allow-empty -m 'initial commit'
+    ; リモートで消されたブランチを消す
+    pr = fetch --prune
 
     ; http://davidwalsh.name/get-git-commit-id
     id = rev-parse HEAD
