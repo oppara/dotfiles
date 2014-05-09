@@ -36,6 +36,9 @@
     ab = reset --hard ORIG_HEAD
     empty = commit -q --allow-empty -m 'initial commit'
 
+    ; http://davidwalsh.name/get-git-commit-id
+    id = rev-parse HEAD
+
     ;http://d.hatena.ne.jp/thinca/20130925/1380099336
     ignore = update-index --assume-unchanged
     unignore = update-index --no-assume-unchanged
