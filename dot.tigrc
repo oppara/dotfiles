@@ -1,8 +1,13 @@
-set show-rev-graph = yes
-set show-id = yes
-set split-view-height = 80%
+# man tigrc
+
+set main-view = id:yes author:full date:yes commit-title:yes,graph:yes,refs:yes
+
+set split-view-height = 70%
+set vertical-split = no
+
 
 bind generic L !git reflog
 bind generic g move-first-line
 bind generic G move-last-line
 
+# vim: ft=sh
