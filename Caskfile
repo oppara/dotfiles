@@ -10,14 +10,16 @@ cask install virtualbox
 cask install vagrant
 
 cask install appcleaner
+cask install cheatsheet
+cask install growlnotify
+cask install synergy
+cask install zeroxed
+
 cask install bitcasa
 cask install bittorrent-sync
-cask install carbon-copy-cloner
-cask install cheatsheet
 cask install dropbox
 cask install firefox
 cask install google-chrome
-cask install zeroxed
 
 cask install oppara/homebrew/mi-beta
 cask install oppara/homebrew/macvim-kaoriya
