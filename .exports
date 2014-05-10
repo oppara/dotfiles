@@ -1,6 +1,10 @@
 export LANG=ja_JP.UTF-8
 export LC_LANG=ja_JP.UTF-8
 
+wcwidth="/usr/local/lib/wcwidth-cjk.so"
+test -e "${wcwidth}" && export LD_PRELOAD="${wcwidth}"
+unset wcwidth
+
 export BLOCKSIZE=k
 export TZ=JST-9
 
