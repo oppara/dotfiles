@@ -5,10 +5,15 @@ set main-view = id:yes author:full date:yes commit-title:yes,graph:yes,refs:yes
 set split-view-height = 70%
 set vertical-split = no
 
-color id yellow default
-color author blue default
-color date white default
 color cursor white black
+color id red default
+color author yellow default
+color date blue default
+color main-head green default
+color main-remote green default
+color main-tracked green default
+color main-tag green default
+color main-ref green default
 
 bind generic L !git reflog
 bind generic g move-first-line
