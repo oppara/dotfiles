@@ -336,8 +336,8 @@ cdf() {
 }
 
 # http://blog.glidenote.com/blog/2012/02/29/autojump-zsh/
-# sudo sh ./install.sh --local --prefix /usr/local --zsh
-[ -f /usr/local/etc/profile.d/autojump.zsh ] && source /usr/local/etc/profile.d/autojump.zsh
+# http://blog.zoncoen.net/blog/2014/01/14/percol-autojump-with-zsh/
+[[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
 
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
 

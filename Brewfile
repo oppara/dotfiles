@@ -26,6 +26,7 @@ install svn
 install hg
 
 install the_silver_searcher
+install autojump
 install wget --enable-iri
 install w3m
 install automake
