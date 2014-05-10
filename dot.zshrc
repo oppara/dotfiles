@@ -301,29 +301,6 @@ function is_screen() {
   fi
 }
 
-# http://blog.monoweb.info/article/2011120320.html
-sudo() {
-  local args
-  case $1 in
-    vi|vim)
-      args=()
-      for arg in $@[2,-1]
-      do
-        if [ $arg[1] = '-' ]; then
-          args[$(( 1+$#args ))]=$arg
-        else
-          args[$(( 1+$#args ))]="sudo:$arg"
-        fi
-      done
-      command vim $args
-      ;;
-    *)
-      command sudo $@
-      ;;
-  esac
-}
-
-
 # http://blog.glidenote.com/blog/2013/02/26/jumping-to-the-finder-location-in-terminal/
 # cd to the path of the front Finder window
 cdf() {
