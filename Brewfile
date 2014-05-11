@@ -9,6 +9,7 @@ install findutils --default-names
 install gnu-sed --default-names
 
 install oppara/homebrew/wcwidth
+install oppara/homebrew/kcode
 
 install zsh --disable-etcdir || brew upgrade zsh --disable-etcdir || true
 install zsh-completions

@@ -52,8 +52,8 @@ if test -x "/usr/local/php/bin/pear"; then
 fi
 
 ## kcode
-if test -x "${HOME}/bin/kcode"; then
-    alias kcode="${HOME}/bin/kcode -i utf8 -o utf8"
+if test -x "/usr/local/bin/kcode"; then
+    alias kcode="/usr/local/bin/kcode -i utf8 -o utf8"
 fi
 
 ## synergy
