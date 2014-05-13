@@ -19,6 +19,8 @@
 
 [alias]
     st = status
+    bb = branch
+    br = branch -r
     cl = clone
     co = checkout
     ci = commit -v
