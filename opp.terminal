@@ -230,7 +230,7 @@
 	<key>ShowDimensionsInTitle</key>
 	<false/>
 	<key>ShowShellCommandInTitle</key>
-	<true/>
+	<false/>
 	<key>ShowTTYNameInTitle</key>
 	<true/>
 	<key>ShowWindowSettingsNameInTitle</key>
