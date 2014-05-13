@@ -21,9 +21,9 @@ sudo() {
   esac
 }
 
-## gi #{{{1
+## gitignore #{{{1
 # http://gitignore.io/cli
-function gi() {
+function gitignore() {
     curl "http://www.gitignore.io/api/$@";
 }
 
