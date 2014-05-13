@@ -12,7 +12,9 @@ cask install vagrant
 cask install appcleaner
 cask install cheatsheet
 cask install growlnotify
+cask install sequel-pro
 cask install synergy
+cask install transmit
 cask install zeroxed
 
 cask install bitcasa
