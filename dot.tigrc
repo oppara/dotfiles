@@ -8,12 +8,12 @@ set vertical-split = no
 color cursor white black
 color id red default
 color author yellow default
-color date blue default
-color main-head green default
-color main-remote green default
-color main-tracked green default
-color main-tag green default
-color main-ref green default
+color date green default
+color main-head blue default
+color main-remote blue default
+color main-tracked blue default
+color main-tag blue default
+color main-ref blue default
 
 bind generic L !git reflog
 bind generic g move-first-line
