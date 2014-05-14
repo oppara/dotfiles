@@ -28,21 +28,22 @@ export HOMEBREW_CASK_OPTS="--appdir=/Applications --caskroom=/usr/local/Caskroom
 
 if which lv >/dev/null; then
     export PAGER=lv
-    export LV="-c -l"
+    export MANPAGER=lv
+    export LV="-c -Sh1;34 -Su1;4;32 -Ss7;37;1;33"
 else
     export PAGER=less
+    export MANPAGER="less -RX"
+    export LESS="--LONG-PROMPT --RAW-CONTROL-CHARS"
+    export LESSCHARSET=utf-8
+    export LESS_TERMCAP_mb=$'\E[01;31m'       # begin blinking
+    export LESS_TERMCAP_md=$'\E[01;38;5;74m'  # begin bold
+    export LESS_TERMCAP_me=$'\E[0m'           # end mode
+    export LESS_TERMCAP_se=$'\E[0m'           # end standout-mode
+    export LESS_TERMCAP_so=$'\E[38;5;246m'    # begin standout-mode - info box
+    export LESS_TERMCAP_ue=$'\E[0m'           # end underline
+    export LESS_TERMCAP_us=$'\E[04;38;5;146m' # begin underline
 fi
 
-export MANPAGER="less -RX"
-export LESS="--LONG-PROMPT --RAW-CONTROL-CHARS"
-export LESSCHARSET=utf-8
-export LESS_TERMCAP_mb=$'\E[01;31m'       # begin blinking
-export LESS_TERMCAP_md=$'\E[01;38;5;74m'  # begin bold
-export LESS_TERMCAP_me=$'\E[0m'           # end mode
-export LESS_TERMCAP_se=$'\E[0m'           # end standout-mode
-export LESS_TERMCAP_so=$'\E[38;5;246m'    # begin standout-mode - info box
-export LESS_TERMCAP_ue=$'\E[0m'           # end underline
-export LESS_TERMCAP_us=$'\E[04;38;5;146m' # begin underline
 
 export GREP_OPTIONS="--binary-files=without-match --color=auto"
 export GREP_COLOR="1;31"
