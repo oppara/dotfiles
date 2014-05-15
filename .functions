@@ -36,6 +36,11 @@ function alc() {
   fi
 }
 
+## mcd mkdir + cd #{{{1
+function mcd() {
+    [ -n "$1" ] && mkdir -p "$@" && cd "$1";
+}
+
 # cd to the path of the front Finder window #{{{1
 # http://blog.glidenote.com/blog/2013/02/26/jumping-to-the-finder-location-in-terminal/
 cdf() {
@@ -48,3 +53,4 @@ cdf() {
 }
 
 # vim: ft=sh fdm=marker
+#
