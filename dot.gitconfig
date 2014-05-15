@@ -33,6 +33,7 @@
     rs = remote -v show
     df = diff -b
     dc = diff -b --cached
+    ds = diff --stat
     dn = diff -b master --name-only
     cp = cherry-pick
     ; merge, rebase をもとに戻す
