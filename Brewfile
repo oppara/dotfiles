@@ -51,6 +51,7 @@ install mysql --enable-memcached --with-blackhole-storage-engine --with-archive-
 install postgresql
 
 install go
+install direnv
 install rbenv
 install ruby-build
 install plenv

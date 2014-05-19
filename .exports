@@ -63,4 +63,8 @@ if [ -d $golibexec ]; then
 fi
 unset golibexec
 
+if which direnv >/dev/null; then
+    eval "$(direnv hook zsh)"
+fi
+
 # vim: ft=sh fdm=marker
