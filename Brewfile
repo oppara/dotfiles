@@ -50,6 +50,7 @@ install homebrew/binary/jsl
 install mysql --enable-memcached --with-blackhole-storage-engine --with-archive-storage-engine mysql
 install postgresql
 
+install go
 install rbenv
 install ruby-build
 install plenv

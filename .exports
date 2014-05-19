@@ -53,4 +53,14 @@ export GIT_AUTHOR_EMAIL='oppara@oppara.tv'
 export GIT_COMMITTER_NAME='oppara'
 export GIT_COMMITTER_EMAIL='oppara@oppara.tv'
 
+
+## go
+golibexec="/usr/local/opt/go/libexec"
+if [ -d $golibexec ]; then
+    PATH="$PATH:${golibexec}/bin"
+    GOPATH="${HOME}/go"
+    GOROOT=$golibexec
+fi
+unset golibexec
+
 # vim: ft=sh fdm=marker
