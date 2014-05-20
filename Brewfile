@@ -52,6 +52,7 @@ install postgresql
 
 install go
 install direnv
+install oppara/homebrew/the_platinum_searcher
 install rbenv
 install ruby-build
 install plenv
