@@ -5,6 +5,9 @@ install phinze/cask/brew-cask
 tap caskroom/versions
 tap caskroom/fonts
 
+cask install alfred
+cask alfred link
+
 cask install launchrocket
 cask install virtualbox
 cask install vagrant
