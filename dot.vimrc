@@ -750,6 +750,12 @@ endfunction
 autocmd vimrc WinEnter * setlocal cursorline
 autocmd vimrc WinLeave * setlocal nocursorline
 
+" BufWinEnter, BufWinLeave  "{{{2
+
+" 状態の保存と復元
+autocmd vimrc BufWinLeave ?* if (bufname('%') != '') | silent mkview!  | endif
+autocmd vimrc BufWinEnter ?* if (bufname('%') != '') | silent loadview | endif
+
 " http://hail2u.net/blog/software/vim-auto-close-quickfix-window.html
 " Quickfixを自動で閉じる
 augroup vimrc QfAutoCommands

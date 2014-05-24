@@ -3,6 +3,7 @@ tags-ja
 cookies
 dot.vim/bundle/*
 dot.vim/doc/*
+dot.vim/view
 !.empty
 
 
