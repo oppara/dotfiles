@@ -302,8 +302,6 @@ set softtabstop=4
 set smarttab
 set autoindent
 set smartindent
-set cindent
-set cinkeys+=;
 
 
 " search  "{{{2
