@@ -19,4 +19,6 @@ bind generic L !git reflog
 bind generic g move-first-line
 bind generic G move-last-line
 
+bind main R !?git rebase -i %(commit)
+
 # vim: ft=sh
