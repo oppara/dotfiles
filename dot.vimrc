@@ -437,8 +437,15 @@ nnoremap gb `.zz
 " http://vim-users.jp/2011/04/hack214/
 onoremap ) t)
 onoremap ( t(
+onoremap ; t;
+onoremap < t<
+onoremap > t>
+onoremap [ t[
+onoremap ] t]
 vnoremap ) t)
 vnoremap ( t(
+vnoremap [ t[
+vnoremap ] t]
 
 
 " highlight ZenkakuSpace  "{{{2
