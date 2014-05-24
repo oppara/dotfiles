@@ -419,7 +419,7 @@ noremap <silent> sm :set number!<CR>
 " set pastetoggle=nv
 noremap sv :<C-u>call <SID>my_paste_toggle()<CR>
 function! s:my_paste_toggle()
-  execute ':set paste!'
+  execute ':setlocal paste!'
   if (&paste)
       echo 'paste'
   else
@@ -658,6 +658,11 @@ noremap <Leader>ri :%s/\s*$//g<cr>:noh<cr>''
 
 
 " Autocmd:  "{{{1
+
+" InsertLeave  "{{{2
+
+" 挿入モード解除時に自動でpasteをoff
+autocmd vimrc InsertLeave * setlocal nopaste
 
 " BufWritePre  "{{{2
 
