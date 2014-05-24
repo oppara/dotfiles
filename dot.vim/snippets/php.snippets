@@ -1,0 +1,273 @@
+snippet php
+	<?php
+
+	${1}
+
+snippet pp
+	<?php ${1} ?>
+snippet pe
+	<?php echo ${1}; ?>
+
+snippet aa
+	array(
+		${1},
+	);
+snippet dd
+	var_dump(${1});${2}
+snippet ve
+	var_export(${1});${2}
+snippet pr
+	print_r(${1});${2}
+
+snippet hd
+	<<<EOF
+	${1}
+	EOF;
+
+snippet in
+	include_once '${1:file}';${2}
+snippet re
+	require_once '${1:file}';${2}
+
+
+# class ...
+snippet cl
+	class ${1:ClassName} {
+		${2}
+	}
+# define(...)
+snippet def
+	define('${1}'${2});${3}
+# defined(...)
+snippet def?
+	${1}defined('${2}')${3}
+snippet wh
+	while (${1:/* condition */}) {
+		${2}
+	}
+# do ... while
+snippet do
+	do {
+		${2}
+	} while (${1:/* condition */});
+snippet if
+	if (${1:/* condition */}) {
+		${2}
+	}
+snippet ife
+	if (${1:/* condition */}) {
+		${2}
+	} else {
+		${3}
+	}
+	${4}
+snippet el
+	else {
+		${1}
+	}
+snippet elif
+	elseif (${1:/* condition */}) {
+		${2}
+	}
+# Tertiary conditional
+snippet ?:
+	$${1:retVal} = (${2:condition}) ? ${3:a} : ${4:b};${5}
+snippet sw
+	switch ($${1:variable}) {
+		case '${2:value}':
+			${3}
+			break;
+		default:
+			${4}
+			break;
+	}${5}
+snippet ca
+	case '${1:value}':
+		${2}
+		break;${3}
+snippet fo
+	for ($${2:i} = 0; $$2 < ${1:count}; $$2${3:++}) {
+		${4}
+	}
+snippet fe
+	foreach (${1:variable} as $${2:key}${3}) {
+		${4}
+	}
+
+snippet pub
+	public function ${1:FunctionName}(${2})
+	{
+		${3}
+	}
+snippet pro
+	protected function ${1:FunctionName}(${2})
+	{
+		${3}
+	}
+snippet pri
+	private function ${1:FunctionName}(${2})
+	{
+		${3}
+	}
+snippet fn
+	function ${1:FunctionName}(${2})
+	{
+		${3}
+	}
+
+snippet tr
+	try {
+		${1}
+	} catch (${2:Exception} $e) {
+		${3}
+	}
+snippet th
+	throw new ${1:Exception}(${2});
+
+# cakephp
+snippet cc
+	class ${1:ClassName}Controller extends AppController {
+		var $name = '$1';
+		var $helpers = array();
+		var $components = array();
+		${2}
+	}
+snippet cm
+	class ${1:ClassName} extends AppModel {
+		var $name = '$1';
+		${2}
+	}
+snippet _
+	__(${1}, true)${2}
+snippet __
+	__(${1})${2}
+snippet ld
+	$this->log(${1}, LOG_DEBUG);${2}
+snippet le
+	$this->log(${1}, LOG_ERROR);${2}
+snippet de #2
+	debug(${1});${2}
+
+snippet te
+	/**
+	 * @test
+	 */
+	public function ${1:FunctionName}()
+	{
+		${2}
+	}
+
+# assertion
+snippet ahk
+	$this->assertArrayHasKey(${1:$key}, ${2:$array}${3});${4}
+snippet anhk
+	$this->assertNotArrayHasKey(${1:$key}, ${2:$array}${3});${4}
+
+snippet acha
+	$this->assertClassHasAttribute(${1:$name}, ${2:$class_name}${3});${4}
+snippet ancha
+	$this->assertNotClassHasAttribute(${1:$name}, ${2:$class_name}${3});${4}
+
+snippet achsa
+	$this->assertClassHasStaticAttribute(${1:$name}, ${2:$class_name}${3});${4}
+snippet anchsa
+	$this->assertNotClassHasStaticAttribute(${1:$name}, ${2:$class_name}${3});${4}
+
+snippet aco
+	$this->assertContains(${1:$needle}, ${2:$hystack}${3});${4}
+snippet anco
+	$this->assertNotContains(${1:$needle}, ${2:$hystack}${3});${4}
+
+snippet acnt
+	$this->assertCount(${1:$count}, ${2:$hystack}${3});${4}
+snippet ancnt
+	$this->assertNotCount(${1:$count}, ${2:$hystack}${3});${4}
+
+snippet aem
+	$this->assertEmpty(${1:$count}${2});${3}
+snippet anem
+	$this->assertNotEmpty(${1:$count}${2});${3}
+
+snippet aeq
+	$this->assertEquals(${1:$expected}, ${2:$actual}${3});${4}
+snippet aneq
+	$this->assertNotEquals(${1:$expected}, ${2:$actual}${3});${4}
+
+snippet at
+	$this->assertTrue(${1:true}${2});${3}
+snippet af
+	$this->assertFalse(${1:false}${2});${3}
+
+snippet afe
+	$this->assertFileExists(${1:$path}${2});${3}
+snippet anfe
+	$this->assertFileExists(${1:$path}${2});${3}
+
+snippet anull
+	$this->assertNull(${1},${2});${3}
+snippet annull
+	$this->assertNotNull(${1},${2});${3}
+
+snippet areg
+	$this->assertRegExp(${1:$pattern}, ${2:$string});${3}
+snippet anreg
+	$this->assertNotRegExp(${1:$pattern}, ${2:$string});${3}
+
+snippet ai
+	$this->assertIdentical(${1:$results}, ${2:$expected});${3}
+snippet ani
+	$this->assertNotIdentical(${1:$results}, ${2:$expected});${3}
+snippet aia
+	$this->assertIsA(${1}, ${2});${3}
+snippet ana
+	$this->assertNotA(${1}, ${2});${3}
+snippet awm
+	$this->assertWithinMargin(${1}, ${2}, ${3});${4}
+snippet aom
+	$this->assertOutsideMargin(${1}, ${2}, ${3});${4}
+snippet ee
+	$this->expectError(${1});${2}
+snippet as
+	$this->assert(${1});${2}
+snippet atag
+	$this->assertTags(${1}, ${2}, true);${3}
+
+snippet simple
+	require_once 'simpletest/autorun.php';
+	// require_once 'simpletest/mock_objects.php';
+	require_once dirname(__FILE__) . '/';
+
+	class ${1:ClassName}Test extends UnitTestCase {
+
+		function $1Test() {
+			$this->UnitTestCase('$1Test');
+		}
+
+		function setUp() {
+		}
+
+		function tearDown() {
+		}
+
+		function testSomething() {
+			$this->fail();
+		}
+	}
+
+# phpunit
+snippet pu
+	class ${1:ClassName}Test extends PHPUnit_Framework_TestCase {
+
+		function setUp()
+		{
+		}
+
+		function tearDown()
+		{
+		}
+
+		function testSomething()
+		{
+			$this->fail();
+		}
+	}

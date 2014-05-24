@@ -1,0 +1,37 @@
+snippet link
+	[${1:link_id}][]${2}
+
+snippet linkid
+	[${1:link}][${2:id}]${3}
+snippet linkurl
+	[${1:link}](http://${2:url})${3}
+snippet linkemail
+	[${1:link}](mailto:${2:email})${3}
+snippet linkurltitle
+	[${1:link}](${2:url} "${3:title}")${4}
+
+snippet idurl
+	[${1:id}]: http://${2:url} "${3:title}"
+snippet idemail
+	[${1:id}]: mailto:${2:url} "${3:title}"
+
+snippet altid
+	![${1:alt}][${2:id}]${3}
+snippet alturl
+	![${1:alt}](${2:url})${3}
+snippet alturltitle
+	![${1:alt}](${2:url} "${3:title}")${4}
+
+snippet emphasis1
+	*${1}*${2}
+snippet emphasis2
+	_${1}_${2}
+
+snippet strong1
+	**${1}**${2}
+
+snippet strong2
+	__${1}__${2}
+
+snippet code
+	`${1}`${2}

@@ -1,0 +1,189 @@
+snippet us
+	'use strict';
+# prototype
+snippet pt
+	${1:obj}.prototype.${2:method} = function(${3:args}) {
+	  ${4}
+	};
+# function
+snippet fn function
+	function ${1:funcName}(${2:args}) {
+	  ${3}
+	}
+snippet vf var hoge = function
+	var ${1:funcName} = function(${2:args}) {
+	  ${3}
+	};
+snippet pf Object method
+	${1:methodName}: function(${2:args}) {
+	  ${4}
+	}${3}
+snippet ff Object method
+	function(${1:args}) {${2}}
+# if
+snippet if
+	if (${1:true}) {
+		${2}
+	}
+snippet el
+	else {
+		${1}
+	}
+# if ... else
+snippet ife
+	if (${1:true}) {
+		${2}
+	} else {
+		${3}
+	}
+# tertiary conditional
+snippet ?:
+	${1:/* condition */} ? ${2:a} : ${3:b}
+
+snippet tr
+	try {
+		${1}
+	} catch (e) {
+		${2}
+	}
+snippet th
+	throw ${1:Exception};
+# switch
+snippet sw
+	switch(${1:expression}) {
+		case '${2:case}':
+		${3:// code}
+		break;
+		default:
+		${4:// code}
+		break;
+	}
+# case
+snippet case
+	case '${1:case}':
+		${2:// code}
+		break;
+# for (...) {...}
+snippet fo
+	for (var ${1:i} = 0; $1 < ${2:len}; $1${3:++}) {
+		${4}
+	}
+snippet fi
+	for (var ${1:prop} in ${2:obj}) {
+		${3}
+	}
+# for (...) {...} (Improved Native For-Loop)
+snippet forr
+	for (var ${2:i} = ${1:Things}.length - 1; $2 >= 0; $2${3:--}) {
+		${4}
+	}
+# setTimeout function
+snippet tm
+	setTimeout(function(){
+		${1}
+	}, ${2:300};
+# Get Elements
+snippet gt
+	getElementsByTagName('${1}')${2}
+# Get Element
+snippet gi
+	getElementById('${1}')${2}
+# debug
+snippet dd
+	alert(${1});${2}
+# firebug
+snippet cl
+	console.log(${1});${2}
+snippet ci
+	console.info(${1});${2}
+snippet cw
+	console.warn(${1});${2}
+snippet ce
+	console.error(${1});${2}
+snippet ct
+	console.trace(${1});${2}
+snippet ca
+	console.assert(${1});${2}
+#
+# jQuery
+#
+snippet dr
+	$(function(){
+		${1}
+	});
+#	$(document).ready(function() {
+#		${1}
+#	});
+snippet jq
+	(function($) {
+		${1}
+	})(jQuery);
+snippet ano
+	(function() {
+		${1}
+	})();
+snippet ea
+	each(${1:list}, function(${2}) {
+		${3}
+	});
+snippet ex
+	extend({
+		${1}
+	});
+# qunit
+snippet test
+	test('${1}', function() {
+		ok(true);
+		${2}
+	});
+## Backbone
+snippet ini
+	initialize: function(${1:options}) {
+		${2}
+	}
+snippet bc
+	var ${1:ClassName} = Backbone.Collection.extend({
+		model: ${2:model}
+	});
+snippet bm
+	var ${1:ClassName} = Backbone.Model.extend({
+	});
+snippet bv
+	var ${1:ClassName} = Backbone.View.extend({
+		events: {}
+	});
+snippet br
+	var ${1:ClassName} = Backbone.Router.extend({
+		routes: {}
+	});
+snippet be
+	var ${1:ClassName} = _.extend({
+	}, Backbone.Events);
+# qunit
+snippet qm
+	module('${1}', {
+		setup: function() {
+		},
+		teardown: function() {
+		}
+	});
+snippet qt
+	test('${1}', function() {
+		${2}
+	});
+snippet qok
+	ok(${1}${2});
+snippet qe
+	equal(${1}, ${2}${3});
+snippet qne
+	notEqual(${1}, ${2}${3});
+snippet qde
+	deepEqual(${1}, ${2}${3});
+snippet qnde
+	notDeepEqual(${1}, ${2}${3});
+snippet qse
+	strictEqual(${1}, ${2}${3});
+snippet qnse
+	notStrictEqual(${1}, ${2}${3});
+snippet qth
+	throws(${1}${2});
