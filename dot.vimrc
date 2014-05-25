@@ -107,9 +107,14 @@ unlet s:bundle
 NeoBundleLazy 'https://github.com/oppara/sql_iabbr.vim', {
 \   'autoload' : { 'filetypes' : ['sql'] }
 \}
-NeoBundleLazy 'https://github.com/tpope/vim-markdown', {
-\   'autoload' : { 'filetypes' : ['markdown'] }
-\}
+
+" markdown
+NeoBundle 'https://github.com/rcmdnk/vim-markdown'
+NeoBundleLazy 'https://github.com/kannokanno/previm', {
+  \ 'depends': ['tryu/open-browser.vim'],
+  \'autoload': {'commands' : ['PrevimOpen']}
+  \}
+
 
 " php
 NeoBundle 'https://github.com/oppara/phpstylist.vim'
@@ -1264,6 +1269,12 @@ endfunction
 unlet s:bundle
 
 
+" previm  "{{{2
+let s:bundle = neobundle#get('previm')
+function! s:bundle.hooks.on_source(bundle)
+  let g:previm_open_cmd = "open"
+endfunction
+unlet s:bundle
 
 
 " eregex  "{{{2
