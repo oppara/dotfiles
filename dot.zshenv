@@ -12,7 +12,7 @@ autoload -Uz colors
 colors
 
 PROMPT="
-%{[33m%}[%~]%{[m%}
+%{[33m%}%~%{[m%} \$(get_vsc_info)
 %% "
 RPROMPT=''
 SPROMPT="correct: %R -> %r ? "
@@ -33,11 +33,11 @@ zstyle ':vcs_info:*' formats '[%s-%b]'
 zstyle ':vcs_info:svn:*' formats '[%b]'
 zstyle ':vcs_info:*' actionformats '[%s-%b|%a]'
 zstyle ':vcs_info:svn:*' actionformats '[%b|%a]'
-zstyle ':vcs_info:(svn|bzr):*' branchformat '%b:r%r'
+zstyle ':vcs_info:(svn|bzr):*' branchformat '%b: r%r'
 zstyle ':vcs_info:bzr:*' use-simple true
 
 function get_vsc_info {
-  local name st color gitdir action
+  local name mes color uc us ut st git_state
   if [[ "$PWD" =~ '/¥.git(/.*)?$' ]]; then
     return
   fi
@@ -48,20 +48,41 @@ function get_vsc_info {
     LANG=en_US.UTF-8 vcs_info
     [[ -n "$vcs_info_msg_0_" ]] && psvar[1]="$vcs_info_msg_0_"
     # echo "%1(v|%F{green}%1v%f|)"
-    echo "%{${fg[green]}%}$vcs_info_msg_0_%{$reset_color%}"
+    echo "%{${fg[blue]}%}$vcs_info_msg_0_%{$reset_color%}"
     return
   fi
 
+  # Check for uncommitted changes in the index
+  if ! $(git diff --quiet --ignore-submodules --cached); then
+      uc="+"
+  fi
 
-  gitdir=`git rev-parse --git-dir 2> /dev/null`
-  action=`VCS_INFO_git_getaction "$gitdir"` && action="($action)"
+  # Check for unstaged changes
+  if ! $(git diff-files --quiet --ignore-submodules --); then
+      us="!"
+  fi
 
-  st=`git status 2> /dev/null`
-  if [[ -n `echo "$st" | grep "^nothing to"` ]]; then
+  # Check for untracked files
+  if [ -n "$(git ls-files --others --exclude-standard)" ]; then
+      ut="?"
+  fi
+
+  # Check for stashed files
+  if $(git rev-parse --verify refs/stash &>/dev/null); then
+      st="$"
+  fi
+
+  git_state=$uc$us$ut$st
+  if [[ -n $git_state ]]; then
+      git_state=" $git_state "
+  fi
+
+  mes=$(git status 2> /dev/null)
+  if [[ -n `echo "$mes" | grep "^nothing to"` ]]; then
     color=${fg[green]}
-  elif [[ -n `echo "$st" | grep "^nothing added"` ]]; then
+  elif [[ -n `echo "$mes" | grep "^nothing added"` ]]; then
     color=${fg[yellow]}
-  elif [[ -n `echo "$st" | grep "^# Untracked"` ]]; then
+  elif [[ -n `echo "$mes" | grep "^# Untracked"` ]]; then
     color=${fg[red]}
   else
     color=${fg[red]}
@@ -69,11 +90,11 @@ function get_vsc_info {
 
   # %{...%} は囲まれた文字列がエスケープシーケンスであることを明示する
   # これをしないと右プロンプトの位置がずれる
-  echo "(%{$color%}$name%{$reset_color%})"
+  echo " %{$color%}($name$git_state)%{$reset_color%}"
 }
 
 update_rprompt () {
-  RPROMPT=`get_vsc_info`
+  # RPROMPT=$(get_vsc_info)
 }
 
 precmd() {
