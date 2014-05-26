@@ -673,9 +673,6 @@ noremap <Leader>ri :%s/\s*$//g<cr>:noh<cr>''
 
 " InsertLeave  "{{{2
 
-" 挿入モード解除時に自動でpasteをoff
-autocmd vimrc InsertLeave * setlocal nopaste
-
 " BufWritePre  "{{{2
 
 " 保存時に行末の空白を除去する
