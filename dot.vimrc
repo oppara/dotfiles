@@ -9,10 +9,6 @@ let s:is_win      = has('win32') || has('win64')
 let s:tidy_cmd    = ''
 let s:dropbox_dir     = expand ('~/Dropbox')
 
-augroup vimrc
-  autocmd!
-augroup END
-
 
 " global vars  "{{{2
 
@@ -55,9 +51,12 @@ NeoBundle 'https://github.com/Shougo/vimproc', {
   \ },
 \ }
 
-NeoBundle 'https://github.com/Shougo/unite.vim'
-NeoBundle 'https://github.com/tsukkee/unite-help'
-NeoBundle 'https://github.com/h1mesuke/unite-outline'
+NeoBundleLazy 'Shougo/unite.vim', { 'autoload' : {
+  \ 'insert' : '1',
+  \ 'commands' : [{ 'name' : 'Unite', 'complete' : 'customlist,unite#complete_source'}],
+  \ 'function_prefix' : 'unite' }}
+NeoBundleLazy 'Shougo/unite-help', { 'autoload' : { 'unite_sources' : ['help'] } }
+NeoBundleLazy 'Shougo/unite-outline', { 'autoload' : { 'unite_sources' : ['outline'] } }
 
 NeoBundle 'https://github.com/kana/vim-textobj-user'
 NeoBundle 'https://github.com/kana/vim-textobj-jabraces'
@@ -87,7 +86,10 @@ NeoBundle 'https://github.com/vim-scripts/sudo.vim'
 NeoBundle 'https://github.com/vim-scripts/matchit.zip'
 NeoBundle 'https://github.com/vim-scripts/ZoomWin'
 NeoBundle 'https://github.com/vim-scripts/MatchTag.git'
-NeoBundle 'https://github.com/tyru/open-browser.vim'
+
+NeoBundleLazy 'https://github.com/tyru/open-browser.vim', {
+      \'autoload' : { 'mappings'  : ['<Plug>(openbrowser-smart-search)', '<Plug>(openbrowser-open)'],
+      \'function_prefix' : 'openbrowser' } }
 
 NeoBundle 'https://github.com/oppara/hatena-vim'
 NeoBundle 'https://github.com/oppara/taglist.vim'
@@ -96,20 +98,13 @@ NeoBundle 'https://github.com/oppara/snipmate.vim'
 NeoBundle 'https://github.com/Yggdroot/indentLine'
 
 NeoBundle 'https://github.com/rhysd/migemo-search.vim'
-let s:bundle = neobundle#get('migemo-search.vim')
-function! s:bundle.hooks.on_source(bundle)
-  if executable('cmigemo')
-    cnoremap <expr><CR> migemosearch#replace_search_word()."\<CR>"
-  endif
-endfunction
-unlet s:bundle
 
 NeoBundleLazy 'https://github.com/oppara/sql_iabbr.vim', {
 \   'autoload' : { 'filetypes' : ['sql'] }
 \}
 
 " markdown
-NeoBundle 'https://github.com/rcmdnk/vim-markdown'
+NeoBundle 'https://github.com/plasticboy/vim-markdown'
 NeoBundleLazy 'https://github.com/kannokanno/previm', {
   \ 'depends': ['tryu/open-browser.vim'],
   \'autoload': {'commands' : ['PrevimOpen']}
@@ -117,10 +112,16 @@ NeoBundleLazy 'https://github.com/kannokanno/previm', {
 
 
 " php
-NeoBundle 'https://github.com/oppara/phpstylist.vim'
-NeoBundle 'https://github.com/oppara/PDV--phpDocumentor-for-Vim'
+NeoBundleLazy 'https://github.com/oppara/phpstylist.vim', {
+      \'autoload' : { 'filetypes' : ['php'] }
+      \}
+NeoBundleLazy 'https://github.com/oppara/PDV--phpDocumentor-for-Vim', {
+      \'autoload' : { 'filetypes' : ['php'] }
+      \}
 " http://www.karakaram.com/vim/phpunit-location-list/
-NeoBundle 'https://github.com/karakaram/vim-quickrun-phpunit'
+NeoBundleLazy 'https://github.com/karakaram/vim-quickrun-phpunit', {
+      \'autoload' : { 'filetypes' : ['php'] }
+      \}
 " NeoBundle 'https://github.com/vim-scripts/phpfolding.vim.git'
 
 " html
@@ -265,24 +266,26 @@ set fileformats=unix,dos,mac
 
 " highlight  "{{{2
 
-augroup vimrc
+augroup vimrc-color
+  autocmd!
   autocmd ColorScheme * call s:onColorScheme()
   autocmd VimEnter,WinEnter * call matchadd('ZenkakuSpace', '　')
+
+  function! s:onColorScheme()
+    if !exists('g:colors_name')
+      return
+    endif
+
+    highlight ZenkakuSpace ctermbg=Red ctermfg=Red guibg=Red
+
+    if g:colors_name !~? '^wombat'
+      highlight Pmenu ctermbg=black
+      highlight PmenuSel ctermfg=black ctermbg=white
+      highlight PmenuSbar ctermbg=0
+    endif
+  endfunction
 augroup END
 
-function! s:onColorScheme()
-  if !exists('g:colors_name')
-    return
-  endif
-
-  highlight ZenkakuSpace ctermbg=Red ctermfg=Red guibg=Red
-
-  if g:colors_name !~? '^wombat'
-    highlight Pmenu ctermbg=black
-    highlight PmenuSel ctermfg=black ctermbg=white
-    highlight PmenuSbar ctermbg=0
-  endif
-endfunction
 
 
 " colorscheme  "{{{2
@@ -674,147 +677,227 @@ noremap <Leader>ri :%s/\s*$//g<cr>:noh<cr>''
 
 " Autocmd:  "{{{1
 
-" InsertLeave  "{{{2
+augroup vimrc-rtrim  "{{{2
+  autocmd!
+  " 保存時に行末の空白を除去する
+  autocmd BufWritePre * call s:rtrim()
 
-" BufWritePre  "{{{2
+  function! s:rtrim()
+    let s:cursor = getpos(".")
+    if &filetype == "markdown"
+      %s/\s\+\(\s\{2}\)$/\1/e
+      call s:set_markdown_trailing_space_highlight()
+    else
+      %s/\s\+$//e
+    endif
+    call setpos(".", s:cursor)
+  endfunction
 
-" 保存時に行末の空白を除去する
-autocmd vimrc BufWritePre * call <SID>RTrim()
-function! s:RTrim()
-  let s:cursor = getpos(".")
-  if &filetype == "markdown"
-    %s/\s\+\(\s\{2}\)$/\1/e
-    call <SID>setMarkdownTrailingSpaceHighlight()
-  else
-    %s/\s\+$//e
-  endif
-  call setpos(".", s:cursor)
-endfunction
-
-function! s:setMarkdownTrailingSpaceHighlight()
+  function! s:set_markdown_trailing_space_highlight()
     match Underlined /\s\{2}$/
-    highlight Underlined ctermbg=none ctermfg=red guibg=none guifg=red
-endfunction
+    highlight Underlined ctermbg=black ctermfg=red guibg=black guifg=red
+  endfunction
+augroup END
+
+augroup vimrc-avoid-jis  "{{{2
+  autocmd!
+  " 日本語を含まない場合にJISと解釈されるのを防ぐ  "{{{3
+  autocmd BufReadPost *
+        \   if &modifiable && !search('[^\x00-\x7F]', 'cnw') && &filetype != 'svn'
+        \ |   setlocal fileencoding=
+        \ | endif
+augroup END
 
 
-" BufReadPost  "{{{2
-
-" 日本語を含まない場合にJISと解釈されるのを防ぐ  "{{{3
-
-autocmd vimrc BufReadPost *
-      \   if &modifiable && !search('[^\x00-\x7F]', 'cnw') && &filetype != 'svn'
-      \ |   setlocal fileencoding=
-      \ | endif
-
-
-"Restore cursor to file position in previous editing session  "{{{3
-
-autocmd vimrc BufReadPost
-  \ * if line("'\"") && line("'\"") <= line('$')
-  \ |   execute 'normal! g`"'
-  \ | endif
-
-
-" BufEnter  "{{{2
-
-"編集中のファイル名を screen のタイトルに表示する  "{{{3
-
+"編集中のファイル名を screen のタイトルに表示する  "{{{2
 if &term =~ "screen"
   " if &term !~ "xterm-color"
-  autocmd vimrc BufEnter *
-    \ if bufname("") !~ "^\[A-Za-z0-9\]*://" && bufname("") !~ "^["
-    \ | silent! exe '!echo -n "k[`basename %`]\\"'
-    \ | endif
-  autocmd vimrc VimLeave *
-    \ silent! exe '!echo -n "k`dirs`\\"'
+  augroup vimrc-screen
+    autocmd!
+    autocmd BufEnter *
+          \ if bufname("") !~ "^\[A-Za-z0-9\]*://" && bufname("") !~ "^["
+          \ | silent! exe '!echo -n "k[`basename %`]\\"'
+          \ | endif
+    autocmd VimLeave *
+          \ silent! exe '!echo -n "k`dirs`\\"'
+  augroup END
 end
 
-" 現在編集中のバッファのディレクトリに移動する  "{{{3
-
-autocmd vimrc BufEnter * execute ":lcd " . expand("%:p:h")
-
-
-" SetUTF8xattr "{{{2
-
-" http://d.hatena.ne.jp/uasi/20110523/1306079612
-autocmd vimrc BufWritePost * call SetUTF8Xattr(expand("<afile>"))
-function! SetUTF8Xattr(file)
-  let isutf8 = &fileencoding == "utf-8" || ( &fileencoding == "" && &encoding == "utf-8")
-  if has("macunix") && isutf8
-    call system("xattr -w com.apple.TextEncoding 'utf-8;134217984' '" . a:file . "'")
-  endif
-endfunction
-
-
-" WinEnter, WinLeave  "{{{2
-
-autocmd vimrc WinEnter * setlocal cursorline
-autocmd vimrc WinLeave * setlocal nocursorline
-
-" BufWritePost, BufRead  "{{{2
-
-" 状態の保存と復元
-" http://vim-users.jp/2009/10/hack84/
-augroup vimrc-view
+augroup vimrc-view  "{{{2
   autocmd!
-  autocmd BufLeave * if expand('%') !=# '' && &buftype ==# ''
-  \                |   mkview
-  \                | endif
+  " 状態の保存と復元
+  " http://vim-users.jp/2009/10/hack84/
+  autocmd BufLeave * if expand('%') !=# '' && &buftype ==# '' | mkview | endif
   autocmd BufReadPost * if !exists('b:view_loaded') &&
-  \                         expand('%') !=# '' && &buftype ==# ''
-  \                   |   silent! loadview
-  \                   |   let b:view_loaded = 1
-  \                   | endif
-  autocmd VimLeave * call map(split(glob(&viewdir . '/*'), "\n"),
-  \                           'delete(v:val)')
+        \  expand('%') !=# '' && &buftype ==# ''
+        \  | silent! loadview
+        \  | let b:view_loaded = 1
+        \  | endif
+  autocmd VimLeave * call map(split(glob(&viewdir . '/*'), "\n"), 'delete(v:val)')
+
 augroup END
 
-" http://hail2u.net/blog/software/vim-auto-close-quickfix-window.html
-" Quickfixを自動で閉じる
-augroup vimrc QfAutoCommands
-  " Auto-close quickfix window
+augroup vimrc-quicklook-fix  "{{{2
+  autocmd!
+  " http://d.hatena.ne.jp/uasi/20110523/1306079612
+  autocmd BufWritePost * call s:set_utf8_xattr(expand("<afile>"))
+
+  function! s:set_utf8_xattr(file)
+    let isutf8 = &fileencoding == "utf-8" || ( &fileencoding == "" && &encoding == "utf-8")
+    if s:is_mac && isutf8
+      call system("xattr -w com.apple.TextEncoding 'utf-8;134217984' '" . a:file . "'")
+    endif
+  endfunction
+augroup END
+
+augroup vimrc-cursorline  "{{{2
+  autocmd!
+  autocmd VimEnter * setlocal cursorline
+  autocmd WinEnter * setlocal cursorline
+  autocmd WinLeave * setlocal nocursorline
+augroup END
+
+augroup vimrc-lcd  "{{{2
+  autocmd!
+  " 現在編集中のバッファのディレクトリに移動する  "{{{3
+  autocmd BufReadPre,BufFilePre * unlet! b:lcd
+  autocmd BufReadPost,BufFilePost,BufEnter * call s:lcd()
+
+  function! s:lcd()
+    if &l:buftype !=# '' && &l:buftype !=# 'help' ||
+    \   0 <= index(['unite', 'vimfiler'], &l:filetype)
+      unlet! b:lcd
+      return
+    endif
+
+    if exists('b:lcd') &&
+    \  (b:lcd ==# '' || getcwd() =~# '^\V' . escape(b:lcd, '\') . '\$')
+      return
+    endif
+
+    let path = s:lcd_path()
+    if isdirectory(path)
+      lcd `=path`
+      let b:lcd = getcwd()
+    endif
+  endfunction
+
+  function! s:lcd_path()
+    let path = ''
+    let simple = expand('%:p:h')
+
+    if &l:buftype ==# 'help'
+      return simple
+    endif
+
+    let tf = tagfiles()
+    if !empty(tf)
+      let tagdir = fnamemodify(tf[0], ':p:h')
+      if tagdir !=# '' && simple[ : len(tagdir) - 1] ==# tagdir
+        return tagdir
+      endif
+    endif
+
+    let base = substitute(expand('%:p'), '\\', '/', 'g')
+    for dir in ['src', 'include']
+      let pat = '/' . dir . '/'
+      if base =~# pat
+        let path = base[: strridx(base, pat) + len(dir)]
+      endif
+    endfor
+    if path !=# ''
+      return path
+    endif
+
+    let base = simple
+    let dirs = ['.svn', '.git', '.bzr', '.hg']
+    if &l:filetype =~# '^\%(vim\|help\)$'
+      call add(dirs, 'doc')
+    endif
+    for d in dirs
+      let d = finddir(d, escape(base, ' ?*[]();') . ';')
+      if d !=# ''
+        let p = fnamemodify(d, ':p:h:h')
+        if strlen(path) < strlen(p)
+          let path = p
+        endif
+      endif
+    endfor
+    if path !=# ''
+      return path
+    endif
+
+    return simple
+  endfunction
+augroup END
+
+augroup vimrc-quickfix  "{{{2
+  autocmd!
+  " Quickfixを自動で閉じる
+  " http://hail2u.net/blog/software/vim-auto-close-quickfix-window.html
   autocmd WinEnter * if (winnr('$') == 1) && (getbufvar(winbufnr(0), '&buftype')) == 'quickfix' | quit | endif
+
+  " Quickfixを自動で開く
+  " http://www.sopht.jp/blog/index.php?/archives/458-Quickfix-utility-for-Vim.html
+  autocmd QuickFixCmdPost [^l]* cwindow
+  autocmd QuickFixCmdPost l* lwindow
+
+  autocmd QuickfixCmdPost grep,grepadd,vimgrep copen
+  autocmd QuickfixCmdPost make call s:do_post_quickfix_cmd()
+
+  function! s:do_post_quickfix_cmd()
+    if len(getqflist()) > 0
+      cw
+    else
+      cclose
+    endif
+  endfunction
 augroup END
 
+augroup vimrc-misc  "{{{2
+  autocmd!
+  " 最後に編集した位置へカーソルを移動
+  autocmd BufReadPost
+        \ * if line("'\"") && line("'\"") <= line('$')
+        \ |   execute 'normal! g`"'
+        \ | endif
 
-" QuickfixCmdPost  "{{{2
+  " 辞書設定
+  autocmd FileType
+        \ * if filereadable(expand('~/.vim/dict/' . &l:filetype . '.dict'))
+        \ |   let &l:dict = '~/.vim/dict/' . &l:filetype . '.dict'
+        \ | endif
 
-" http://www.sopht.jp/blog/index.php?/archives/458-Quickfix-utility-for-Vim.html
-augroup vimrcQuicFixExtend
-    autocmd!
-    " Open the quickfix window automatically
-    autocmd QuickFixCmdPost [^l]* cwindow
-    autocmd QuickFixCmdPost l* lwindow
+  " ファイルタイプ再設定
+  autocmd BufWritePost
+        \ * if &l:filetype ==# '' || exists('b:ftdetect')
+        \ |   unlet! b:ftdetect
+        \ |   filetype detect
+        \ | endif
 augroup END
-
-" autocmd QuickfixCmdPost make,grep,grepadd,vimgrep copen
-autocmd vimrc QuickfixCmdPost grep,grepadd,vimgrep copen
-autocmd vimrc QuickfixCmdPost make call <SID>PostQuickfixCmd()
-
-function! s:PostQuickfixCmd()
-  if len(getqflist()) > 0
-    cw
-  else
-    cclose
-  endif
-endfunction
-
 
 
 
 " FileType:  "{{{1
 
-autocmd vimrc FileType * setlocal complete=.,w,b,u,t
-autocmd vimrc FileType * let s:tidy_cmd = ''
-autocmd vimrc FileType * inoremap <buffer> >  >
+augroup vimrc-ft
+  autocmd!
+  autocmd FileType * setlocal complete=.,w,b,u,t
+  autocmd FileType * let s:tidy_cmd = ''
+  autocmd FileType * inoremap <buffer> >  >
 
-" http://vim-users.jp/2009/11/hack96/
-autocmd vimrc FileType *
-      \  if &l:omnifunc == ''
-      \|   setlocal omnifunc=syntaxcomplete#Complete
-      \| endif
+  " http://vim-users.jp/2009/11/hack96/
+  autocmd FileType *
+        \  if &l:omnifunc == ''
+        \|   setlocal omnifunc=syntaxcomplete#Complete
+        \| endif
 
-autocmd vimrc BufRead,BufNew *snip :setlocal filetype=snippet
+augroup END
+
+augroup vimrc-ft-snippet  "{{{2
+  autocmd!
+  autocmd BufRead,BufNew *snip :setlocal filetype=snippet
+augroup END
 
 " git.vim  "{{{2
 " https://github.com/tpope/vim-git/blob/master/ftplugin/git.vim
@@ -822,30 +905,22 @@ autocmd vimrc BufRead,BufNew *snip :setlocal filetype=snippet
 " autocmd AfterPlugin BufRead *.git/COMMIT_EDITMSG DiffGitCached -p | wincmd L
 " autocmd vimrc BufRead *.git/COMMIT_EDITMSG DiffGitCached -p | only | split | b 1
 
-" gitrebase  "{{{2
-" http://sssslide.com/speakerdeck.com/rhysd/do-you-know-about-vim-runtime-files
-
-augroup vimrcGitrebaseExtend
+augroup vimrc-ft-gitrebase  "{{{2
   autocmd!
+  " http://sssslide.com/speakerdeck.com/rhysd/do-you-know-about-vim-runtime-files
   autocmd FileType gitrebase nnoremap <buffer>s :<C-u>Squash<CR>
   autocmd FileType gitrebase nnoremap <buffer>f :<C-u>Fixup<CR>
   autocmd FileType gitrebase nnoremap <buffer>r :<C-u>Reword<CR>
 augroup END
 
-
-" vim  "{{{2
-
-augroup vimrcVimExtend
+augroup vimrc-ft-vim  "{{{2
   autocmd!
   autocmd FileType vim setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
         \| nnoremap <leader>sv :source %<CR>
         \| setlocal keywordprg=:help
 augroup END
 
-
-" perl  "{{{2
-
-augroup vimrcPerlExtend
+augroup vimrc-ft-perl  "{{{2
   autocmd!
   autocmd FileType perl setlocal expandtab softtabstop=4 shiftwidth=4
   autocmd FileType perl let s:tidy_cmd = "perltidy -q -st"
@@ -854,30 +929,23 @@ augroup vimrcPerlExtend
 " autocmd FileType perl setlocal complete-=i | setlocal complete+=k~/.vim/dict/perl_functions.dict
 augroup END
 
-
-" ruby  "{{{2
-
-augroup vimrcRubyExtend
+augroup vimrc-ft-ruby  "{{{2
   autocmd!
   autocmd FileType ruby setlocal expandtab softtabstop=2 shiftwidth=2
  " autocmd FileType ruby setlocal complete+=k~/.vim/dict/ruby.dict
 augroup END
 
+augroup vimrc-ft-php  "{{{2
+  autocmd!
+  autocmd FileType php call s:set_php4_syntax_check()
 
-" php  "{{{2
-
-augroup vimrcPhpExtend
-
-  function! s:SetPhp4SyntaxCheck()
+  function! s:set_php4_syntax_check()
     let l:version =  system('php -v|xargs|cut -d " " -f 2|cut -d "." -f 1')
     if l:version == 4
       compiler php
       autocmd BufWritePost * silent make % | redraw!
     endif
   endfunction
-
-  autocmd!
-  autocmd FileType php call <SID>SetPhp4SyntaxCheck()
 
   " cakephp template
   autocmd BufRead,BufNew *thtml :setlocal filetype=php
@@ -917,10 +985,7 @@ augroup vimrcPhpExtend
   autocmd FileType php inoremap <buffer>a( array(
 augroup END
 
-
-" python  "{{{2
-
-augroup vimrcPythonExtend
+augroup vimrc-ft-python  "{{{2
   autocmd!
   autocmd FileType python setlocal expandtab softtabstop=2 shiftwidth=2
         \| setlocal omnifunc=pythoncomplete#Complete
@@ -929,10 +994,7 @@ augroup vimrcPythonExtend
         \| let python_highlight_space_errors=1
 augroup ED
 
-
-" javascript  "{{{2
-
-augroup vimrcJavascriptExtend
+augroup vimrc-ft-javascript  "{{{2
   autocmd!
   " jquery
   autocmd BufRead,BufNewFile jquery.*.js :setlocal filetype=javascript syntax=jquery
@@ -949,32 +1011,22 @@ augroup vimrcJavascriptExtend
   autocmd FileType javascript nmap <silent> <leader>d <Plug>(jsdoc)
 augroup END
 
-
-" json  "{{{2
-
-augroup vimrcJsonExtend
+augroup vimrc-ft-json  "{{{2
   autocmd!
-
   autocmd FileType json setlocal expandtab softtabstop=2 shiftwidth=2
         \| setlocal conceallevel=0
         \| setlocal foldmethod=syntax
 
-  autocmd FileType javascript nnoremap <silent><buffer><leader>ti :call JsBeautify()<cr>
-
+  autocmd FileType json nnoremap <silent><buffer><leader>ti :call JsBeautify()<cr>
 augroup END
 
-
-" coffee  "{{{2
+augroup vimrc-ft-coffeescript  "{{{2
 " https://github.com/kchmck/vim-coffee-script
-augroup vimrcCoffeeExtend
   autocmd!
   au BufWritePost *.coffee silent CoffeeMake! -b | cwindow | redraw!
 augroup END
 
-
-" html  "{{{2
-
-augroup vimrcHtmlExtend
+augroup vimrc-ft-html  "{{{2
   autocmd!
   autocmd FileType html setlocal omnifunc=htmlcomplete#CompleteTags
   autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
@@ -982,25 +1034,20 @@ augroup vimrcHtmlExtend
   autocmd FileType html,xhtml :setlocal path+=$HOME.'Sites'
         \| :setlocal includeexpr=substitute(v:fname,'^\\/','','')
   autocmd FileType html,xhtml nnoremap <silent><buffer><leader>ti :call HtmlBeautify()<cr>
-  " http://nanasi.jp/articles/others/xmllint.html
+
   " xmllintによる XMLの検証と整形
+  " http://nanasi.jp/articles/others/xmllint.html
   autocmd FileType xml exe ":silent 1,$!xmllint --format --recover - 2>/dev/null"
 augroup END
 
-" slim "{{{2
-
-augroup vimrcSlimExtend
+augroup vimrc-ft-slim  "{{{2
   autocmd!
   autocmd BufRead,BufNew *slim :setlocal filetype=slim
   autocmd FileType css setlocal expandtab softtabstop=2 shiftwidth=2
         \| setlocal omnifunc=htmlcomplete#CompleteTags
 augroup END
 
-
-
-" css  "{{{2
-
-augroup vimrcCssExtend
+augroup vimrc-ft-css  "{{{2
   " http://d.hatena.ne.jp/secondlife/20060831/1157010796#20060831f1
   " http://subtech.g.hatena.ne.jp/antipop/20060831/1157024857
   autocmd!
@@ -1010,17 +1057,14 @@ augroup vimrcCssExtend
   autocmd FileType css,scss nnoremap <silent><buffer><leader>ti :call CSSBeautify()<cr>
 augroup END
 
-
-" markdown  "{{{2
-
-augroup vimrcMarkdownExtend
+augroup vimrc-ft-markdown  "{{{2
   autocmd!
   autocmd BufRead,BufNew *mkd, *.md, *markdown :setlocal filetype=markdown
   autocmd FileType markdown setlocal omnifunc=htmlcomplete#CompleteTags
   autocmd FileType markdown vnoremap <silent><buffer>ml :MyList -<CR>
   autocmd FileType markdown vnoremap <silent><buffer>mc :MyList -[ ]<CR>
   autocmd FileType markdown vnoremap <silent><buffer>mo :MyList 1.<CR>
-  autocmd FileType markdown call <SID>setMarkdownTrailingSpaceHighlight()
+  autocmd FileType markdown call s:set_markdown_trailing_space_highlight()
 augroup END
 
 let g:markdown_fenced_languages = [
@@ -1039,41 +1083,27 @@ let g:markdown_fenced_languages = [
 \  'xml',
 \]
 
-" sh  "{{{2
-
-augroup vimrcShExtend
+augroup vimrc-ft-sh  "{{{2
   autocmd!
   autocmd FileType sh setlocal expandtab softtabstop=2 shiftwidth=2
 augroup END
 
-
-" yaml  "{{{2
-
-augroup vimrcShExtend
+augroup vimrc-ft-yaml  "{{{2
   autocmd!
   autocmd FileType yaml setlocal expandtab softtabstop=2 shiftwidth=2
 augroup END
 
-
-" svn  "{{{2
-
-augroup vimrcSvnExtend
+augroup vimrc-ft-svn  "{{{2
   autocmd!
   autocmd FileType svn setlocal fileencoding=utf-8
 augroup END
 
-
-" .gitignore  "{{{2
-
-augroup vimrcGitignoreExtend
+augroup vimrc-ft-gitignore  "{{{2
   autocmd!
   autocmd BufRead,BufNew .gitignore :setlocal filetype=conf
 augroup END
 
-
-" hatena  "{{{2
-
-augroup vimrcHatenaExtend
+augroup vimrc-ft-hatena  "{{{2
   autocmd!
   autocmd FileType hatena setlocal expandtab softtabstop=2 shiftwidth=2
   autocmd FileType hatena vnoremap <silent><buffer>ml :MyList -<cr>
@@ -1262,6 +1292,16 @@ endfunction
 
 " Plugins: "{{{1
 
+" migemo-search.vim  "{{{2
+let s:bundle = neobundle#get('migemo-search.vim')
+function! s:bundle.hooks.on_source(bundle)
+  if executable('cmigemo')
+    cnoremap <expr><CR> migemosearch#replace_search_word()."\<CR>"
+  endif
+endfunction
+unlet s:bundle
+
+
 " vim-smartchr  "{{{2
 let s:bundle = neobundle#get('vim-smartchr')
 function! s:bundle.hooks.on_source(bundle)
@@ -1285,137 +1325,132 @@ endfunction
 unlet s:bundle
 
 
-" eregex  "{{{2
-let g:eregex_default_enable = 0
-
-
 " phpstylist.vim  "{{{2
+let s:bundle = neobundle#get('phpstylist.vim')
+function! s:bundle.hooks.on_source(bundle)
+  let g:phpstylist_cmd_path = $MY_VIMRUNTIME . '/tools/phpStylist.php'
+  let g:phpstylist_options = {
+      \ 'default' : [
+        \ '--indent_size 4 ',
+        \ '--keep_redundant_lines ',
+        \ '--space_after_comma ',
+        \ '--space_around_assignment ',
+        \ '--space_around_comparison ',
+        \ '--space_around_arithmetic ',
+        \ '--space_around_logical ',
+        \ '--space_around_colon_question ',
+        \ '--line_before_function ',
+        \ '--line_before_curly_function',
+        \ '--space_after_if ',
+        \ '--space_inside_for ',
+        \ '--else_along_curly',
+        \ '--add_missing_braces ',
+        \ '--indent_case ',
+        \ '--space_around_double_arrow ',
+        \ '--space_around_concat ',
+        \ '--vertical_array ',
+        \ '--align_array_assignment',
+        \ '--line_before_comment_multi ',
+        \ '--align_var_assignment ',
+        \ '--line_after_break '
+      \],
+      \ 'perl' : [
+        \ '--indent_size 4 ',
+        \ '--keep_redundant_lines ',
+        \ '--space_after_comma ',
+        \ '--space_around_assignment ',
+        \ '--space_around_comparison ',
+        \ '--space_around_arithmetic ',
+        \ '--space_around_logical ',
+        \ '--space_around_colon_question ',
+        \ '--space_inside_parentheses',
+        \ '--line_before_function ',
+        \ '--space_after_if ',
+        \ '--space_inside_for ',
+        \ '--add_missing_braces ',
+        \ '--indent_case ',
+        \ '--space_around_double_arrow ',
+        \ '--space_around_concat ',
+        \ '--vertical_array ',
+        \ '--align_array_assignment',
+        \ '--line_before_comment_multi ',
+        \ '--align_var_assignment ',
+        \ '--line_after_break '
+      \],
+      \ 'wp' : [
+        \ '--indent_size 4 ',
+        \ '--keep_redundant_lines ',
+        \ '--space_after_comma ',
+        \ '--space_around_assignment ',
+        \ '--space_around_comparison ',
+        \ '--space_around_arithmetic ',
+        \ '--space_around_logical ',
+        \ '--space_around_colon_question ',
+        \ '--space_inside_parentheses',
+        \ '--line_before_function ',
+        \ '--space_after_if ',
+        \ '--space_inside_for ',
+        \ '--add_missing_braces ',
+        \ '--indent_case ',
+        \ '--space_around_double_arrow ',
+        \ '--space_around_concat ',
+        \ '--vertical_array ',
+        \ '--align_array_assignment',
+        \ '--line_before_comment_multi ',
+        \ '--align_var_assignment ',
+        \ '--else_along_curly',
+        \ '--line_after_break '
+      \],
+      \ 'cake' : [
+        \ '--indent_size 4',
+        \ '--indent_with_tabs ',
+        \ '--keep_redundant_lines ',
+        \ '--space_around_assignment ',
+        \ '--space_around_comparison ',
+        \ '--space_around_arithmetic ',
+        \ '--space_around_logical ',
+        \ '--space_around_colon_question ',
+        \ '--space_after_if ',
+        \ '--space_inside_for ',
+        \ '--add_missing_braces ',
+        \ '--else_along_curly',
+        \ '--indent_case ',
+        \ '--space_around_double_arrow ',
+        \ '--space_around_concat ',
+        \ '--vertical_array ',
+        \ '--align_array_assignment',
+        \ '--line_before_comment_multi ',
+        \ '--align_var_assignment ',
+        \ '--line_after_break '
+      \]
+    \}
+endfunction
+unlet s:bundle
 
-let g:phpstylist_cmd_path = $MY_VIMRUNTIME . '/tools/phpStylist.php'
-let g:phpstylist_options = {
-  \ 'default' : [
-  \ '--indent_size 4 ',
-  \ '--keep_redundant_lines ',
-  \ '--space_after_comma ',
-  \ '--space_around_assignment ',
-  \ '--space_around_comparison ',
-  \ '--space_around_arithmetic ',
-  \ '--space_around_logical ',
-  \ '--space_around_colon_question ',
-  \ '--line_before_function ',
-  \ '--line_before_curly_function',
-  \ '--space_after_if ',
-  \ '--space_inside_for ',
-  \ '--else_along_curly',
-  \ '--add_missing_braces ',
-  \ '--indent_case ',
-  \ '--space_around_double_arrow ',
-  \ '--space_around_concat ',
-  \ '--vertical_array ',
-  \ '--align_array_assignment',
-  \ '--line_before_comment_multi ',
-  \ '--align_var_assignment ',
-  \ '--line_after_break '
-  \],
-  \ 'perl' : [
-  \ '--indent_size 4 ',
-  \ '--keep_redundant_lines ',
-  \ '--space_after_comma ',
-  \ '--space_around_assignment ',
-  \ '--space_around_comparison ',
-  \ '--space_around_arithmetic ',
-  \ '--space_around_logical ',
-  \ '--space_around_colon_question ',
-  \ '--space_inside_parentheses',
-  \ '--line_before_function ',
-  \ '--space_after_if ',
-  \ '--space_inside_for ',
-  \ '--add_missing_braces ',
-  \ '--indent_case ',
-  \ '--space_around_double_arrow ',
-  \ '--space_around_concat ',
-  \ '--vertical_array ',
-  \ '--align_array_assignment',
-  \ '--line_before_comment_multi ',
-  \ '--align_var_assignment ',
-  \ '--line_after_break '
-  \],
-  \ 'wp' : [
-  \ '--indent_size 4 ',
-  \ '--keep_redundant_lines ',
-  \ '--space_after_comma ',
-  \ '--space_around_assignment ',
-  \ '--space_around_comparison ',
-  \ '--space_around_arithmetic ',
-  \ '--space_around_logical ',
-  \ '--space_around_colon_question ',
-  \ '--space_inside_parentheses',
-  \ '--line_before_function ',
-  \ '--space_after_if ',
-  \ '--space_inside_for ',
-  \ '--add_missing_braces ',
-  \ '--indent_case ',
-  \ '--space_around_double_arrow ',
-  \ '--space_around_concat ',
-  \ '--vertical_array ',
-  \ '--align_array_assignment',
-  \ '--line_before_comment_multi ',
-  \ '--align_var_assignment ',
-  \ '--else_along_curly',
-  \ '--line_after_break '
-  \],
-  \ 'cake' : [
-  \ '--indent_size 4',
-  \ '--indent_with_tabs ',
-  \ '--keep_redundant_lines ',
-  \ '--space_around_assignment ',
-  \ '--space_around_comparison ',
-  \ '--space_around_arithmetic ',
-  \ '--space_around_logical ',
-  \ '--space_around_colon_question ',
-  \ '--space_after_if ',
-  \ '--space_inside_for ',
-  \ '--add_missing_braces ',
-  \ '--else_along_curly',
-  \ '--indent_case ',
-  \ '--space_around_double_arrow ',
-  \ '--space_around_concat ',
-  \ '--vertical_array ',
-  \ '--align_array_assignment',
-  \ '--line_before_comment_multi ',
-  \ '--align_var_assignment ',
-  \ '--line_after_break '
-  \]
-\}
 
 " PDV - phpDocumentor for Vi  "{{{2
-
 " http://www.vim.org/scripts/script.php?script_id=1355
-let g:pdv_cfg_Package = ""
-let g:pdv_cfg_Copyright = ""
-let g:pdv_cfg_Version = "$id$"
-let g:pdv_cfg_Author = g:opp_email
-let g:pdv_cfg_php4guessval = 'private'
-let g:pdv_re_bool = "\(true\|false\)"
+let s:bundle = neobundle#get('PDV--phpDocumentor-for-Vim')
+function! s:bundle.hooks.on_source(bundle)
+  let g:pdv_cfg_Package = ""
+  let g:pdv_cfg_Copyright = ""
+  let g:pdv_cfg_Version = "$id$"
+  let g:pdv_cfg_Author = g:opp_email
+  let g:pdv_cfg_php4guessval = 'private'
+  let g:pdv_re_bool = "\(true\|false\)"
+endfunction
+unlet s:bundle
 
 
 " matchparen  "{{{2
-
 let loaded_matchparen = 1
 
 
-" SimpleFold.vim  "{{{2
-
-nmap <F8>  <Plug>SimpleFold_Foldsearch
-
-
 " open-browser.vim  "{{{2
-
 nmap <leader>w <Plug>(openbrowser-smart-search)
 
 
 " NERD Commenter  "{{{2
-
 " http://www.vim.org/scripts/script.php?script_id=1218
 " http://d.hatena.ne.jp/tanakaBox/20070409/1176062438
 " <leader>cc  コメント
@@ -1431,12 +1466,10 @@ let g:NERDCustomDelimiters = {
 
 
 " zencoding.vim  "{{{2
-
 let g:user_zen_settings = { 'indentation':'  ' }
 
 
 " quickrun.vim  "{{{2
-
 let g:quickrun_config={'*': {'split': ''}}
 
 " " http://www.karakaram.com/vim/phpunit-location-list/
@@ -1460,44 +1493,46 @@ let g:quickrun_config['objc'] = {
 
 
 " ref.vim  "{{{2
-
 let g:ref_phpmanual_path = s:dropbox_dir . '/php_manual_ja'
 let g:ref_phpmanual_cmd = 'w3m -dump %s'
 let g:ref_alc_start_linenumber = 45
 
 
-" unite.vim  "{{{2
-let g:unite_source_file_mru_limit = 200
-let g:unite_source_file_mru_filename_format = ''
+" unite.vim "{{{2
+let s:bundle = neobundle#get('unite.vim')
+function! s:bundle.hooks.on_source(bundle)
+  let g:unite_source_file_mru_limit = 200
+  let g:unite_source_file_mru_filename_format = ''
+  let g:unite_data_directory = $MY_VIMRUNTIME . '/.vim/unite'
+
+  " http://this.aereal.org/entry/2013/12/25/003235
+  let s:unite_git_files_conflict = {
+        \   'name' : 'git/files/conflict',
+        \ }
+  function! s:unite_git_files_conflict.gather_candidates(args, context)
+    let output = unite#util#system('git diff-files --name-only --diff-filter=U')
+    let candidates = map(split(output, "\n"), '{
+          \ "word" : fnamemodify(v:val, ":p"),
+          \ "source" : "git/files/conflict",
+          \ "kind" : "file",
+          \ "action__path" : fnamemodify(v:val, ":p"),
+          \ }')
+    return candidates
+  endfunction
+  call unite#define_source(s:unite_git_files_conflict)
+
+endfunction
+unlet s:bundle
+
 nnoremap <silent>uo :<C-u>Unite outline<CR>
 
-" http://this.aereal.org/entry/2013/12/25/003235
-" unite-git-files-conflict {{{
-let s:unite_git_files_conflict = {
-      \   'name' : 'git/files/conflict',
-      \ }
-function! s:unite_git_files_conflict.gather_candidates(args, context)
-  let output = unite#util#system('git diff-files --name-only --diff-filter=U')
-  let candidates = map(split(output, "\n"), '{
-        \ "word" : fnamemodify(v:val, ":p"),
-        \ "source" : "git/files/conflict",
-        \ "kind" : "file",
-        \ "action__path" : fnamemodify(v:val, ":p"),
-        \ }')
-  return candidates
-endfunction
-call unite#define_source(s:unite_git_files_conflict)
-" }}}
 
 " snipMate.vim  "{{{2
-
 let g:snippets_dir = $MY_VIMRUNTIME . '/snippets'
-
 
 
 " acp.vim  "{{{2
 " autocomplpop.vim : Automatically open the popup menu for completion
-
 let g:acp_behaviorSnipmateLength = 1
 let g:AutoComplPop_MappingDriven = 1
 let g:acp_behaviorKeywordLength=2
@@ -1698,3 +1733,4 @@ if has('vim_starting')
   " http://nanasi.jp/articles/vim/matchit_vim.html
   source $VIMRUNTIME/macros/matchit.vim
 endif
+
