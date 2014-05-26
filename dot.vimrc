@@ -330,6 +330,9 @@ set noswapfile
 set directory-=.
 set viminfo='10,\"100,:20,%,n~/.viminfo
 
+" view  "{{{2
+set viewoptions-=options viewoptions+=slash,unix
+
 " tags "{{{3
 set tags=+../../**/tags
 set tags=+tags;
@@ -706,14 +709,10 @@ autocmd vimrc BufReadPost *
 
 "Restore cursor to file position in previous editing session  "{{{3
 
-autocmd vimrc BufReadPost *
-    \   if line("'\"") > 0
-    \ |   if line("'\"") <= line("$")
-    \ |     exe("norm '\"")
-    \ |    else
-    \ |     exe "norm $"
-    \ |   endif
-    \ | endif
+autocmd vimrc BufReadPost
+  \ * if line("'\"") && line("'\"") <= line('$')
+  \ |   execute 'normal! g`"'
+  \ | endif
 
 
 " BufEnter  "{{{2
@@ -752,11 +751,23 @@ endfunction
 autocmd vimrc WinEnter * setlocal cursorline
 autocmd vimrc WinLeave * setlocal nocursorline
 
-" BufWinEnter, BufWinLeave  "{{{2
+" BufWritePost, BufRead  "{{{2
 
 " 状態の保存と復元
-autocmd vimrc BufWinLeave ?* if (bufname('%') != '') | silent mkview!  | endif
-autocmd vimrc BufWinEnter ?* if (bufname('%') != '') | silent loadview | endif
+" http://vim-users.jp/2009/10/hack84/
+augroup vimrc-view
+  autocmd!
+  autocmd BufLeave * if expand('%') !=# '' && &buftype ==# ''
+  \                |   mkview
+  \                | endif
+  autocmd BufReadPost * if !exists('b:view_loaded') &&
+  \                         expand('%') !=# '' && &buftype ==# ''
+  \                   |   silent! loadview
+  \                   |   let b:view_loaded = 1
+  \                   | endif
+  autocmd VimLeave * call map(split(glob(&viewdir . '/*'), "\n"),
+  \                           'delete(v:val)')
+augroup END
 
 " http://hail2u.net/blog/software/vim-auto-close-quickfix-window.html
 " Quickfixを自動で閉じる
