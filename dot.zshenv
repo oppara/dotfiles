@@ -5,6 +5,17 @@ for file in ${DOTFILES}/.{paths,colors,exports,aliases,functions}; do
 done
 unset file
 
+## checker for colors for .zshrc
+function pcolor() {
+  for ((f = 0; f < 255; f++)); do
+    printf "\e[38;5;%dm %3d\e[m" $f $f
+    if [[ $f%8 -eq 7 ]] then
+      printf "\n"
+    fi
+  done
+  echo
+}
+
 # http://d.hatena.ne.jp/itchyny/20130227/1361933011
 function extract() {
   case $1 in
