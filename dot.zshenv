@@ -37,7 +37,7 @@ zstyle ':vcs_info:(svn|bzr):*' branchformat '%b: r%r'
 zstyle ':vcs_info:bzr:*' use-simple true
 
 function get_vsc_info {
-  local name mes color uc us ut st git_state
+  local name mes color res st git_state
   if [[ "$PWD" =~ '/¥.git(/.*)?$' ]]; then
     return
   fi
@@ -52,27 +52,27 @@ function get_vsc_info {
     return
   fi
 
+  # Check for untracked files
+  if [ -n "$(git ls-files --others --exclude-standard)" ]; then
+      res="⚑"
+  fi
+
   # Check for uncommitted changes in the index
   if ! $(git diff --quiet --ignore-submodules --cached); then
-      uc="+"
+      res=""
   fi
 
   # Check for unstaged changes
   if ! $(git diff-files --quiet --ignore-submodules --); then
-      us="!"
-  fi
-
-  # Check for untracked files
-  if [ -n "$(git ls-files --others --exclude-standard)" ]; then
-      ut="?"
+      res="⚑"
   fi
 
   # Check for stashed files
   if $(git rev-parse --verify refs/stash &>/dev/null); then
-      st="$"
+      st="§"
   fi
 
-  git_state=$uc$us$ut$st
+  git_state=$res$st
   if [[ -n $git_state ]]; then
       git_state=" $git_state"
   fi
@@ -81,7 +81,8 @@ function get_vsc_info {
   if [[ -n `echo "$mes" | grep "^nothing to"` ]]; then
     color=${fg[green]}
   elif [[ -n `echo "$mes" | grep "^nothing added"` ]]; then
-    color=${fg[yellow]}
+    # color=${fg[yellow]}
+    color=${fg[green]}
   elif [[ -n `echo "$mes" | grep "^# Untracked"` ]]; then
     color=${fg[red]}
   else
@@ -90,7 +91,7 @@ function get_vsc_info {
 
   # %{...%} は囲まれた文字列がエスケープシーケンスであることを明示する
   # これをしないと右プロンプトの位置がずれる
-  echo " %{$color%}($name$git_state)%{$reset_color%}"
+  echo " %{$color%}$name$git_state%{$reset_color%}"
 }
 
 update_rprompt () {
