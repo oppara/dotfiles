@@ -926,12 +926,14 @@ augroup vimrc-ft-perl  "{{{2
   autocmd FileType perl let s:tidy_cmd = "perltidy -q -st"
   autocmd FileType perl nnoremap <silent><buffer><leader>ti :Tidy<cr>
   autocmd FileType perl vnoremap <silent><buffer><leader>ti <Nop>
+  autocmd FileType perl  inoremap <buffer><expr> > smartchr#one_of('>', '->', '=>', '>>')
 " autocmd FileType perl setlocal complete-=i | setlocal complete+=k~/.vim/dict/perl_functions.dict
 augroup END
 
 augroup vimrc-ft-ruby  "{{{2
   autocmd!
   autocmd FileType ruby setlocal expandtab softtabstop=2 shiftwidth=2
+  autocmd FileType ruby  inoremap <buffer><expr> > smartchr#one_of('>', '->', '=>', '>>')
  " autocmd FileType ruby setlocal complete+=k~/.vim/dict/ruby.dict
 augroup END
 
@@ -976,6 +978,8 @@ augroup vimrc-ft-php  "{{{2
 
   autocmd FileType php nnoremap <silent><buffer><leader>ti :PhpStylist<cr>
   autocmd FileType php vnoremap <silent><buffer><leader>ti :PhpStylist<cr>
+
+  autocmd FileType php  inoremap <buffer><expr> > smartchr#one_of('>', '->', '=>', '>>')
 
   " PDV - phpDocumentor for Vim :
   autocmd FileType php nnoremap <buffer><leader>d :call PhpDocSingle()<cr>bcw
@@ -1305,7 +1309,6 @@ unlet s:bundle
 " vim-smartchr  "{{{2
 let s:bundle = neobundle#get('vim-smartchr')
 function! s:bundle.hooks.on_source(bundle)
-  inoremap <buffer><expr> >  smartchr#one_of('>', '->', '=>', '>>')
 endfunction
 unlet s:bundle
 
