@@ -809,23 +809,24 @@ augroup vimrc-lcd  "{{{2
       return path
     endif
 
-    let base = simple
-    let dirs = ['.svn', '.git', '.bzr', '.hg']
-    if &l:filetype =~# '^\%(vim\|help\)$'
-      call add(dirs, 'doc')
-    endif
-    for d in dirs
-      let d = finddir(d, escape(base, ' ?*[]();') . ';')
-      if d !=# ''
-        let p = fnamemodify(d, ':p:h:h')
-        if strlen(path) < strlen(p)
-          let path = p
-        endif
-      endif
-    endfor
-    if path !=# ''
-      return path
-    endif
+    " リポジトリのルートには移動しない
+    " let base = simple
+    " let dirs = ['.svn', '.git', '.bzr', '.hg']
+    " if &l:filetype =~# '^\%(vim\|help\)$'
+      " call add(dirs, 'doc')
+    " endif
+    " for d in dirs
+      " let d = finddir(d, escape(base, ' ?*[]();') . ';')
+      " if d !=# ''
+        " let p = fnamemodify(d, ':p:h:h')
+        " if strlen(path) < strlen(p)
+          " let path = p
+        " endif
+      " endif
+    " endfor
+    " if path !=# ''
+      " return path
+    " endif
 
     return simple
   endfunction
