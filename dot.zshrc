@@ -149,6 +149,18 @@ setopt auto_param_keys
 ## ディレクトリ名の補完で末尾の / を自動的に付加し、次の補完に備える
 setopt auto_param_slash
 
+# sheet
+# http://blog.glidenote.com/blog/2012/04/16/sheet/
+compdef _sheets sheet
+function _sheets {
+  local -a cmds
+  _files -W  ~/.sheets/ -P '~/.sheets/'
+
+  cmds=('list' 'edit' 'copy')
+  _describe -t commands "subcommand" cmds
+
+  return 1;
+}
 
 # http://blog.glidenote.com/blog/2012/02/29/autojump-zsh/
 # http://blog.zoncoen.net/blog/2014/01/14/percol-autojump-with-zsh/
