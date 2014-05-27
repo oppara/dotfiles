@@ -74,7 +74,7 @@ function get_vsc_info {
 
   git_state=$uc$us$ut$st
   if [[ -n $git_state ]]; then
-      git_state=" $git_state "
+      git_state=" $git_state"
   fi
 
   mes=$(git status 2> /dev/null)
