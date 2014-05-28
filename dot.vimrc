@@ -987,7 +987,6 @@ augroup vimrc-ft-php  "{{{2
   autocmd FileType php vnoremap <buffer><leader>d :call PhpDocRange()<cr>
   autocmd FileType php let g:pdv_cfg_Author = g:opp_email
 
-  autocmd FileType php inoremap <buffer>a( array(
 augroup END
 
 augroup vimrc-ft-python  "{{{2
