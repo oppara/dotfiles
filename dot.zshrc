@@ -1,18 +1,36 @@
 # Don't create core dumps
 ulimit -c 0
 
-## global alias
-alias -g C="| pbcopy"
-alias -g G="| grep"
-alias -g L="| less"
-alias -g T="| tail"
-alias -g H="| head"
-alias -g X="| xargs"
-alias -g R="| vi -R -"
-alias -g W="| w3m -T text/html"
-# http://osxdaily.com/2012/07/17/send-a-notification-badge-to-the-terminal-dock-icon-when-a-task-is-finished/
-alias -g DOCK="&& tput bel"
-
+# http://qiita.com/matsu_chara/items/8372616f52934c657214
+typeset -A abbreviations
+abbreviations=(
+    "R"    "| vi -R -"
+    "C"    "| pbcopy"
+    "D"    "&& tput bel"
+    "G"    "| grep -rn"
+    "X"    "| xargs"
+    "T"    "| tail"
+    "H"    "| head"
+    "L"    "| lv"
+    "W"    "| wc"
+    "A"    "| awk"
+    "S"    "| sed"
+    "E"    "2>&1 > /dev/null"
+    "N"    "> /dev/null"
+)
+magic-abbrev-expand() {
+    local MATCH
+    LBUFFER=${LBUFFER%%(#m)[-_a-zA-Z0-9]#}
+    LBUFFER+=${abbreviations[$MATCH]:-$MATCH}
+    zle self-insert
+}
+no-magic-abbrev-expand() {
+    LBUFFER+=' '
+}
+zle -N magic-abbrev-expand
+zle -N no-magic-abbrev-expand
+bindkey " " magic-abbrev-expand
+bindkey "^i " no-magic-abbrev-expand
 
 
 # パス
