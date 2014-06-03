@@ -58,7 +58,7 @@ export GIT_COMMITTER_EMAIL='oppara@oppara.tv'
 golibexec="/usr/local/opt/go/libexec"
 if [ -d $golibexec ]; then
     PATH="$PATH:${golibexec}/bin"
-    GOPATH="${HOME}/go"
+    GOPATH="${HOME}/.go"
     GOROOT=$golibexec
 fi
 unset golibexec
