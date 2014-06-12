@@ -81,6 +81,7 @@ NeoBundle 'https://github.com/tpope/vim-fugitive'
 NeoBundle 'https://github.com/tpope/vim-abolish'
 NeoBundle 'https://github.com/tpope/vim-repeat'
 
+NeoBundle 'https://github.com/othree/eregex.vim'
 NeoBundle 'https://github.com/scrooloose/nerdcommenter'
 NeoBundle 'https://github.com/vim-scripts/sudo.vim'
 NeoBundle 'https://github.com/vim-scripts/matchit.zip'
@@ -507,9 +508,6 @@ inoremap <silent> <esc> <esc>:set iminsert=0<cr>
 inoremap <silent> <c-j> <esc>:set iminsert=0<cr>
 
 " search  "{{{2
-
-" デフォルトで very magic
-nnoremap / /\v
 
 " ずっとハイライトはうざい
 " nnoremap <silent> gh :let @/=''<cr>
@@ -1295,6 +1293,23 @@ function! s:Jq(...)
 endfunction
 
 " Plugins: "{{{1
+
+" eregex.vim  "{{{2
+let s:bundle = neobundle#get('eregex.vim')
+function! s:bundle.hooks.on_source(bundle)
+  let g:eregex_default_enable = 0
+  " http://www.vector.co.jp/soft/unix/writing/se265654.html
+  " :%s # vimの正規表現による置換
+  " :%S # eregexの正規表現vimによる置換
+  " :%g # vimの(ry
+  " :%G # eregexの(ry
+  " / # vimの(ry
+  " :M/ # eregex の(ry
+  nnoremap / :set noincsearch<cr>:set hlsearch<cr>:M/
+  " org
+  nnoremap ,/ :set noincsearch<cr>:set hlsearch<cr>/
+endfunction
+unlet s:bundle
 
 " migemo-search.vim  "{{{2
 let s:bundle = neobundle#get('migemo-search.vim')
