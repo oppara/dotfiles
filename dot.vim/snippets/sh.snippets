@@ -1,8 +1,12 @@
 # #!/bin/bash
 snippet sh
-	#!/bin/bash
+	#!/bin/sh
+	set -eu
+	${1}
 snippet bash
 	#!/bin/bash
+	set -eu
+	${1}
 
 
 snippet if
