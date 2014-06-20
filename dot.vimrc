@@ -581,6 +581,10 @@ nnoremap j gj
 nnoremap k gk
 nnoremap <tab> %
 vnoremap <tab> %
+" 最後の編集位置へ戻る
+noremap gb `.zz
+" 編集位置を遡る
+noremap <C-g> g;
 
 
 " emacs like C-a C-e C-f C-b "{{{2
