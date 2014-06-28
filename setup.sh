@@ -1,7 +1,10 @@
-#!/bin/bash
+#!/bin/sh
 
-pwd=`pwd`
-dotfiles=$(ls |grep '^dot\.')
+set -eu
+
+CURRENT=$(cd $(dirname $0) && pwd)
+
+dotfiles=$(ls $CURRENT | grep '^dot\.')
 
 for file in $dotfiles
 do
@@ -15,7 +18,7 @@ do
         file=${file/mac./}
     fi
 
-    src="${pwd}/${org}"
+    src="${CURRENT}/${org}"
     target="${HOME}/${file#dot}"
 
     # ファイルやディレクトリが存在する場合はスキップ
@@ -29,7 +32,7 @@ do
     fi
 
     ln -s "$src" "$target"
-    echo "ln -s ${target}"
+    echo "ln -s $src ${target}"
 
 done
 
