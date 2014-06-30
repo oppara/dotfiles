@@ -180,6 +180,24 @@ function _sheets {
   return 1;
 }
 
+# peco history
+# http://blog.kenjiskywalker.org/blog/2014/06/12/peco/
+function peco-select-history() {
+    local tac
+    if which tac > /dev/null; then
+        tac="tac"
+    else
+        tac="tail -r"
+    fi
+    BUFFER=$(history -n 1 | \
+        eval $tac | \
+        peco --query "$LBUFFER")
+    CURSOR=$#BUFFER
+    zle clear-screen
+}
+zle -N peco-select-history
+bindkey '^r' peco-select-history
+
 # http://blog.glidenote.com/blog/2012/02/29/autojump-zsh/
 # http://blog.zoncoen.net/blog/2014/01/14/percol-autojump-with-zsh/
 [[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
