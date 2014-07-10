@@ -51,6 +51,9 @@
     unignore = update-index --no-assume-unchanged
     ignored = !git ls-files -v | grep "^[a-z]"
 
+    ; http://mattn.kaoriya.net/software/git/20140708105946.htm
+    pr-setup = config --add remote.origin.fetch +refs/pull/*/head:refs/remotes/origin/pr/*
+
 [rerere]
     enabled = true
 
