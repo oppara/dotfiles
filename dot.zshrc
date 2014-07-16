@@ -1,38 +1,6 @@
 # Don't create core dumps
 ulimit -c 0
 
-# http://qiita.com/matsu_chara/items/8372616f52934c657214
-typeset -A abbreviations
-abbreviations=(
-    "R"    "| vi -R -"
-    "C"    "| pbcopy"
-    "D"    "&& tput bel"
-    "G"    "| grep"
-    "X"    "| xargs"
-    "T"    "| tail"
-    "H"    "| head"
-    "L"    "| lv"
-    "W"    "| wc"
-    "A"    "| awk"
-    "S"    "| sed"
-    "E"    "2>&1 > /dev/null"
-    "N"    "> /dev/null"
-)
-magic-abbrev-expand() {
-    local MATCH
-    LBUFFER=${LBUFFER%%(#m)[-_a-zA-Z0-9]#}
-    LBUFFER+=${abbreviations[$MATCH]:-$MATCH}
-    zle self-insert
-}
-no-magic-abbrev-expand() {
-    LBUFFER+=' '
-}
-zle -N magic-abbrev-expand
-zle -N no-magic-abbrev-expand
-bindkey " " magic-abbrev-expand
-bindkey "^i " no-magic-abbrev-expand
-
-
 # パス
 ## 重複したパスを登録しない
 typeset -U path cdpath fpath manpath
@@ -179,6 +147,38 @@ function _sheets {
 
   return 1;
 }
+
+# http://qiita.com/matsu_chara/items/8372616f52934c657214
+typeset -A abbreviations
+abbreviations=(
+    "R"    "| vi -R -"
+    "C"    "| pbcopy"
+    "D"    "&& tput bel"
+    "G"    "| grep"
+    "X"    "| xargs"
+    "T"    "| tail"
+    "H"    "| head"
+    "L"    "| lv"
+    "W"    "| wc"
+    "A"    "| awk"
+    "S"    "| sed"
+    "E"    "2>&1 > /dev/null"
+    "N"    "> /dev/null"
+)
+magic-abbrev-expand() {
+    local MATCH
+    LBUFFER=${LBUFFER%%(#m)[-_a-zA-Z0-9]#}
+    LBUFFER+=${abbreviations[$MATCH]:-$MATCH}
+    zle self-insert
+}
+no-magic-abbrev-expand() {
+    LBUFFER+=' '
+}
+zle -N magic-abbrev-expand
+zle -N no-magic-abbrev-expand
+bindkey " " magic-abbrev-expand
+bindkey "^i " no-magic-abbrev-expand
+
 
 # peco history
 # http://blog.kenjiskywalker.org/blog/2014/06/12/peco/
