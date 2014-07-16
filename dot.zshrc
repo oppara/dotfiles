@@ -7,7 +7,7 @@ abbreviations=(
     "R"    "| vi -R -"
     "C"    "| pbcopy"
     "D"    "&& tput bel"
-    "G"    "| grep -rn"
+    "G"    "| grep"
     "X"    "| xargs"
     "T"    "| tail"
     "H"    "| head"
