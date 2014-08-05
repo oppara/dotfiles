@@ -6,7 +6,6 @@
 [core]
     excludesfile = ~/.gitignore
     editor = ~/bin/vim
-    autoCRLF = false
     pager = $PAGER
 
 [color]
