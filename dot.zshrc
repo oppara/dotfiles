@@ -198,6 +198,20 @@ function peco-select-history() {
 zle -N peco-select-history
 bindkey '^r' peco-select-history
 
+# ghq peco
+# http://masteries.papix.net/entry/2014-07-05-ghq-with-peco-and-cpanghq.html
+stty stop undef
+function peco-src () {
+    local selected_dir=$(ghq list --full-path | peco --query "$LBUFFER")
+    if [ -n "$selected_dir" ]; then
+        BUFFER="cd ${selected_dir}"
+        zle accept-line
+    fi
+    zle clear-screen
+}
+zle -N peco-src
+bindkey '^S' peco-src
+
 # http://blog.glidenote.com/blog/2012/02/29/autojump-zsh/
 # http://blog.zoncoen.net/blog/2014/01/14/percol-autojump-with-zsh/
 [[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
