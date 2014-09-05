@@ -1,3 +1,5 @@
+## ghq & peco
+alias ghl='cd $(ghq list -p | peco)'
 
 ## open current directory in Finder
 alias o='open .'
