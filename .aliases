@@ -1,6 +1,9 @@
 ## ghq & peco
 alias ghl='cd $(ghq list -p | peco)'
 
+## random password
+alias pw='cat /dev/urandom | LC_CTYPE=C tr -dc "[:alnum:]" | head -c ' $@
+
 ## open current directory in Finder
 alias o='open .'
 
