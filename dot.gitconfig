@@ -61,3 +61,6 @@
 
 [ghq]
     root = ~/src
+
+[url "git@github.com:oppara"]
+    pushInsteadOf = https://github.com/oppara
