@@ -25,7 +25,7 @@
     ci = commit -v
     ca = commit --amend
     cn = commit --amend --no-edit
-    ll = log --graph -50 --decorate --color --date=short --pretty=format:'%C(red)%x09%h %C(yellow)%cn %C(green)%ci  %C(reset)%s%C(blue)%d%Creset'
+    ll = log --graph --decorate --color --date=short --pretty=format:'%C(red)%x09%h %C(yellow)%cn %C(green)%ci  %C(reset)%s%C(blue)%d%Creset'
     me = merge --no-ff
     au = add -u
     fe = fetch
