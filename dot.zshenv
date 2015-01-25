@@ -1,3 +1,16 @@
+# login shell
+#     ~/.zshenv
+#     ~/.zprofile
+#     ~/.zshrc
+#     ~/.zlogin
+#
+# interactive shell
+#     ~/.zshenv
+#     ~/.zshrc
+#
+# shell script
+#     ~/.zshenv
+
 export DOTFILES="${HOME}/dotfiles"
 
 for file in ${DOTFILES}/.{paths,colors,exports,aliases,functions}; do
