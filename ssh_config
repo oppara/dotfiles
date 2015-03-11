@@ -1,0 +1,8 @@
+Host foo
+    HostName           host or ip
+    IdentityFile       /path/to/id_rsa
+    User               oppara
+    port               22
+    PermitLocalCommand yes
+    LocalCommand       tmux rename-window %n
+
