@@ -1,3 +1,15 @@
+## rbenv
+test -d "${HOME}/.rbenv" &&  eval "$(rbenv init -)"
+
+## plenv
+test -d "${HOME}/.plenv" &&  eval "$(plenv init -)"
+
+for file in ${DOTFILES}/.{aliases,functions}; do
+    test -r "$file" && test -f "$file" && source "$file"
+done
+unset file
+
+
 # Don't create core dumps
 ulimit -c 0
 

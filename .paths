@@ -16,12 +16,6 @@ unset app
 
 test -d /usr/local/share/npm/bin && PATH="/usr/local/share/npm/bin:$PATH"
 
-## rbenv
-test -d "${HOME}/.rbenv" &&  eval "$(rbenv init -)"
-
-## plenv
-test -d "${HOME}/.plenv" &&  eval "$(plenv init -)"
-
 test -d "$HOME/local/bin" && PATH="$HOME/local/bin:$PATH"
 test -d "$HOME/local/share/man" && MANPATH="$HOME/local/share/man:$MANPATH"
 test -d "$HOME/bin" && PATH="$HOME/bin:$PATH"
