@@ -20,6 +20,9 @@ test -d "$HOME/local/bin" && PATH="$HOME/local/bin:$PATH"
 test -d "$HOME/local/share/man" && MANPATH="$HOME/local/share/man:$MANPATH"
 test -d "$HOME/bin" && PATH="$HOME/bin:$PATH"
 
+## composer
+test -d "$HOME/.composer/vendor/bin" && PATH="$HOME/.composer/vendor/bin:$PATH"
+
 ## php-osx.liip.ch
 test -d /usr/local/php5/bin && PATH="/usr/local/php5/bin:$PATH"
 
