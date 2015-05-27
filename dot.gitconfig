@@ -53,6 +53,8 @@
     ; http://mattn.kaoriya.net/software/git/20140708105946.htm
     pr-setup = config --add remote.origin.fetch +refs/pull/*/head:refs/remotes/origin/pr/*
 
+    gr = grep --no-index --exclude-standard -I --perl-regexp --line-number
+
 [rerere]
     enabled = true
 
