@@ -19,9 +19,6 @@ alias gl="git ll|head -20"
 ## history
 alias h="history 1"
 
-## diff
-alias df="diff -uBb"
-
 ## tree
 alias tre="tree -aC -I '.DS_Store|._*|Thumbs.db|.git|.svn|node_modules|bower_components' --dirsfirst"
 
