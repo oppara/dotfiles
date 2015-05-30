@@ -1,15 +1,20 @@
 export PATH="/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin"
 export MANPATH="/usr/local/share/man:/usr/local/man:/usr/share/man"
 
+# php-osx.liip.ch
+test -d /usr/local/php5/bin && PATH="/usr/local/php5/bin:$PATH"
+
+export PATH="/usr/local/bin:$PATH"
+
 test -d "/Applications/Xcode.app/Contents/Developer/Tools" && PATH="/Applications/Xcode.app/Contents/Developer/Tools:$PATH"
 test -d "/Applications/Xcode.app/Contents/Developer/usr/share/man" && MANPATH="/Applications/Xcode.app/Contents/Developer/usr/share/man:$MANPATH"
 
 for app in /usr/local/{mysql,postgresql,php5}; do
     if [ -d "${app}/bin" ]; then
-        PATH="${app}/bin:$PATH"
+        # PATH="${app}/bin:$PATH"
     fi
     if [ -d "${app}/man" ]; then
-        MANPATH="${app}/man:$MANPATH"
+        # MANPATH="${app}/man:$MANPATH"
     fi
 done
 unset app
@@ -23,7 +28,5 @@ test -d "$HOME/bin" && PATH="$HOME/bin:$PATH"
 ## composer
 test -d "$HOME/.composer/vendor/bin" && PATH="$HOME/.composer/vendor/bin:$PATH"
 
-## php-osx.liip.ch
-test -d /usr/local/php5/bin && PATH="/usr/local/php5/bin:$PATH"
 
 # vim: ft=sh fdm=marker
