@@ -176,6 +176,7 @@ abbreviations=(
     "S"    "| sed"
     "E"    "2>&1 > /dev/null"
     "N"    "> /dev/null"
+    "PT"    "| pandoc --to=textile | pbcopy"
 )
 magic-abbrev-expand() {
     local MATCH
