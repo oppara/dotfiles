@@ -174,8 +174,7 @@ abbreviations=(
     "W"    "| wc"
     "A"    "| awk"
     "S"    "| sed"
-    "E"    "2>&1 > /dev/null"
-    "N"    "> /dev/null"
+    "N"    "2>&1 > /dev/null"
     "PT"    "| pandoc --to=textile | pbcopy"
 )
 magic-abbrev-expand() {
