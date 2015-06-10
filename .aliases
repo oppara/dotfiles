@@ -1,5 +1,6 @@
-## ghq & peco
+## ghq & peco & gh-open
 alias ghl='cd $(ghq list -p | peco)'
+alias gho='gh-open $(ghq list -p | peco)'
 
 ## random password
 alias pw='cat /dev/urandom | LC_CTYPE=C tr -dc "[:alnum:]" | head -c ' $@
