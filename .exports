@@ -16,7 +16,7 @@ export HISTIGNORE="ls:cd:cd -:pwd:exit:date:* --help"
 
 export EDITOR=vim
 export GIT_EDITOR=vim
-export SNV_EDITOR=vim
+export SVN_EDITOR=vim
 
 ## To use pbcopy/pbpaste with UTF-8 encoding.
 ## http://kana.github.com/config/vim/fakeclip.html#fakeclip-multibyte-on-mac
