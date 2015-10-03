@@ -10,12 +10,8 @@ test -d "/Applications/Xcode.app/Contents/Developer/Tools" && PATH="/Application
 test -d "/Applications/Xcode.app/Contents/Developer/usr/share/man" && MANPATH="/Applications/Xcode.app/Contents/Developer/usr/share/man:$MANPATH"
 
 for app in /usr/local/{mysql,postgresql,php5}; do
-    if [ -d "${app}/bin" ]; then
-        # PATH="${app}/bin:$PATH"
-    fi
-    if [ -d "${app}/man" ]; then
-        # MANPATH="${app}/man:$MANPATH"
-    fi
+  test -d "${app}/bin" && PATH="${app}/bin:$PATH"
+  test -d "${app}/man" && MANPATH="${app}/man:$MANPATH"
 done
 unset app
 
