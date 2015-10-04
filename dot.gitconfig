@@ -22,6 +22,7 @@
     br = branch -r
     cl = clone
     co = checkout
+    cb = checkout -b
     ci = commit -v
     ca = commit --amend
     cn = commit --amend --no-edit
