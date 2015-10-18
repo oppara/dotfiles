@@ -228,6 +228,18 @@ function peco-src () {
 zle -N peco-src
 bindkey '^S' peco-src
 
+fancy-ctrl-z () {
+  if [[ $#BUFFER -eq 0 ]]; then
+    BUFFER="fg"
+    zle accept-line
+  else
+    zle push-input
+    zle clear-screen
+  fi
+}
+zle -N fancy-ctrl-z
+bindkey '^Z' fancy-ctrl-z
+
 # http://blog.glidenote.com/blog/2012/02/29/autojump-zsh/
 # http://blog.zoncoen.net/blog/2014/01/14/percol-autojump-with-zsh/
 [[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
