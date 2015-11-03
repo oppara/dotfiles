@@ -11,7 +11,7 @@
 # shell script
 #     ~/.zshenv
 
-export DOTFILES="${HOME}/dotfiles"
+export DOTFILES=$HOME/src/github.com/oppara/dotfiles
 
 for file in ${DOTFILES}/.{paths,colors,exports}; do
     test -r "$file" && test -f "$file" && source "$file"
