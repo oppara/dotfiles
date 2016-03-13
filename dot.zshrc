@@ -166,6 +166,7 @@ function _sheets {
 # http://qiita.com/matsu_chara/items/8372616f52934c657214
 typeset -A abbreviations
 abbreviations=(
+    "V"    "| vim -"
     "R"    "| vi -R -"
     "C"    "| pbcopy"
     "D"    "&& tput bel"
