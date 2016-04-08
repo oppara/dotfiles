@@ -58,6 +58,9 @@
     gr = grep --no-index --exclude-standard -I --perl-regexp --line-number
     n  = now --stat
 
+    ; Merge CommitをRevert
+    rvm = revert -m 1
+
 [rerere]
     enabled = true
 
