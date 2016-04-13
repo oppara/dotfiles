@@ -42,7 +42,7 @@
     empty = commit -q --allow-empty -m 'initial commit'
     wip = commit -q --allow-empty -m 'wip'
     ; リモートで消されたブランチを消す
-    pr = fetch --prune
+    fp = fetch --prune
 
     ; http://davidwalsh.name/get-git-commit-id
     id = rev-parse HEAD
