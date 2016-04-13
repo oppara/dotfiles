@@ -39,8 +39,11 @@
     cp = cherry-pick
     ; merge, rebase をもとに戻す
     ab = reset --hard ORIG_HEAD
-    empty = commit -q --allow-empty -m 'initial commit'
+
+    empty = commit -q --allow-empty
+    ic = commit -q --allow-empty -m 'initial commit'
     wip = commit -q --allow-empty -m 'wip'
+
     ; リモートで消されたブランチを消す
     fp = fetch --prune
 
