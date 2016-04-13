@@ -56,7 +56,6 @@
     pr-setup = config --add remote.origin.fetch +refs/pull/*/head:refs/remotes/origin/pr/*
 
     gr = grep --no-index --exclude-standard -I --perl-regexp --line-number
-    n  = now --stat
 
     ; Merge CommitをRevert
     rvm = revert -m 1
