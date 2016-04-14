@@ -1,4 +1,5 @@
 ; vim: expandtab ts=4 sw=4 sts=4 ff=unix ft=gitconfig
+; ln -s /usr/local/share/git-core/contrib/diff-highlight/diff-highlight /usr/local/bin/diff-highlight
 [user]
     name = oppara
     email = oppara@oppara.tv
@@ -13,9 +14,9 @@
     ui = auto
 
 [pager]
-    log =  $PAGER
-    show = $PAGER
-    diff = $PAGER
+    log =  diff-highlight | less -R
+    show = diff-highlight | less -R
+    diff = diff-highlight | less -R
 
 [alias]
     st = status
