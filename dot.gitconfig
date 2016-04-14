@@ -37,6 +37,7 @@
     dc = diff -b --cached
     ds = diff --stat
     dn = diff -b master --name-only
+    dw = diff -b  --word-diff
     cp = cherry-pick
     nw = now --stat --update
     ; merge, rebase をもとに戻す
