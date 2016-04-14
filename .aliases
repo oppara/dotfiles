@@ -16,7 +16,6 @@ alias v="vim"
 alias g="git"
 alias gs="git svn"
 alias gl="git ll|head -20"
-alias gn="git now --stat --update"
 
 ## history
 alias h="history 1"

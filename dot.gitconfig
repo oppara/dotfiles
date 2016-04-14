@@ -37,6 +37,7 @@
     ds = diff --stat
     dn = diff -b master --name-only
     cp = cherry-pick
+    nw = now --stat --update
     ; merge, rebase をもとに戻す
     ab = reset --hard ORIG_HEAD
 
