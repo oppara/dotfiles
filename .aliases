@@ -63,10 +63,10 @@ fi
 ## synergy
 alias synergy="/Applications/Synergy.app/Contents/MacOS/Synergy &"
 
-## growlnotify
-if test -x "/usr/local/bin/growlnotify"; then
-    alias gn="growlnotify -m '$*'"
-fi
+# ## growlnotify
+# if test -x "/usr/local/bin/growlnotify"; then
+    # alias gn="growlnotify -m '$*'"
+# fi
 
 # JavaScriptCore REPL
 jscbin="/System/Library/Frameworks/JavaScriptCore.framework/Versions/A/Resources/jsc"
