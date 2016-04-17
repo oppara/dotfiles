@@ -1,7 +1,6 @@
-export DOTFILES="${HOME}/dotfiles"
 
-for file in ${DOTFILES}/.{paths,colors,exports,aliases,functions}; do
-    test -r "$file" && test -f "$file" && source "$file"
+for file in ${HOME}/.sh/[0-9]*; do
+    source "$file"
 done
 unset file
 
