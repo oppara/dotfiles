@@ -4,6 +4,7 @@ set main-view = id:yes author:full date:yes commit-title:yes,graph:yes,refs:yes
 
 set split-view-height = 70%
 set vertical-split = no
+set ignore-space = all
 
 color cursor white black
 color id red default
