@@ -36,7 +36,7 @@ alias la='ls -lha'
 alias ll='ls -lh'
 
 ## The Silver Searcher
-command -v ag > /dev/null && alias ag="ag --pager \"less -R\" -S --color-match \"1;31\""
+command -v ag > /dev/null && alias ag="ag -S --color-match \"1;31\""
 ## The Platinum Searcher
 command -v pt > /dev/null && alias pt="pt -S --color-match \"1;31\""
 
