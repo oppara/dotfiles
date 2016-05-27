@@ -45,7 +45,7 @@ function get_vsc_info {
 
   # Check for untracked files
   if [ -n "$(git ls-files --others --exclude-standard)" ]; then
-      res="⚑"
+      res="…"
   fi
 
   # Check for uncommitted changes in the index
@@ -55,12 +55,12 @@ function get_vsc_info {
 
   # Check for unstaged changes
   if ! $(git diff-files --quiet --ignore-submodules --); then
-      res="⚑"
+      res="✖"
   fi
 
   # Check for stashed files
   if $(git rev-parse --verify refs/stash &>/dev/null); then
-      st="§"
+      st="⚑"
   fi
 
   git_state=$res$st
