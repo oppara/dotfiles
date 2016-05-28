@@ -55,7 +55,7 @@ function get_vsc_info {
 
   # Check for unstaged changes
   if ! $(git diff-files --quiet --ignore-submodules --); then
-      res="✖"
+      res="✖ "
   fi
 
   # Check for stashed files
