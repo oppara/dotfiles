@@ -20,6 +20,9 @@ alias gl="git ll|head -20"
 ## home brew
 alias b="brew"
 
+## docker
+alias d="docker"
+
 ## history
 alias h="history 1"
 
