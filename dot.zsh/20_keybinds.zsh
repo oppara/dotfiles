@@ -2,6 +2,9 @@
 ## 設定しないと環境変数 EDITORやVISUALを参照するので設定
 bindkey -e
 
+# Shift-Tabで補完候補を逆順移動
+bindkey "^[[Z" reverse-menu-complete
+
 
 ## 履歴検索機能のショートカット設定
 ## コマンド履歴の検索機能はCtrl-PとCtrl-N
