@@ -4,8 +4,9 @@
 
 PROMPT="%F{yellow}%~%f
 %# "
+PROMPT2="%F{white}%_> %f"
+SPROMPT="%F{red}correct: %R -> %r [nyae]? %f"
 RPROMPT=''
-SPROMPT="correct: %R -> %r ? "
 
 autoload -Uz vcs_info
 autoload -Uz add-zsh-hook
