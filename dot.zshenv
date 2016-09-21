@@ -32,7 +32,7 @@ fpath=( \
     $fpath \
     )
 
-autoload -Uz compinit && compinit
+autoload -Uz compinit && compinit -u
 autoload -Uz add-zsh-hook
 autoload -Uz colors && colors
 
