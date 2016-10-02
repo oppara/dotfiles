@@ -51,9 +51,9 @@ function alc() {
   fi
 }
 
-## mcd mkdir + cd #{{{1
-function mcd() {
-    [ -n "$1" ] && mkdir -p "$@" && cd "$1";
+## mc mkdir + cd #{{{1
+function mc() {
+    [ -n "$1" ] && mkdir -p -- "$1" && cd -P -- "$1";
 }
 
 # cd to the path of the front Finder window #{{{1
