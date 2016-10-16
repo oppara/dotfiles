@@ -1,7 +1,21 @@
 {
-  "extends": "airbnb",
+  "extends": "eslint:recommended",
+  "env": {
+    "jquery": true,
+    "browser": true
+  },
+  "parserOptions": {
+    "sourceType": "module"
+  },
   "rules": {
-    "comma-dangle": [2, "never"],
-    "semi": 2
+    "no-useless-computed-key": "error",
+    "comma-dangle": ["error", {
+      "arrays": "never",
+      "objects": "never",
+      "imports": "never",
+      "exports": "never",
+      "functions": "ignore"
+    }],
+    "semi": "error"
   }
 }
