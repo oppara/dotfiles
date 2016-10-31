@@ -3,7 +3,6 @@ set input-meta on
 set convert-meta off
 set output-meta on
 
-set kanji-code utf-8
 set enable-keypad on
 
 # http://osx.miko.org/index.php/Beginning_OS_X_10.5/
