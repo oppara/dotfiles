@@ -77,3 +77,5 @@
 
 [url "git@github.com:oppara"]
     pushInsteadOf = https://github.com/oppara
+[init]
+    templatedir = ~/.git_template
