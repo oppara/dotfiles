@@ -44,6 +44,10 @@ parse() {
 }
 
 branch=$(git branch | grep "*" | awk '{print $2}')
+if [ -z $branch ]; then
+  exit 0;
+fi
+
 issue=$(echo $branch | parse)
 
 if [ $branch == $issue ]; then
@@ -51,7 +55,8 @@ if [ $branch == $issue ]; then
 fi
 
 if [ -z "${2+x}" ] || [ "$2" != 'message' ]; then
-  echo "refs #$issue$(cat $1)" > $1
+  echo "refs #$issue$(cat $1) " > $1
   # echo -e "refs #$issue\n$(cat $1)" > $1
 fi
 
+exit 0
