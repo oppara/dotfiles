@@ -10,6 +10,10 @@
   },
   "rules": {
     "no-useless-computed-key": "error",
+    "no-unused-vars": ["error", {
+        "vars": "all",
+        "args": "none"
+    }],
     "comma-dangle": ["error", {
       "arrays": "never",
       "objects": "never",
