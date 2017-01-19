@@ -5,6 +5,7 @@ do
 done
 unset file
 
+zstyle ':completion:*' use-cache yes
 
 ## 補完候補のカーソル選択を有効に
 zstyle ':completion:*:default' menu select=1
