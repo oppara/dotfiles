@@ -38,7 +38,6 @@ parse() {
         return 0
     fi
 
-
     echo $target
     return 1
 }
@@ -49,9 +48,12 @@ if [ -z $branch ]; then
 fi
 
 issue=$(echo $branch | parse)
-
 if [ $branch == $issue ]; then
     exit 0
+fi
+
+if cat $1 | grep -q refs; then
+  exit 0
 fi
 
 if [ -z "${2+x}" ] || [ "$2" != 'message' ]; then
