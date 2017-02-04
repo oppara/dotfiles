@@ -1,3 +1,5 @@
+Include conf.d/hosts/*
+
 Host *
     ServerAliveInterval 30
     # ProtocolKeepAlives 120 # only debian
