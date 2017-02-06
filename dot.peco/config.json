@@ -2,6 +2,7 @@
   "Keymap": {
     "C-p": "peco.SelectUp",
     "C-n": "peco.SelectDown",
+    "C-q": "peco.Cancel",
     "C-c": "peco.Cancel"
   },
   "Style": {

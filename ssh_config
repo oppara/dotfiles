@@ -1,8 +1,15 @@
-Host foo
-    HostName           host or ip
-    IdentityFile       /path/to/id_rsa
-    User               oppara
-    port               22
+Include conf.d/hosts/*
+
+Host *
+    ServerAliveInterval 30
+    # ProtocolKeepAlives 120 # only debian
+    UseKeychain yes
     PermitLocalCommand yes
     LocalCommand       tmux rename-window %n
+
+# Host foo
+    # HostName           host or ip
+    # IdentityFile       /path/to/id_rsa
+    # User               oppara
+    # port               22
 

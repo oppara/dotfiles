@@ -80,7 +80,7 @@ function peco-src () {
     zle clear-screen
 }
 zle -N peco-src
-bindkey '^S' peco-src
+bindkey '^g^g' peco-src
 
 fancy-ctrl-z () {
   if [[ $#BUFFER -eq 0 ]]; then
@@ -93,6 +93,17 @@ fancy-ctrl-z () {
 }
 zle -N fancy-ctrl-z
 bindkey '^Z' fancy-ctrl-z
+
+complete-ssh-host() {
+  local host="$(command egrep -i '^Host\s+.+' $HOME/.ssh/config $(find $HOME/.ssh/conf.d -type f 2>/dev/null) | command egrep -v '[*?]' | awk '{print $2}' | sort | peco)"
+
+  if [ ! -z "$host" ]; then
+    LBUFFER+="$host"
+  fi
+  zle reset-prompt
+}
+zle -N complete-ssh-host
+bindkey '^s^s' complete-ssh-host
 
 
 # http://d.hatena.ne.jp/itchyny/20130227/1361933011
