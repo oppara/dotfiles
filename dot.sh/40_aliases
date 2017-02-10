@@ -2,6 +2,10 @@
 alias ghl='cd $(ghq list -p | peco)'
 alias gho='gh-open $(ghq list -p | peco)'
 
+## memo
+## https://github.com/mattn/memo
+alias m="memo"
+
 ## random password
 alias pw='cat /dev/urandom | LC_CTYPE=C tr -dc "[:alnum:]" | head -c ' $@
 
