@@ -1,6 +1,5 @@
 .svn/
 .DS_Store
-*log
 dot.subversion/auth
 tags*
 .netrwhist
