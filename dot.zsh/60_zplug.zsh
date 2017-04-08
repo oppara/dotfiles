@@ -10,6 +10,8 @@ zplug 'zplug/zplug', hook-build:'zplug --self-manage'
 zplug "mollifier/cd-gitroot"
 alias cgr='cd-gitroot'
 
+zplug "oppara/anyframe"
+
 if ! zplug check --verbose; then
     printf "Install? [y/N]: "
     if read -q; then
