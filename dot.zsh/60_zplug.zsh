@@ -14,6 +14,9 @@ zplug "oppara/anyframe"
 bindkey '^r' anyframe-widget-put-history
 bindkey '^g^g' anyframe-widget-cd-ghq-repository
 bindkey '^s^s' anyframe-widget-insert-ssh-host
+bindkey '^g^i' anyframe-widget-insert-git-branch
+alias gco=anyframe-widget-checkout-git-branch
+
 
 if ! zplug check --verbose; then
     printf "Install? [y/N]: "
