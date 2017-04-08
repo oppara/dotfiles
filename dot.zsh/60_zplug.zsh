@@ -7,6 +7,8 @@ source $ZPLUG_HOME/init.zsh
 
 zplug 'zplug/zplug', hook-build:'zplug --self-manage'
 
+zplug "mollifier/cd-gitroot"
+alias cgr='cd-gitroot'
 
 if ! zplug check --verbose; then
     printf "Install? [y/N]: "
