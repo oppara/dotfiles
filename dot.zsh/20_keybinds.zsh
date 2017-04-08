@@ -50,24 +50,6 @@ bindkey " " magic-abbrev-expand
 bindkey "^i " no-magic-abbrev-expand
 
 
-# peco history
-# http://blog.kenjiskywalker.org/blog/2014/06/12/peco/
-function peco-select-history() {
-    local tac
-    if which tac > /dev/null; then
-        tac="tac"
-    else
-        tac="tail -r"
-    fi
-    BUFFER=$(history -n 1 | \
-        eval $tac | \
-        peco --query "$LBUFFER")
-    CURSOR=$#BUFFER
-    zle clear-screen
-}
-zle -N peco-select-history
-bindkey '^r' peco-select-history
-
 # ghq peco
 # http://masteries.papix.net/entry/2014-07-05-ghq-with-peco-and-cpanghq.html
 stty stop undef

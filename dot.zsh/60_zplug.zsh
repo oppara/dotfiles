@@ -11,6 +11,7 @@ zplug "mollifier/cd-gitroot"
 alias cgr='cd-gitroot'
 
 zplug "oppara/anyframe"
+bindkey '^r' anyframe-widget-put-history
 
 if ! zplug check --verbose; then
     printf "Install? [y/N]: "
