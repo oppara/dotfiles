@@ -50,20 +50,6 @@ bindkey " " magic-abbrev-expand
 bindkey "^i " no-magic-abbrev-expand
 
 
-# ghq peco
-# http://masteries.papix.net/entry/2014-07-05-ghq-with-peco-and-cpanghq.html
-stty stop undef
-function peco-src () {
-    local selected_dir=$(ghq list --full-path | peco --query "$LBUFFER")
-    if [ -n "$selected_dir" ]; then
-        BUFFER="cd ${selected_dir}"
-        zle accept-line
-    fi
-    zle clear-screen
-}
-zle -N peco-src
-bindkey '^g^g' peco-src
-
 fancy-ctrl-z () {
   if [[ $#BUFFER -eq 0 ]]; then
     BUFFER="fg"
