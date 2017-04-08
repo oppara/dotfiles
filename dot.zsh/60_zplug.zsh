@@ -13,6 +13,7 @@ alias cgr='cd-gitroot'
 zplug "oppara/anyframe"
 bindkey '^r' anyframe-widget-put-history
 bindkey '^g^g' anyframe-widget-cd-ghq-repository
+bindkey '^s^s' anyframe-widget-insert-ssh-host
 
 if ! zplug check --verbose; then
     printf "Install? [y/N]: "
