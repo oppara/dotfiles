@@ -88,7 +88,7 @@ if is-at-least 4.3.11; then
 
 fi
 
-function _update_vcs_info_msg() {
+function update_vcs_info_msg() {
     local -a messages
     local color
 
@@ -117,7 +117,8 @@ function _update_vcs_info_msg() {
 
     RPROMPT="${(j: :)messages}"
 }
-add-zsh-hook precmd _update_vcs_info_msg
+add-zsh-hook precmd update_vcs_info_msg
+zle -N update_vcs_info_msg
 
 precmd() {
     ## カレントディレクトリをコマンドステータス行に
