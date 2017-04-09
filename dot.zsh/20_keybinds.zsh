@@ -89,10 +89,15 @@ function do_enter() {
         echo
         git status -sb
         echo
-        zle update_vcs_info_msg
-        zle reset-prompt
-        return 0
+      else
+        echo
+        ls -l
+        echo
       fi
+
+      zle update_vcs_info_msg
+      zle reset-prompt
+      return 0
     fi
 
     echo
