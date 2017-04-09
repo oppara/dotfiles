@@ -78,4 +78,30 @@ function extract() {
 alias -s {gz,tgz,zip,lzh,bz2,tbz,Z,tar,arj,xz,rar}=extract
 
 
+function do_enter() {
+    if [ -n "$BUFFER" ]; then
+      zle accept-line
+      return 0
+    fi
+
+    if [ "$(git rev-parse --is-inside-work-tree 2> /dev/null)" = 'true' ]; then
+      if [ "$(git status --porcelain 2> /dev/null)" ]; then
+        echo
+        git status -sb
+        echo
+        zle reset-prompt
+        return 0
+      fi
+    fi
+
+    echo
+    ls -l
+    echo
+    zle reset-prompt
+
+    return 0
+}
+zle -N do_enter
+bindkey '^m' do_enter
+
 # vim: ft=sh fdm=marker
