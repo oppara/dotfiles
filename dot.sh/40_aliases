@@ -22,7 +22,7 @@ alias v="vim"
 ## git
 alias g="git"
 alias gs="git svn"
-alias gl="git ll|head -20"
+alias gl="git ll|head -20 && echo"
 
 ## home brew
 alias b="brew"
