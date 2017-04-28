@@ -16,5 +16,8 @@ if [[ $(docker-machine ls | grep dev | grep Running 2> /dev/null) ]]; then
   eval "$(docker-machine env dev)"
 fi
 
+plugin="${COMPOSER_HOME-$HOME/.composer}/vendor/stecman/composer-bash-completion-plugin"
+test -d "${plugin}" &&  source "${plugin}/hooks/zsh-completion"
+unset plugin
 
 # vim: ft=sh fdm=marker
