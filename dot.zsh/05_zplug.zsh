@@ -8,6 +8,8 @@ source "${ZPLUG_HOME}/init.zsh"
 
 zplug "zplug/zplug", hook-build:"zplug --self-manage"
 
+zplug "b4b4r07/enhancd", use:init.sh
+
 zplug "mollifier/cd-gitroot"
 alias cgr="cd-gitroot"
 
