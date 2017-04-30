@@ -1,9 +1,15 @@
 Include conf.d/hosts/*
 
 Host *
-    ServerAliveInterval 30
-    # ProtocolKeepAlives 120 # only debian
+    TCPKeepAlive yes
+    IdentitiesOnly yes
+    VisualHostKey yes
+    ServerAliveInterval 120
+    ServerAliveCountMax 10
+    ForwardAgent yes
     UseKeychain yes
+    AddKeysToAgent yes
+
     PermitLocalCommand yes
     LocalCommand       tmux rename-window %n
 
