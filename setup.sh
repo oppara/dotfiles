@@ -36,4 +36,9 @@ do
 
 done
 
+if [ ! -e "${HOME}/.ssh/conf.d" ]; then
+  mkdir -p "${HOME}"/.ssh/conf.d/{common,hosts}
+fi
+
+
 echo "done."
