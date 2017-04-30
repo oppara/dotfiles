@@ -19,3 +19,6 @@ Host *
     # User               oppara
     # port               22
 
+
+# vim: ft=sshconfig
+
