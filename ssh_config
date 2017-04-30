@@ -3,7 +3,7 @@ Include conf.d/hosts/*
 Host *
     TCPKeepAlive yes
     IdentitiesOnly yes
-    VisualHostKey yes
+    # VisualHostKey yes
     ServerAliveInterval 120
     ServerAliveCountMax 10
     ForwardAgent yes
