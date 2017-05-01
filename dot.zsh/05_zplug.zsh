@@ -17,7 +17,7 @@ alias cgr="cd-gitroot"
 zplug "oppara/anyframe"
 bindkey "^r" anyframe-widget-put-history
 bindkey "^s^s" anyframe-widget-insert-ssh-host
-bindkey "^g^i" anyframe-widget-insert-git-branch
+bindkey "^g^b" anyframe-widget-insert-git-branch
 alias gco=anyframe-widget-checkout-git-branch
 
 
