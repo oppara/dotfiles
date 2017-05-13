@@ -7,6 +7,7 @@ typeset -U path cdpath fpath manpath
 ## 補完機能の強化
 # brew info zsh-completions
 fpath=( \
+    "${HOME}/.zsh/completions"
     $(brew --prefix)/share/zsh-completions \
     $fpath \
     )
