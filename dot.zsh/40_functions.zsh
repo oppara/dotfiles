@@ -37,10 +37,8 @@ function ssh() {
 }
 
 ## gitignore #{{{1
-# http://gitignore.io/cli
-function gitignore() {
-    curl "http://www.gitignore.io/api/$@";
-}
+# https://github.com/joeblau/gitignore.io
+function gi() { curl -L -s https://www.gitignore.io/api/$@ ;}
 
 ## alc #{{{1
 function alc() {
