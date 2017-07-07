@@ -16,9 +16,9 @@
     ui = auto
 
 [pager]
-    log =  diff-highlight | less -R
-    show = diff-highlight | less -R
-    diff = diff-highlight | less -R
+    log =  diff-highlight | nkf -w | less -R
+    show = diff-highlight | nkf -w | less -R
+    diff = diff-highlight | nkf -w | less -R
 
 [alias]
     st = status
