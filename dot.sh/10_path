@@ -14,6 +14,7 @@ done
 unset app
 
 test -d /usr/local/share/npm/bin && PATH="/usr/local/share/npm/bin:$PATH"
+test -d /usr/local/opt/gettext/bin && PATH="/usr/local/opt/gettext/bin:$PATH"
 
 test -d "$HOME/local/bin" && PATH="$HOME/local/bin:$PATH"
 test -d "$HOME/local/share/man" && MANPATH="$HOME/local/share/man:$MANPATH"
