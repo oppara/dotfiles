@@ -68,6 +68,31 @@
     ; Merge CommitをRevert
     rvm = revert -m 1
 
+    deleted = log --diff-filter=D --summary
+    restore = "!f () {\
+        if [ \"$#\" -eq 0 ];then \
+          echo 'usage: git restore <file_name> [file_name_2 [file_name_3 [...]]]';\
+          return 1;\
+        fi;\
+        ret=0;\
+        for f in \"$@\";do \
+          if [ -a \"$(git rev-parse --show-toplevel)/$f\" ];then \
+            printf \"\\e[31m$f exists\\n\\e[m\";\
+            ret=2;\
+            continue;\
+          fi;\
+          c=$(git rev-list -n 1 HEAD -- \"$f\");\
+          if [ -n \"$c\" ];then \
+            git checkout \"$c\"^ -- \"$f\";\
+            echo \"$f\" has been restored;\
+          else \
+            printf \"\\e[31m$f is not in the log\\n\\e[m\";\
+            ret=2;\
+          fi;\
+        done;\
+        return $ret;\
+    };f"
+
 [rerere]
     enabled = true
 
