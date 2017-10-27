@@ -106,4 +106,7 @@ alias vu="osascript -e 'set volume output volume (output volume of (get volume s
 ## reload
 alias reload="exec $SHELL -l"
 
+## 間違ってバイナリファイルを開いてしまった場合の対応
+alias clear2="echo -e '\026\033c'"
+
 # vim: ft=zsh fdm=marker
