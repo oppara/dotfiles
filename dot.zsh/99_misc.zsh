@@ -11,6 +11,12 @@ test -d "${HOME}/.rbenv" &&  eval "$(rbenv init -)"
 ## plenv
 test -d "${HOME}/.plenv" &&  eval "$(plenv init -)"
 
+## anyenv
+if [[ -d "${HOME}/.anyenv" ]]; then
+  export PATH="${HOME}/.anyenv/bin:${PATH}"
+  eval "$(anyenv init -)"
+fi
+
 ## docker-machine dev
 if [[ $(docker-machine ls | grep dev | grep Running 2> /dev/null) ]]; then
   eval "$(docker-machine env dev)"
