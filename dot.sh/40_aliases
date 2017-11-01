@@ -10,7 +10,8 @@ alias me="memo e"
 alias ml="memo l"
 
 ## random password
-alias pw='cat /dev/urandom | LC_CTYPE=C tr -dc "[:alnum:]" | head -c ' $@
+alias pw='openssl rand -base64 30'
+
 
 ## open current directory in Finder
 alias o='open .'
