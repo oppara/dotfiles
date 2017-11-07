@@ -2,5 +2,17 @@
 
 extends: relaxed
 
-indentation: {spaces: 2, indent-sequences: consistent}
+rules:
+  comments-indentation: disable
+
+  indentation:
+    spaces: 2
+    indent-sequences: consistent
+
+  line-length:
+    max: 120
+    level: warning
+
+
+# vi: set ft=yaml :
 
