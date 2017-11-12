@@ -1,6 +1,6 @@
 
 --langmap=PHP:.php.inc
---php-kinds=cfd
+--php-kinds=cfit
 
 --langdef=js
 --langmap=js:.js
