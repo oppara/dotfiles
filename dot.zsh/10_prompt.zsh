@@ -127,10 +127,10 @@ precmd() {
 }
 
 
-function preexec() {
-    [ 0 -lt `is_screen` ] && \
-        echo -ne "\ek#${1%% *}\e\\"
-}
+# function preexec() {
+    # [ 0 -lt `is_screen` ] && \
+        # echo -ne "\ek#${1%% *}\e\\"
+# }
 
 function is_screen() {
   if [ "$TERM" = "screen-bce" -o "$TERM" = "screen" ]; then
