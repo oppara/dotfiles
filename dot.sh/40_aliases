@@ -35,7 +35,8 @@ alias d="docker"
 alias h="history 1"
 
 ## tree
-alias tre="tree -aC -I '.DS_Store|._*|Thumbs.db|.git|.svn|node_modules|bower_components' --dirsfirst"
+# alias tre="tree -aC -I '.DS_Store|._*|Thumbs.db|.git|.svn|node_modules|bower_components' --dirsfirst"
+alias tre="tree -AF -I '.DS_Store|._*|Thumbs.db|.git|.svn|node_modules|bower_components' --dirsfirst $@"
 
 ## ls
 if ls --color > /dev/null 2>&1; then # GNU `ls`
