@@ -5,7 +5,6 @@
     "C-q": "peco.Cancel",
     "C-c": "peco.Cancel"
   },
-  "Layout": "bottom-up",
   "Style": {
     "Basic": ["on_default", "default"],
     "Selected": ["on_black", "white"],
