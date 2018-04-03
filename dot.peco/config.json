@@ -8,6 +8,7 @@
   "Style": {
     "Basic": ["on_default", "default"],
     "Selected": ["on_black", "white"],
+    "Matched": ["red", "bold"],
     "Query": ["yellow", "bold"]
   }
 }

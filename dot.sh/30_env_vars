@@ -21,12 +21,9 @@ export CVSEDITOR="${EDITOR}"
 export SVN_EDITOR="${EDITOR}"
 export GIT_EDITOR="${EDITOR}"
 
-## To use pbcopy/pbpaste with UTF-8 encoding.
-## http://kana.github.com/config/vim/fakeclip.html#fakeclip-multibyte-on-mac
-## http://developer.apple.com/library/mac/#documentation/CoreFoundation/Reference/CFStringRef/Reference/reference.html
-export __CF_USER_TEXT_ENCODING=${__CF_USER_TEXT_ENCODING/:*:/:0x08000100:}
 
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
+export HOMEBREW_UPGRADE_CLEANUP=1
 
 
 if which lv >/dev/null; then
@@ -67,6 +64,10 @@ if [ -d ${golibexec} ]; then
 fi
 unset golibexec
 
+## To use pbcopy/pbpaste with UTF-8 encoding.
+## http://kana.github.com/config/vim/fakeclip.html#fakeclip-multibyte-on-mac
+## http://developer.apple.com/library/mac/#documentation/CoreFoundation/Reference/CFStringRef/Reference/reference.html
+export __CF_USER_TEXT_ENCODING=${__CF_USER_TEXT_ENCODING/:*:/:0x08000100:}
 
 # vim: ft=sh fdm=marker
 
