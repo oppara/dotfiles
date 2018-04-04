@@ -41,7 +41,7 @@ end)
 local function handleGlobalEvent(name, event, app)
     if event == hs.application.watcher.activated then
         local bundleId = string.lower(app.frontmostApplication():bundleID())
-        if bundleId == 'com.apple.terminal' then
+        if bundleId == 'com.apple.terminal' or bundleId == 'com.googlecode.iterm2' then
             keyEventtap:start()
         else
             keyEventtap:stop()
