@@ -37,7 +37,7 @@
     rs = remote -v show
     df = diff -b
     dc = diff -b --cached
-    ds = diff --stat
+    dsn = diff --stat --name-only
     dn = diff -b master --name-only
     dw = diff -b  --word-diff
     cp = cherry-pick
