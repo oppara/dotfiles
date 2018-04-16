@@ -18,6 +18,7 @@ alias o='open .'
 
 ## vim
 alias v="vim"
+alias vi="vim"
 # alias mvim="~/bin/mvim  --remote-silent"
 
 ## git
