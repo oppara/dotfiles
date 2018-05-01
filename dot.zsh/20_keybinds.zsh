@@ -19,7 +19,7 @@ abbreviations=(
     "C"    "| pbcopy"
     "D"    "&& tput bel"
     "G"    "| grep"
-    "X"    "| xargs"
+    "X"    "| xargs --no-run-if-empty"
     "T"    "| tail"
     "H"    "| head"
     "L"    "| lv"
