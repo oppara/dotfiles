@@ -1,6 +1,7 @@
 .svn/
 .envrc
 .local.vimrc
+.eslintrc.json
 ,/
 
 # Created by https://www.gitignore.io/api/osx
