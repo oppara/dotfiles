@@ -13,6 +13,16 @@
 --php-kinds=cfid
 
 
+--langdef=Swift
+--langmap=Swift:+.swift
+--regex-swift=/(var|let)[ \t ]+([^:=]+).*$/\2/V,variable/
+--regex-swift=/func[ \t ]+([^\(\)]+)\([^\(\)]*\)/\1/F,function/
+--regex-swift=/class[ \t ]+([^:\{]+).*$/\1/C,class/
+--regex-swift=/struct[ \t ]+([^:\{]+).*$/\1/S,struct/
+--regex-swift=/protocol[ \t ]+([^:\{]+).*$/\1/P,protocol/
+--regex-swift=/enum[ \t ]+([^:\{]+).*$/\1/E,enum/
+
+
 --langdef=markdown
 --langmap=markdown:.mkd.md
 --regex-markdown=/^#[ \t ]+(.*)/\1/h,H1/
