@@ -1,6 +1,6 @@
 
 --langmap=PHP:.php.inc
---php-kinds=cfit
+--php-kinds=cfid
 
 --langdef=js
 --langmap=js:.js.vue
