@@ -117,17 +117,8 @@ function update_vcs_info_msg() {
 
     RPROMPT="${(j: :)messages}"
 }
-
-precmd_tmux_win() {
-  [ -n "$TMUX" ] && \
-      tmux rename-window "$(basename $(git rev-parse --show-toplevel 2>/dev/null || echo "${PWD/#$HOME/~}"))"
-}
-
-add-zsh-hook precmd precmd_tmux_win
 add-zsh-hook precmd update_vcs_info_msg
 zle -N update_vcs_info_msg
-zle -N precmd_tmux_win
-
 
 precmd() {
     ## カレントディレクトリをコマンドステータス行に
