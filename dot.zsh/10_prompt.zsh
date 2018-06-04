@@ -121,9 +121,12 @@ add-zsh-hook precmd update_vcs_info_msg
 zle -N update_vcs_info_msg
 
 precmd() {
+    tmux rename-window " ${PWD:t} " > /dev/null
+
     ## カレントディレクトリをコマンドステータス行に
     [ 0 -lt `is_screen` ] && \
         print -nP '\ek%24<*<%~%<<\e\\'
+
 }
 
 
@@ -133,7 +136,7 @@ precmd() {
 # }
 
 function is_screen() {
-  if [ "$TERM" = "screen-bce" -o "$TERM" = "screen" ]; then
+  if [ "$TERM" = "screen-bce" -o "$TERM" = "screen-256color" -o "$TERM" = "screen" ]; then
     echo 1
   else
     echo 0
