@@ -49,9 +49,9 @@ alias la='ls -lha'
 alias ll='ls -lh'
 
 ## The Silver Searcher
-command -v ag > /dev/null && alias ag="ag -S --color-match \"1;31\""
+command -v ag > /dev/null && alias ag="ag -s --color-match \"1;31\""
 ## The Platinum Searcher
-command -v pt > /dev/null && alias pt="pt -S --color-match \"1;31\""
+command -v pt > /dev/null && alias pt="pt -s --color-match \"1;31\""
 
 ## ip addresses
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
