@@ -37,9 +37,10 @@
     rs = remote -v show
     df = diff -b
     dc = diff -b --cached
-    dsn = diff --stat --name-only
-    dn = diff -b master --name-only
+    dns = diff --name-only --stat
+    dm = diff -b master --name-only
     dw = diff -b  --word-diff
+    dd = diff -b HEAD~
     cp = cherry-pick
     nw = now --stat --update
     ; merge, rebase をもとに戻す
