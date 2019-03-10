@@ -2,38 +2,51 @@
 
 set -eu
 
+create_symbolic_link () {
+  local src="$1"
+  local target="$2"
+
+  if test -e "$target" && ! test -L "$target" ; then
+    echo "file or directory already exists!! [${target}] "
+    continue
+  fi
+
+  if test -L "$target" ; then
+    rm "$target"
+  fi
+
+  ln -s "$src" "$target"
+  echo "ln -s $src $target"
+}
+
+
 CURRENT=$(cd $(dirname $0) && pwd)
 
-dotfiles=$(ls $CURRENT | grep '^dot\.')
-
-for file in $dotfiles
+for file in $(ls "$CURRENT" | grep '^dot\.')
 do
+  org="$file"
 
-    org=${file}
-    # osx用の設定
-    if echo "$file" | grep 'mac\.' > /dev/null; then
-        if [ "${OSTYPE%%[^a-z]*}" != 'darwin' ]; then
-            continue
-        fi
-        file=${file/mac./}
+  # osx用の設定
+  if echo "$file" | grep 'mac\.' > /dev/null; then
+    if [ "${OSTYPE%%[^a-z]*}" != 'darwin' ]; then
+      continue
     fi
 
-    src="${CURRENT}/${org}"
-    target="${HOME}/${file#dot}"
+    file=${file/mac./}
+  fi
 
-    # ファイルやディレクトリが存在する場合はスキップ
-    if test -e "$target" && ! test -L "$target" ; then
-        echo "file or directory already exists!! [${target}] "
-        continue
-    fi
+  src="${CURRENT}/${org}"
+  target="${HOME}/${file#dot}"
 
-    if test -L "$target" ; then
-        rm "$target"
-    fi
+  create_symbolic_link "$src" "$target"
+done
 
-    ln -s "$src" "$target"
-    echo "ln -s $src ${target}"
+for dir in $(ls "${CURRENT}/config")
+do
+  src="${CURRENT}/config/${dir}"
+  target="${HOME}/.config/${dir}"
 
+  create_symbolic_link "$src" "$target"
 done
 
 if [ ! -e "${HOME}/.ssh/conf.d" ]; then
