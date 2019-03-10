@@ -1,0 +1,3 @@
+extends: stylelint-config-standard
+
+# vim: expandtab ft=yaml
