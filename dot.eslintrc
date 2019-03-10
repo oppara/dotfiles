@@ -17,10 +17,10 @@
         "args": "none"
     }],
     "comma-dangle": ["error", {
-      "arrays": "never",
-      "objects": "never",
-      "imports": "never",
-      "exports": "never",
+      "arrays": "only-multiline",
+      "objects": "only-multiline",
+      "imports": "only-multiline",
+      "exports": "only-multiline",
       "functions": "ignore"
     }],
     "semi": "error"
