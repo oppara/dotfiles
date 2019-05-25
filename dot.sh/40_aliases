@@ -25,6 +25,7 @@ alias vi="vim"
 alias g="git"
 alias gs="git svn"
 alias gl="git ll|head -20 && echo"
+alias gd="git diff -b --no-index"
 
 ## home brew
 alias b="brew"
