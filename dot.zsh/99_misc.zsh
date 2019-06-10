@@ -26,4 +26,11 @@ plugin="${COMPOSER_HOME-$HOME/.composer}/vendor/stecman/composer-bash-completion
 test -d "${plugin}" &&  source "${plugin}/hooks/zsh-completion"
 unset plugin
 
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f "${HOME}/google-cloud-sdk/path.zsh.inc" ]; then . "${HOME}/google-cloud-sdk/path.zsh.inc"; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f "${HOME}/google-cloud-sdk/completion.zsh.inc" ]; then . "${HOME}/google-cloud-sdk/completion.zsh.inc"; fi
+
 # vim: ft=sh fdm=marker
