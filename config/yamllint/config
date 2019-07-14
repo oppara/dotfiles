@@ -13,6 +13,8 @@ rules:
     max: 120
     level: warning
 
+  empty-lines:
+    max-end: 1
 
 # vi: set ft=yaml :
 
