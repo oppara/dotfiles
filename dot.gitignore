@@ -3,6 +3,7 @@
 .local.vimrc
 .eslintrc.json
 ,/
+*.bak
 
 # Created by https://www.gitignore.io/api/osx
 
