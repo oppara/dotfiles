@@ -1,3 +1,5 @@
+# in ~/.zshenv, executed `unsetopt GLOBAL_RCS` and ignored /etc/zshrc
+[ -r /etc/zshrc ] && . /etc/zshrc
 
 for file in ~/.zsh/[0-9]*.(sh|zsh)
 do

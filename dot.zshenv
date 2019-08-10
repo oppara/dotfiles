@@ -11,6 +11,13 @@
 # shell script
 #     ~/.zshenv
 
+# ignore /etc/zprofile, /etc/zshrc, /etc/zlogin, and /etc/zlogout
+unsetopt GLOBAL_RCS
+
+# copied from /etc/zprofile
+if [ -x /usr/libexec/path_helper ]; then
+    eval `/usr/libexec/path_helper -s`
+fi
 
 # Don't create core dumps
 ulimit -c 0
