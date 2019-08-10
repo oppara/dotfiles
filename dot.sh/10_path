@@ -23,6 +23,8 @@ test -d "$HOME/bin" && PATH="$HOME/bin:$PATH"
 ## composer
 test -d "$HOME/.composer/vendor/bin" && PATH="$HOME/.composer/vendor/bin:$PATH"
 
+## rust
+test -d "$HOME/.cargo/bin" && PATH="$HOME/.cargo/bin:$PATH"
 
 # vim: ft=sh fdm=marker
 
