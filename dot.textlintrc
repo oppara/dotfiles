@@ -1,0 +1,91 @@
+# vim: ft=yaml
+
+filters:
+rules:
+  # 日本語向けのルール
+  # https://github.com/textlint-ja/textlint-rule-preset-japanese
+  preset-japanese: true
+
+  # 日本語周りにおけるスペースの有無を決定するルール
+  # https://github.com/textlint-ja/textlint-rule-spacing
+  preset-ja-spacing:
+    ja-nakaguro-or-halfwidth-space-between-katakana: true
+    ja-no-space-around-parentheses: true
+    ja-no-space-between-full-width: true
+    ja-space-between-half-and-full-width:
+      space: always
+      exceptPunctuation: true
+    ja-space-after-exclamation: true
+    ja-space-after-question: true
+    ja-space-around-code: true
+
+  # 一文に利用できる、の数を制限するルール
+  # https://github.com/textlint-ja/textlint-rule-max-ten
+  max-ten:
+    max: 3
+
+  # 技術用語のルール
+  # https://github.com/azu/textlint-rule-spellcheck-tech-word
+  spellcheck-tech-word: true
+
+  # 敬体(ですます調)と常体(である調)の混在をチェックするルール
+  # https://github.com/textlint-ja/textlint-rule-no-mix-dearu-desumasu
+  no-mix-dearu-desumasu: true
+
+  # ら抜き言葉を検出するルール
+  # https://github.com/textlint-ja/textlint-rule-no-dropping-the-ra
+  no-dropping-the-ra: true
+
+  # 二重否定を検出するルール
+  # https://github.com/textlint-ja/textlint-rule-no-double-negative-ja
+  no-double-negative-ja: true
+
+  # 全角と半角アルファベットを混在をチェックするルール
+  # https://github.com/textlint-ja/textlint-rule-no-mixed-zenkaku-and-hankaku-alphabet
+  no-mixed-zenkaku-and-hankaku-alphabet: true
+
+  # 逆接の接続助詞「が」が同一文中に複数回出現していないかどうかをチェックするルール
+  # https://github.com/takahashim/textlint-rule-no-doubled-conjunctive-particle-ga
+  no-doubled-conjunctive-particle-ga: true
+
+  # 同じ接続詞が連続して出現していないかどうかをチェックするルール
+  # https://github.com/takahashim/textlint-rule-no-doubled-conjunction
+  no-doubled-conjunction: true
+
+  # 半角カナの利用を禁止するルール
+  # https://github.com/textlint-ja/textlint-rule-no-hankaku-kana
+  no-hankaku-kana: true
+
+  # 1つの文中に同じ助詞が連続して出てくるのをチェックするルール
+  # https://github.com/textlint-ja/textlint-rule-no-doubled-joshi
+  no-doubled-joshi: true
+
+  # よくある日本語の誤用をチェックする
+  # https://github.com/textlint-ja/textlint-rule-ja-no-abusage
+  ja-no-abusage: true
+
+  # 漢字よりもひらがなで表記したほうが読みやすい副詞を指摘するルール
+  # https://github.com/lostandfound/textlint-rule-ja-hiragana-fukushi
+  ja-hiragana-fukushi: true
+
+  # 漢字よりもひらがなで表記したほうが読みやすい補助動詞を指摘するルール
+  # https://github.com/lostandfound/textlint-rule-ja-hiragana-hojodoushi
+  ja-hiragana-hojodoushi: true
+
+  # 不自然なアルファベットを検知するルール
+  # https://github.com/textlint-ja/textlint-rule-ja-unnatural-alphabet
+  ja-unnatural-alphabet: true
+
+  # サ抜き、サ入れ表現の誤用をチェックするルール
+  # https://github.com/textlint-ja/textlint-rule-no-insert-dropping-sa
+  '@textlint-ja/textlint-rule-no-insert-dropping-sa': true
+
+  # 文末の句点(。)の統一 OR 抜けをチェックするルール
+  # https://github.com/textlint-ja/textlint-rule-ja-no-mixed-period/
+  ja-no-mixed-period: true
+
+  # 表記ゆれの修正
+  # https://github.com/textlint-rule/textlint-rule-prh
+  prh:
+    rulePaths:
+      - /usr/local/lib/node_modules/prh/prh-rules/media/WEB+DB_PRESS.yml
