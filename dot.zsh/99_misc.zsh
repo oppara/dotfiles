@@ -1,5 +1,8 @@
 # misc
 
+TIMEFMT=$'\n========================\nProgram : %J\nCPU     : %P\nuser    : %*Us\nsystem  : %*Ss\ntotal   : %*Es\n========================\n'
+
+
 ## direnv
 if which direnv >/dev/null; then
     eval "$(direnv hook zsh)"
