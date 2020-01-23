@@ -77,6 +77,10 @@ if test -x "/usr/local/php/bin/pear"; then
     alias pear="/usr/local/php/bin/pear -C /usr/local/php/etc/pear.conf -c /usr/local/php/etc/.pearrc $@"
 fi
 
+## php-cs-fixer
+alias pcd='php-cs-fixer fix --config=~/.config/php/php_cs.dist --using-cache=no --dry-run --diff --diff-format udiff'
+alias pcf='php-cs-fixer fix --config=~/.config/php/php_cs.dist --using-cache=no'
+
 ## kcode
 if test -x "/usr/local/bin/kcode"; then
     alias kcode="/usr/local/bin/kcode -i utf8 -o utf8"

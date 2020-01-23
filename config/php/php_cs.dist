@@ -1,0 +1,377 @@
+<?php
+
+declare(strict_types=1);
+// -*- mode: php -*-
+// vi: set ft=php :
+
+// PHP Coding Standards Fixer
+// https://cs.symfony.com/
+//
+// PHP-CS-Fixer configuration
+// https://mlocati.github.io/php-cs-fixer-configurator/
+
+return PhpCsFixer\Config::create()
+    ->setRiskyAllowed(true)
+    ->setRules([
+        '@PSR2' => true,
+
+        // PHP配列は、[] を使う
+        'array_syntax' => ['syntax' => 'short'],
+
+        // = や => などの演算子を揃える
+        'binary_operator_spaces' => [
+            'align_double_arrow' => true,
+            'align_equals'       => true,
+        ],
+
+        // PHPの開始タグと同じ行にコードがなく、その後に空白行が続くことを確認
+        'blank_line_after_opening_tag' => true,
+
+        // 空行を上に挿入
+        'blank_line_before_statement' => ['statements' => ['declare', 'do', 'for', 'foreach', 'if', 'switch', 'try', 'throw', 'return', 'yield']],
+
+        // キャストと変数の間には、単一のスペースが必要です。
+        'cast_spaces' => true,
+
+        // class、trait、interfaceは、1行の空白行で区切る必要があります。
+        'class_attributes_separation' => true,
+
+        // isset（$ var）&&を複数回使用することは、1回の呼び出しで行う必要があります
+        'combine_consecutive_issets' => true,
+
+        // 複数のアイテムの設定解除の呼び出しは、1回の呼び出しで行う必要があります。
+        'combine_consecutive_unsets' => true,
+
+        // null許容型ヒントの余分なスペースを削除します。
+        'compact_nullable_typehint' => true,
+
+        // 連結は、スペースを空ける必要があります。
+        'concat_space' => ['spacing' => 'one'],
+
+        // declareステートメントの等号は、スペースで囲む
+        'declare_equal_normalize' => true,
+
+        // すべてのファイルで厳密な型宣言を強制します。 PHP 7.0以降が必要です
+        'declare_strict_types' => true,
+
+        // dirname（__ FILE__）式を同等の__DIR__定数に置き換えますPhpCsFixer:risky
+        'dir_constant' => true,
+
+        // 非推奨のereg正規表現関数をpregに置き換えます。PhpCsFixer:risky
+        'ereg_to_preg' => true,
+
+        // 文字列とヒアドキュメントの暗黙的なバックスラッシュをエスケープして、PHPが解釈する特殊文字とそうでない特殊文字の理解を容易にします。
+        'escape_implicit_backslashes' => true,
+
+        // 間接変数に中括弧を追加して、わかりやすくします。 PHP 7.0以降が必要です。
+        'explicit_indirect_variable' => true,
+
+        // 暗黙の変数を、二重引用符で囲まれた文字列またはheredoc構文の明示的な変数に変換します。
+        'explicit_string_variable' => true,
+
+        // 内部クラスはfinalでなければなりません。PhpCsFixer:risky
+        'final_internal_class' => true,
+
+        // 定数を返すコア関数呼び出しを定数に置き換えます。PhpCsFixer:risky
+        'function_to_constant' => true,
+
+        // 関数の引数とその型ヒントの間に単一のスペースを確保します。
+        'function_typehint_space' => true,
+
+        // 複数行のDocCommentsの各行にはアスタリスク[PSR-5]が必要であり、最初の行に揃える必要があります。
+        'align_multiline_comment' => true,
+
+        // 可能であれば、heredocをnowdocに変換します。
+        'heredoc_to_nowdoc' => true,
+
+        // Include / Requireとファイルパスは、単一のスペースで分割する必要があります。ファイルパスは角かっこで囲まないでください。
+        'include' => true,
+
+        // is_null（$ var）式をnull === $ varに置き換えます。PhpCsFixer:risky
+        'is_null' => ['use_yoda_style' => false],
+
+        // PHPの開始タグと同じ行にコードがないことを確認
+        'linebreak_after_opening_tag' => true,
+
+        // リスト（配列の破壊）割り当ては、構成された構文を使用して宣言する必要があります。 PHP> = 7.1が必要です。
+        // 構文（ 'long'、 'short'）：長いリスト構文と短いリスト構文のどちらを使用するか。デフォルトは 'long'
+        'list_syntax' => true,
+
+        // キャストは小文字で記述する必要があります。
+        'lowercase_cast' => true,
+
+        // 正しい定数を使用して、マジック定数を参照する必要があります。
+        'magic_constant_casing' => true,
+
+        // メソッドチェーンは適切にインデントする必要があります。異なるレベルのインデントを使用したメソッドチェーンはサポートされていません。
+        'method_chaining_indentation' => true,
+
+        // メソッドは1つの空白行で区切る必要があります。非推奨：代わりにclass_attributes_separationを使用してください。
+        'method_separation' => true,
+
+        // intval、floatval、doubleval、strval、およびboolval関数呼び出しを、型キャスト演算子に従って置き換えます。PhpCsFixer:risky
+        'modernize_types_casting' => true,
+
+        // PHPで定義された関数は、正しい大文字小文字を使用して呼び出す必要があります
+        'native_function_casing' => true,
+
+        // エイリアスの代わりにマスター関数を使用します。PhpCsFixer:risky
+        'no_alias_functions' => true,
+
+        // クラス開始中括弧の後に空行がないはずです。
+        'no_blank_lines_after_class_opening' => true,
+
+        // docblockと文書化された要素の間に空白行があってはなりません。
+        'no_blank_lines_after_phpdoc' => true,
+
+        // 空のコメンがあってはならない
+        'no_empty_comment' => true,
+
+        // 空のPHPDocブロックがあってはなりません。
+        'no_empty_phpdoc' => true,
+
+        // 無駄なセミコロンステートメントを削除します。
+        'no_empty_statement' => true,
+
+        // 余分な空白行および/または構成後に空白行を削除します。
+        'no_extra_blank_lines' => ['tokens' => ['break', 'continue', 'extra', 'return', 'throw', 'use', 'parenthesis_brace_block', 'square_brace_block', 'curly_brace_block']],
+
+        // 名前のホモグリフ（非ASCII文字）の誤った使用を置き換えます。PhpCsFixer:risky
+        'no_homoglyph_names' => true,
+
+        // use句の先頭のスラッシュを削除します。
+        'no_leading_import_slash' => true,
+
+        // 名前空間の宣言行に先頭の空白を含めることはできません。
+        'no_leading_namespace_whitespace' => true,
+
+        // echoのみを使用する必要があります。
+        'no_mixed_echo_print' => true,
+
+        // 演算子=>を複数行の空白で囲まないでください。
+        'no_multiline_whitespace_around_double_arrow' => true,
+
+        // セミコロンを閉じる前の複数行の空白は禁止されています。
+        'multiline_whitespace_before_semicolons' => true,
+
+        // プロパティは、型宣言がある場合を除き、明示的にnullで初期化してはなりません（PHP 7.4）。
+        'no_null_property_initialization' => true,
+
+        // PHP4スタイルのコンストラクターを__constructに変換します。
+        'no_php4_constructor' => true,
+
+        // 二重感嘆符を使用した短キャストboolは使用しないでください。
+        'no_short_bool_cast' => true,
+
+        // セミコロンを閉じる前の単一行の空白は禁止されています。
+        'no_singleline_whitespace_before_semicolons' => true,
+
+        // オフセットブレースの周りにスペースがあってはなりません。
+        'no_spaces_around_offset' => true,
+
+        // リスト関数呼び出しの末尾のコンマを削除します。
+        'no_trailing_comma_in_list_call' => true,
+
+        // PHPの単一行配列には、末尾のコンマを含めないでください。
+        'no_trailing_comma_in_singleline_array' => true,
+
+        // 制御ステートメントを囲む不要な括弧を削除します。
+        'no_unneeded_control_parentheses' => true,
+
+        // 不要であり、制御構造体の一部ではない不要な中括弧を削除します。
+        'no_unneeded_curly_braces' => true,
+
+        // finalクラスにはfinalメソッドがあってはなりません。
+        'no_unneeded_final_method' => true,
+
+        // 関数の引数には、デフォルト以外の引数の前にデフォルト値を持つ引数があってはなりません。PhpCsFixer:risky
+        'no_unreachable_default_argument_value' => true,
+
+        // 未使用の use ステートメントは削除
+        'no_unused_imports' => true,
+
+        // 不要なelseは削除
+        'no_useless_else' => true,
+
+        // 関数の最後に空のreturnステートメントがあってはなりません。
+        'no_useless_return' => true,
+
+        // 配列宣言では、各コンマの前に空白があってはなりません。
+        'no_whitespace_before_comma_in_array' => true,
+
+        // 空白行の末尾にある末尾の空白を削除します。
+        'no_whitespace_in_blank_line' => true,
+
+        // 配列インデックスは、常に角括弧を使用して書き込まれる必要があります
+        'normalize_index_brace' => true,
+
+        // オブジェクトT_OBJECT_OPERATOR->の前後にスペースがあってはなりません。
+        'object_operator_without_whitespace' => true,
+
+        // クラス/インターフェース/トレイトの要素を並べ替えます。
+        'ordered_class_elements' => true,
+
+        // use 文を並べ替えます
+        'ordered_imports' => true,
+
+        // powを**演算子に変換します。
+        'pow_to_exponentiation' => true,
+
+        // Converts protected variables and methods to private where possible.
+        'protected_to_private' => true,
+
+        // Replaces rand, srand, getrandmax functions calls with their mt_* analogs.
+        'random_api_migration' => true,
+
+        // 戻り値の宣言では、コロンの前にスペースを1つ入れる
+        'return_type_declaration' => true,
+
+        // 内部クラスまたはインターフェイス要素selfは、クラス名自体よりも優先される必要があります。
+        'self_accessor' => true,
+
+        // 命令はセミコロンで終了する必要があります。
+        'semicolon_after_instruction' => true,
+
+        // Cast (boolean) and (integer) should be written as (bool) and (int), (double) and (real) as (float), (binary) as (string).
+        'short_scalar_cast' => true,
+
+        // voidを返したいreturnステートメントはnullを返すべきではありません。
+        'simplified_null_return' => true,
+
+        // 名前空間宣言の前に、正確に1行の空白行が必要です。
+        'single_blank_line_before_namespace' => true,
+
+        // Single-line comments and multi-line comments with only one line of actual content should use the // syntax.
+        'single_line_comment_style' => true,
+
+        // 単純な文字列の二重引用符を単一引用符に変換します。
+        'single_quote' => true,
+
+        // セミコロンの後の空白を修正します。
+        // 式の空のスペースを削除する
+        'space_after_semicolon' => ['remove_in_empty_for_expressions' => true],
+
+        // Replace all <> with !=.
+        'standardize_not_equals' => true,
+
+        // 三項演算子の周りのスペースを標準化します。
+        'ternary_operator_spaces' => true,
+
+        // Use null coalescing operator ?? where possible. Requires PHP >= 7.0.
+        'ternary_to_null_coalescing' => true,
+
+        // PHPの複数行配列には、末尾にコンマは不要
+        'trailing_comma_in_multiline_array' => false,
+
+        // 配列は、関数またはメソッドの引数のように、先頭または末尾の単一行スペースなしでフォーマットする必要があります。
+        'trim_array_spaces' => true,
+
+        // Unary operators should be placed adjacent to their operands.
+        'unary_operator_spaces' => true,
+
+        // Add void return type to functions with missing or empty return statements, but priority is given to @return annotations. Requires PHP >= 7.1.
+        'void_return' => true,
+
+        // In array declaration, there MUST be a whitespace after each comma.
+        'whitespace_after_comma_in_array' => true,
+
+        // newを用いて生成したインスタンスには後方に丸括弧を必要とします
+        'new_with_braces' => true,
+
+        // PHPDoc の後の空行は削除
+        'no_blank_lines_after_phpdoc' => true,
+
+        // 意味のない elseif 文を修正
+        'no_superfluous_elseif' => true,
+
+        // Yoda styleは使わない
+        'yoda_style' => ['equal' => false, 'identical' => false],
+
+        //
+        // PHPUnit
+        //
+
+        // -> assertSame（true、$ foo）のようなPHPUnitアサーションメソッド呼び出しは、-> assertTrue（$ foo）のような専用メソッドで記述する必要があります。PhpCsFixer:risky
+        'php_unit_construct' => true,
+
+        // assertInternalTypeやassertFileExistsなどのPHPUnitアサーションは、assertTrueよりも使用する必要があります。
+        'php_unit_dedicate_assert' => true,
+
+        // -> getMockおよび-> getMockWithoutInvokingTheOriginalConstructorメソッドの使用法は、-> createMockまたは-> createPartialMockメソッドに置き換える必要があります。
+        'php_unit_mock' => true,
+
+        // PHPUnitクラスは、名前空間付きバージョンで使用する必要があります。 \PHPUnit_Framework_TestCaseではなく、\PHPUnit\Framework\TestCase。
+        'php_unit_namespaced' => true,
+
+        //
+        // PHPDoc
+        //
+
+        // PHPDocから除外
+        'general_phpdoc_annotation_remove' => [
+            'annotations' => [
+                'class',
+                'package',
+                'author'
+            ],
+        ],
+
+        // PHPDocには、すべてのパラメーターの@paramが含まれている必要があります。
+        'phpdoc_add_missing_param_annotation' => ['only_untyped' => false],
+        // 指定されたphpdocタグのすべてのアイテムは、左揃えにするか、デフォルトで垂直に揃える必要があります。
+        'phpdoc_align' => ['tags' => ['param']],
+
+        // PHPDoc annotation descriptions should not be a sentence.
+        'phpdoc_annotation_without_dot' => true,
+
+        // Docblocks should have the same indentation as the documented subject.
+        'phpdoc_indent' => true,
+
+        // PHPDocインラインタグを修正し、@ inheritdocを常にインラインにします
+        'phpdoc_inline_tag' => true,
+
+        // @accessアノテーションはPHPDocから省略されるべきです。
+        'phpdoc_no_access' => true,
+
+        // @return voidおよび@return nullアノテーションはPHPDocから省略されるべきです。
+        'phpdoc_no_empty_return' => true,
+
+        // @packageおよび@subpackage注釈は、PHPDocから省略する必要があります。
+        'phpdoc_no_package' => true,
+
+        // PHPDocのアノテーションは、@ paramアノテーション、@throwsアノテーション、@ returnアノテーションの順に並べる必要があります。
+        'phpdoc_order' => true,
+
+        // それ自体への参照を返すメソッドの@returnアノテーションのタイプは、設定されたものでなければなりません。
+        // The type of @return annotations of methods returning a reference to itself must the configured one.
+        'phpdoc_return_self_reference' => true,
+
+        // Scalar types should always be written in the same form. int not integer, bool not boolean, float not real or double.
+        'phpdoc_scalar' => true,
+
+        // 単一行の@var PHPDocには適切な間隔が必要です。
+        'phpdoc_single_line_var_spacing' => true,
+
+        // Docblocks should only be used on structural elements.
+        'phpdoc_to_comment' => true,
+
+        // PHPDoc should start and end with content, excluding the very first and last line of the docblocks.
+        'phpdoc_trim' => true,
+
+        // The correct case must be used for standard PHP types in PHPDoc.
+        'phpdoc_types' => true,
+
+        // Sorts PHPDoc types.
+        'phpdoc_types_order' => true,
+
+        // @varおよび@typeアノテーションには変数名を含めないでください
+        'phpdoc_var_without_name' => true,
+
+        // 未継承な @inheritdoc アノテーションを削除
+        'phpdoc_no_useless_inheritdoc' => true,
+    ])
+    ->setFinder(
+        PhpCsFixer\Finder::create()
+            ->exclude('vendor')
+            ->in(__DIR__)
+    );
