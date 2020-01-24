@@ -69,6 +69,9 @@
     ; Merge CommitをRevert
     rvm = revert -m 1
 
+    ; リモートのタグを表示する
+    rt = ls-remote --tags
+
     deleted = log --diff-filter=D --summary
     restore = "!f () {\
         if [ \"$#\" -eq 0 ];then \
