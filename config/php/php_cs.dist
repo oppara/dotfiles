@@ -18,17 +18,17 @@ return PhpCsFixer\Config::create()
         // PHP配列は、[] を使う
         'array_syntax' => ['syntax' => 'short'],
 
-        // = や => などの演算子を揃える
+        // = や => などの演算子を揃えない
         'binary_operator_spaces' => [
-            'align_double_arrow' => true,
-            'align_equals'       => true,
+            'align_double_arrow' => false,
+            'align_equals'       => false,
         ],
 
         // PHPの開始タグと同じ行にコードがなく、その後に空白行が続くことを確認
         'blank_line_after_opening_tag' => true,
 
         // 空行を上に挿入
-        'blank_line_before_statement' => ['statements' => ['declare', 'do', 'for', 'foreach', 'if', 'switch', 'try', 'throw', 'return', 'yield']],
+        'blank_line_before_statement' => ['statements' => ['do', 'for', 'foreach', 'if', 'switch', 'try', 'throw', 'return', 'yield']],
 
         // キャストと変数の間には、単一のスペースが必要です。
         'cast_spaces' => true,
