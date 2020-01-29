@@ -28,7 +28,17 @@ return PhpCsFixer\Config::create()
         'blank_line_after_opening_tag' => true,
 
         // 空行を上に挿入
-        'blank_line_before_statement' => ['statements' => ['do', 'for', 'foreach', 'if', 'switch', 'try', 'throw', 'return', 'yield']],
+        'blank_line_before_statement' => [
+            'statements' => [
+                'do',
+                'continue',
+                'break',
+                'try',
+                'throw',
+                'return',
+                'yield'
+            ]
+        ],
 
         // キャストと変数の間には、単一のスペースが必要です。
         'cast_spaces' => true,
