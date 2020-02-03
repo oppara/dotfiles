@@ -18,10 +18,10 @@ return PhpCsFixer\Config::create()
         // PHP配列は、[] を使う
         'array_syntax' => ['syntax' => 'short'],
 
-        // = や => などの演算子を揃えない
+        // = や => などの演算子を揃える
         'binary_operator_spaces' => [
-            'align_double_arrow' => false,
-            'align_equals'       => false,
+            'align_double_arrow' => true,
+            'align_equals'       => true,
         ],
 
         // PHPの開始タグと同じ行にコードがなく、その後に空白行が続くことを確認
@@ -301,6 +301,9 @@ return PhpCsFixer\Config::create()
         // PHPUnit
         //
 
+        // snake_case にも camelCase にもしない
+        'php_unit_method_casing' => false,
+
         // -> assertSame（true、$ foo）のようなPHPUnitアサーションメソッド呼び出しは、-> assertTrue（$ foo）のような専用メソッドで記述する必要があります。PhpCsFixer:risky
         'php_unit_construct' => true,
 
@@ -329,8 +332,8 @@ return PhpCsFixer\Config::create()
         // PHPDocには、すべてのパラメーターの@paramが含まれている必要があります。
         'phpdoc_add_missing_param_annotation' => ['only_untyped' => false],
 
-        // 指定されたphpdocタグのすべてのアイテムは、左揃えにする
-        'phpdoc_align' => ['align' => ['left']],
+        // 指定されたphpdocタグのすべてのアイテムは、垂直に揃える
+        'phpdoc_align' => ['align' => 'vertical'],
 
         // PHPDoc annotation descriptions should not be a sentence.
         'phpdoc_annotation_without_dot' => true,
