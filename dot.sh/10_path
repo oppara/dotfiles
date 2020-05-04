@@ -1,9 +1,6 @@
 export PATH="/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin"
 export MANPATH="/usr/local/share/man:/usr/local/man:/usr/share/man"
 
-# php-osx.liip.ch
-test -d /usr/local/php5/bin && PATH="/usr/local/php5/bin:$PATH"
-
 test -d "/Applications/Xcode.app/Contents/Developer/Tools" && PATH="/Applications/Xcode.app/Contents/Developer/Tools:$PATH"
 test -d "/Applications/Xcode.app/Contents/Developer/usr/share/man" && MANPATH="/Applications/Xcode.app/Contents/Developer/usr/share/man:$MANPATH"
 
@@ -12,6 +9,9 @@ for app in /usr/local/{mysql,postgresql}; do
   test -d "${app}/man" && MANPATH="${app}/man:$MANPATH"
 done
 unset app
+
+# php-osx.liip.ch
+test -d /usr/local/php5/bin && PATH="/usr/local/php5/bin:$PATH"
 
 test -d /usr/local/share/npm/bin && PATH="/usr/local/share/npm/bin:$PATH"
 test -d /usr/local/opt/gettext/bin && PATH="/usr/local/opt/gettext/bin:$PATH"
