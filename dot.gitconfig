@@ -46,6 +46,7 @@
     ; merge, rebase をもとに戻す
     ab = reset --hard ORIG_HEAD
 
+    pushf = push --force-with-lease
     empty = commit -q --allow-empty
     ic = commit -q --allow-empty -m 'initial commit'
     wip = commit -q --allow-empty -m 'wip'
