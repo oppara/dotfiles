@@ -1,4 +1,4 @@
-export PATH="/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin"
+export PATH="/usr/bin:/usr/sbin:/bin:/sbin"
 export MANPATH="/usr/local/share/man:/usr/local/man:/usr/share/man"
 
 DEV_PATH="/Applications/Xcode.app/Contents/Developer"
@@ -10,6 +10,8 @@ done
 unset dev
 unset DEV_PATH
 unset DEV_MANPATH
+
+PATH="/usr/local/bin:/usr/local/sbin:$PATH"
 
 for app in /usr/local/{mysql,postgresql}; do
   test -d "${app}/bin" && PATH="${app}/bin:$PATH"
