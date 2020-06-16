@@ -333,7 +333,7 @@ return PhpCsFixer\Config::create()
         'phpdoc_add_missing_param_annotation' => ['only_untyped' => false],
 
         // 指定されたphpdocタグのすべてのアイテムは、左揃えにする
-        'phpdoc_align' => ['align' => ['left']],
+        'phpdoc_align' => ['align' => 'left'],
 
         // PHPDoc annotation descriptions should not be a sentence.
         'phpdoc_annotation_without_dot' => true,
