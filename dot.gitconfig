@@ -10,7 +10,8 @@
     editor = $EDITOR
     pager = $PAGER
     quotepath = false
-	autoCRLF = false
+	autocrlf = false
+	safecrlf = false
 
 [color]
     ui = auto
