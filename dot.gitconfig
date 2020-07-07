@@ -20,6 +20,7 @@
     log =  diff-highlight | nkf -w | less -R
     show = diff-highlight | nkf -w | less -R
     diff = diff-highlight | nkf -w | less -R
+    branch = false
 
 [alias]
     st = status
