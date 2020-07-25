@@ -118,4 +118,7 @@ alias reload="exec $SHELL -l"
 ## 間違ってバイナリファイルを開いてしまった場合の対応
 alias clear2="echo -e '\026\033c'"
 
+## terraform
+command -v terraform > /dev/null && alias tf="terraform"
+
 # vim: ft=zsh fdm=marker
