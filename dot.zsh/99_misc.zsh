@@ -1,6 +1,5 @@
 # misc
 
-TIMEFMT=$'\n========================\nProgram : %J\nCPU     : %P\nuser    : %*Us\nsystem  : %*Ss\ntotal   : %*Es\n========================\n'
 
 direnv() {
   unfunction "$0"
