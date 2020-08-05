@@ -2,23 +2,18 @@
 
 TIMEFMT=$'\n========================\nProgram : %J\nCPU     : %P\nuser    : %*Us\nsystem  : %*Ss\ntotal   : %*Es\n========================\n'
 
+direnv() {
+  unfunction "$0"
+  source <(direnv hook zsh)
+  $0 "$@"
+}
 
-## direnv
-if which direnv >/dev/null; then
-    eval "$(direnv hook zsh)"
-fi
-
-## rbenv
-test -d "${HOME}/.rbenv" &&  eval "$(rbenv init -)"
-
-## plenv
-test -d "${HOME}/.plenv" &&  eval "$(plenv init -)"
-
-## anyenv
-if [[ -d "${HOME}/.anyenv" ]]; then
-  export PATH="${HOME}/.anyenv/bin:${PATH}"
-  eval "$(anyenv init -)"
-fi
+export PATH="${HOME}/.anyenv/bin:${PATH}"
+anyenv() {
+  unfunction "$0"
+  source <(anyenv init -)
+  $0 "$@"
+}
 
 # ## docker-machine dev
 # if [[ $(docker-machine ls | grep dev | grep Running 2> /dev/null) ]]; then
