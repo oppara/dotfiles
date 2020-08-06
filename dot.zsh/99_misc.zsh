@@ -1,11 +1,10 @@
 # misc
 
 
-direnv() {
-  unfunction "$0"
-  source <(direnv hook zsh)
-  $0 "$@"
-}
+## direnv
+if which direnv >/dev/null; then
+    eval "$(direnv hook zsh)"
+fi
 
 export PATH="${HOME}/.anyenv/bin:${PATH}"
 anyenv() {
