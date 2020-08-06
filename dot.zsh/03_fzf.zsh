@@ -1,5 +1,5 @@
 
-if which fzf >/dev/null; then
+if [ -x "$(command -v fzf)" ]; then
     if [[ ! "$PATH" == */usr/local/opt/fzf/bin* ]]; then
         export PATH="${PATH:+${PATH}:}/usr/local/opt/fzf/bin"
     fi
