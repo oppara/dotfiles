@@ -7,9 +7,9 @@ fi
 source "${ZPLUG_HOME}/init.zsh"
 
 zplug "zplug/zplug", hook-build:"zplug --self-manage"
-alias gg="cd -G"
 
-zplug "b4b4r07/enhancd", use:init.sh
+zplug "b4b4r07/enhancd", use:init.sh, at:v2.2.3
+alias gg="cd -G"
 
 zplug "mollifier/cd-gitroot"
 alias cgr="cd-gitroot"
