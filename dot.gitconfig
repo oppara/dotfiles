@@ -16,6 +16,10 @@
 [color]
     ui = auto
 
+[tag]
+  sort = version:refname
+  ; sort = version:refname -l "v*"
+
 [pager]
     log =  diff-highlight | nkf -w | less -R
     show = diff-highlight | nkf -w | less -R
