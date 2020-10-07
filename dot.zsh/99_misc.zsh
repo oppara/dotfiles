@@ -3,15 +3,13 @@
 
 ## direnv
 if which direnv >/dev/null; then
-    eval "$(direnv hook zsh)"
+  eval "$(direnv hook zsh)"
 fi
 
-export PATH="${HOME}/.anyenv/bin:${PATH}"
-anyenv() {
-  unfunction "$0"
-  source <(anyenv init -)
-  $0 "$@"
-}
+if [[ -f "${HOME}/.anyenv/bin/anyenv" ]]; then
+  export PATH="${HOME}/.anyenv/bin:${PATH}"
+  eval "$(anyenv init -)"
+fi
 
 # ## docker-machine dev
 # if [[ $(docker-machine ls | grep dev | grep Running 2> /dev/null) ]]; then
