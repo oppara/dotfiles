@@ -1,6 +1,3 @@
-## ghq & peco & gh-open
-# alias ghl='cd $(ghq list -p | peco)'
-alias gh='gh-open $(ghq list -p | peco)'
 
 ## memo
 ## https://github.com/mattn/memo
