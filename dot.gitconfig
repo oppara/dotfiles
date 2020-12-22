@@ -1,5 +1,6 @@
 ; vim: expandtab ts=4 sw=4 sts=4 ff=unix ft=gitconfig
 ; ln -s /usr/local/share/git-core/contrib/diff-highlight/diff-highlight /usr/local/bin/diff-highlight
+; ln -s /usr/local/share/git-core/contrib/git-jump/git-jump /usr/local/bin/git-jump
 [user]
     name = oppara
     email = oppara@oppara.tv
