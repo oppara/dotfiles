@@ -1,3 +1,10 @@
+# vim: ft=sh
+### https://www.gnu.org/savannah-checkouts/gnu/bash/manual/bash.html#Readline-Init-File-Syntax
+
+set completion-ignore-case on
+set completion-map-case on
+set show-all-if-ambiguous on
+
 set meta-flag on
 set input-meta on
 set convert-meta off
@@ -5,8 +12,11 @@ set output-meta on
 
 set enable-keypad on
 
-# http://osx.miko.org/index.php/Beginning_OS_X_10.5/
+### シェル上でチルダが入力される問題を回避
+"\e[1~": beginning-of-line
+"\e[2~": overwrite-mode
 "\e[3~": delete-char
+"\e[4~": end-of-line
 
 #set  editing-mode  vi
 
@@ -28,3 +38,4 @@ set enable-keypad on
 ##for freebsd console
 #"\e[H": beginning-of-line
 #"\e[F": end-of-line
+
