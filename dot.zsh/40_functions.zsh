@@ -77,4 +77,19 @@ function pcolor() {
   echo
 }
 
+## rg edit #{{{1
+alias gg="_rgAndVim"
+function _rgAndVim() {
+    if [ -z "$1" ]; then
+        echo 'Usage: gg PATTERN'
+        return 0
+    fi
+    result=`rg -n --hidden $1 | fzf`
+    line=`echo "$result" | awk -F ':' '{print $2}'`
+    file=`echo "$result" | awk -F ':' '{print $1}'`
+    if [ -n "$file" ]; then
+        vim $file +$line
+    fi
+}
+
 # vim: ft=sh fdm=marker
