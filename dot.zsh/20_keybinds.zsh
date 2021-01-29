@@ -110,4 +110,10 @@ function do_enter() {
 zle -N do_enter
 bindkey '^m' do_enter
 
+# zshのコマンドラインを任意のテキストエディタで編集する - Qiita
+# https://qiita.com/mollifier/items/7b1cfe609a7911a69706
+autoload -Uz edit-command-line
+zle -N edit-command-line
+bindkey '^e^e' edit-command-line
+
 # vim: ft=sh fdm=marker
