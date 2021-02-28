@@ -1,5 +1,9 @@
 # misc
 
+## heroku
+if which heroku >/dev/null; then
+  eval  "$(heroku autocomplete:script zsh)"
+fi
 
 ## direnv
 if which direnv >/dev/null; then
