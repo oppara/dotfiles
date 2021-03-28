@@ -5,6 +5,7 @@
 ,/
 *.bak
 .php_cs.cache
+git-worktrees/*
 
 # Created by https://www.gitignore.io/api/osx
 

@@ -92,4 +92,28 @@ function _rgAndVim() {
     fi
 }
 
+## git worktree #{{{1
+function gwt() {
+    GIT_CDUP_DIR=`git rev-parse --show-cdup`
+    git worktree add ${GIT_CDUP_DIR}git-worktrees/$1 -b $1
+}
+
+alias cwt="cdworktree"
+function cdworktree() {
+    git rev-parse &>/dev/null
+    if [ $? -ne 0 ]; then
+        echo fatal: Not a git repository.
+        return
+    fi
+
+    local selectedWorkTreeDir=`git worktree list | fzf | awk '{print $1}'`
+
+    if [ "$selectedWorkTreeDir" = "" ]; then
+        # Ctrl-C.
+        return
+    fi
+
+    cd ${selectedWorkTreeDir}
+}
+
 # vim: ft=sh fdm=marker
