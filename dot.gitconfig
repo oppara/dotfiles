@@ -56,7 +56,7 @@
 
     pushf = push --force-with-lease
     empty = commit -q --allow-empty
-    ic = commit -q --allow-empty -m 'initial commit'
+    ic = commit -q --allow-empty -m ':tada: initial commit'
     ww = commit -q --allow-empty -m 'wip'
 
     ; リモートで消されたブランチを消す
@@ -131,3 +131,6 @@
 	required = true
 [pull]
 	rebase = false
+
+[commit]
+    template = ~/.git_template/commit.txt
