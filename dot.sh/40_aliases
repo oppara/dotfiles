@@ -22,7 +22,7 @@ alias vi="vim"
 ## git
 alias g="git"
 alias gs="git svn"
-alias gl="git ll|head -20 && echo"
+alias gl="git ll|head -10 && echo"
 alias gd="git diff -b --no-index"
 alias or="git symbolic-ref --short HEAD | cut -d "_" -f 1 | xargs -I {} open https://redmine.e-2.jp/issues/{}"
 
