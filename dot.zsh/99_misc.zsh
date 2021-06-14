@@ -1,4 +1,5 @@
 # misc
+export AWS_PAGER=""
 
 ## heroku
 if which heroku >/dev/null; then
