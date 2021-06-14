@@ -25,3 +25,6 @@ zstyle ':completion:*' list-colors 'di=;34;1' 'ln=;32;1' 'so=;35;1' 'ex=31;1' 'b
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
 
 # vim: ft=zsh
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
