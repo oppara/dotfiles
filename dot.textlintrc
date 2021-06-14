@@ -1,6 +1,7 @@
 # vim: ft=yaml
 
 filters:
+  comments: true
 rules:
   # 日本語向けのルール
   # https://github.com/textlint-ja/textlint-rule-preset-japanese
@@ -51,6 +52,23 @@ rules:
   # 同じ接続詞が連続して出現していないかどうかをチェックするルール
   # https://github.com/takahashim/textlint-rule-no-doubled-conjunction
   no-doubled-conjunction: true
+
+  # https://github.com/azu/textlint-rule-no-nfd
+  # ホ゜ケット エンシ゛ン
+  # のような、Mac OS XでPDFやFinderからのコピペで発生する濁点のチェック
+  no-nfd: true,
+
+  # https://github.com/textlint-rule/textlint-rule-no-invalid-control-character
+  # 制御文字の検出
+  no-invalid-control-character: true,
+
+  # https://github.com/textlint-rule/textlint-rule-no-zero-width-spaces
+  # ゼロ幅スペースの検出
+  no-zero-width-spaces: true,
+
+  # https://github.com/xl1/textlint-rule-no-kangxi-radicals
+  # 康煕部首の検出
+  no-kangxi-radicals: true
 
   # 半角カナの利用を禁止するルール
   # https://github.com/textlint-ja/textlint-rule-no-hankaku-kana
