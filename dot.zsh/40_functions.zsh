@@ -78,7 +78,7 @@ function pcolor() {
 }
 
 ## rg edit #{{{1
-alias gg="_rgAndVim"
+alias vv="_rgAndVim"
 _rgAndVim() {
     if [ -z "$1" ]; then
         echo 'Usage: gg PATTERN'
