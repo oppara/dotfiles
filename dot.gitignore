@@ -1,4 +1,5 @@
 .svn/
+.git/
 .envrc
 .local.vimrc
 .eslintrc.json
