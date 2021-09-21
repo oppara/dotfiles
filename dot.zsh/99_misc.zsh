@@ -21,9 +21,10 @@ fi
   # eval "$(docker-machine env dev)"
 # fi
 
-plugin="${COMPOSER_HOME-$HOME/.composer}/vendor/stecman/composer-bash-completion-plugin"
-test -d "${plugin}" &&  source "${plugin}/hooks/zsh-completion"
-unset plugin
+## composer
+if which symfony-autocomplete >/dev/null; then
+  eval "$(symfony-autocomplete)"
+fi
 
 
 # The next line updates PATH for the Google Cloud SDK.
