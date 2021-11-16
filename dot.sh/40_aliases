@@ -120,4 +120,8 @@ alias clear2="echo -e '\026\033c'"
 ## terraform
 command -v terraform > /dev/null && alias tf="terraform"
 
+## yusukebe/gh-markdown-preview: GitHub CLI extension to preview README looks the same as GitHub.
+## https://github.com/yusukebe/gh-markdown-preview
+alias mp="gh markdown-preview -r"
+
 # vim: ft=zsh fdm=marker
