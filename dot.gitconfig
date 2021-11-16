@@ -109,6 +109,9 @@
 [rerere]
     enabled = true
 
+[help]
+    autoCorrect = prompt
+
 [push]
     default = simple
 
