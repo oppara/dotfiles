@@ -56,7 +56,7 @@
 
     pushf = push --force-with-lease
     empty = commit -q --allow-empty
-    ic = commit -q --allow-empty -m ':tada: Initial commit'
+    ic = commit -q --allow-empty -m 'Initial commit'
     ww = commit -q --allow-empty -m 'wip'
 
     ; リモートで消されたブランチを消す
