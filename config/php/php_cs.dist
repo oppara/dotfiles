@@ -16,6 +16,9 @@ return $config
         '@PSR12' => true,
         '@PhpCsFixer' => true,
 
+        // override
+        'concat_space' => 'one',
+        'types_spaces' => 'single',
         'simplified_null_return' => true,
         'no_extra_blank_lines' => ['tokens' => [
             'break',
