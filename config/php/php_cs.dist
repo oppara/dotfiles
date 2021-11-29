@@ -38,6 +38,7 @@ return $config
         'list_syntax' => ['syntax' => 'short'],
         'ternary_to_null_coalescing' => true,
         'void_return' => true,
+        'simplified_null_return' => true,
 
         // risky
         'declare_strict_types' => true,
@@ -67,6 +68,7 @@ return $config
         'strict_comparison' => true,
         'strict_param' => true,
         'string_line_ending' => true,
+        'void_return' => true,
     ])
     ->setFinder(
         PhpCsFixer\Finder::create()
