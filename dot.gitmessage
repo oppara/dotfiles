@@ -1,6 +1,6 @@
 
 
-### type
+### type {{{
 # build:    ビルドシステムや外部依存に関する変更（スコープ例: gulp broccoli npm）
 # chore:    その他、補助ツール・ドキュメント生成など、ソースやテストの変更を含まない変更
 # ci:       CI用の設定やスクリプトに関する変更（スコープ例: Travis Circle BrowserStack SauceLabs)
@@ -20,7 +20,7 @@
 # test:     不足テストの追加や既存テストの修正
 # typo      タイプミスの修正
 # upgrade   依存関係のアップグレード
-#
+# }}}
 ### format {{{
 # <type>[(optional scope)]: <description>
 #
