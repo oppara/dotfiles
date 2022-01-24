@@ -82,6 +82,13 @@
     ; リモートのタグを表示する
     rt = ls-remote --tags
 
+    vacuum = "!f () { git branch --merged|egrep -v '\\*|develop|master|main'|xargs git branch -d && git fetch --prune; };f"
+
+    ; Gitで今のブランチの派生元ブランチを特定する - Qiita
+    ; https://qiita.com/upinetree/items/0b74b08b64442f0a89b9
+    ps = "!f () { git show-branch | grep '*' | grep -v $(git rev-parse --abbrev-ref HEAD) | head -1 | awk -F'[]~^[]' '{print $2}'; };f"
+
+
     deleted = log --diff-filter=D --summary
     restore = "!f () {\
         if [ \"$#\" -eq 0 ];then \
