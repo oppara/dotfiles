@@ -38,7 +38,7 @@
     ci = commit -v
     ca = commit --amend
     cn = commit --amend --no-edit
-    ll = log --graph --decorate --color --date=short --pretty=format:'%C(red)%x09%h %C(yellow)%cn %C(green)%ci  %C(reset)%s%C(blue)%d%Creset'
+    ll = log --graph --color --pretty=format:'%C(red)%x09%h %C(yellow)%cn %C(green)%ci %C(reset)%s%C(blue)%d%C(reset)'
     his = log --graph --name-status --pretty=format:'%C(red)%h %C(reset)%C(green)(%ci)%C(reset) %C(yellow)%an %Creset%s %C(blue)%d%Creset'
     me = merge --no-ff
     au = add -u
