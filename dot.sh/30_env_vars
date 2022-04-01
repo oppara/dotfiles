@@ -65,6 +65,12 @@ if [ -d ${golibexec} ]; then
 fi
 unset golibexec
 
+
+## blog
+## https://d.oppara.tv/posts/2022/03/hugo-blog-tool/
+export BLOG_ROOT="${HOME}/src/github.com/oppara/d.oppara.tv"
+export BLOG_POST_DIR=`date +"content/posts/%Y/%m"`
+
 ## To use pbcopy/pbpaste with UTF-8 encoding.
 ## http://kana.github.com/config/vim/fakeclip.html#fakeclip-multibyte-on-mac
 ## http://developer.apple.com/library/mac/#documentation/CoreFoundation/Reference/CFStringRef/Reference/reference.html
