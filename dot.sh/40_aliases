@@ -56,7 +56,8 @@ command -v ag > /dev/null && alias ag="ag -s --color-match \"1;31\""
 command -v pt > /dev/null && alias pt="pt --color-match \"1;31\""
 
 ## ip addresses
-alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
+# alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
+alias ip="curl https://checkip.amazonaws.com/"
 alias localip="ipconfig getifaddr en0"
 
 ## Canonical hex dump
