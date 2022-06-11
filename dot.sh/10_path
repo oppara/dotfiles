@@ -19,6 +19,8 @@ for app in /usr/local/{mysql,postgresql}; do
 done
 unset app
 
+test -d /opt/homebrew/bin && PATH="/opt/homebrew/bin:$PATH"
+
 # php-osx.liip.ch
 test -d /usr/local/php5/bin && PATH="/usr/local/php5/bin:$PATH"
 
