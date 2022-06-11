@@ -25,7 +25,7 @@ test -d /opt/homebrew/bin && PATH="/opt/homebrew/bin:$PATH"
 test -d /usr/local/php5/bin && PATH="/usr/local/php5/bin:$PATH"
 
 test -d /usr/local/share/npm/bin && PATH="/usr/local/share/npm/bin:$PATH"
-test -d /usr/local/opt/gettext/bin && PATH="/usr/local/opt/gettext/bin:$PATH"
+test -d /opt/homebrew/opt/gettext/bin && PATH="/opt/homebrew/opt/gettext/bin:$PATH"
 
 test -d "$HOME/local/bin" && PATH="$HOME/local/bin:$PATH"
 test -d "$HOME/local/share/man" && MANPATH="$HOME/local/share/man:$MANPATH"
