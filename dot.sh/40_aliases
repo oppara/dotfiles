@@ -74,8 +74,8 @@ alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
 alias urlencode="php -r 'echo urlencode(fgets(STDIN));'"
 
 ## pear
-if test -x "/usr/local/php/bin/pear"; then
-    alias pear="/usr/local/php/bin/pear -C /usr/local/php/etc/pear.conf -c /usr/local/php/etc/.pearrc $@"
+if test -x "/opt/homebrew/php/bin/pear"; then
+    alias pear="/opt/homebrew/php/bin/pear -C /opt/homebrew/php/etc/pear.conf -c /opt/homebrew/php/etc/.pearrc $@"
 fi
 
 ## php-cs-fixer
@@ -83,15 +83,15 @@ alias pcd='php-cs-fixer fix --config=~/.config/php/php_cs.dist --using-cache=no 
 alias pcf='php-cs-fixer fix --config=~/.config/php/php_cs.dist --using-cache=no'
 
 ## kcode
-if test -x "/usr/local/bin/kcode"; then
-    alias kcode="/usr/local/bin/kcode -i utf8 -o utf8"
+if test -x "/opt/homebrew/bin/kcode"; then
+    alias kcode="/opt/homebrew/bin/kcode -i utf8 -o utf8"
 fi
 
 ## synergy
 alias synergy="/Applications/Synergy.app/Contents/MacOS/Synergy &"
 
 # ## growlnotify
-# if test -x "/usr/local/bin/growlnotify"; then
+# if test -x "/opt/homebrew/bin/growlnotify"; then
     # alias gn="growlnotify -m '$*'"
 # fi
 

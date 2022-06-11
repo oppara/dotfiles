@@ -3,7 +3,7 @@ export LANG="${LANGUAGE}"
 export LC_ALL="${LANGUAGE}"
 export LC_CTYPE="${LANGUAGE}"
 
-wcwidth="/usr/local/lib/wcwidth-cjk.so"
+wcwidth="/opt/homebrew/lib/wcwidth-cjk.so"
 test -e "${wcwidth}" && export LD_PRELOAD="${wcwidth}"
 unset wcwidth
 

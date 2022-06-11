@@ -1,5 +1,5 @@
 export PATH="/usr/bin:/usr/sbin:/bin:/sbin"
-export MANPATH="/usr/local/share/man:/usr/local/man:/usr/share/man"
+export MANPATH="/opt/homebrew/share/man:/usr/local/share/man:/usr/local/man:/usr/share/man"
 
 DEV_PATH="/Applications/Xcode.app/Contents/Developer"
 DEV_MANPATH="${DEV_PATH}/usr/share/man"
