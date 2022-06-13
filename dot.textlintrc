@@ -18,16 +18,14 @@ rules:
       exceptPunctuation: true
     ja-space-after-exclamation: true
     ja-space-after-question: true
-    ja-space-around-code: true
+    ja-space-around-code:
+      before: true
+      after: true
 
   # 一文に利用できる、の数を制限するルール
   # https://github.com/textlint-ja/textlint-rule-max-ten
   max-ten:
     max: 3
-
-  # 技術用語のルール
-  # https://github.com/azu/textlint-rule-spellcheck-tech-word
-  spellcheck-tech-word: true
 
   # 敬体(ですます調)と常体(である調)の混在をチェックするルール
   # https://github.com/textlint-ja/textlint-rule-no-mix-dearu-desumasu
@@ -102,8 +100,12 @@ rules:
   # https://github.com/textlint-ja/textlint-rule-ja-no-mixed-period/
   ja-no-mixed-period: true
 
+  # 例示・並列表現の「～たり、（～たり）する」をチェックするルール
+  # https://github.com/textlint-ja/textlint-rule-prefer-tari-tari
+  prefer-tari-tari: true
+
   # 表記ゆれの修正
   # https://github.com/textlint-rule/textlint-rule-prh
   prh:
     rulePaths:
-      - /usr/local/lib/node_modules/prh/prh-rules/media/WEB+DB_PRESS.yml
+      - /opt/homebrew/lib/node_modules/prh/prh-rules/media/WEB+DB_PRESS.yml
