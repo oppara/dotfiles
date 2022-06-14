@@ -1,4 +1,4 @@
-export ZPLUG_HOME="/opt/homebrew/opt/zplug"
+export ZPLUG_HOME="${HOMEBREW_PREFIX}/opt/zplug"
 
 if [ ! -e ${ZPLUG_HOME} ]; then
     return 0

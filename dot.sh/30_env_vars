@@ -3,7 +3,7 @@ export LANG="${LANGUAGE}"
 export LC_ALL="${LANGUAGE}"
 export LC_CTYPE="${LANGUAGE}"
 
-wcwidth="/opt/homebrew/lib/wcwidth-cjk.so"
+wcwidth="${HOMEBREW_PREFIX}/lib/wcwidth-cjk.so"
 test -e "${wcwidth}" && export LD_PRELOAD="${wcwidth}"
 unset wcwidth
 
@@ -57,11 +57,11 @@ export GIT_COMMITTER_EMAIL="${GIT_AUTHOR_EMAIL}"
 
 
 ## go
-golibexec="/opt/homebrew/opt/go/libexec"
-if [ -d ${golibexec} ]; then
+golibexec="${HOMEBREW_PREFIX}/opt/go/libexec"
+if [ -d "${golibexec}" ]; then
     PATH="$PATH:${golibexec}/bin"
     export GOPATH="${HOME}"
-    export GOROOT=${golibexec}
+    export GOROOT="${golibexec}"
 fi
 unset golibexec
 
@@ -76,5 +76,5 @@ export BLOG_POST_DIR=`date +"content/posts/%Y/%m"`
 ## http://developer.apple.com/library/mac/#documentation/CoreFoundation/Reference/CFStringRef/Reference/reference.html
 export __CF_USER_TEXT_ENCODING=${__CF_USER_TEXT_ENCODING/:*:/:0x08000100:}
 
-# vim: ft=sh fdm=marker
+# vim: ft=bash fdm=marker
 

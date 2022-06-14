@@ -74,8 +74,8 @@ alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
 alias urlencode="php -r 'echo urlencode(fgets(STDIN));'"
 
 ## pear
-if test -x "/opt/homebrew/php/bin/pear"; then
-    alias pear="/opt/homebrew/php/bin/pear -C /opt/homebrew/php/etc/pear.conf -c /opt/homebrew/php/etc/.pearrc $@"
+if test -x "${HOMEBREW_PREFIX}/php/bin/pear"; then
+    alias pear="${HOMEBREW_PREFIX}/php/bin/pear -C ${HOMEBREW_PREFIX}/php/etc/pear.conf -c ${HOMEBREW_PREFIX}/php/etc/.pearrc $@"
 fi
 
 ## php-cs-fixer
@@ -83,8 +83,8 @@ alias pcd='php-cs-fixer fix --config=~/.config/php/php_cs.dist --using-cache=no 
 alias pcf='php-cs-fixer fix --config=~/.config/php/php_cs.dist --using-cache=no'
 
 ## kcode
-if test -x "/opt/homebrew/bin/kcode"; then
-    alias kcode="/opt/homebrew/bin/kcode -i utf8 -o utf8"
+if test -x "${HOMEBREW_PREFIX}/bin/kcode"; then
+    alias kcode="${HOMEBREW_PREFIX}/bin/kcode -i utf8 -o utf8"
 fi
 
 ## synergy

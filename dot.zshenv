@@ -19,6 +19,13 @@ if [ -x /usr/libexec/path_helper ]; then
     eval `/usr/libexec/path_helper -s`
 fi
 
+if [ -x /opt/homebrew/bin/brew ]; then
+    eval $(/opt/homebrew/bin/brew shellenv)
+fi
+if [ -x /usr/local/bin/brew ]; then
+    eval $(/usr/local/bin/brew shellenv)
+fi
+
 # Don't create core dumps
 ulimit -c 0
 

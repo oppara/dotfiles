@@ -1,6 +1,6 @@
 ; vim: expandtab ts=4 sw=4 sts=4 ff=unix ft=gitconfig
-; ln -s /opt/homebrew/share/git-core/contrib/diff-highlight/diff-highlight /opt/homebrew/bin/diff-highlight
-; ln -s /opt/homebrew/share/git-core/contrib/git-jump/git-jump /opt/homebrew/bin/git-jump
+; ln -s ${HOMEBREW_PREFIX}/share/git-core/contrib/diff-highlight/diff-highlight ${HOMEBREW_PREFIX}/bin/diff-highlight
+; ln -s ${HOMEBREW_PREFIX}/share/git-core/contrib/git-jump/git-jump ${HOMEBREW_PREFIX}/bin/git-jump
 [user]
     name = oppara
     email = oppara@oppara.tv
