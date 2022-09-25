@@ -76,5 +76,9 @@ export BLOG_POST_DIR=`date +"content/posts/%Y/%m"`
 ## http://developer.apple.com/library/mac/#documentation/CoreFoundation/Reference/CFStringRef/Reference/reference.html
 export __CF_USER_TEXT_ENCODING=${__CF_USER_TEXT_ENCODING/:*:/:0x08000100:}
 
+# C++入門 AtCoder Programming Guide for beginners
+# https://atcoder.jp/contests/apg4b/tasks/APG4b_ak#:~:text=%E6%89%8B%E5%85%83%E3%81%AE%E3%82%B3%E3%83%B3%E3%83%94%E3%83%A5%E3%83%BC%E3%82%BF%E3%81%A7%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%A0%E3%82%92%E6%9B%B8%E3%81%8D%E3%81%9F%E3%81%84%E5%A0%B4%E5%90%88
+test -d "${HOME}/apg4b/include/" && export CPLUS_INCLUDE_PATH="$CPLUS_INCLUDE_PATH:${HOME}/apg4b/include/"
+
 # vim: ft=bash fdm=marker
 
