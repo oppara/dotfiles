@@ -3,7 +3,7 @@ DEV_PATH="/Applications/Xcode.app/Contents/Developer"
 DEV_MANPATH="${DEV_PATH}/usr/share/man"
 test -d "${DEV_MANPATH}" && MANPATH="${DEV_MANPATH}:$MANPATH"
 for dev in ${DEV_PATH}/{tools,usr/bin}; do
-  test -d "${dev}" && PATH="${dev}:$PATH"
+  test -d "${dev}" && PATH="$PATH:${dev}"
 done
 unset dev
 unset DEV_PATH
