@@ -44,7 +44,7 @@
     au = add -u
     fe = fetch
     rs = remote -v show
-    df = diff -b
+    df = diff -b --ignore-all-space --ignore-blank-lines --ignore-space-at-eol --ignore-space-change --color-moved-ws=allow-indentation-change
     dc = diff -b --cached
     dns = diff --name-only --stat
     dm = diff -b master --name-only
