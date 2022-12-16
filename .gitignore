@@ -5,6 +5,7 @@ dot.vim/bundle/*
 dot.vim/doc/*
 dot.vim/view
 config/karabiner/automatic_backups/*
+tmux-*log
 !.empty
 
 
