@@ -82,6 +82,9 @@
     ; リモートのタグを表示する
     rt = ls-remote --tags
 
+    ; https://dev.to/iamandrewluca/remove-gone-git-branches-36eh
+    gone = "!f() { git fetch --all --prune; git branch -vv | awk '/: gone]/{print $1}' | xargs git branch -D;  }; f"
+
     vacuum = "!f () { git branch --merged|egrep -v '\\*|develop|master|main'|xargs git branch -d && git fetch --prune; };f"
 
     ; Gitで今のブランチの派生元ブランチを特定する - Qiita
