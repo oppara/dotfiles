@@ -2,6 +2,10 @@
 
 filters:
   comments: true
+  allowlist:
+    allow:
+      - "はじめに"
+      - ":::"
 rules:
   # 日本語向けのルール
   # https://github.com/textlint-ja/textlint-rule-preset-japanese
