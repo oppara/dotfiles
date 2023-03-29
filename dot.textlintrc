@@ -3,9 +3,11 @@
 filters:
   comments: true
   allowlist:
-    allow:
+    allow
       - "はじめに"
+      - "もしくは"
       - ":::"
+      - "web"
 rules:
   # 日本語向けのルール
   # https://github.com/textlint-ja/textlint-rule-preset-japanese
