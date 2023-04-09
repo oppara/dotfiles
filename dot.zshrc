@@ -29,9 +29,10 @@ zstyle ':completion:*' list-colors 'di=;34;1' 'ln=;32;1' 'so=;35;1' 'ex=31;1' 'b
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
 
-# bun completions
-[ -s "/Users/oohara/.bun/_bun" ] && source "/Users/oohara/.bun/_bun"
-
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+if [ -x "$(command -v bun)" ]; then
+    source "/Users/oppara/.bun/_bun"
+fi
+
