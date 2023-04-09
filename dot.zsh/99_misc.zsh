@@ -40,4 +40,9 @@ if [ -L "${HOMEBREW_PREFIX}/bin/terraform" ]; then
   complete -o nospace -C "${HOMEBREW_PREFIX}/bin/terraform" terraform
 fi
 
+# 1password
+if [ -x "$(command -v op)" ]; then
+    eval "$(op completion zsh)"; compdef _op op
+fi
+
 # vim: ft=sh fdm=marker
