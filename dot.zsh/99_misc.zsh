@@ -53,4 +53,4 @@ if [ -f "${HOME}/.bun/bin/bun" ]; then
 fi
 
 
-# vim: ft=sh fdm=marker
+# vim: ft=zsh fdm=marker
