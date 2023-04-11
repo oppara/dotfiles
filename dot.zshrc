@@ -30,9 +30,9 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 
 
 # bun
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
+export BUN_INSTALL="${HOME}/.bun"
+export PATH="${BUN_INSTALL}/bin:$PATH"
 if [ -x "$(command -v bun)" ]; then
-    source "/Users/oppara/.bun/_bun"
+    source "${HOME}/.bun/_bun"
 fi
 
