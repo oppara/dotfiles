@@ -45,4 +45,12 @@ if [ -x "$(command -v op)" ]; then
     eval "$(op completion zsh)"; compdef _op op
 fi
 
+# bun
+if [ -f "${HOME}/.bun/bin/bun" ]; then
+  export BUN_INSTALL="${HOME}/.bun"
+  export PATH="${BUN_INSTALL}/bin:$PATH"
+  source "${HOME}/.bun/_bun"
+fi
+
+
 # vim: ft=sh fdm=marker
