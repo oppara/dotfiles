@@ -36,6 +36,19 @@ alias b="brew"
 alias d="docker"
 alias dc="docker-compose"
 
+## https://ryooooooga.hateblo.jp/entry/2021/05/13/210743
+docker() {
+    if [ "$#" -eq 0 ] || ! command -v "docker-$1" > /dev/null; then
+        command docker "$@"
+    elif (( ${+aliases[docker-$1]} )); then
+        eval "${aliases[docker-$1]} ${(q)@:2}"
+    else
+        "docker-$1" "${@:2}"
+    fi
+}
+alias docker-psa="d ps -a --format \"table {{.ID}}\t{{.Image}}\t{{.Names}}\t{{.Status}}\t{{.Ports}}\""
+
+
 ## history
 alias h="history 1"
 
