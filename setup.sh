@@ -1,6 +1,5 @@
-#!/bin/sh
-
-set -eu
+#!/usr/bin/env bash
+set -Ceu
 
 create_symbolic_link() {
   local src="$1"
@@ -8,7 +7,7 @@ create_symbolic_link() {
 
   if test -e "$target" && ! test -L "$target"; then
     echo "file or directory already exists!! [${target}] "
-    continue
+    return
   fi
 
   if test -L "$target"; then
@@ -19,10 +18,11 @@ create_symbolic_link() {
   echo "ln -s $src $target"
 }
 
-CURRENT=$(cd $(dirname $0) && pwd)
+CURRENT=$(cd "$(dirname "$0")" && pwd)
 
-for file in $(ls "$CURRENT" | grep '^dot\.'); do
-  org="$file"
+for src in "${CURRENT}"/dot.*; do
+  file="${src##*/}"
+  target="${HOME}/${file#dot}"
 
   # osx用の設定
   if echo "$file" | grep 'mac\.' >/dev/null; then
@@ -30,18 +30,15 @@ for file in $(ls "$CURRENT" | grep '^dot\.'); do
       continue
     fi
 
-    file=${file/mac./}
+    target="${target/mac./}"
   fi
-
-  src="${CURRENT}/${org}"
-  target="${HOME}/${file#dot}"
 
   create_symbolic_link "$src" "$target"
 done
 
-for dir in $(ls "${CURRENT}/config"); do
-  src="${CURRENT}/config/${dir}"
-  target="${HOME}/.config/${dir}"
+for dir in "${CURRENT}"/config/* ; do
+  src="${dir}"
+  target="${HOME}/.config/${dir##*/}"
 
   create_symbolic_link "$src" "$target"
 done
