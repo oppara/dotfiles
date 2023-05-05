@@ -1,0 +1,111 @@
+# #!/usr/bin/perl
+snippet #!
+	#!/usr/bin/perl
+
+snippet pl
+	#!/usr/bin/env perl
+	use strict;
+	use warnings;
+	# use Data::Dumper;
+
+snippet cgi
+	#!/usr/local/bin/perl -T
+	use strict;
+	use warnings;
+	# use CGI::Carp qw(fatalsToBrowser);
+	# use Data::Dumper;
+
+snippet pm
+	package ${1:ClassName};
+
+	use base qw(${2:ParentClass});
+
+	sub new {
+		my $class = shift;
+		$class = ref $class if ref $class;
+		my $self = bless {}, $class;
+		return $self;
+	}
+
+	1;
+
+snippet ud
+	use Data::Dumper;
+
+snippet dd
+	${1:print} Dumper(${2});
+snippet ph
+	print "Content-type: text/html\n\n";
+
+# Function
+snippet sub
+	sub ${1} {
+		${2}
+	}
+
+snippet me
+	sub ${1} {
+		my $${2:self} = ${3:shift};
+
+		${4}
+	}
+
+# Conditional
+snippet if
+	if (${1}) {
+		${2}
+	}
+# Conditional if..else
+snippet ife
+	if (${1}) {
+		${2}
+	}
+	else {
+		${3}
+	}
+# Conditional if..elsif..else
+snippet el
+	elsif (${1} {
+		${2}
+	}
+
+
+# Unless conditional
+snippet un
+	unless (${1}) {
+		${2}
+	}
+
+# Try/Except
+snippet eval
+	eval {
+		${1}
+	};
+	if ($@) {
+		${2}
+	}
+
+snippet wh
+	while (${1}) {
+		${2}
+	}
+
+snippet fo
+	for (my $${2:i} = 0; $$2 < ${1:count}; $$2${3:++}) {
+		${4}
+	}
+
+snippet fe
+	foreach my $${1:val} (@${2:array}) {
+		${3}
+	}
+snippet feh
+	foreach my $${1:key} (keys %@${2:hash}) {
+		${3}
+	}
+
+
+# Read File
+snippet slurp
+	my $${1:data};
+	{ local $/ = undef; local *FILE; open FILE, "<${2:file}"; $$1 = <FILE>; close FILE }${3}

@@ -1,0 +1,159 @@
+
+snippet eu
+	set -eu
+
+snippet euo
+	set -eu -o pipefail
+
+snippet if
+	if [ ${1:condition} ]; then
+		${2:: #}
+	fi
+
+snippet el
+	else
+		${1:: #}
+
+snippet elif
+	elif [ ${1:condition} ]; then
+		${2:: #}
+
+snippet fo
+	for (( ${2:i} = 0; $2 < ${1:count}; $2++ )); do
+		${3:#statements}
+	done
+
+snippet fi
+	for ${1} in ${2}
+	do
+		${3:#statements}
+	done
+
+snippet wh
+	while [[ ${1:condition} ]]; do
+		${2:#statements}
+	done
+
+snippet until
+	until [[ ${1:condition} ]]; do
+		${2:#statements}
+	done
+
+snippet case
+	case ${1:word} in
+		${2:pattern})
+			${3};;
+	esac
+
+snippet null
+	${1:cmd} > /dev/null 2>&1${2}
+
+snippet exit
+	trap '${1:cmd}' EXIT
+
+snippet td
+	test -d ${1} && ${2}
+
+# http://sfujiwara.hatenablog.com/entry/20120613/1339547638
+snippet syslog
+	${1:cmd} 2>&1 | logger -t ${2:mycommand} -p ${3:local0.info}${4}
+
+snippet sed
+	set -e 's/${1:pattern}/${2:replacement}/'${3}
+
+snippet awk
+	awk -e '{ ${1:pattern} }'${2}
+
+
+snippet env
+	#!/usr/bin/env ${1}
+
+snippet hd
+	$(cat << EOF
+	${1}
+	EOF
+	)
+
+snippet now
+	now=$(date +"%Y%m%d_%I%M%S")
+
+snippet tmp
+	${1:TMPFILE}="mktemp -t ${2:untitled}"
+	trap "rm -f '$${1}'" 0               # EXIT
+	trap "rm -f '$${1}'; exit 1" 2       # INT
+	trap "rm -f '$${1}'; exit 1" 1 15    # HUP TERM
+	${0}
+
+snippet cwd
+	CWD=$(cd "$(dirname "$0$${1:0}")" && pwd)${2}
+
+snippet mut
+	OLDEST=$(pgrep -fo \$0)
+	if [ $$ != $$OLDEST ] && [ $$PPID != $$OLDEST ]; then
+		echo "[ERROR] Double boot: Stop \$0"
+		exit 1
+	fi
+snippet mut
+	SCRIPT_PID="/tmp/${1:cron_script}.pid"
+	if [ -f $SCRIPT_PID ]; then
+		PID=$(cat $SCRIPT_PID)
+		if (ps -e | awk '{print \$1}' | grep $PID > /dev/null); then
+			exit
+		fi
+	fi
+	echo $$ > $SCRIPT_PID
+
+	${2:# script}
+
+	rm $SCRIPT_PID
+
+snippet fn
+	function ${1}() {
+		${2}
+	}
+
+snippet usage
+	function usage() {
+		cat << EOF
+	Usage:
+		\$0 <${1:arg}> ${2}
+	EOF
+	}
+
+	if [ $# -ne 1 ]; then
+		usage
+		exit 1
+	fi
+
+# プログラマーの君！ 騙されるな！ シェルスクリプトはそう書いちゃ駄目だ！！ という話 - Qiita
+# https://qiita.com/piroor/items/77233173707a0baa6360
+snippet wr
+	while read -r ${1:line}
+	do
+		echo "${${1:line}}"
+	done
+
+snippet read
+	read -p "${1:ok? (y/N): }" ${2:ans}
+	case "$${2:ans}" in
+		[yY]*) ;;
+		*) exit 1;;
+	esac
+
+snippet log
+	function _log() {
+		timestamp=$(date "+%Y-%m-%d %H:%M:%S")
+		# timestamp=$(date "+%b %d %H:%M:%S")
+		echo "$timestamp: \$1" >> ${2:/tmp/log}
+	}
+
+snippet filename
+        `Filename()`
+snippet div
+	<div>
+		${0:${VISUAL:<!-- content -->}}
+	</div>
+snippet div2
+	<div>
+		${0:<!-- content -->}
+	</div>

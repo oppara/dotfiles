@@ -1,0 +1,222 @@
+{
+  "diagnostic.displayByAle": true,
+
+  "typescript.suggestionActions.enabled": false,
+  "javascript.suggestionActions.enabled": false,
+
+  //  npm i intelephense --location=global
+  "languageserver": {
+    "intelephense": {
+      "command": "intelephense",
+      "args": ["--stdio"],
+      "filetypes": ["php"],
+      "initializationOptions": {
+        "storagePath": "/tmp/intelephense",
+        "diagnostics": {
+          "undefinedConstants": false,
+          "undefinedFunctions": false,
+          "undefinedSymbols": false
+        }
+      }
+    },
+    "intelephense.stubs": [
+      "apache",
+      "bcmath",
+      "bz2",
+      "calendar",
+      "com_dotnet",
+      "Core",
+      "ctype",
+      "curl",
+      "date",
+      "dba",
+      "dom",
+      "enchant",
+      "exif",
+      "FFI",
+      "fileinfo",
+      "filter",
+      "fpm",
+      "ftp",
+      "gd",
+      "gettext",
+      "gmp",
+      "hash",
+      "iconv",
+      "imap",
+      "intl",
+      "json",
+      "ldap",
+      "libxml",
+      "mbstring",
+      "meta",
+      "mysqli",
+      "oci8",
+      "odbc",
+      "openssl",
+      "pcntl",
+      "pcre",
+      "PDO",
+      "pdo_ibm",
+      "pdo_mysql",
+      "pdo_pgsql",
+      "pdo_sqlite",
+      "pgsql",
+      "Phar",
+      "posix",
+      "pspell",
+      "random",
+      "readline",
+      "Reflection",
+      "session",
+      "shmop",
+      "SimpleXML",
+      "snmp",
+      "soap",
+      "sockets",
+      "sodium",
+      "SPL",
+      "sqlite3",
+      "standard",
+      "superglobals",
+      "sysvmsg",
+      "sysvsem",
+      "sysvshm",
+      "tidy",
+      "tokenizer",
+      "xml",
+      "xmlreader",
+      "xmlrpc",
+      "xmlwriter",
+      "xsl",
+      "Zend OPcache",
+      "zip",
+      "zlib",
+      "wordpress"
+    ],
+  },
+  //  // diagnostic-languageserver
+  //  // [Linters iamcco/diagnostic-languageserver Wiki](https://github.com/iamcco/diagnostic-languageserver/wiki/Linters)
+  //  // [coc-diagnostic/config.ts at master iamcco/coc-diagnostic](https://github.com/iamcco/coc-diagnostic/blob/master/src/config.ts)
+  //  "diagnostic-languageserver.filetypes": {
+    //    "sh": "shellcheck",
+    //    // "vim": "vint"
+    //    // "email": "languagetool",
+    //    // "markdown": [ "write-good", "markdownlint" ],
+    //    // "elixir": ["mix_credo", "mix_credo_compile"],
+    //    // "eelixir": ["mix_credo", "mix_credo_compile"],
+    //    // "php": ["phpstan", "psalm"],
+    //  },
+    //  "diagnostic-languageserver.formatFiletypes": {
+      //    // format `sh` (includes `bash`) files using formatter defined below
+      //    "sh": "shfmt"
+      //  },
+      //  "diagnostic-languageserver.formatters": {
+        //    // define our formatter so that we can reference it from
+        //    // `diagnostic-languageserver.formatFiletypes`
+        //    "shfmt": {
+          //      "command": "shfmt",
+          //      // all the below args are entirely optional
+          //      // primarily listed here to call out that flags which take an
+          //      // argument (such as `-i <num-spaces>` for specifying indentation)
+          //      // should be split into two strings, the flag and then the value
+          //      "args": ["-i", "2", "-bn", "-ci", "-sr"]
+          //    }
+          //  },
+
+  "html-css-support.styleSheets": [
+    "/style.css",
+    "style.css"
+  ],
+  "html-css-support.enabledLanguages": [
+    "vue",
+    "blade",
+    "html"
+  ],
+
+  "yaml.validate": false,
+  "yaml.completion": true,
+  "yaml.schemas": {
+    "https://gitlab.com/gitlab-org/gitlab/-/raw/master/app/assets/javascripts/editor/schema/ci.json": [
+      "*.gitlab-ci.yml"
+    ],
+    "https://raw.githubusercontent.com/awslabs/goformation/master/schema/cloudformation.schema.json": [
+      "*.cf.yaml",
+      "*.cf.yml",
+      "cfn/*.yaml",
+      "cfn/*.yml",
+      "cloudformation/*.yaml",
+      "cloudformation/*.yml",
+      "*-cloudformation/*.yaml",
+      "*-cloudformation/*.yml"
+    ]
+  },
+  "yaml.customTags": [
+     "!And scalar",
+     "!And mapping",
+     "!And sequence",
+     "!If scalar",
+     "!If mapping",
+     "!If sequence",
+     "!Not scalar",
+     "!Not mapping",
+     "!Not sequence",
+     "!Equals scalar",
+     "!Equals mapping",
+     "!Equals sequence",
+     "!Or scalar",
+     "!Or mapping",
+     "!Or sequence",
+     "!FindInMap scalar",
+     "!FindInMap mappping",
+     "!FindInMap sequence",
+     "!Base64 scalar",
+     "!Base64 mapping",
+     "!Base64 sequence",
+     "!Cidr scalar",
+     "!Cidr mapping",
+     "!Cidr sequence",
+     "!Ref scalar",
+     "!Ref mapping",
+     "!Ref sequence",
+     "!Sub scalar",
+     "!Sub mapping",
+     "!Sub sequence",
+     "!GetAtt scalar",
+     "!GetAtt mapping",
+     "!GetAtt sequence",
+     "!GetAZs scalar",
+     "!GetAZs mapping",
+     "!GetAZs sequence",
+     "!ImportValue scalar",
+     "!ImportValue mapping",
+     "!ImportValue sequence",
+     "!Select scalar",
+     "!Select mapping",
+     "!Select sequence",
+     "!Split scalar",
+     "!Split mapping",
+     "!Split sequence",
+     "!Join scalar",
+     "!Join mapping",
+     "!Join sequence",
+     "!And",
+     "!If",
+     "!Not",
+     "!Equals",
+     "!Or",
+     "!FindInMap",
+     "!Base64",
+     "!Join",
+     "!Cidr",
+     "!Ref",
+     "!Sub",
+     "!GetAtt",
+     "!GetAZs",
+     "!ImportValue",
+     "!Select",
+     "!Split"
+],
+"snippets.ultisnips.pythonPrompt": false
+}
+

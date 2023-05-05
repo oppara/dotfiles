@@ -1,0 +1,60 @@
+# blade
+
+snippet ex
+	@extends(${1})
+
+snippet yi
+	@yield(${1})
+
+snippet se
+	@section(${1})
+		${2}
+	@endsection
+
+snippet in
+	@include('${1}')
+
+snippet st
+	@stack('${1:scripts}')${2}
+snippet pu
+	@push('${1:scripts}')
+		${2}
+	@endpush
+
+snippet ver
+	@verbatim
+		${2}
+	@endverbatim
+
+snippet if
+	@if (${1})
+		${2}
+	@endif
+
+snippet ife
+	@if (${1})
+		${2}
+	@else
+		${3}
+	@endif
+
+snippet un
+	@unless (${1})
+		${2}
+	@endunless
+
+snippet fo
+	@for ($${2:i} = 0; $$2 < ${1:count}; $$2${3:++})
+		${4}
+	@endfor
+
+snippet fe
+	@foreach (${1} as ${2})
+		${3}
+	@endforeach
+
+snippet wh
+	@while (${1})
+		${2}
+	@endwhile
+
