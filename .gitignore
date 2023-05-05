@@ -7,5 +7,6 @@ dot.vim/view
 config/karabiner/automatic_backups/*
 tmux-*log
 !.empty
+startup.log
 
 
