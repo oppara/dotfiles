@@ -21,6 +21,17 @@ require('jetpack.packer').add {
     requires = 'rktjmp/lush.nvim'
   },
 
+  {
+    'nvim-tree/nvim-web-devicons',
+    opt = 1
+  },
+  {
+    'nvim-lualine/lualine.nvim',
+    config = function()
+      require('plugins.lualine')
+    end
+  },
+
   'vim-jp/vimdoc-ja',
 
   {
