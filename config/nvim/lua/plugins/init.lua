@@ -17,7 +17,7 @@ require('jetpack.packer').add {
 
   'rebelot/kanagawa.nvim',
   {
-    'ViViDboarder/wombat.nvim',
+    'oppara/wombat.nvim',
     requires = 'rktjmp/lush.nvim'
   },
 
