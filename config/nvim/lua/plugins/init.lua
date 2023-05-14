@@ -56,8 +56,25 @@ require('jetpack.packer').add {
         ensure_installed = 'all',
         highlight = {
           enable = true,
-          -- https://github.com/nvim-treesitter/nvim-treesitter/issues/1742#issuecomment-903878861
-          additional_vim_regex_highlighting = true,
+          disable = function(lang, buf)
+            -- tree-sitter によるシンタックスハイライトを行わないファイルタイプ
+            _lang = {
+              ['sql'] = true
+            }
+            if _lang[lang] then
+              return true
+            end
+
+            -- 100 KB 以上のファイルでは tree-sitter によるシンタックスハイライトを行わない
+            local max_filesize = 100 * 1024
+            local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(buf))
+            if ok and stats and stats.size > max_filesize then
+              return true
+            end
+          end,
+        },
+        indent = {
+          enable = true,
         }
       }
     end
@@ -108,6 +125,8 @@ require('jetpack.packer').add {
     'tobyS/pdv',
     ft = 'php'
   },
+
+  'jsborjesson/vim-uppercase-sql',
 }
 
 --[[
