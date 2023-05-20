@@ -88,6 +88,14 @@ require('jetpack.packer').add {
   },
 
   {
+    'mattn/emmet-vim',
+    ft = {'html', 'xhtml', 'xml', 'css', 'less', 'sass', 'scss', 'slim', 'haml', 'jade', 'php'},
+    setup = function()
+      require('plugins.emmet')
+    end
+  },
+
+  {
     'mattn/vim-sonictemplate',
     config = function()
       vim.g.sonictemplate_vim_template_dir = '$HOME/.vim/sonictemplate'
@@ -162,9 +170,6 @@ require('jetpack.packer').add {
   "" if executable('cmigemo')
     "" cnoremap <expr><CR> migemosearch#replace_search_word()."\<CR>"
   "" endif
-
-
-  Plug 'mattn/emmet-vim', {'for': ['html', 'xhtml', 'xml', 'css', 'less', 'sass', 'scss', 'slim', 'haml', 'jade', 'php']}
 
   "Plug 'kana/vim-fakeclip', {'on':  ['<Plug>(fakeclip-']}
 
