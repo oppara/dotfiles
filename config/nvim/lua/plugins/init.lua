@@ -102,6 +102,13 @@ require('jetpack.packer').add {
   },
 
   {
+    'windwp/nvim-autopairs',
+    config = function()
+      require('nvim-autopairs').setup {}
+    end
+  },
+
+  {
     'tobyS/pdv',
     ft = 'php'
   },
@@ -152,7 +159,6 @@ require('jetpack.packer').add {
 
   Plug 'mattn/emmet-vim', {'for': ['html', 'xhtml', 'xml', 'css', 'less', 'sass', 'scss', 'slim', 'haml', 'jade', 'php']}
 
-  Plug 'jiangmiao/auto-pairs'
   Plug 'alvan/vim-closetag'
 
   "Plug 'kana/vim-fakeclip', {'on':  ['<Plug>(fakeclip-']}
