@@ -53,6 +53,13 @@ require('jetpack.packer').add {
     end
   },
 
+  {'nvim-treesitter/nvim-treesitter',
+    run = ':TSUpdate',
+    config = function()
+      require('plugins.ts')
+    end
+  },
+
   {
     'dense-analysis/ale',
     config = function()
@@ -158,8 +165,6 @@ require('jetpack.packer').add {
 
 
   Plug 'mattn/emmet-vim', {'for': ['html', 'xhtml', 'xml', 'css', 'less', 'sass', 'scss', 'slim', 'haml', 'jade', 'php']}
-
-  Plug 'alvan/vim-closetag'
 
   "Plug 'kana/vim-fakeclip', {'on':  ['<Plug>(fakeclip-']}
 
