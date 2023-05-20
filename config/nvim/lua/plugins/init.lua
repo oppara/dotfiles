@@ -156,7 +156,6 @@ require('jetpack.packer').add {
   Plug 'alvan/vim-closetag'
 
   "Plug 'kana/vim-fakeclip', {'on':  ['<Plug>(fakeclip-']}
-  Plug 'kana/vim-smartchr'
 
 
   "Plug 'kana/vim-textobj-user'
@@ -174,8 +173,6 @@ require('jetpack.packer').add {
 
   Plug 'tyru/open-browser.vim'
 
-  Plug 'sheerun/vim-polyglot'
-  Plug 'w0rp/ale'
 
   " shell
   Plug 'z0mbix/vim-shfmt', { 'for': 'sh'  }
