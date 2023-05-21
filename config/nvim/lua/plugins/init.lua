@@ -108,7 +108,12 @@ require('jetpack.packer').add {
     keys = '<Plug>(quickrun'
   },
 
-  'kana/vim-smartchr',
+  {
+    'kana/vim-smartchr',
+    config = function()
+      vim.cmd[[inoremap <buffer><expr> > smartchr#one_of('>', '->', '=>', '>>')]]
+    end
+  },
   {
     'sheerun/vim-polyglot',
     config = function()
