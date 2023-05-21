@@ -61,6 +61,13 @@ require('jetpack.packer').add {
   },
 
   {
+    'kylechui/nvim-surround',
+    config = function()
+      require('nvim-surround').setup({})
+    end
+  },
+
+  {
     'dense-analysis/ale',
     config = function()
       require('plugins.ale')
@@ -150,10 +157,8 @@ require('jetpack.packer').add {
   "Plug 'fuenor/qfixgrep'
   "Plug 'anyakichi/vim-qfutil'
 
-  Plug 'tpope/vim-surround'
   Plug 'tpope/vim-unimpaired'
   Plug 'tpope/vim-abolish'
-  Plug 'tpope/vim-repeat'
   Plug 'tpope/vim-fugitive'
   Plug 'tpope/vim-endwise', {'for': ['ruby']}
 
