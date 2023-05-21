@@ -13,4 +13,25 @@ function M.dump(o)
   end
 end
 
+M.usePlugin = function(name)
+  local status, plugin = pcall(require, name)
+  if not status then
+    return false
+  end
+  return plugin
+end
+
+
+M.setIndent = function(tabLength, useHardTab)
+  if useHardTab then
+    vim.bo.expandtab = false
+  else
+    vim.bo.expandtab = true
+  end
+
+  vim.bo.shiftwidth  = tabLength
+  vim.bo.softtabstop = tabLength
+  vim.bo.tabstop     = tabLength
+end
+
 return M
