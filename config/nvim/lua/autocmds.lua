@@ -1,11 +1,3 @@
-local ft = require('filetypes')
-
-vim.api.nvim_create_augroup('filetype-augroup', {})
-vim.api.nvim_create_autocmd('FileType', {
-  group = 'filetype-augroup',
-  pattern = '*',
-  callback = function(args) ft[args.match]() end
-})
 
 vim.api.nvim_create_augroup('vimrc-cursorline', {})
 vim.api.nvim_create_autocmd({'VimEnter', 'WinEnter'}, {
