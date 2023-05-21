@@ -53,13 +53,6 @@ require('jetpack.packer').add {
     end
   },
 
-  {'nvim-treesitter/nvim-treesitter',
-    run = ':TSUpdate',
-    config = function()
-      require('plugins.ts')
-    end
-  },
-
   {
     'kylechui/nvim-surround',
     config = function()
