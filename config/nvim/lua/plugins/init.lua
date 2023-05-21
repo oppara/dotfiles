@@ -109,6 +109,13 @@ require('jetpack.packer').add {
   },
 
   {
+    'tyru/open-browser.vim',
+    config = function()
+      vim.api.nvim_set_keymap('n', '<leader>w', '<plug>(openbrowser-smart-search)', {noremap = false, silent = true})
+    end
+  },
+
+  {
     'kana/vim-smartchr',
     config = function()
       vim.cmd[[inoremap <buffer><expr> > smartchr#one_of('>', '->', '=>', '>>')]]
@@ -189,9 +196,6 @@ require('jetpack.packer').add {
   Plug 'junegunn/vim-easy-align', {'on': ['EasyAlign']}
 
   Plug 'vim-test/vim-test'
-
-  Plug 'tyru/open-browser.vim'
-
 
   " shell
   Plug 'z0mbix/vim-shfmt', { 'for': 'sh'  }
