@@ -104,8 +104,9 @@ require('jetpack.packer').add {
 
   {
     'thinca/vim-quickrun',
-    cmd = 'QuickRun',
-    keys = '<Plug>(quickrun'
+    config = function()
+      require('plugins.quickrun')
+    end
   },
 
   {
