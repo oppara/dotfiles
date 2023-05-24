@@ -138,7 +138,11 @@ require('jetpack.packer').add {
 
   {
     'tobyS/pdv',
-    ft = 'php'
+    ft = 'php',
+    config = function()
+      require('plugins.pdv')
+    end,
+    requires = 'tobyS/vmustache'
   },
 
   'jsborjesson/vim-uppercase-sql',
@@ -201,8 +205,6 @@ require('jetpack.packer').add {
   " shell
   Plug 'z0mbix/vim-shfmt', { 'for': 'sh'  }
 
-  Plug 'tobyS/vmustache'
-  Plug 'tobyS/pdv', {'for': ['php']}
 
 "" " http://www.karakaram.com/vim/phpunit-location-list/
   Plug 'oppara/vim-quickrun-phpunit', { 'branch': 'fix-color', 'for': ['php']}
