@@ -130,6 +130,9 @@ require('jetpack.packer').add {
   },
 
   {
+    'tpope/vim-endwise',
+  },
+  {
     'windwp/nvim-autopairs',
     config = function()
       require('nvim-autopairs').setup {}
