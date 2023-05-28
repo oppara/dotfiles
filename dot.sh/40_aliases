@@ -17,8 +17,8 @@ alias pw='openssl rand -base64 30'
 alias o='open .'
 
 ## vim
-alias v="vim"
-alias vi="vim"
+alias v="nvim"
+alias vi="nvim"
 # alias mvim="~/bin/mvim  --remote-silent"
 
 ## git

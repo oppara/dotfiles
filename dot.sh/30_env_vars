@@ -16,7 +16,7 @@ export HISTFILESIZE=${HISTSIZE}
 export HISTCONTROL=ignoredups
 export HISTIGNORE="ls:cd:cd -:pwd:exit:date:* --help"
 
-export EDITOR=vim
+export EDITOR=nvim
 export CVSEDITOR="${EDITOR}"
 export SVN_EDITOR="${EDITOR}"
 export GIT_EDITOR="${EDITOR}"
