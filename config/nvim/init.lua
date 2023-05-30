@@ -26,4 +26,5 @@ require('colors')
 require('mappings')
 require('commands')
 require('autocmds')
+require('filetypes')
 
