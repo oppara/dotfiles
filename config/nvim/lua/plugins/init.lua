@@ -61,6 +61,13 @@ require('jetpack.packer').add {
   },
 
   {
+    'preservim/tagbar',
+    config = function()
+      require('plugins.tagbar')
+    end
+  },
+
+  {
     'dense-analysis/ale',
     config = function()
       require('plugins.ale')
@@ -169,8 +176,6 @@ require('jetpack.packer').add {
   Plug 'mattn/vim-molder-operations'
 
   "Plug 'Shougo/context_filetype.vim'
-
-  Plug 'majutsushi/tagbar'
 
   "Plug 'LeafCage/yankround.vim'
   Plug 'thinca/vim-localrc'
