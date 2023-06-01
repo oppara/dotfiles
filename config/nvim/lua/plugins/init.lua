@@ -105,7 +105,7 @@ require('jetpack.packer').add {
   {
     'mattn/vim-sonictemplate',
     config = function()
-      vim.g.sonictemplate_vim_template_dir = '$HOME/.vim/sonictemplate'
+      vim.g.sonictemplate_vim_template_dir = '$HOME/.config/nvim/sonictemplate'
     end
   },
 
