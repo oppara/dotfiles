@@ -147,6 +147,14 @@ require('jetpack.packer').add {
   },
 
   {
+    'iamcco/markdown-preview.nvim',
+    run = function() vim.fn['mkdp#util#install']() end,
+    config = function()
+      require('plugins.markdown-preview')
+    end
+  },
+
+  {
     'tobyS/pdv',
     ft = 'php',
     config = function()

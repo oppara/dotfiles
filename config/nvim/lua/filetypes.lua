@@ -222,19 +222,6 @@ augroup vimrc-ft-css  "{{{2
 augroup END
 
 
-augroup vimrc-ft-markdown  "{{{2
-  autocmd!
-  autocmd FileType markdown setlocal omnifunc=htmlcomplete#CompleteTags
-  autocmd FileType markdown set commentstring=<\!--\ %s\ -->
-  autocmd FileType markdown nnoremap <silent><buffer><leader>r :PrevimOpen<CR>
-  autocmd FileType markdown vnoremap <silent><buffer>ml :MyList -<CR>
-  autocmd FileType markdown vnoremap <silent><buffer>mc :MyList - [ ]<CR>
-  autocmd FileType markdown vnoremap <silent><buffer>mo :MyList 1.<CR>
-  autocmd FileType markdown :SetMarkdownTrailingSpaceHighlight
-  autocmd FileType markdown nnoremap <silent><buffer><leader>ti :ALEFix<cr>
-  " surround.vim
-  autocmd FileType markdown let b:surround_{char2nr('l')} = "[](\r)"
-augroup END
 
 
 augroup vimrc-ft-yaml  "{{{2
