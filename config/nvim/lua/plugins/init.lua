@@ -156,7 +156,7 @@ require('jetpack.packer').add {
   },
 
   {
-    'pageer/pdv',
+    'tobyS/pdv',
     ft = 'php',
     config = function()
       require('plugins.pdv')
