@@ -1,14 +1,54 @@
 
+-- https://github.com/nvim-lualine/lualine.nvim/blob/master/lua/lualine/themes/wombat.lua
+local colors = {
+  base02  = '#444444',
+  base3   = '#d0d0d0',
+  red     = '#e5786d',
+  black   = '#131313',
+}
+
 require('lualine').setup {
   options = {
-    theme = 'everforest',
+    theme = 'wombat',
+    icons_enabled = false,
     component_separators = {left = '|', right = '|'},
     section_separators = {},
     disabled_filetypes = {},
   },
   sections = {
-    lualine_a = {''},
-    lualine_b = {'filename', 'diff'},
+    lualine_a = {},
+    lualine_b = {
+      {
+        '%m',
+        cond = function()
+          return vim.bo.modified
+        end,
+        component_separators = {},
+        color = { fg = colors.base3, bg = colors.base02 },
+        padding = 0,
+      },
+      {
+        '%r',
+        cond = function()
+          return vim.bo.readonly
+        end,
+        component_separators = {},
+        color = { fg = colors.red, bg = colors.base02 },
+        padding = 0,
+      },
+      {
+        'filename',
+        color = { fg = colors.base3, bg = colors.base02 },
+        file_status = false,
+        newfile_status = true,
+        path = 1,
+        shorting_target = 40,
+      },
+      {
+        'diff',
+        color = { bg = colors.base02 },
+      }
+    },
     lualine_c = {
       {
         'diagnostics',
@@ -17,8 +57,18 @@ require('lualine').setup {
       }
     },
     lualine_x = {'branch', 'encoding', 'fileformat', 'filetype'},
-    lualine_y = {'progress'},
-    lualine_z = {'location'}
+    lualine_y = {
+      {
+        'progress',
+        color = { fg = colors.black},
+      },
+      {
+        'location',
+        color = { fg = colors.black},
+        padding = 0,
+      }
+    },
+    lualine_z = {}
   },
   inactive_sections = {
     lualine_c = {
