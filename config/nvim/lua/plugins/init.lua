@@ -195,7 +195,6 @@ require('jetpack.packer').add {
   Plug 'tpope/vim-unimpaired'
   Plug 'tpope/vim-abolish'
   Plug 'tpope/vim-fugitive'
-  Plug 'tpope/vim-endwise', {'for': ['ruby']}
 
   Plug 'rhysd/git-messenger.vim'
 
