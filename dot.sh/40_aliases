@@ -46,7 +46,7 @@ docker() {
         "docker-$1" "${@:2}"
     fi
 }
-alias docker-psa="d ps -a --format \"table {{.ID}}\t{{.Image}}\t{{.Names}}\t{{.Status}}\t{{.Ports}}\""
+alias docker-psa="docker ps -a --format \"table {{.ID}}\t{{.Image}}\t{{.Names}}\t{{.Status}}\t{{.Ports}}\""
 
 
 ## history
