@@ -173,6 +173,11 @@ augroup vimrc-ft-json  "{{{2
   autocmd FileType json nnoremap <silent><buffer><leader>ti :ALEFix<cr>
 augroup END
 
+augroup vimrc-ft-jsonc  "{{{2
+  autocmd!
+  autocmd BufRead,BufNew coc-settings.json :setlocal filetype=jsonc
+augroup END
+
 
 augroup vimrc-ft-coffeescript  "{{{2
 " https://github.com/kchmck/vim-coffee-script
