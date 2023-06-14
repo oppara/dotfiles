@@ -5,6 +5,7 @@ local colors = {
   base3   = '#d0d0d0',
   red     = '#e5786d',
   black   = '#131313',
+  green   = '#95e454',
 }
 
 require('lualine').setup {
@@ -16,15 +17,14 @@ require('lualine').setup {
     disabled_filetypes = {},
   },
   sections = {
-    lualine_a = {},
-    lualine_b = {
+    lualine_a = {
       {
         '%m',
         cond = function()
           return vim.bo.modified
         end,
         component_separators = {},
-        color = { fg = colors.base3, bg = colors.base02 },
+        color = { fg = colors.base02, bg = colors.green, gui = 'bold' },
         padding = 0,
       },
       {
@@ -33,9 +33,11 @@ require('lualine').setup {
           return vim.bo.readonly
         end,
         component_separators = {},
-        color = { fg = colors.red, bg = colors.base02 },
+        color = { fg = colors.base02, bg = colors.red, gui = 'bold'},
         padding = 0,
       },
+    },
+    lualine_b = {
       {
         'filename',
         color = { fg = colors.base3, bg = colors.base02 },
