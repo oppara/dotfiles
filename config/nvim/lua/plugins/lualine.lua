@@ -6,6 +6,7 @@ local colors = {
   red     = '#e5786d',
   black   = '#131313',
   green   = '#95e454',
+  blue    = '#8ac6f2',
 }
 
 require('lualine').setup {
@@ -19,7 +20,7 @@ require('lualine').setup {
   sections = {
     lualine_a = {
       {
-        '%m',
+        '%h + ',
         cond = function()
           return vim.bo.modified
         end,
@@ -28,7 +29,7 @@ require('lualine').setup {
         padding = 0,
       },
       {
-        '%r',
+        '%h RO ',
         cond = function()
           return vim.bo.readonly
         end,
