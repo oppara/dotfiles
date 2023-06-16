@@ -25,7 +25,7 @@ require('lualine').setup {
           return vim.bo.modified
         end,
         component_separators = {},
-        color = { fg = colors.base02, bg = colors.green, gui = 'bold' },
+        color = { fg = colors.base02, bg = '#dddddd', gui = 'bold' },
         padding = 0,
       },
       {
