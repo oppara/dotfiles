@@ -29,6 +29,16 @@ require('lualine').setup {
         padding = 0,
       },
       {
+        '%h N ',
+        cond = function()
+          local filename = vim.fn.expand('%')
+          return filename ~= '' and vim.bo.buftype == '' and vim.fn.filereadable(filename) == 0
+        end,
+        component_separators = {},
+        color = { fg = colors.base02, bg = colors.blue, gui = 'bold' },
+        padding = 0,
+      },
+      {
         '%h RO ',
         cond = function()
           return vim.bo.readonly
