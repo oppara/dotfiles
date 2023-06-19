@@ -9,9 +9,6 @@ vim.g.maplocalleader = ','
 -- sudo で保存
 vim.cmd([[cabbr w!! w !sudo tee > /dev/null %]])
 
--- 空行を挿入
-keymap('n', 'O', [[:<C-u>call append(expand('.'), '')<CR>j]], opts)
-
 -- tabpage
 keymap('n', 'tn', ':tablast <bar> tabnew<CR>', opts)
 keymap('n', 'tc', ':tabclose<CR>', opts)
