@@ -12,6 +12,7 @@ vim.g.coc_global_extensions = {
   'coc-tsserver',
   'coc-css',
   'coc-html-css-support',
+  '@yaegassy/coc-intelephense',
 
   -- 'coc-diagnostic',
   -- 'coc-cfn-lint',

@@ -4,22 +4,7 @@
   "typescript.suggestionActions.enabled": false,
   "javascript.suggestionActions.enabled": false,
 
-  //  npm i intelephense --location=global
   "languageserver": {
-    "intelephense": {
-      "command": "intelephense",
-      "args": ["--stdio"],
-      "filetypes": ["php"],
-      "initializationOptions": {
-        "storagePath": "/tmp/intelephense"
-      },
-      "diagnostics": {
-        "undefinedConstants": false,
-        "undefinedMethods": false,
-        "undefinedFunctions": false,
-        "undefinedSymbols": false
-      }
-    },
     "intelephense.stubs": [
       "apache",
       "bcmath",
