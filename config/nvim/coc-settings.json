@@ -3,6 +3,7 @@
 
   "typescript.suggestionActions.enabled": false,
   "javascript.suggestionActions.enabled": false,
+  "intelephense.client.diagnosticsIgnoreErrorFeature": true,
   "intelephense.stubs": [
     "apache",
     "bcmath",
