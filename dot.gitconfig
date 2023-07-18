@@ -13,6 +13,7 @@
     quotepath = false
 	autocrlf = false
 	safecrlf = true
+	ignorecase = false
 
 [color]
     ui = auto
