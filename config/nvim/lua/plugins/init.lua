@@ -74,6 +74,10 @@ require('jetpack.packer').add {
     end
   },
 
+  {
+    'tpope/vim-fugitive',
+  },
+
   {'numToStr/Comment.nvim',
     config = function()
       require('Comment').setup({
