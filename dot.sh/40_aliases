@@ -12,6 +12,11 @@ alias ml="memo l"
 ## random password
 alias pw='openssl rand -base64 30'
 
+## SSL 証明書確認
+alias ch_crt='openssl x509 -text -noout -in'
+## CSR 確認
+alias ch_csr='openssl req -text -noout -in '
+
 
 ## open current directory in Finder
 alias o='open .'
