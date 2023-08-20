@@ -6,7 +6,7 @@
   "intelephense.client.diagnosticsIgnoreErrorFeature": true,
   "intelephense.environment.includePaths": [
     // ghq get --shallow WordPress/wordpress-develop
-    "/Users/oppara/src/github.com/WordPress/wordpress-develop/tests/phpunit/includes"
+    "${userHome}/src/github.com/WordPress/wordpress-develop/tests/phpunit/includes"
   ],
   "intelephense.stubs": [
     "apache",
