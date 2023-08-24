@@ -6,7 +6,9 @@
   "intelephense.client.diagnosticsIgnoreErrorFeature": true,
   "intelephense.environment.includePaths": [
     // ghq get --shallow WordPress/wordpress-develop
-    "${userHome}/src/github.com/WordPress/wordpress-develop/tests/phpunit/includes"
+    "${userHome}/src/github.com/WordPress/wordpress-develop/tests/phpunit/includes",
+    // ghq get --shallow inc2734/smart-custom-fields
+    "${userHome}/src/github.com/inc2734/smart-custom-fields/classes"
   ],
   "intelephense.stubs": [
     "apache",
