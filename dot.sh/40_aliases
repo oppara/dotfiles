@@ -52,6 +52,7 @@ docker() {
     fi
 }
 alias docker-psa="docker ps -a --format \"table {{.ID}}\t{{.Image}}\t{{.Names}}\t{{.Status}}\t{{.Ports}}\""
+alias docker-ims="docker images --format \"table {{.Size}}\t{{.ID}}\t{{.Repository}}:{{.Tag}}\" | sed -e '1d' | sort -h "
 
 
 ## history
