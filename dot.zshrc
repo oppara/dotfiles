@@ -31,3 +31,6 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# bun completions
+[ -s "/Users/oppara/.bun/_bun" ] && source "/Users/oppara/.bun/_bun"
