@@ -12,7 +12,7 @@
     pager = $PAGER
     quotepath = false
 	autocrlf = false
-	safecrlf = true
+	; safecrlf = true
 	ignorecase = false
 
 [color]
