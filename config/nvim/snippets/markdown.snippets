@@ -51,3 +51,12 @@ snippet colo
 # page breake
 snippet pb
 	<div style="page-break-before:always"></div>${1}
+
+# textlint/textlint-filter-rule-comments: textlint filter rule that disables all rules between comments directive.
+# https://github.com/textlint/textlint-filter-rule-comments
+snippet ig
+	<!-- textlint-disable -->
+
+	$0
+
+	<!-- textlint-enable -->
