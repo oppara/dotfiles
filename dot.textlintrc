@@ -115,3 +115,6 @@ rules:
   prh:
     rulePaths:
       - /opt/homebrew/lib/node_modules/prh/prh-rules/media/WEB+DB_PRESS.yml
+
+  # AWSのサービス名やプロダクト名の表記揺れをチェックするためのルール
+  aws-service-name: true
