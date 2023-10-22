@@ -32,7 +32,7 @@ let g:ale_linters = {
             \ 'php': ['php', 'phpcbf'],
             \ 'perl': ['perl', 'perlcritic'],
             \ 'ruby': ['ruby'],
-            \ 'markdown': ['textlint'],
+            \ 'markdown': ['textlint', 'markdownlint-cli2'],
             \ 'json': [],
             \ 'css': [],
             \ 'scss': [],
