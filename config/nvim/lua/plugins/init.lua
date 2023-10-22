@@ -46,6 +46,13 @@ require('jetpack.packer').add {
   },
 
   {
+    'github/copilot.vim',
+    config = function()
+      require('plugins.copilot')
+    end
+  },
+
+  {
     'neoclide/coc.nvim',
     branch = 'release',
     config = function()
