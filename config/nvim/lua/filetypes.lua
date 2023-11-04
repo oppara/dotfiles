@@ -175,7 +175,7 @@ augroup END
 
 augroup vimrc-ft-jsonc  "{{{2
   autocmd!
-  autocmd BufRead,BufNew coc-settings.json :setlocal filetype=jsonc
+  autocmd BufRead,BufNew *settings.json :setlocal filetype=jsonc
 augroup END
 
 
