@@ -75,6 +75,13 @@ require('jetpack.packer').add {
   },
 
   {
+    'mattn/vim-findroot',
+    config = function()
+      require('plugins.vim-findroot')
+    end
+  },
+
+  {
     'dense-analysis/ale',
     config = function()
       require('plugins.ale')

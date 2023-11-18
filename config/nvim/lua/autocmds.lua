@@ -55,48 +55,6 @@ augroup vimrc-view
 
 augroup END
 
-augroup vimrc-lcd
-  autocmd!
-
-  function! s:lcd()
-    if &l:buftype !=# '' && &l:buftype !=# 'help' ||
-    \   0 <= index(['vimfiler'], &l:filetype)
-      unlet! b:lcd
-      return
-    endif
-
-    if exists('b:lcd') &&
-    \  (b:lcd ==# '' || getcwd() =~# '^\V' . escape(b:lcd, '\') . '\$')
-      return
-    endif
-
-    let path = s:lcd_path()
-    if isdirectory(path)
-      lcd `=path`
-      let b:lcd = getcwd()
-    endif
-  endfunction
-
-  function! s:lcd_path()
-    let path = ''
-    let simple = expand('%:p:h')
-
-    if &l:buftype ==# 'help'
-      return simple
-    endif
-
-    if path !=# ''
-      return path
-    endif
-
-    return simple
-  endfunction
-
-  " 現在編集中のバッファのディレクトリに移動する
-  autocmd BufReadPre,BufFilePre * unlet! b:lcd
-  autocmd BufReadPost,BufFilePost,BufEnter * call s:lcd()
-augroup END
-
 augroup vimrc-misc
   autocmd!
   " 最後に編集した位置へカーソルを移動
