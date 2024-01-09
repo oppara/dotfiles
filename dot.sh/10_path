@@ -32,5 +32,10 @@ test -d "$HOME/.composer/vendor/bin" && PATH="$HOME/.composer/vendor/bin:$PATH"
 ## rust
 test -d "$HOME/.cargo/bin" && PATH="$HOME/.cargo/bin:$PATH"
 
+## openjdk
+test -d "/opt/homebrew/opt/openjdk/bin" && PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
+# For compilers to find openjdk you may need to set:
+#   export CPPFLAGS="-I/opt/homebrew/opt/openjdk/include"
+
 # vim: ft=bash fdm=marker
 
