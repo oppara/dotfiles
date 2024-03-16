@@ -153,3 +153,4 @@
 	lineNumber = true
 [commit]
 	template = ~/.gitmessage
+	verbose = true
