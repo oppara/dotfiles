@@ -55,6 +55,7 @@
     nw = now --stat --update
     ; merge, rebase をもとに戻す
     ab = reset --hard ORIG_HEAD
+    prev = reset HEAD^
 
     pushf = push  --force-with-lease --force-if-includes
     empty = commit -q --allow-empty
