@@ -8,7 +8,9 @@
     // ghq get --shallow WordPress/wordpress-develop
     "${userHome}/src/github.com/WordPress/wordpress-develop/tests/phpunit/includes",
     // ghq get --shallow inc2734/smart-custom-fields
-    "${userHome}/src/github.com/inc2734/smart-custom-fields/classes"
+    "${userHome}/src/github.com/inc2734/smart-custom-fields/classes",
+    // ghq get --shallow AdvancedCustomFields/acf
+    "${userHome}/src/github.com/AdvancedCustomFields/acf/includes"
   ],
   "intelephense.stubs": [
     "apache",
