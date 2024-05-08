@@ -87,7 +87,7 @@
     "zlib",
     "wordpress"
   ],
-
+  "sumneko-lua.enableNvimLuaDev": true,
   "languageserver": {
   },
   //  // diagnostic-languageserver
