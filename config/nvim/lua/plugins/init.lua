@@ -165,6 +165,14 @@ require('jetpack.packer').add {
   },
 
   {
+    'ixru/nvim-markdown',
+    ft = 'markdown',
+    config = function()
+      require('plugins.nvim-markdown')
+    end
+  },
+
+  {
     'iamcco/markdown-preview.nvim',
     ft = 'markdown',
     run = function() vim.fn['mkdp#util#install']() end,
