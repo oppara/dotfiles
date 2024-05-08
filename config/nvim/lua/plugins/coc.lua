@@ -1,3 +1,4 @@
+-- https://github.com/fannheyward/init.vim/blob/master/init.vim
 
 vim.g.coc_global_extensions = {
   'coc-explorer',
@@ -13,6 +14,7 @@ vim.g.coc_global_extensions = {
   'coc-css',
   'coc-html-css-support',
   '@yaegassy/coc-intelephense',
+  'coc-sumneko-lua',
 
   -- 'coc-diagnostic',
   -- 'coc-cfn-lint',
