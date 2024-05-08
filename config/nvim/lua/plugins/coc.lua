@@ -32,6 +32,11 @@ vim.g.coc_global_extensions = {
   -- 'coc-spell-checker',
   -- 'coc-vimlsp',
   -- 'coc-word',
+  -- 'coc-highlight'
+  -- 'coc-lists'
+  -- 'coc-pairs'
+  -- 'coc-typos'
+  -- 'coc-yank'
 }
 
 vim.cmd([[
