@@ -237,7 +237,7 @@ snippet annull
 	\$this->assertNotNull(${1},${2});${3}
 
 snippet areg
-	\$this->assertRegExp(${1:\$pattern}, ${2:\$string});${3}
+	\$this->assertMatchesRegularExpression(${1:\$pattern}, ${2:\$string});${3}
 snippet anreg
 	\$this->assertNotRegExp(${1:\$pattern}, ${2:\$string});${3}
 
