@@ -106,12 +106,14 @@ function! s:configure_coc() abort
   " Use tab for trigger completion with characters ahead and navigate.
   " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
   " other plugin before putting this into your config.
-  inoremap <silent><expr> <TAB>
+inoremap <silent><expr> <TAB>
+      \ exists('b:_copilot.suggestions') ? copilot#Accept("\<CR>") :
       \ coc#pum#visible() ? coc#_select_confirm() :
       \ coc#expandableOrJumpable() ?
       \ "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
       \ CheckBackSpace() ? "\<TAB>" :
       \ coc#refresh()
+
 
   inoremap <expr><c-n> coc#pum#visible() ? coc#pum#next(1) : "<c-n>"
   inoremap <expr><c-p> coc#pum#visible() ? coc#pum#prev(1) : "<c-p>"
