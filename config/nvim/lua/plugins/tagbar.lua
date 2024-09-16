@@ -1,13 +1,13 @@
 
-vim.cmd([[
+local opts = { noremap=true, silent=true }
+vim.api.nvim_set_keymap('n', '<leader>tl', ':TagbarOpenAutoClose<cr>', opts)
 
-noremap <silent> <leader>tl :TagbarOpenAutoClose<cr>
-"
-let g:tagbar_position = 'topleft vertical'
-let g:tagbar_width = max([25, winwidth(0) / 5])
+vim.g.tagbar_position = 'topleft vertical'
+vim.g.tagbar_sort = 0
+vim.g.tagbar_compact = 2
+vim.g.tagbar_indent = 2
+vim.g.tagbar_wrap = 1
+vim.g.tagbar_iconchars = {'+', '-'}
+vim.g.tagbar_width = math.max(30, vim.fn.winwidth(0) / 5)
 
-let g:tagbar_sort = 0
-let g:tagbar_compact = 2
-let g:tagbar_indent = 1
-let g:tagbar_iconchars = ['+', '-']
-]])
+
