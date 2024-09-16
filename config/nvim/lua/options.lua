@@ -78,6 +78,10 @@ local options = {
   -- help
   helplang = { 'en', 'ja' },
 
+  termguicolors = true,
+  winblend = 20,
+  pumblend = 20,
+
   -- https://github.com/vim-jp/issues/issues/152
   -- 最後に改行のないファイルを編集したときに改行を付け加えない
   fixeol = false,
