@@ -46,6 +46,13 @@ require('jetpack.packer').add {
   },
 
   {
+    'lukas-reineke/indent-blankline.nvim',
+    config = function()
+      require('plugins.indent-blankline')
+    end
+  },
+
+  {
     'github/copilot.vim',
     config = function()
       require('plugins.copilot')
