@@ -167,9 +167,8 @@ augroup vimrc-ft-json  "{{{2
   autocmd!
   autocmd FileType json setlocal expandtab softtabstop=2 shiftwidth=2
         \| setlocal conceallevel=0
-        \| setlocal foldmethod=syntax
+        \| setlocal foldmethod=indent
 
-  autocmd BufReadPost *json execute 'normal! zAgg'
   autocmd FileType json nnoremap <silent><buffer><leader>ti :ALEFix<cr>
 augroup END
 
