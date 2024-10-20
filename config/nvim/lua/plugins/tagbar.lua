@@ -10,4 +10,32 @@ vim.g.tagbar_wrap = 1
 vim.g.tagbar_iconchars = {'+', '-'}
 vim.g.tagbar_width = math.max(40, vim.fn.winwidth(0) / 5)
 
+-- TagbarGetTypeConfig filetype
+
+vim.g.tagbar_type_php = {
+  kinds = {
+    'n:namespaces:0:0',
+    'a:use aliases:1:0',
+    'd:constant definitions:0:0',
+    'i:interfaces',
+    't:traits',
+    'c:classes',
+    'v:variables:1:0',
+    'f:functions',
+  },
+  sort = 1
+}
+
+vim.g.tagbar_type_markdown = {
+  kinds = {
+    'c:chapter',
+    's:section',
+    'S:subsection',
+    't:subsubsection',
+    'T:l3subsection',
+    'u:l4subsection',
+  },
+  sort = 0
+}
+
 
