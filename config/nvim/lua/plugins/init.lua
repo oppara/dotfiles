@@ -82,6 +82,11 @@ require('jetpack.packer').add {
   },
 
   {
+    'vim-php/phpctags',
+    run = 'composer install'
+  },
+
+  {
     'mattn/vim-findroot',
     config = function()
       require('plugins.vim-findroot')
