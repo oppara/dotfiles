@@ -7,17 +7,17 @@ PARENT_DIR := $(shell dirname ${MAKEFILE_DIR})
 CONTAINER_NAME := foo
 
 .PHONY: up
-up: ## docker-compose up
-	docker-compose up -d
-	docker-compose ps
+up: ## docker compose up
+	docker compose up -d
+	docker compose ps
 
 .PHONY: stop
-stop: ## docker-compose stop
-	docker-compose stop
+stop: ## docker compose stop
+	docker compose stop
 
 .PHONY: down
-down: ## docker-compose down
-	docker-compose down
+down: ## docker compose down
+	docker compose down
 
 .PHONY: reload
 reload: ## down & up
@@ -25,8 +25,8 @@ reload: ## down & up
 	@make up
 
 .PHONY: destroy
-destroy: ## docker-compose down -v
-	docker-compose down -v
+destroy: ## docker compose down -v
+	docker compose down -v
 
 .PHONY: bash
 bash: ## docker exec -it ${CONTAINER_NAME} bash
