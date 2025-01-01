@@ -1,0 +1,19 @@
+theme = xcodedarkhc
+
+font-family = Cica
+font-size = 16
+
+cursor-style-blink = false
+cursor-style = block
+
+macos-titlebar-proxy-icon = hidden
+
+
+# # window-width = 100
+window-padding-x = 5
+window-padding-y = 5
+window-padding-balance = true
+
+window-inherit-working-directory = true
+
+resize-overlay = never
