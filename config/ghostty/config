@@ -2,7 +2,7 @@ theme = xcodedarkhc
 
 background = #152a1c
 
-font-family = Cica
+font-family = HackGenConsoleNF-Regular
 font-size = 16
 
 cursor-style-blink = false
