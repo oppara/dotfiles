@@ -15,6 +15,7 @@ vim.g.coc_global_extensions = {
   'coc-html-css-support',
   '@yaegassy/coc-intelephense',
   'coc-sumneko-lua',
+  '@hexuhua/coc-copilot',
 
   -- 'coc-diagnostic',
   -- 'coc-cfn-lint',
@@ -115,6 +116,8 @@ function! s:configure_coc() abort
 
   inoremap <expr><c-n> coc#pum#visible() ? coc#pum#next(1) : "<c-n>"
   inoremap <expr><c-p> coc#pum#visible() ? coc#pum#prev(1) : "<c-p>"
+
+  inoremap <silent><expr><c-l> coc#refresh()
 
   " Make <CR> auto-select the first completion item and notify coc.nvim to
   " format on enter, <cr> could be remapped by other vim plugin
