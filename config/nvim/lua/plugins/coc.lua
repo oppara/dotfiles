@@ -116,13 +116,6 @@ function! s:configure_coc() abort
   inoremap <expr><c-n> coc#pum#visible() ? coc#pum#next(1) : "<c-n>"
   inoremap <expr><c-p> coc#pum#visible() ? coc#pum#prev(1) : "<c-p>"
 
-  " Use <c-space> to trigger completion.
-  if has('nvim')
-    inoremap <silent><expr> <c-space> coc#refresh()
-  else
-    inoremap <silent><expr> <c-@> coc#refresh()
-  endif
-
   " Make <CR> auto-select the first completion item and notify coc.nvim to
   " format on enter, <cr> could be remapped by other vim plugin
   inoremap <silent><expr> <CR> coc#pum#visible() ? coc#_select_confirm()
