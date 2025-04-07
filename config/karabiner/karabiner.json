@@ -181,6 +181,10 @@
                             "to": [{ "key_code": "left_control" }]
                         }
                     ]
+                },
+                {
+                    "identifiers": { "is_keyboard": true },
+                    "ignore": true
                 }
             ],
             "fn_function_keys": [
