@@ -1,3 +1,6 @@
+-- cache init.lua
+vim.loader.enable()
+
 vim.scriptencoding = 'utf-8'
 vim.language = 'C'
 
