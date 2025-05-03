@@ -12,6 +12,11 @@ vim.g.changelog_username = 'oppara'
 -- matchparen をやめる
 vim.g.loaded_matchparen = 1
 
+-- 改行コードが LF に固定されるのを回避
+-- https://zenn.dev/oppara/scraps/1442ab8273f73f
+vim.g.editorconfig = false
+
+
 vim.cmd([[
 
 let g:is_mac  = has('macunix') || (executable('uname') && system('uname') =~? '^darwin')
