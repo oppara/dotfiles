@@ -21,31 +21,31 @@ set -eu
 # if match , it return number only. if no match, it return branch name.
 parse() {
     target=$(cat -)
-    res=$(echo $target | sed -E -e "s/.*((#|issue[s]?[\/-_]?|_|-)([0-9]*)).*/\3/g")
+    res=$(echo $target | gsed -E -e "s/.*((#|issue[s]?[\/-_]?|_|-)([0-9]*)).*/\3/g")
     if [ -n "$res" ]; then
         echo $res
         return 0
     fi
 
-    res=$(echo $target | sed -E -e "s/.*((#|feature[s]?[\/-_]?|_|-)([0-9]*)).*/\3/g")
+    res=$(echo $target | gsed -E -e "s/.*((#|feature[s]?[\/-_]?|_|-)([0-9]*)).*/\3/g")
     if [ -n "$res" ]; then
         echo $res
         return 0
     fi
 
-    res=$(echo $target | sed -E -e "s/^([0-9]*).*/\1/g")
+    res=$(echo $target | gsed -E -e "s/^([0-9]*).*/\1/g")
     if [ -n "$res" ]; then
         echo $res
         return 0
     fi
 
-    res=$(echo $target | sed -E -e "s/^(#|feature[s]?[\/-_]?)([0-9]*).*/\2/g")
+    res=$(echo $target | gsed -E -e "s/^(#|feature[s]?[\/-_]?)([0-9]*).*/\2/g")
     if [ -n "$res" ]; then
         echo $res
         return 0
     fi
 
-    res=$(echo $target | sed -E -e "s/^(#|issue[s]?[\/-_]?)([0-9]*).*/\2/g")
+    res=$(echo $target | gsed -E -e "s/^(#|issue[s]?[\/-_]?)([0-9]*).*/\2/g")
     if [ -n "$res" ]; then
         echo $res
         return 0
