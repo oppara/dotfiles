@@ -11,7 +11,7 @@ Host *
     AddKeysToAgent yes
 
     controlmaster auto
-    controlpath ~/.ssh/mux-%r@%h:%p
+    ControlPath ~/.ssh/control/%C
     controlpersist 4h
 
     PermitLocalCommand yes
