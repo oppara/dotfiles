@@ -217,6 +217,13 @@ require('jetpack.packer').add {
   },
 
   'jsborjesson/vim-uppercase-sql',
+
+  {
+    'stevearc/quicker.nvim',
+    config = function()
+      require('plugins.quicker')
+    end
+  },
 }
 
 --[[
