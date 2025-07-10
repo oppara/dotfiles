@@ -80,6 +80,19 @@ augroup END
 
 ]])
 
+vim.api.nvim_create_autocmd("QuickFixCmdPost", {
+  pattern = "[^l]*",
+  callback = function()
+    vim.cmd("cwindow")
+  end,
+})
+
+vim.api.nvim_create_autocmd("QuickFixCmdPost", {
+  pattern = "l*",
+  callback = function()
+    vim.cmd("lwindow")
+  end,
+})
 
 
 -- Autocmd:  "{{{1
