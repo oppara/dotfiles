@@ -1,0 +1,14 @@
+version: 1
+
+rules:
+  - expected: CodePen
+    pattern:
+      - Codepen
+      - codepen
+# imports:
+#   - path: "/opt/homebrew/lib/node_modules/prh/prh-rules/media/WEB+DB_PRESS.yml"
+#     disableImports: true
+#     ignoreRules:
+#       - expected: まったく
+  # - path: /opt/homebrew/lib/node_modules/textlint-rule-aws-service-name/node_modules/prh/prh-rules/media/WEB+DB_PRESS.yml
+  #   disableImports: true

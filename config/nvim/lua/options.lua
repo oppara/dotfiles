@@ -92,9 +92,9 @@ for k, v in pairs(options) do
 end
 
 -- input support
-vim.opt.clipboard:prepend({'unnamed'})
-vim.opt.virtualedit:append({'block'})
-vim.opt.formatoptions:append({'m'})
+vim.opt.clipboard:prepend('unnamed')
+vim.opt.virtualedit:append('block')
+vim.opt.formatoptions:append('m')
 vim.opt.backspace = { 'eol', 'start', 'indent' }
 vim.opt.whichwrap = 'b,s,h,l,[,],<,>,~'
 vim.opt.startofline = true
