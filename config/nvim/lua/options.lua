@@ -24,7 +24,6 @@ local options = {
   smartcase = true,
   incsearch = true,
   wrapscan = true,
-  grepprg = 'internal',
 
   -- cmd line
   history = 1000,
@@ -89,6 +88,11 @@ local options = {
 
 for k, v in pairs(options) do
   vim.opt[k] = v
+end
+
+-- grep
+if vim.fn.executable('rg') == 1 then
+  vim.opt.grepprg = 'rg --vimgrep --smart-case --hidden --follow'
 end
 
 -- input support
