@@ -52,20 +52,33 @@ require('jetpack.packer').add {
     end
   },
 
+  -- {
+  --   'github/copilot.vim',
+  --   config = function()
+  --     require('plugins.copilot')
+  --   end
+  -- },
   {
-    'github/copilot.vim',
+    'hrsh7th/nvim-cmp',
+    requires = {
+      'dcampos/nvim-snippy',
+      'dcampos/cmp-snippy',
+      'hrsh7th/cmp-nvim-lsp',
+      'hrsh7th/cmp-buffer',
+      'hrsh7th/cmp-path',
+      'hrsh7th/cmp-cmdline'
+    },
     config = function()
-      require('plugins.copilot')
+      require('plugins.nvim-cmp')
     end
   },
-
-  {
-    'neoclide/coc.nvim',
-    branch = 'release',
-    config = function()
-      require('plugins.coc')
-    end
-  },
+  -- {
+  --   'neoclide/coc.nvim',
+  --   branch = 'release',
+  --   config = function()
+  --     require('plugins.coc')
+  --   end
+  -- },
 
   {
     'kylechui/nvim-surround',
@@ -81,34 +94,34 @@ require('jetpack.packer').add {
     end
   },
 
-  {
-    'mattn/vim-findroot',
-    config = function()
-      require('plugins.vim-findroot')
-    end
-  },
-
-  {
-    'dense-analysis/ale',
-    config = function()
-      require('plugins.ale')
-    end
-  },
-
-  {
-    'tpope/vim-fugitive',
-  },
-
-  {
-    'FabijanZulj/blame.nvim',
-    config = function()
-      require("blame").setup({
-          date_format = '%Y-%m-%d %H:%M',
-          max_summary_width = 40,
-          commit_detail_view = "split",
-        })
-    end
-  },
+  -- {
+  --   'mattn/vim-findroot',
+  --   config = function()
+  --     require('plugins.vim-findroot')
+  --   end
+  -- },
+  --
+  -- {
+  --   'dense-analysis/ale',
+  --   config = function()
+  --     require('plugins.ale')
+  --   end
+  -- },
+  --
+  -- {
+  --   'tpope/vim-fugitive',
+  -- },
+  --
+  -- {
+  --   'FabijanZulj/blame.nvim',
+  --   config = function()
+  --     require("blame").setup({
+  --         date_format = '%Y-%m-%d %H:%M',
+  --         max_summary_width = 40,
+  --         commit_detail_view = "split",
+  --       })
+  --   end
+  -- },
 
   {'numToStr/Comment.nvim',
     config = function()
