@@ -94,6 +94,13 @@ require('jetpack.packer').add {
     end
   },
 
+  {
+    'nvim-tree/nvim-tree.lua',
+    config = function()
+      require('plugins.nvim-tree')
+    end
+  },
+
   -- {
   --   'mattn/vim-findroot',
   --   config = function()
