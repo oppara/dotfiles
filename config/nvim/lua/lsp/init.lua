@@ -1,15 +1,17 @@
 require "mason".setup()
 
--- local ensure_installed = {'ts_ls', 'lua_ls'}
-local ensure_installed = {'lua_ls'}
+local ensure_installed = {
+  'lua_ls',
+  'intelephense',
+}
 require("mason-lspconfig").setup({
-    automatic_installation = true,
-    ensure_installed = ensure_installed,
-  })
+  automatic_installation = true,
+  ensure_installed = ensure_installed,
+})
 
 vim.diagnostic.config({
-    virtual_text = true
-  })
+  virtual_text = true
+})
 
 local on_attach = function(client, bufnr)
   local opts = { buffer = bufnr, noremap = true, silent = true }
@@ -31,9 +33,9 @@ local on_attach = function(client, bufnr)
 end
 
 vim.lsp.config('*', {
-    on_attach = on_attach,
-    capabilities = require('cmp_nvim_lsp').default_capabilities(),
-  })
+  on_attach = on_attach,
+  capabilities = require('cmp_nvim_lsp').default_capabilities(),
+})
 
 vim.lsp.enable(ensure_installed)
 
