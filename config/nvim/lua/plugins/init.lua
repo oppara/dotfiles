@@ -52,6 +52,16 @@ require('jetpack.packer').add {
     end
   },
 
+
+  {
+    'williamboman/mason.nvim',
+  },
+  {
+    'williamboman/mason-lspconfig.nvim',
+  },
+  {
+    'neovim/nvim-lspconfig',
+  },
   -- {
   --   'github/copilot.vim',
   --   config = function()
