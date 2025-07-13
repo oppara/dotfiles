@@ -43,3 +43,32 @@ vim.api.nvim_create_user_command(
   "LspHealth",
   "checkhealth vim.lsp",
   { desc = "LSP health check" })
+
+function ShowAvailableFormatters()
+  local filetype = vim.bo.filetype
+  local buf = vim.api.nvim_get_current_buf()
+  local formatters = {}
+
+  -- LSP クライアントから探す
+  for _, client in pairs(vim.lsp.get_active_clients({ bufnr = buf })) do
+    if client.supports_method("textDocument/formatting") then
+      table.insert(formatters, client.name)
+    end
+  end
+
+  -- -- null-ls を使っている場合の追加確認（任意）
+  -- local has_null_ls, null_ls = pcall(require, "null-ls")
+  -- if has_null_ls and null_ls then
+  --   local sources = require("null-ls.sources").get_available(filetype, "NULL_LS_FORMATTING")
+  --   for _, source in ipairs(sources) do
+  --     table.insert(formatters, "null-ls: " .. source.name)
+  --   end
+  -- end
+
+  if #formatters == 0 then
+    vim.notify("No formatters available for filetype: " .. filetype, vim.log.levels.WARN)
+  else
+    vim.notify("Available formatters for " .. filetype .. ": " .. table.concat(formatters, ", "), vim.log.levels.INFO)
+  end
+end
+vim.keymap.set("n", "<leader>lf", ShowAvailableFormatters, { desc = "Show available formatters" })
