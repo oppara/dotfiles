@@ -62,6 +62,13 @@ require('jetpack.packer').add {
   {
     'neovim/nvim-lspconfig',
   },
+  {
+    'stevearc/conform.nvim',
+    config = function()
+      require('plugins.confirm')
+    end
+  },
+
   -- {
   --   'github/copilot.vim',
   --   config = function()
