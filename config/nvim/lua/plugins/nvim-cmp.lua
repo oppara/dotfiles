@@ -27,10 +27,10 @@ cmp.setup({
   mapping = {
     ["<CR>"] = cmp.mapping.confirm({ select = true }),
     ["<Tab>"] = cmp.mapping(function(fallback)
-      if cmp.visible() then
-        cmp.select_next_item()
-      elseif snippy.can_expand_or_advance() then
+      if snippy.can_expand_or_advance() then
         snippy.expand_or_advance()
+      elseif cmp.visible() then
+        cmp.select_next_item()
       elseif has_words_before() then
         cmp.complete()
       else
@@ -38,11 +38,27 @@ cmp.setup({
       end
     end, { "i", "s" }),
 
+    ["<C-n>"] = cmp.mapping(function(fallback)
+      if cmp.visible() then
+        cmp.select_next_item()
+      else
+        fallback()
+      end
+    end, { "i", "s" }),
+
     ["<S-Tab>"] = cmp.mapping(function(fallback)
+      if snippy.can_jump(-1) then
+        snippy.previous()
+      elseif cmp.visible() then
+        cmp.select_prev_item()
+      else
+        fallback()
+      end
+    end, { "i", "s" }),
+
+    ["<C-p>"] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_prev_item()
-      elseif snippy.can_jump(-1) then
-        snippy.previous()
       else
         fallback()
       end
