@@ -66,6 +66,12 @@ require("jetpack.packer").add({
             require("plugins.confirm")
         end,
     },
+    {
+        "mfussenegger/nvim-lint",
+        config = function()
+            require("plugins.nvim-lint")
+        end,
+    },
 
     -- {
     --   'github/copilot.vim',
