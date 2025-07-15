@@ -3,6 +3,7 @@ require("mason").setup()
 local ensure_installed = {
     "lua_ls",
     "intelephense",
+    "bashls",
 }
 require("mason-lspconfig").setup({
     automatic_installation = true,
