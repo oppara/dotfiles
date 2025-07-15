@@ -75,6 +75,48 @@ require('jetpack.packer').add {
   --     require('plugins.copilot')
   --   end
   -- },
+  -- {
+  --   "zbirenbaum/copilot.lua",
+  --   cmd = "Copilot",
+  --   config = function()
+  --     require("copilot").setup({
+  --         -- suggestion = {enabled = false},
+  --         -- panel = {enabled = false},
+  --         suggestion = {
+  --           auto_trigger = true,
+  --           hide_during_completion = false,
+  --         },
+  --         server_opts_overrides = {
+  --           trace = 'verbose',
+  --         },
+  --         filetypes = {
+  --           yaml = true,
+  --           markdown = true,
+  --           gitcommit = true,
+  --           gitrebase = true,
+  --           ['*'] = function()
+  --             -- disable for files with specific names
+  --             local fname = vim.fs.basename(vim.api.nvim_buf_get_name(0))
+  --             local disable_patterns = { 'env', 'conf', 'local', 'private' }
+  --             return vim.iter(disable_patterns):all(function(pattern)
+  --               return not string.match(fname, pattern)
+  --             end)
+  --           end,
+  --         },
+  --       })
+  --   end
+  -- },
+  -- {
+  --   "CopilotC-Nvim/CopilotChat.nvim",
+  --   requires = {
+  --      "zbirenbaum/copilot.lua",
+  --      "nvim-lua/plenary.nvim",
+  --   },
+  --   run = "make tiktoken",
+  --   config = function()
+  --     require('plugins.copilot-chat')
+  --   end
+  -- },
   {
     'hrsh7th/nvim-cmp',
     requires = {
@@ -83,12 +125,18 @@ require('jetpack.packer').add {
       'hrsh7th/cmp-nvim-lsp',
       'hrsh7th/cmp-buffer',
       'hrsh7th/cmp-path',
-      'hrsh7th/cmp-cmdline'
+      'hrsh7th/cmp-cmdline',
     },
     config = function()
       require('plugins.nvim-cmp')
     end
   },
+  -- {
+  --   'zbirenbaum/copilot-cmp',
+  --   config = function()
+  --     require('copilot_cmp').setup()
+  --   end
+  -- },
   -- {
   --   'neoclide/coc.nvim',
   --   branch = 'release',

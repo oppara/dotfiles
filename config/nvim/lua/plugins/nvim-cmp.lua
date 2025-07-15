@@ -1,11 +1,13 @@
 
 vim.g.vsnip_snippet_dir = os.getenv('HOME')..'/.config/nvim/snippets'
 
+-- TODO: https://github.com/zbirenbaum/copilot-cmp?tab=readme-ov-file#tab-completion-configuration-highly-recommended
 local has_words_before = function()
   unpack = unpack or table.unpack
   local line, col = unpack(vim.api.nvim_win_get_cursor(0))
   return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
 end
+
 
 local snippy = require("snippy")
 local cmp = require("cmp")
@@ -22,6 +24,7 @@ cmp.setup({
     { name = "buffer" },
     { name = "path" },
     { name = "cmdline" },
+    { name = 'copilot' },
   }),
 
   mapping = {
