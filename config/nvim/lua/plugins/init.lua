@@ -280,14 +280,6 @@ require("jetpack.packer").add({
         requires = "tobyS/vmustache",
     },
 
-    {
-        "z0mbix/vim-shfmt",
-        ft = "sh",
-        config = function()
-            require("plugins.shfmt")
-        end,
-    },
-
     "jsborjesson/vim-uppercase-sql",
 
     {

@@ -5,6 +5,12 @@ require("conform").setup({
         sh = { "shfmt" },
     },
 
+    formatters = {
+        shfmt = {
+            prepend_args = { "-i", "2", "-ci", "-bn", "-s" },
+        },
+    },
+
     format_on_save = {
         timeout_ms = 500,
         lsp_format = "fallback",
