@@ -3,11 +3,17 @@ require("conform").setup({
         lua = { "stylua" },
         php = { "phpcbf", "php_cs_fixer", stop_after_first = true },
         sh = { "shfmt" },
+        yaml = { "yamlfmt" },
     },
 
     formatters = {
         shfmt = {
             prepend_args = { "-i", "2", "-ci", "-bn", "-s" },
+        },
+        yamlfmt = {
+            command = "yamlfmt",
+            args = { "-" }, -- stdin
+            stdin = true,
         },
     },
 
