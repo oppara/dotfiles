@@ -4,6 +4,10 @@ require("conform").setup({
         php = { "phpcbf", "php_cs_fixer", stop_after_first = true },
         sh = { "shfmt" },
         yaml = { "yamlfmt" },
+        javascript = { "prettier" },
+        typescript = { "prettier" },
+        javascriptreact = { "prettier" },
+        typescriptreact = { "prettier" },
     },
 
     formatters = {

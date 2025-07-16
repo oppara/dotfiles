@@ -5,6 +5,7 @@ local ensure_installed = {
     "intelephense",
     "bashls",
     "yamlls",
+    "ts_ls",
 }
 require("mason-lspconfig").setup({
     automatic_installation = true,
