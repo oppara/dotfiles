@@ -53,4 +53,8 @@ if [ -f "${HOME}/.bun/bin/bun" ]; then
 fi
 
 
+# ngrok
+if command -v ngrok &>/dev/null; then
+  eval "$(ngrok completion)"
+fi
 # vim: ft=zsh fdm=marker
