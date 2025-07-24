@@ -144,6 +144,12 @@ require("jetpack.packer").add({
             require("plugins.nvim-tree")
         end,
     },
+    {
+        "b0o/nvim-tree-preview.lua",
+        requires = {
+            "nvim-lua/plenary.nvim",
+        },
+    },
 
     -- {
     --   'mattn/vim-findroot',

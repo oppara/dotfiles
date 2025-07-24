@@ -43,16 +43,21 @@ local function nvim_tree_on_attach(bufnr)
       abs_path = node.absolute_path
     end
 
-    local parent_path = vim.fs.dirname(abs_path)
-    vim.api.nvim_set_current_dir(parent_path)
-    api.tree.change_root(parent_path)
-  end
+    vim.keymap.set("n", "l", change_root_to_node, opts("CD"))
+    vim.keymap.set("n", "h", change_root_to_parent, opts("Up"))
+    vim.keymap.set("n", "s", api.node.open.horizontal, opts("Open: Horizontal Split"))
+    vim.keymap.set("n", "v", api.node.open.vertical, opts("Open: Vertical Split"))
+    vim.keymap.set("n", "t", api.node.open.tab, opts("Open: New Tab"))
 
-  vim.keymap.set("n", "l", change_root_to_node,   opts("CD"))
-  vim.keymap.set("n", "h", change_root_to_parent, opts("Up"))
-  vim.keymap.set("n", "s", api.node.open.horizontal, opts("Open: Horizontal Split"))
-  vim.keymap.set("n", "v", api.node.open.vertical, opts("Open: Vertical Split"))
-  vim.keymap.set("n", "t", api.node.open.tab, opts("Open: New Tab"))
+    local preview = require("nvim-tree-preview")
+    vim.keymap.set("n", "p", preview.watch, opts("Preview (Watch)"))
+    vim.keymap.set("n", "<Esc>", preview.unwatch, opts("Close Preview/Unwatch"))
+    vim.keymap.set("n", "<C-f>", function()
+        return preview.scroll(4)
+    end, opts("Scroll Down"))
+    vim.keymap.set("n", "<C-b>", function()
+        return preview.scroll(-4)
+    end, opts("Scroll Up"))
 end
 
 require("nvim-tree").setup({
