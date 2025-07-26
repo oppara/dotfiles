@@ -6,6 +6,7 @@ local ensure_installed = {
     "bashls",
     "yamlls",
     "ts_ls",
+    "jsonls",
 }
 require("mason-lspconfig").setup({
     automatic_installation = true,
