@@ -9,6 +9,7 @@ lint.linters_by_ft = {
     javascriptreact = { "eslint_d" },
     typescriptreact = { "eslint_d" },
     json = { "jsonlint" },
+    markdown = { "markdownlint-cli2" },
 }
 
 vim.api.nvim_create_autocmd({ "BufWritePost" }, {

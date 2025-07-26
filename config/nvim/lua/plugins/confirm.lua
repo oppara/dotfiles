@@ -8,6 +8,7 @@ require("conform").setup({
         typescript = { "prettier" },
         javascriptreact = { "prettier" },
         typescriptreact = { "prettier" },
+        markdown = { "markdownlint-cli2" },
     },
 
     formatters = {
