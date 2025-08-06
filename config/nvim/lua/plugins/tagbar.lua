@@ -23,7 +23,7 @@ vim.g.tagbar_type_php = {
     'v:variables:1:0',
     'f:functions',
   },
-  sort = 1
+  sort = 0
 }
 
 vim.g.tagbar_type_markdown = {
