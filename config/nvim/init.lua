@@ -35,4 +35,5 @@ require('mappings')
 require('commands')
 require('autocmds')
 require('filetypes')
+require('lsp')
 
