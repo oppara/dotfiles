@@ -76,6 +76,7 @@ lint.linters_by_ft = {
     sass = { "stylelint_with_npx" },
     less = { "stylelint_with_npx" },
     markdown = { "markdownlint-cli2" },
+    python = { "ruff", "flake8" },
 }
 
 vim.api.nvim_create_autocmd({ "BufWritePost" }, {
