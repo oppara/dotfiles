@@ -8,6 +8,7 @@ local ensure_installed = {
     "ts_ls",
     "jsonls",
     "marksman",
+    "cssls",
 }
 require("mason-lspconfig").setup({
     automatic_installation = true,

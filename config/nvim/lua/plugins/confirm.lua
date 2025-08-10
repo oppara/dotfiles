@@ -8,6 +8,10 @@ require("conform").setup({
         typescript = { "prettier" },
         javascriptreact = { "prettier" },
         typescriptreact = { "prettier" },
+        css = { "prettier" },
+        scss = { "prettier" },
+        sass = { "prettier" },
+        less = { "prettier" },
         markdown = { "markdownlint-cli2" },
     },
 
