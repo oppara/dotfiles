@@ -22,7 +22,18 @@ zstyle ':completion:*:default' menu select=1
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 zstyle ':completion:*' list-colors 'di=;34;1' 'ln=;32;1' 'so=;35;1' 'ex=31;1' 'bd=46;34' 'cd=43;34'
 
+# tmux用のディレクトリ追跡
+if [[ -n $TMUX ]]; then
+    tmux_update_path() {
+        tmux setenv PWD "$PWD" 2>/dev/null
+        tmux refresh-client 2>/dev/null
+    }
 
+    # 全てのディレクトリ変更をフック
+    autoload -U add-zsh-hook
+    add-zsh-hook chpwd tmux_update_path
+    add-zsh-hook precmd tmux_update_path
+fi
 
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
 
