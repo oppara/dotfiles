@@ -1,5 +1,3 @@
-# Amazon Q pre block. Keep at the top of this file.
-[[ -f "${HOME}/Library/Application Support/amazon-q/shell/zshrc.pre.zsh" ]] && builtin source "${HOME}/Library/Application Support/amazon-q/shell/zshrc.pre.zsh"
 # in ~/.zshenv, executed `unsetopt GLOBAL_RCS` and ignored /etc/zshrc
 [ -r /etc/zshrc ] && . /etc/zshrc
 
@@ -39,15 +37,8 @@ fi
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
-
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
 # bun completions
 [ -s "/Users/oppara/.bun/_bun" ] && source "/Users/oppara/.bun/_bun"
-
-# Amazon Q post block. Keep at the bottom of this file.
-[[ -f "${HOME}/Library/Application Support/amazon-q/shell/zshrc.post.zsh" ]] && builtin source "${HOME}/Library/Application Support/amazon-q/shell/zshrc.post.zsh"
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/oppara/tmp/gloud/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/oppara/tmp/gloud/google-cloud-sdk/path.zsh.inc'; fi
