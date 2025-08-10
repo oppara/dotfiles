@@ -1,17 +1,19 @@
+local web_formatter = { "biome", "prettier", "prettierd", stop_after_first = true }
+
 require("conform").setup({
     formatters_by_ft = {
         lua = { "stylua" },
         php = { "phpcbf", "php_cs_fixer", stop_after_first = true },
         sh = { "shfmt" },
         yaml = { "yamlfmt" },
-        javascript = { "prettier" },
-        typescript = { "prettier" },
-        javascriptreact = { "prettier" },
-        typescriptreact = { "prettier" },
-        css = { "prettier" },
-        scss = { "prettier" },
-        sass = { "prettier" },
-        less = { "prettier" },
+        javascript = web_formatter,
+        typescript = web_formatter,
+        javascriptreact = web_formatter,
+        typescriptreact = web_formatter,
+        css = web_formatter,
+        scss = web_formatter,
+        sass = web_formatter,
+        less = web_formatter,
         markdown = { "markdownlint-cli2" },
     },
 
