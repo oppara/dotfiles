@@ -25,6 +25,14 @@ let g:is_win  = has('win32') || has('win64')
 
 ]])
 
+_G.P = function(value)
+    if vim.print then
+        vim.print(value)
+    else
+        print(vim.inspect(value))
+    end
+    return value
+end
 
 -- require
 require('encodings')
