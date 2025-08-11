@@ -29,8 +29,59 @@ require("conform").setup({
         },
     },
 
-    -- format_on_save = {
-    --     timeout_ms = 500,
-    --     lsp_format = "fallback",
-    -- },
+    format_on_save = function(bufnr)
+        local enabled_filetypes = { "sh", "lua", "yaml", "markdown", "python" }
+        if not vim.tbl_contains(enabled_filetypes, vim.bo[bufnr].filetype) then
+            return
+        end
+        -- Disable with a global or buffer-local variable
+        if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
+            return
+        end
+        -- Disable autoformat for files in a certain path
+        local bufname = vim.api.nvim_buf_get_name(bufnr)
+        if bufname:match("/node_modules/") then
+            return
+        end
+        -- ...additional logic...
+        return { timeout_ms = 500, lsp_format = "fallback" }
+    end,
 })
+
+vim.api.nvim_create_user_command("FormatDisable", function(args)
+    if args.bang then
+        -- FormatDisable! will disable formatting just for this buffer
+        vim.b.disable_autoformat = true
+    else
+        vim.g.disable_autoformat = true
+    end
+end, {
+    desc = "Disable autoformat-on-save",
+    bang = true,
+})
+
+vim.api.nvim_create_user_command("FormatEnable", function()
+    vim.b.disable_autoformat = false
+    vim.g.disable_autoformat = false
+end, {
+    desc = "Re-enable autoformat-on-save",
+})
+
+-- TODO: 以下はビジュアルモードで動作しない
+vim.keymap.set({ "n", "v" }, "<leader>f", function()
+    local opts = {
+        lsp_fallback = true,
+        async = false,
+        timeout_ms = 500,
+    }
+
+    -- ビジュアルモードまたは範囲指定ありの場合
+    if vim.fn.mode() == "v" or vim.fn.mode() == "V" then
+        opts.range = {
+            start = { vim.fn.line("v"), 0 },
+            ["end"] = { vim.fn.line("."), 0 },
+        }
+    end
+
+    require("conform").format(opts)
+end, { desc = "Format file or range (in visual mode)" })
