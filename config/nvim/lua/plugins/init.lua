@@ -63,7 +63,7 @@ require("jetpack.packer").add({
     {
         "stevearc/conform.nvim",
         config = function()
-            require("plugins.confirm")
+            require("plugins.conform")
         end,
     },
     {
