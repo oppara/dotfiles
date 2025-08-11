@@ -3,7 +3,7 @@ local web_formatter = { "biome", "prettier", "prettierd", stop_after_first = tru
 require("conform").setup({
     formatters_by_ft = {
         lua = { "stylua" },
-        php = { "phpcbf", "php_cs_fixer", stop_after_first = true },
+        php = { "php_cs_fixer", "phpcbf", stop_after_first = true },
         sh = { "shfmt" },
         yaml = { "yamlfmt" },
         javascript = web_formatter,
