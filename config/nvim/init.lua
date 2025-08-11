@@ -16,13 +16,9 @@ vim.g.loaded_matchparen = 1
 -- https://zenn.dev/oppara/scraps/1442ab8273f73f
 vim.g.editorconfig = false
 
-vim.cmd([[
-
-let g:is_mac  = has('macunix') || (executable('uname') && system('uname') =~? '^darwin')
-let g:is_unix = has('unix') && !g:is_mac
-let g:is_win  = has('win32') || has('win64')
-
-]])
+vim.g.is_mac = vim.fn.has("macunix") == 1 or vim.loop.os_uname().sysname == "Darwin"
+vim.g.is_unix = vim.fn.has("unix") == 1 and not vim.g.is_mac
+vim.g.is_win = vim.fn.has("win32") == 1 or vim.fn.has("win64") == 1
 
 _G.P = function(value)
     if vim.print then
