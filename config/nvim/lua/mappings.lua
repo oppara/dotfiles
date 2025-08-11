@@ -22,10 +22,8 @@ end
 keymap("", "<C-j>", "<esc>", opts)
 keymap("i", "<C-j>", "<esc>", opts)
 
--- カーソル下の単語を最後にヤンクしたテキストで置き換え
-keymap("n", "ciy", "ciw<C-r>0<ESC>:let@/=@1<CR>:noh<CR>", opts)
-keymap("n", "cy", "ce<C-r>0<ESC>:let@/=@1<CR>:noh<CR>", opts)
-keymap("v", "cy", "c<C-r>0<ESC>:let@/=@1<CR>:noh<CR>", opts)
+-- 単語を置換
+keymap("n", "p", "viwp", opts)
 
 -- 最後の編集位置へ戻る
 keymap("n", "gb", "`.zz", opts)
