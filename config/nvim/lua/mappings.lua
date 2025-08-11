@@ -1,150 +1,138 @@
-
 local keymap = vim.api.nvim_set_keymap
 local bmap = vim.api.nvim_buf_set_keymap
-local opts = { noremap = true, silent = true  }
+local opts = { noremap = true, silent = true }
 
-vim.g.mapleader = ','
-vim.g.maplocalleader = ','
+vim.g.mapleader = ","
+vim.g.maplocalleader = ","
 
 -- sudo で保存
 vim.cmd([[cabbr w!! w !sudo tee > /dev/null %]])
 
 -- tabpage
-keymap('n', 'tn', ':tablast <bar> tabnew<CR>', opts)
-keymap('n', 'tc', ':tabclose<CR>', opts)
-keymap('n', 't]', ':tabnext<CR>', opts)
-keymap('n', 't[', ':tabprevious<CR>', opts)
-keymap('n', 'tt', 'g<Tab><CR>', opts)
-for i=1,9 do
-  keymap('n', 't'..i, ':<C-u>tabnext'..i..'<CR>', opts)
+keymap("n", "tn", ":tablast <bar> tabnew<CR>", opts)
+keymap("n", "tc", ":tabclose<CR>", opts)
+keymap("n", "t]", ":tabnext<CR>", opts)
+keymap("n", "t[", ":tabprevious<CR>", opts)
+keymap("n", "tt", "g<Tab><CR>", opts)
+for i = 1, 9 do
+    keymap("n", "t" .. i, ":<C-u>tabnext" .. i .. "<CR>", opts)
 end
 
-
 -- ノーマルモードに戻る
-keymap('', '<C-j>', '<esc>', opts)
-keymap('i', '<C-j>', '<esc>', opts)
-
+keymap("", "<C-j>", "<esc>", opts)
+keymap("i", "<C-j>", "<esc>", opts)
 
 -- カーソル下の単語を最後にヤンクしたテキストで置き換え
-keymap('n', 'ciy', 'ciw<C-r>0<ESC>:let@/=@1<CR>:noh<CR>', opts)
-keymap('n', 'cy', 'ce<C-r>0<ESC>:let@/=@1<CR>:noh<CR>', opts)
-keymap('v', 'cy', 'c<C-r>0<ESC>:let@/=@1<CR>:noh<CR>', opts)
-
+keymap("n", "ciy", "ciw<C-r>0<ESC>:let@/=@1<CR>:noh<CR>", opts)
+keymap("n", "cy", "ce<C-r>0<ESC>:let@/=@1<CR>:noh<CR>", opts)
+keymap("v", "cy", "c<C-r>0<ESC>:let@/=@1<CR>:noh<CR>", opts)
 
 -- 最後の編集位置へ戻る
-keymap('n', 'gb', '`.zz', opts)
+keymap("n", "gb", "`.zz", opts)
 -- 編集位置を遡る
-keymap('n', '<C-g>', 'g;', opts)
-keymap('n', '0', '^', opts)
-keymap('n', 'j', 'gj', opts)
-keymap('n', 'k', 'gk', opts)
-keymap('n', '<TAB>', '%', opts)
-keymap('v', '<TAB>', '%', opts)
+keymap("n", "<C-g>", "g;", opts)
+keymap("n", "0", "^", opts)
+keymap("n", "j", "gj", opts)
+keymap("n", "k", "gk", opts)
+keymap("n", "<TAB>", "%", opts)
+keymap("v", "<TAB>", "%", opts)
 
 -- カーソル移動
-keymap('i', '<C-a>', '<ESC>^i', opts)
-keymap('i', '<C-f>', '<RIGHT>', opts)
-keymap('i', '<C-e>', '<ESC>A', opts)
-keymap('i', '<C-b>', '<LEFT>', opts)
-keymap('i', '<C-d>', '<DEL>', opts)
-keymap('c', '<C-a>', '<HOME>', opts)
-keymap('c', '<C-e>', '<END>', opts)
-
+keymap("i", "<C-a>", "<ESC>^i", opts)
+keymap("i", "<C-f>", "<RIGHT>", opts)
+keymap("i", "<C-e>", "<ESC>A", opts)
+keymap("i", "<C-b>", "<LEFT>", opts)
+keymap("i", "<C-d>", "<DEL>", opts)
+keymap("c", "<C-a>", "<HOME>", opts)
+keymap("c", "<C-e>", "<END>", opts)
 
 -- ウィンドウ移動と操作
-keymap('n', 'sj', '<C-w>j', opts)
-keymap('n', 'sk', '<C-w>k', opts)
-keymap('n', 'sl', '<C-w>l', opts)
-keymap('n', 'sh', '<C-w>h', opts)
-keymap('n', 'ss', ':<C-u>sp<CR><C-w>j', opts)
-keymap('n', 'sv', ':<C-u>vs<CR><C-w>l', opts)
-keymap('n', 'sq', ':<C-u>q<CR>', opts)
-
+keymap("n", "sj", "<C-w>j", opts)
+keymap("n", "sk", "<C-w>k", opts)
+keymap("n", "sl", "<C-w>l", opts)
+keymap("n", "sh", "<C-w>h", opts)
+keymap("n", "ss", ":<C-u>sp<CR><C-w>j", opts)
+keymap("n", "sv", ":<C-u>vs<CR><C-w>l", opts)
+keymap("n", "sq", ":<C-u>q<CR>", opts)
 
 -- list, number,  paste のトグル
-keymap('n', 'tl', ':set list!<cr>', opts)
-keymap('n', 'tm', ':set number!<cr>', opts)
-keymap('n', 'tp', ':setlocal paste!<cr>', opts)
-
+keymap("n", "tl", ":set list!<cr>", opts)
+keymap("n", "tm", ":set number!<cr>", opts)
+keymap("n", "tp", ":setlocal paste!<cr>", opts)
 
 -- hlsearch のトグル
-keymap('n', 'gh', '', {
+keymap("n", "gh", "", {
     noremap = true,
     silent = true,
     callback = function()
-      if vim.opt.hlsearch:get() then
-        vim.opt_local.hlsearch = false
-      else
-        vim.opt_local.hlsearch = true
-      end
-    end
+        if vim.opt.hlsearch:get() then
+            vim.opt_local.hlsearch = false
+        else
+            vim.opt_local.hlsearch = true
+        end
+    end,
 })
 
-
 -- ビジュアルモード時vで行末まで選択
-keymap('v', 'v', '$h', opts)
+keymap("v", "v", "$h", opts)
 
 -- like screen
-keymap('v', '<space>', 'y', opts)
+keymap("v", "<space>", "y", opts)
 
 --  >,<実行後も選択状態を維持
-keymap('v', '>', '>gv', opts)
-keymap('v', '<', '<gv', opts)
-
+keymap("v", ">", ">gv", opts)
+keymap("v", "<", "<gv", opts)
 
 -- 行頭で h を叩くと折畳を閉じる。
-keymap('n', 'h', [[col('.') == 1 && foldlevel(line('.')) > 0 ? 'zc' : 'h']], {expr = true, noremap = true})
+keymap("n", "h", [[col('.') == 1 && foldlevel(line('.')) > 0 ? 'zc' : 'h']], { expr = true, noremap = true })
 --  折畳上で l を叩くと折畳を開く。
-keymap('n', 'l', [[foldclosed(line('.')) != -1 ? 'zo0' : 'l']], {expr = true, noremap = true})
+keymap("n", "l", [[foldclosed(line('.')) != -1 ? 'zo0' : 'l']], { expr = true, noremap = true })
 -- 行頭で h を叩くと選択範囲に含まれる折畳を閉じる。
-keymap('v', 'h', [[col('.') == 1 && foldlevel(line('.')) > 0 ? 'zcgv' : 'h']], {expr = true, noremap = true})
+keymap("v", "h", [[col('.') == 1 && foldlevel(line('.')) > 0 ? 'zcgv' : 'h']], { expr = true, noremap = true })
 -- 折畳上で l を叩くと選択範囲に含まれる折畳を開く。
-keymap('v', 'l', [[foldclosed(line('.')) != -1 ? 'zogv0' : 'l']], {expr = true, noremap = true})
-
+keymap("v", "l", [[foldclosed(line('.')) != -1 ? 'zogv0' : 'l']], { expr = true, noremap = true })
 
 -- レジスタ/マークの確認
-keymap('n', '<leader>sm', ':<C-u>marks<CR>', opts)
-keymap('n', '<leader>sr', ':<C-u>registers<CR>', opts)
-
+keymap("n", "<leader>sm", ":<C-u>marks<CR>", opts)
+keymap("n", "<leader>sr", ":<C-u>registers<CR>", opts)
 
 -- エンコーディングの切り替え
-keymap('n', 'eu', ':setlocal fileencoding=utf-8<CR>', opts)
-keymap('n', 'ee', ':setlocal fileencoding=euc-jp<CR>', opts)
-keymap('n', 'es', ':setlocal fileencoding=cp932<CR>', opts)
-keymap('n', 'el', ':setlocal fileencoding=utf-16le<CR>', opts)
+keymap("n", "eu", ":setlocal fileencoding=utf-8<CR>", opts)
+keymap("n", "ee", ":setlocal fileencoding=euc-jp<CR>", opts)
+keymap("n", "es", ":setlocal fileencoding=cp932<CR>", opts)
+keymap("n", "el", ":setlocal fileencoding=utf-16le<CR>", opts)
 
 -- エンコーディングを指定して再オープン
-keymap('n', 'reu', ':e ++enc=utf-8 %<CR>', opts)
-keymap('n', 'ree', ':e ++enc=euc-jp %<CR>', opts)
-keymap('n', 'res', ':e ++enc=cp932 %<CR>', opts)
-keymap('n', 'rel', ':e ++enc=utf-16le %<CR>', opts)
+keymap("n", "reu", ":e ++enc=utf-8 %<CR>", opts)
+keymap("n", "ree", ":e ++enc=euc-jp %<CR>", opts)
+keymap("n", "res", ":e ++enc=cp932 %<CR>", opts)
+keymap("n", "rel", ":e ++enc=utf-16le %<CR>", opts)
 
 -- 改行切り替え
-keymap('n', 'ffu', ':setlocal fileformat=unix<CR>', opts)
-keymap('n', 'ffd', ':setlocal fileformat=dos<CR>', opts)
+keymap("n", "ffu", ":setlocal fileformat=unix<CR>", opts)
+keymap("n", "ffd", ":setlocal fileformat=dos<CR>", opts)
 
 -- retab
-keymap('n', '<leader>rt', ':%retab!<CR>', opts)
+keymap("n", "<leader>rt", ":%retab!<CR>", opts)
 
 -- 日付
-keymap('i', '<leader>df', "<C-r>=strftime('%y-%m-%d %h:%m:%s')<return>", opts)
-keymap('i', '<leader>dd', "<C-r>=strftime('%y-%m-%d')<return>", opts)
+keymap("i", "<leader>df", "<C-r>=strftime('%y-%m-%d %h:%m:%s')<return>", opts)
+keymap("i", "<leader>dd", "<C-r>=strftime('%y-%m-%d')<return>", opts)
 
 -- ^m を削除
-keymap('n', '<leader>rw', "mmhmt:%s/<C-v><CR>//ge<CR>'tzt'm", opts)
+keymap("n", "<leader>rw", "mmhmt:%s/<C-v><CR>//ge<CR>'tzt'm", opts)
 
 -- 空行上のインデントを削除
-keymap('n', '<leader>ri', [[:%s/\s*$//g<cr>:noh<cr>'']], opts)
-
+keymap("n", "<leader>ri", [[:%s/\s*$//g<cr>:noh<cr>'']], opts)
 
 -- vimrc
-keymap('n', '<leader>ev', ':sp $MYVIMRC<CR>', opts)
-keymap('n', '<leader>vv', '', {
+keymap("n", "<leader>ev", ":sp $MYVIMRC<CR>", opts)
+keymap("n", "<leader>vv", "", {
     noremap = true,
     silent = true,
     callback = function()
-      vim.cmd([[source $MYVIMRC]])
-    end
+        vim.cmd([[source $MYVIMRC]])
+    end,
 })
 --[[
 if (!exists('*SourceConfig'))
@@ -158,8 +146,6 @@ if (!exists('*SourceConfig'))
   endfunction
 endif
 ]]
-
-
 
 -- use({"ckipp01/stylua-im"})"
 -- buf_set_keymap("n", "<leader>f", [[<cmd>lua require("stylua-im").format_file()<cr>]], opts)")]])
