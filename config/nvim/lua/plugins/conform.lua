@@ -30,7 +30,14 @@ require("conform").setup({
     },
 
     format_on_save = function(bufnr)
-        local enabled_filetypes = { "sh", "lua", "yaml", "markdown", "python" }
+        local enabled_filetypes = {
+            "sh",
+            "lua",
+            "yaml",
+            "markdown",
+            "python",
+        }
+
         if not vim.tbl_contains(enabled_filetypes, vim.bo[bufnr].filetype) then
             return
         end
