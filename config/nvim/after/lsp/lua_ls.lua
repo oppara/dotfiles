@@ -1,4 +1,3 @@
-
 return {
   settings = {
     Lua = {
@@ -10,8 +9,8 @@ return {
           -- 'pcall',
           -- 'xpcall',
         },
-        unusedLocalExclude = { '_*' }
-      }
-    }
-  }
+        unusedLocalExclude = { '_*' },
+      },
+    },
+  },
 }

@@ -1,323 +1,318 @@
 -- https://github.com/tani/vim-jetpack
 -- https://zenn.dev/dog/articles/jetpack_intro
 
-local jetpackfile = vim.fn.stdpath("data") .. "/site/pack/jetpack/opt/vim-jetpack/plugin/jetpack.vim"
-local jetpackurl = "https://raw.githubusercontent.com/tani/vim-jetpack/master/plugin/jetpack.vim"
+local jetpackfile = vim.fn.stdpath('data') .. '/site/pack/jetpack/opt/vim-jetpack/plugin/jetpack.vim'
+local jetpackurl = 'https://raw.githubusercontent.com/tani/vim-jetpack/master/plugin/jetpack.vim'
 if vim.fn.filereadable(jetpackfile) == 0 then
-    vim.fn.system(string.format("curl -fsSLo %s --create-dirs %s", jetpackfile, jetpackurl))
+  vim.fn.system(string.format('curl -fsSLo %s --create-dirs %s', jetpackfile, jetpackurl))
 end
 
-vim.cmd("packadd vim-jetpack")
-require("jetpack.packer").add({
-    {
-        "tani/vim-jetpack",
-        opt = 1,
-    }, -- bootstrap
+vim.cmd('packadd vim-jetpack')
+require('jetpack.packer').add({
+  {
+    'tani/vim-jetpack',
+    opt = 1,
+  }, -- bootstrap
 
-    "rebelot/kanagawa.nvim",
-    {
-        "oppara/wombat.nvim",
-        requires = "rktjmp/lush.nvim",
-    },
+  'rebelot/kanagawa.nvim',
+  {
+    'oppara/wombat.nvim',
+    requires = 'rktjmp/lush.nvim',
+  },
 
-    {
-        "nvim-tree/nvim-web-devicons",
-        opt = 1,
-    },
-    {
-        "nvim-lualine/lualine.nvim",
-        config = function()
-            require("plugins.lualine")
-        end,
-    },
+  {
+    'nvim-tree/nvim-web-devicons',
+    opt = 1,
+  },
+  {
+    'nvim-lualine/lualine.nvim',
+    config = function()
+      require('plugins.lualine')
+    end,
+  },
 
-    "vim-jp/vimdoc-ja",
+  'vim-jp/vimdoc-ja',
 
-    {
-        "junegunn/fzf.vim",
-        config = function()
-            vim.api.nvim_set_keymap("n", "ffh", ":History<CR>", { noremap = true, silent = true })
-        end,
-    },
-    {
-        "junegunn/fzf",
-        run = "./install",
-    },
+  {
+    'junegunn/fzf.vim',
+    config = function()
+      vim.api.nvim_set_keymap('n', 'ffh', ':History<CR>', { noremap = true, silent = true })
+    end,
+  },
+  {
+    'junegunn/fzf',
+    run = './install',
+  },
 
-    {
-        "lukas-reineke/indent-blankline.nvim",
-        config = function()
-            require("plugins.indent-blankline")
-        end,
-    },
+  {
+    'lukas-reineke/indent-blankline.nvim',
+    config = function()
+      require('plugins.indent-blankline')
+    end,
+  },
 
-    {
-        "nvim-telescope/telescope.nvim",
-        tag = "0.1.8",
-        requires = {
-            "nvim-lua/plenary.nvim",
+  {
+    'nvim-telescope/telescope.nvim',
+    tag = '0.1.8',
+    requires = {
+      'nvim-lua/plenary.nvim',
+    },
+    config = function()
+      require('plugins.telescope')
+    end,
+  },
+
+  {
+    'wsdjeg/mru.nvim',
+    requires = {
+      'nvim-telescope/telescope.nvim',
+    },
+    config = function()
+      require('mru').setup()
+      vim.keymap.set('n', 'ffm', function()
+        require('telescope').extensions.mru.mru()
+      end)
+    end,
+  },
+
+  {
+    'williamboman/mason.nvim',
+  },
+  {
+    'williamboman/mason-lspconfig.nvim',
+  },
+  {
+    'neovim/nvim-lspconfig',
+  },
+  {
+    'stevearc/conform.nvim',
+    config = function()
+      require('plugins.conform')
+    end,
+  },
+  {
+    'mfussenegger/nvim-lint',
+    config = function()
+      require('plugins.nvim-lint')
+    end,
+  },
+
+  {
+    'zbirenbaum/copilot.lua',
+    cmd = 'Copilot',
+    event = 'InsertEnter',
+    config = function()
+      require('plugins.copilot')
+    end,
+  },
+  {
+    'hrsh7th/nvim-cmp',
+    requires = {
+      'dcampos/nvim-snippy',
+      'dcampos/cmp-snippy',
+      'hrsh7th/cmp-nvim-lsp',
+      'hrsh7th/cmp-buffer',
+      'hrsh7th/cmp-path',
+      'hrsh7th/cmp-cmdline',
+    },
+    config = function()
+      require('plugins.nvim-cmp')
+    end,
+  },
+  {
+    'zbirenbaum/copilot-cmp',
+    after = { 'copilot.lua', 'nvim-cmp' },
+    config = function()
+      require('copilot_cmp').setup({
+        event = { 'InsertEnter', 'LspAttach' },
+        fix_pairs = true,
+      })
+    end,
+  },
+  -- {
+  --   "CopilotC-Nvim/CopilotChat.nvim",
+  --   requires = {
+  --      "zbirenbaum/copilot.lua",
+  --      "nvim-lua/plenary.nvim",
+  --   },
+  --   run = "make tiktoken",
+  --   config = function()
+  --     require('plugins.copilot-chat')
+  --   end
+  -- },
+  -- {
+  --   'neoclide/coc.nvim',
+  --   branch = 'release',
+  --   config = function()
+  --     require('plugins.coc')
+  --   end
+  -- },
+
+  {
+    'kylechui/nvim-surround',
+    config = function()
+      require('nvim-surround').setup({})
+    end,
+  },
+
+  {
+    'preservim/tagbar',
+    config = function()
+      require('plugins.tagbar')
+    end,
+  },
+
+  {
+    'nvim-tree/nvim-tree.lua',
+    config = function()
+      require('plugins.nvim-tree')
+    end,
+  },
+  {
+    'b0o/nvim-tree-preview.lua',
+    requires = {
+      'nvim-lua/plenary.nvim',
+    },
+  },
+
+  -- {
+  --   'mattn/vim-findroot',
+  --   config = function()
+  --     require('plugins.vim-findroot')
+  --   end
+  -- },
+  --
+  -- {
+  --   'dense-analysis/ale',
+  --   config = function()
+  --     require('plugins.ale')
+  --   end
+  -- },
+  --
+  -- {
+  --   'tpope/vim-fugitive',
+  -- },
+  --
+  -- {
+  --   'FabijanZulj/blame.nvim',
+  --   config = function()
+  --     require("blame").setup({
+  --         date_format = '%Y-%m-%d %H:%M',
+  --         max_summary_width = 40,
+  --         commit_detail_view = "split",
+  --       })
+  --   end
+  -- },
+
+  {
+    'numToStr/Comment.nvim',
+    config = function()
+      require('Comment').setup({
+        toggler = {
+          line = '<leader>cc',
+          block = '<leader>bc',
         },
-        config = function()
-            require("plugins.telescope")
-        end,
-    },
-
-    {
-        "wsdjeg/mru.nvim",
-        requires = {
-            "nvim-telescope/telescope.nvim",
+        opleader = {
+          line = '<leader>cc',
+          block = '<leader>bc',
         },
-        config = function()
-            require("mru").setup()
-            vim.keymap.set("n", "ffm", function()
-                require("telescope").extensions.mru.mru()
-            end)
-        end,
-    },
-
-    {
-        "williamboman/mason.nvim",
-    },
-    {
-        "williamboman/mason-lspconfig.nvim",
-    },
-    {
-        "neovim/nvim-lspconfig",
-    },
-    {
-        "stevearc/conform.nvim",
-        config = function()
-            require("plugins.conform")
-        end,
-    },
-    {
-        "mfussenegger/nvim-lint",
-        config = function()
-            require("plugins.nvim-lint")
-        end,
-    },
-
-    {
-        "zbirenbaum/copilot.lua",
-        cmd = "Copilot",
-        event = "InsertEnter",
-        config = function()
-            require("plugins.copilot")
-        end,
-    },
-    {
-        "hrsh7th/nvim-cmp",
-        requires = {
-            "dcampos/nvim-snippy",
-            "dcampos/cmp-snippy",
-            "hrsh7th/cmp-nvim-lsp",
-            "hrsh7th/cmp-buffer",
-            "hrsh7th/cmp-path",
-            "hrsh7th/cmp-cmdline",
+        extra = {
+          above = '<leader>cO',
+          below = '<leader>co',
+          eol = '<leader>cA',
         },
-        config = function()
-            require("plugins.nvim-cmp")
-        end,
-    },
-    {
-        "zbirenbaum/copilot-cmp",
-        after = { "copilot.lua", "nvim-cmp" },
-        config = function()
-            require("copilot_cmp").setup({
-                event = { "InsertEnter", "LspAttach" },
-                fix_pairs = true,
-            })
-        end,
-    },
-    -- {
-    --   "CopilotC-Nvim/CopilotChat.nvim",
-    --   requires = {
-    --      "zbirenbaum/copilot.lua",
-    --      "nvim-lua/plenary.nvim",
-    --   },
-    --   run = "make tiktoken",
-    --   config = function()
-    --     require('plugins.copilot-chat')
-    --   end
-    -- },
-    -- {
-    --   'neoclide/coc.nvim',
-    --   branch = 'release',
-    --   config = function()
-    --     require('plugins.coc')
-    --   end
-    -- },
+      })
+    end,
+  },
 
-    {
-        "kylechui/nvim-surround",
-        config = function()
-            require("nvim-surround").setup({})
-        end,
-    },
+  {
+    'mattn/emmet-vim',
+    ft = { 'html', 'xhtml', 'xml', 'css', 'less', 'sass', 'scss', 'slim', 'haml', 'jade', 'php' },
+    setup = function()
+      require('plugins.emmet')
+    end,
+  },
 
-    {
-        "preservim/tagbar",
-        config = function()
-            require("plugins.tagbar")
-        end,
-    },
+  {
+    'mattn/vim-sonictemplate',
+    config = function()
+      vim.g.sonictemplate_vim_template_dir = '$HOME/.config/nvim/sonictemplate'
+    end,
+  },
 
-    {
-        "nvim-tree/nvim-tree.lua",
-        config = function()
-            require("plugins.nvim-tree")
-        end,
-    },
-    {
-        "b0o/nvim-tree-preview.lua",
-        requires = {
-            "nvim-lua/plenary.nvim",
-        },
-    },
+  {
+    'thinca/vim-quickrun',
+    config = function()
+      require('plugins.quickrun')
+    end,
+  },
 
-    -- {
-    --   'mattn/vim-findroot',
-    --   config = function()
-    --     require('plugins.vim-findroot')
-    --   end
-    -- },
-    --
-    -- {
-    --   'dense-analysis/ale',
-    --   config = function()
-    --     require('plugins.ale')
-    --   end
-    -- },
-    --
-    -- {
-    --   'tpope/vim-fugitive',
-    -- },
-    --
-    -- {
-    --   'FabijanZulj/blame.nvim',
-    --   config = function()
-    --     require("blame").setup({
-    --         date_format = '%Y-%m-%d %H:%M',
-    --         max_summary_width = 40,
-    --         commit_detail_view = "split",
-    --       })
-    --   end
-    -- },
+  {
+    'tyru/open-browser.vim',
+    config = function()
+      vim.api.nvim_set_keymap('n', '<leader>w', '<plug>(openbrowser-smart-search)', { noremap = false, silent = true })
+    end,
+  },
 
-    {
-        "numToStr/Comment.nvim",
-        config = function()
-            require("Comment").setup({
-                toggler = {
-                    line = "<leader>cc",
-                    block = "<leader>bc",
-                },
-                opleader = {
-                    line = "<leader>cc",
-                    block = "<leader>bc",
-                },
-                extra = {
-                    above = "<leader>cO",
-                    below = "<leader>co",
-                    eol = "<leader>cA",
-                },
-            })
-        end,
-    },
+  {
+    'kana/vim-smartchr',
+    config = function()
+      vim.cmd([[inoremap <buffer><expr> > smartchr#one_of('>', '->', '=>', '>>')]])
+    end,
+  },
+  {
+    'sheerun/vim-polyglot',
+    config = function()
+      require('plugins.polyglot')
+    end,
+  },
 
-    {
-        "mattn/emmet-vim",
-        ft = { "html", "xhtml", "xml", "css", "less", "sass", "scss", "slim", "haml", "jade", "php" },
-        setup = function()
-            require("plugins.emmet")
-        end,
-    },
+  {
+    'tpope/vim-endwise',
+  },
+  {
+    'windwp/nvim-autopairs',
+    config = function()
+      require('nvim-autopairs').setup({})
+    end,
+  },
 
-    {
-        "mattn/vim-sonictemplate",
-        config = function()
-            vim.g.sonictemplate_vim_template_dir = "$HOME/.config/nvim/sonictemplate"
-        end,
-    },
+  {
+    'ixru/nvim-markdown',
+    ft = 'markdown',
+    config = function()
+      require('plugins.nvim-markdown')
+    end,
+  },
 
-    {
-        "thinca/vim-quickrun",
-        config = function()
-            require("plugins.quickrun")
-        end,
-    },
+  {
+    'iamcco/markdown-preview.nvim',
+    ft = 'markdown',
+    run = function()
+      vim.fn['mkdp#util#install']()
+    end,
+    config = function()
+      require('plugins.markdown-preview')
+    end,
+  },
 
-    {
-        "tyru/open-browser.vim",
-        config = function()
-            vim.api.nvim_set_keymap(
-                "n",
-                "<leader>w",
-                "<plug>(openbrowser-smart-search)",
-                { noremap = false, silent = true }
-            )
-        end,
-    },
+  {
+    'pageer/pdv',
+    ft = 'php',
+    config = function()
+      require('plugins.pdv')
+    end,
+    requires = 'tobyS/vmustache',
+  },
 
-    {
-        "kana/vim-smartchr",
-        config = function()
-            vim.cmd([[inoremap <buffer><expr> > smartchr#one_of('>', '->', '=>', '>>')]])
-        end,
-    },
-    {
-        "sheerun/vim-polyglot",
-        config = function()
-            require("plugins.polyglot")
-        end,
-    },
+  'jsborjesson/vim-uppercase-sql',
 
-    {
-        "tpope/vim-endwise",
-    },
-    {
-        "windwp/nvim-autopairs",
-        config = function()
-            require("nvim-autopairs").setup({})
-        end,
-    },
-
-    {
-        "ixru/nvim-markdown",
-        ft = "markdown",
-        config = function()
-            require("plugins.nvim-markdown")
-        end,
-    },
-
-    {
-        "iamcco/markdown-preview.nvim",
-        ft = "markdown",
-        run = function()
-            vim.fn["mkdp#util#install"]()
-        end,
-        config = function()
-            require("plugins.markdown-preview")
-        end,
-    },
-
-    {
-        "pageer/pdv",
-        ft = "php",
-        config = function()
-            require("plugins.pdv")
-        end,
-        requires = "tobyS/vmustache",
-    },
-
-    "jsborjesson/vim-uppercase-sql",
-
-    {
-        "stevearc/quicker.nvim",
-        config = function()
-            require("plugins.quicker")
-        end,
-    },
+  {
+    'stevearc/quicker.nvim',
+    config = function()
+      require('plugins.quicker')
+    end,
+  },
 })
 
 --[[

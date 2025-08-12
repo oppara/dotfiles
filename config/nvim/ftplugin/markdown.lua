@@ -9,5 +9,3 @@ vim.cmd([[
     augroup END
 
 ]])
-
-

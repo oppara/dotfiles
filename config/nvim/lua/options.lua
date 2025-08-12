@@ -59,7 +59,7 @@ local options = {
   writebackup = false,
   swapfile = false,
   undofile = false,
-  viminfo="'1000,<500,h,n~/.cache/nvim/.viminfo",
+  viminfo = "'1000,<500,h,n~/.cache/nvim/.viminfo",
 
   -- list
   list = true,

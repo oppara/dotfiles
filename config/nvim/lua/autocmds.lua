@@ -1,18 +1,14 @@
-
 vim.api.nvim_create_augroup('vimrc-cursorline', {})
-vim.api.nvim_create_autocmd({'VimEnter', 'WinEnter'}, {
-    group = 'vimrc-cursorline',
-    pattern = {'*'},
-    command = [[setlocal cursorline]]
+vim.api.nvim_create_autocmd({ 'VimEnter', 'WinEnter' }, {
+  group = 'vimrc-cursorline',
+  pattern = { '*' },
+  command = [[setlocal cursorline]],
 })
-vim.api.nvim_create_autocmd({'WinLeave'}, {
-    group = 'vimrc-cursorline',
-    pattern = {'*'},
-    command = [[setlocal nocursorline]]
+vim.api.nvim_create_autocmd({ 'WinLeave' }, {
+  group = 'vimrc-cursorline',
+  pattern = { '*' },
+  command = [[setlocal nocursorline]],
 })
-
-
-
 
 vim.cmd([[
 
@@ -80,20 +76,19 @@ augroup END
 
 ]])
 
-vim.api.nvim_create_autocmd("QuickFixCmdPost", {
-  pattern = "[^l]*",
+vim.api.nvim_create_autocmd('QuickFixCmdPost', {
+  pattern = '[^l]*',
   callback = function()
-    vim.cmd("cwindow")
+    vim.cmd('cwindow')
   end,
 })
 
-vim.api.nvim_create_autocmd("QuickFixCmdPost", {
-  pattern = "l*",
+vim.api.nvim_create_autocmd('QuickFixCmdPost', {
+  pattern = 'l*',
   callback = function()
-    vim.cmd("lwindow")
+    vim.cmd('lwindow')
   end,
 })
-
 
 -- Autocmd:  "{{{1
 
@@ -138,4 +133,3 @@ augroup END
 
 
 ]]
-
