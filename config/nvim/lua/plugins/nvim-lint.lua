@@ -5,7 +5,8 @@ local severities = {
     error = vim.diagnostic.severity.ERROR,
 }
 
-lint.linters.stylelint_with_npx = {
+local stylelint = lint.linters.stylelint
+lint.linters.stylelint = {
     cmd = "npx",
     args = {
         "stylelint",
@@ -18,48 +19,9 @@ lint.linters.stylelint_with_npx = {
         end,
     },
     stdin = true,
-    stream = "both",
-    ignore_exitcode = true,
-    parser = function(output)
-        local status, decoded = pcall(vim.json.decode, output)
-        if status then
-            decoded = decoded[1]
-        else
-            decoded = {
-                warnings = {
-                    {
-                        line = 1,
-                        column = 1,
-                        text = "Stylelint error, run `stylelint " .. vim.fn.expand("%") .. "` for more info.",
-                        severity = "error",
-                        rule = "none",
-                    },
-                },
-                errored = true,
-            }
-        end
-        local diagnostics = {}
-        if decoded.errored then
-            for _, message in ipairs(decoded.warnings) do
-                table.insert(diagnostics, {
-                    lnum = message.line - 1,
-                    col = message.column - 1,
-                    end_lnum = message.line - 1,
-                    end_col = message.column - 1,
-                    message = message.text,
-                    code = message.rule,
-                    user_data = {
-                        lsp = {
-                            code = message.rule,
-                        },
-                    },
-                    severity = severities[message.severity],
-                    source = "stylelint",
-                })
-            end
-        end
-        return diagnostics
-    end,
+    stream = stylelint.stream,
+    ignore_exitcode = stylelint.ignore_exitcode,
+    parser = stylelint.parser,
 }
 
 local luacheck = lint.linters.luacheck
@@ -81,10 +43,10 @@ lint.linters_by_ft = {
     javascriptreact = { "eslint_d" },
     typescriptreact = { "eslint_d" },
     json = { "jsonlint" },
-    css = { "stylelint_with_npx" },
-    scss = { "stylelint_with_npx" },
-    sass = { "stylelint_with_npx" },
-    less = { "stylelint_with_npx" },
+    css = { "stylelint" },
+    scss = { "stylelint" },
+    sass = { "stylelint" },
+    less = { "stylelint" },
     markdown = { "markdownlint-cli2" },
     python = { "ruff", "flake8" },
 }
