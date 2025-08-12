@@ -63,6 +63,19 @@ require("jetpack.packer").add({
     },
 
     {
+        "wsdjeg/mru.nvim",
+        requires = {
+            "nvim-telescope/telescope.nvim",
+        },
+        config = function()
+            require("mru").setup()
+            vim.keymap.set("n", "ffm", function()
+                require("telescope").extensions.mru.mru()
+            end)
+        end,
+    },
+
+    {
         "williamboman/mason.nvim",
     },
     {
