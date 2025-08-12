@@ -62,6 +62,16 @@ lint.linters.stylelint_with_npx = {
     end,
 }
 
+local luacheck = lint.linters.luacheck
+lint.linters.luacheck = {
+    cmd = "luacheck",
+    args = { "--globals", "vim" },
+    stdin = true,
+    stream = "stdout",
+    ignore_exitcode = luacheck.ignore_exitcode,
+    parser = luacheck.parser,
+}
+
 lint.linters_by_ft = {
     lua = { "luacheck" },
     sh = { "shellcheck" },
