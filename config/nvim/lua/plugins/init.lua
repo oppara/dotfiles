@@ -52,6 +52,17 @@ require("jetpack.packer").add({
     },
 
     {
+        "nvim-telescope/telescope.nvim",
+        tag = "0.1.8",
+        requires = {
+            "nvim-lua/plenary.nvim",
+        },
+        config = function()
+            require("plugins.telescope")
+        end,
+    },
+
+    {
         "williamboman/mason.nvim",
     },
     {
