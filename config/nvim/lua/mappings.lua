@@ -23,7 +23,7 @@ keymap("", "<C-j>", "<esc>", opts)
 keymap("i", "<C-j>", "<esc>", opts)
 
 -- 単語を置換
-keymap("n", "p", "viwp", opts)
+keymap("n", "<C-p>", "viwp", opts)
 
 -- 最後の編集位置へ戻る
 keymap("n", "gb", "`.zz", opts)
