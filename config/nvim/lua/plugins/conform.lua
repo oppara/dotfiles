@@ -16,6 +16,7 @@ require('conform').setup({
     less = web_formatter,
     markdown = { 'markdownlint-cli2' },
     python = { 'ruff_format' },
+    sql = { 'sql_formater' },
   },
 
   formatters = {
@@ -25,6 +26,14 @@ require('conform').setup({
     yamlfmt = {
       command = 'yamlfmt',
       args = { '-' }, -- stdin
+      stdin = true,
+    },
+    -- brew install sql-formatter
+    sql_formater = {
+      command = 'sql-formatter',
+      args = {
+        '-c {"keywordCase": "upper", "dataTypeCase": "upper", "functionCase": "upper", "newlineBeforeSemicolon": true}'
+      },
       stdin = true,
     },
   },
