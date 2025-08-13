@@ -20,6 +20,10 @@ require('conform').setup({
   },
 
   formatters = {
+    php_cs_fixer = {
+      command = 'php-cs-fixer',
+      prepend_args = { '--using-cache=no', '--config=' .. vim.fn.expand('~/.config/php/php_cs.dist') },
+    },
     shfmt = {
       prepend_args = { '-i', '2', '-ci', '-bn', '-s' },
     },
