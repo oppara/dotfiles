@@ -140,13 +140,6 @@ require('jetpack.packer').add({
   --     require('plugins.copilot-chat')
   --   end
   -- },
-  -- {
-  --   'neoclide/coc.nvim',
-  --   branch = 'release',
-  --   config = function()
-  --     require('plugins.coc')
-  --   end
-  -- },
 
   {
     'kylechui/nvim-surround',
