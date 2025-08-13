@@ -32,7 +32,7 @@ require('conform').setup({
     sql_formater = {
       command = 'sql-formatter',
       args = {
-        '-c {"keywordCase": "upper", "dataTypeCase": "upper", "functionCase": "upper", "newlineBeforeSemicolon": true}'
+        '-c {"tabWidth": 4, "keywordCase": "upper", "dataTypeCase": "upper", "functionCase": "upper", "newlineBeforeSemicolon": true}',
       },
       stdin = true,
     },
