@@ -129,19 +129,6 @@ augroup vimrc-ft-perl  "{{{2
 augroup END
 
 
-augroup vimrc-ft-ruby  "{{{2
-  autocmd!
-  autocmd FileType ruby setlocal expandtab softtabstop=2 shiftwidth=2
-  autocmd FileType ruby  inoremap <buffer><expr> > smartchr#one_of('>', '->', '=>', '>>')
- " autocmd FileType ruby setlocal complete+=k~/.vim/dict/ruby.dict
-augroup END
-
-
-augroup vimrc-ft-slim  "{{{2
-  autocmd!
-  autocmd FileType slim setlocal expandtab softtabstop=2 shiftwidth=2
-        \| setlocal omnifunc=htmlcomplete#CompleteTags
-augroup END
 
 
 augroup vimrc-ft-javascript  "{{{2
@@ -154,14 +141,6 @@ augroup vimrc-ft-javascript  "{{{2
   " tidy
   autocmd FileType javascript,typescript nnoremap <silent><buffer><leader>ti :ALEFix<cr>
 augroup END
-
-
-augroup vimrc-ft-vue  "{{{2
-  autocmd!
-  autocmd FileType vue syntax sync fromstart
-  autocmd FileType vue setlocal expandtab softtabstop=2 shiftwidth=2
-augroup END
-
 
 
 
