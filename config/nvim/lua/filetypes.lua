@@ -178,16 +178,6 @@ augroup vimrc-ft-jsonc  "{{{2
 augroup END
 
 
-augroup vimrc-ft-coffeescript  "{{{2
-" https://github.com/kchmck/vim-coffee-script
-  autocmd!
-  " au BufWritePost *.coffee silent CoffeeMake! -b | cwindow | redraw!
-  autocmd FileType coffee setlocal expandtab softtabstop=2 shiftwidth=2
-        \| setlocal conceallevel=0
-        \| setlocal foldmethod=syntax
-augroup END
-
-
 augroup vimrc-ft-html  "{{{2
   autocmd!
   autocmd FileType html setlocal omnifunc=htmlcomplete#CompleteTags
@@ -205,46 +195,6 @@ augroup vimrc-ft-html  "{{{2
   " autocmd FileType xml exe ":silent 1,$!xmllint --format --recover - 2>/dev/null"
 augroup END
 
-
-augroup vimrc-ft-python  "{{{2
-  autocmd!
-  autocmd FileType python setlocal expandtab softtabstop=2 shiftwidth=2
-        \| setlocal omnifunc=pythoncomplete#Complete
-        \| let python_highlight_numbers=1
-        \| let python_highlight_builtins=1
-        \| let python_highlight_space_errors=1
-augroup ED
-
-
-augroup vimrc-ft-css  "{{{2
-  " http://d.hatena.ne.jp/secondlife/20060831/1157010796#20060831f1
-  " http://subtech.g.hatena.ne.jp/antipop/20060831/1157024857
-  autocmd!
-  autocmd FileType css setlocal expandtab softtabstop=2 shiftwidth=2
-        \| setlocal omnifunc=csscomplete#CompleteCSS
-  autocmd FileType css,scss nnoremap <silent><buffer><leader>ti :ALEFix<cr>
-augroup END
-
-
-
-
-augroup vimrc-ft-yaml  "{{{2
-  autocmd!
-  autocmd FileType yaml setlocal expandtab softtabstop=2 shiftwidth=2
-  autocmd FileType yaml nnoremap <silent><buffer><leader>ti :ALEFix<cr>
-augroup END
-
-
-augroup vimrc-ft-svn  "{{{2
-  autocmd!
-  autocmd FileType svn setlocal fileencoding=utf-8
-augroup END
-
-
-augroup vimrc-ft-gitignore  "{{{2
-  autocmd!
-  autocmd BufRead,BufNew .gitignore :setlocal filetype=conf
-augroup END
 
 
 ]])
