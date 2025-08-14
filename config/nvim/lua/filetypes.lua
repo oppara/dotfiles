@@ -253,38 +253,4 @@ augroup vimrc-ft-cloudformation  "{{{2
 augroup END
 
 
-augroup vimrc-ft-applescript  "{{{2
-  autocmd!
-  autocmd BufRead,BufNew *applescript :setlocal filetype=applescript
-augroup END
-
-
 ]])
-
-
--- setIndent "{{{1
-local function setIndent(tabLength, useHardTab)
-  if useHardTab then
-    vim.bo.expandtab = false
-  else
-    vim.bo.expandtab = true
-  end
-
-  vim.bo.shiftwidth  = tabLength
-  vim.bo.softtabstop = tabLength
-  vim.bo.tabstop     = tabLength
-end
-
-M.java = function()
-  setIndent(4, false)
-end
-
-return setmetatable(M, {
-  __index = function()
-    return function()
-      print('Unexpected filetype!')
-    end
-  end
-})
-
-
