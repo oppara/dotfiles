@@ -129,22 +129,6 @@ augroup vimrc-ft-perl  "{{{2
 augroup END
 
 
-
-
-augroup vimrc-ft-javascript  "{{{2
-  autocmd!
-
-  autocmd FileType javascript,typescript setlocal expandtab softtabstop=2 shiftwidth=2
-        \| setlocal foldmethod=marker
-
-  autocmd FileType javascript,typescript inoremap <buffer><expr> > smartchr#one_of('>', '->', '=>', '>>')
-  " tidy
-  autocmd FileType javascript,typescript nnoremap <silent><buffer><leader>ti :ALEFix<cr>
-augroup END
-
-
-
-
 augroup vimrc-ft-html  "{{{2
   autocmd!
   autocmd FileType html setlocal omnifunc=htmlcomplete#CompleteTags
