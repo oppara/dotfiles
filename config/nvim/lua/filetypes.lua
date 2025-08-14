@@ -163,19 +163,7 @@ augroup vimrc-ft-vue  "{{{2
 augroup END
 
 
-augroup vimrc-ft-json  "{{{2
-  autocmd!
-  autocmd FileType json setlocal expandtab softtabstop=2 shiftwidth=2
-        \| setlocal conceallevel=0
-        \| setlocal foldmethod=indent
 
-  autocmd FileType json nnoremap <silent><buffer><leader>ti :ALEFix<cr>
-augroup END
-
-augroup vimrc-ft-jsonc  "{{{2
-  autocmd!
-  autocmd BufRead,BufNew *settings.json :setlocal filetype=jsonc
-augroup END
 
 
 augroup vimrc-ft-html  "{{{2
@@ -195,7 +183,7 @@ augroup vimrc-ft-html  "{{{2
   " autocmd FileType xml exe ":silent 1,$!xmllint --format --recover - 2>/dev/null"
 augroup END
 
-
+ "}}}"
 
 ]])
 
@@ -205,4 +193,12 @@ autocmd({ 'BufRead', 'BufNew' }, {
     vim.bo.filetype = 'cloudformation.yaml'
   end,
   group = augroup('ft_cloudformation', { clear = true }),
+})
+
+autocmd({ 'BufRead', 'BufNew' }, {
+  pattern = '*settings.json',
+  callback = function()
+    vim.bo.filetype = 'jsonc'
+  end,
+  group = augroup('ft_jsonc', { clear = true }),
 })
