@@ -250,7 +250,17 @@ require('jetpack.packer').add({
   {
     'kana/vim-smartchr',
     config = function()
-      vim.cmd([[inoremap <buffer><expr> > smartchr#one_of('>', '->', '=>', '>>')]])
+      vim.api.nvim_create_autocmd('FileType', {
+        pattern = {
+          'php',
+          'blade',
+          'perl',
+          'javascript',
+          'typescript',
+        },
+        command = "inoremap <buffer><expr> > smartchr#one_of('>', '->', '=>', '>>')",
+        group = vim.api.nvim_create_augroup('smartchr', { clear = true }),
+      })
     end,
   },
   {

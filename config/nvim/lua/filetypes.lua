@@ -96,7 +96,7 @@ augroup vimrc-ft-php  "{{{2
 
   autocmd FileType php nnoremap <buffer>su :call PhpSortUse()<cr>
 
-  autocmd FileType php,blade inoremap <buffer><expr> > smartchr#one_of('>', '->', '=>', '>>')
+  " autocmd FileType php,blade inoremap <buffer><expr> > smartchr#one_of('>', '->', '=>', '>>')
   autocmd FileType blade let b:surround_{char2nr('e')} = "{{ \r }}"
         \| let b:surround_{char2nr('p')} = "{!! \r !!}"
         \| highlight PreProc ctermfg=250  ctermbg=none
@@ -124,7 +124,7 @@ augroup vimrc-ft-perl  "{{{2
   autocmd FileType perl let s:tidy_cmd = "perltidy -q -st"
   autocmd FileType perl nnoremap <silent><buffer><leader>ti :Tidy<cr>
   autocmd FileType perl vnoremap <silent><buffer><leader>ti <Nop>
-  autocmd FileType perl  inoremap <buffer><expr> > smartchr#one_of('>', '->', '=>', '>>')
+  " autocmd FileType perl  inoremap <buffer><expr> > smartchr#one_of('>', '->', '=>', '>>')
 " autocmd FileType perl setlocal complete-=i | setlocal complete+=k~/.vim/dict/perl_functions.dict
 augroup END
 
