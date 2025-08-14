@@ -300,6 +300,7 @@ require('jetpack.packer').add({
 
   'jsborjesson/vim-uppercase-sql',
 
+  'oppara/cloudformation-syntax.vim',
   {
     'stevearc/quicker.nvim',
     config = function()

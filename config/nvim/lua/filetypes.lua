@@ -247,10 +247,12 @@ augroup vimrc-ft-gitignore  "{{{2
 augroup END
 
 
-augroup vimrc-ft-cloudformation  "{{{2
-  autocmd!
-  autocmd BufRead,BufNewFile *.cf.yaml,*.cf.yml,*.cfn.yaml,*.cfn.yml set filetype=yaml.cloudformation
-augroup END
-
-
 ]])
+
+autocmd({ 'BufRead', 'BufNew' }, {
+  pattern = { '*.cf.yaml', '*.cf.yml', '*.cfn.yaml', '*.cfn.yml' },
+  callback = function()
+    vim.bo.filetype = 'cloudformation.yaml'
+  end,
+  group = augroup('ft_cloudformation', { clear = true }),
+})

@@ -70,3 +70,10 @@ vim.api.nvim_create_autocmd('BufReadPost', {
     lint.linters_by_ft.yaml = { 'yamllint', 'actionlint' }
   end,
 })
+
+vim.api.nvim_create_autocmd({ 'BufReadPost', 'InsertLeave' }, {
+  pattern = { '*.cf.yaml', '*.cf.yml', '*.cfn.yaml', '*.cfn.yml' },
+  callback = function()
+    lint.linters_by_ft.yaml = { 'yamllint', 'cfn_lint' }
+  end,
+})
