@@ -4,7 +4,7 @@ local augroup = vim.api.nvim_create_augroup
 local autocmd = vim.api.nvim_create_autocmd
 
 vim.cmd([[
-" FileType:  "{{{1
+" FileType:  
 
 " augroup vimrc-complete
 "   autocmd!
@@ -96,7 +96,7 @@ augroup vimrc-ft-php  "{{{2
 
   autocmd FileType php nnoremap <buffer>su :call PhpSortUse()<cr>
 
-  autocmd FileType php,blade inoremap <buffer><expr> > smartchr#one_of('>', '->', '=>', '>>')
+  " autocmd FileType php,blade inoremap <buffer><expr> > smartchr#one_of('>', '->', '=>', '>>')
   autocmd FileType blade let b:surround_{char2nr('e')} = "{{ \r }}"
         \| let b:surround_{char2nr('p')} = "{!! \r !!}"
         \| highlight PreProc ctermfg=250  ctermbg=none
@@ -124,67 +124,8 @@ augroup vimrc-ft-perl  "{{{2
   autocmd FileType perl let s:tidy_cmd = "perltidy -q -st"
   autocmd FileType perl nnoremap <silent><buffer><leader>ti :Tidy<cr>
   autocmd FileType perl vnoremap <silent><buffer><leader>ti <Nop>
-  autocmd FileType perl  inoremap <buffer><expr> > smartchr#one_of('>', '->', '=>', '>>')
+  " autocmd FileType perl  inoremap <buffer><expr> > smartchr#one_of('>', '->', '=>', '>>')
 " autocmd FileType perl setlocal complete-=i | setlocal complete+=k~/.vim/dict/perl_functions.dict
-augroup END
-
-
-augroup vimrc-ft-ruby  "{{{2
-  autocmd!
-  autocmd FileType ruby setlocal expandtab softtabstop=2 shiftwidth=2
-  autocmd FileType ruby  inoremap <buffer><expr> > smartchr#one_of('>', '->', '=>', '>>')
- " autocmd FileType ruby setlocal complete+=k~/.vim/dict/ruby.dict
-augroup END
-
-
-augroup vimrc-ft-slim  "{{{2
-  autocmd!
-  autocmd FileType slim setlocal expandtab softtabstop=2 shiftwidth=2
-        \| setlocal omnifunc=htmlcomplete#CompleteTags
-augroup END
-
-
-augroup vimrc-ft-javascript  "{{{2
-  autocmd!
-
-  autocmd FileType javascript,typescript setlocal expandtab softtabstop=2 shiftwidth=2
-        \| setlocal foldmethod=marker
-
-  autocmd FileType javascript,typescript inoremap <buffer><expr> > smartchr#one_of('>', '->', '=>', '>>')
-  " tidy
-  autocmd FileType javascript,typescript nnoremap <silent><buffer><leader>ti :ALEFix<cr>
-augroup END
-
-
-augroup vimrc-ft-vue  "{{{2
-  autocmd!
-  autocmd FileType vue syntax sync fromstart
-  autocmd FileType vue setlocal expandtab softtabstop=2 shiftwidth=2
-augroup END
-
-
-augroup vimrc-ft-json  "{{{2
-  autocmd!
-  autocmd FileType json setlocal expandtab softtabstop=2 shiftwidth=2
-        \| setlocal conceallevel=0
-        \| setlocal foldmethod=indent
-
-  autocmd FileType json nnoremap <silent><buffer><leader>ti :ALEFix<cr>
-augroup END
-
-augroup vimrc-ft-jsonc  "{{{2
-  autocmd!
-  autocmd BufRead,BufNew *settings.json :setlocal filetype=jsonc
-augroup END
-
-
-augroup vimrc-ft-coffeescript  "{{{2
-" https://github.com/kchmck/vim-coffee-script
-  autocmd!
-  " au BufWritePost *.coffee silent CoffeeMake! -b | cwindow | redraw!
-  autocmd FileType coffee setlocal expandtab softtabstop=2 shiftwidth=2
-        \| setlocal conceallevel=0
-        \| setlocal foldmethod=syntax
 augroup END
 
 
@@ -205,86 +146,22 @@ augroup vimrc-ft-html  "{{{2
   " autocmd FileType xml exe ":silent 1,$!xmllint --format --recover - 2>/dev/null"
 augroup END
 
-
-augroup vimrc-ft-python  "{{{2
-  autocmd!
-  autocmd FileType python setlocal expandtab softtabstop=2 shiftwidth=2
-        \| setlocal omnifunc=pythoncomplete#Complete
-        \| let python_highlight_numbers=1
-        \| let python_highlight_builtins=1
-        \| let python_highlight_space_errors=1
-augroup ED
-
-
-augroup vimrc-ft-css  "{{{2
-  " http://d.hatena.ne.jp/secondlife/20060831/1157010796#20060831f1
-  " http://subtech.g.hatena.ne.jp/antipop/20060831/1157024857
-  autocmd!
-  autocmd FileType css setlocal expandtab softtabstop=2 shiftwidth=2
-        \| setlocal omnifunc=csscomplete#CompleteCSS
-  autocmd FileType css,scss nnoremap <silent><buffer><leader>ti :ALEFix<cr>
-augroup END
-
-
-
-
-augroup vimrc-ft-yaml  "{{{2
-  autocmd!
-  autocmd FileType yaml setlocal expandtab softtabstop=2 shiftwidth=2
-  autocmd FileType yaml nnoremap <silent><buffer><leader>ti :ALEFix<cr>
-augroup END
-
-
-augroup vimrc-ft-svn  "{{{2
-  autocmd!
-  autocmd FileType svn setlocal fileencoding=utf-8
-augroup END
-
-
-augroup vimrc-ft-gitignore  "{{{2
-  autocmd!
-  autocmd BufRead,BufNew .gitignore :setlocal filetype=conf
-augroup END
-
-
-augroup vimrc-ft-cloudformation  "{{{2
-  autocmd!
-  autocmd BufRead,BufNewFile *.cf.yaml,*.cf.yml,*.cfn.yaml,*.cfn.yml set filetype=yaml.cloudformation
-augroup END
-
-
-augroup vimrc-ft-applescript  "{{{2
-  autocmd!
-  autocmd BufRead,BufNew *applescript :setlocal filetype=applescript
-augroup END
-
+ "}}}"
 
 ]])
 
-
--- setIndent "{{{1
-local function setIndent(tabLength, useHardTab)
-  if useHardTab then
-    vim.bo.expandtab = false
-  else
-    vim.bo.expandtab = true
-  end
-
-  vim.bo.shiftwidth  = tabLength
-  vim.bo.softtabstop = tabLength
-  vim.bo.tabstop     = tabLength
-end
-
-M.java = function()
-  setIndent(4, false)
-end
-
-return setmetatable(M, {
-  __index = function()
-    return function()
-      print('Unexpected filetype!')
-    end
-  end
+autocmd({ 'BufRead', 'BufNew' }, {
+  pattern = { '*.cf.yaml', '*.cf.yml', '*.cfn.yaml', '*.cfn.yml' },
+  callback = function()
+    vim.bo.filetype = 'cloudformation.yaml'
+  end,
+  group = augroup('ft_cloudformation', { clear = true }),
 })
 
-
+autocmd({ 'BufRead', 'BufNew' }, {
+  pattern = '*settings.json',
+  callback = function()
+    vim.bo.filetype = 'jsonc'
+  end,
+  group = augroup('ft_jsonc', { clear = true }),
+})
