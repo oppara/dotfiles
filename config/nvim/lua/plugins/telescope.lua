@@ -1,7 +1,11 @@
 require('telescope').setup({
   defaults = {
+    layout_strategy = 'vertical',
+    sorting_strategy = 'ascending',
+    previewer = true,
     layout_config = {
-      width = 0.75,
+      prompt_position = 'top',
+      preview_cutoff = 1,
     },
     file_ignore_patterns = {
       '%.git/',
