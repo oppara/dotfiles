@@ -186,16 +186,15 @@ require('jetpack.packer').add({
   --   'tpope/vim-fugitive',
   -- },
   --
-  -- {
-  --   'FabijanZulj/blame.nvim',
-  --   config = function()
-  --     require("blame").setup({
-  --         date_format = '%Y-%m-%d %H:%M',
-  --         max_summary_width = 40,
-  --         commit_detail_view = "split",
-  --       })
-  --   end
-  -- },
+  {
+    'FabijanZulj/blame.nvim',
+    config = function()
+      require("blame").setup({
+        date_format = '%Y-%m-%d %H:%M',
+        max_summary_width = 40,
+      })
+    end
+  },
 
   {
     'numToStr/Comment.nvim',
