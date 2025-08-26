@@ -1,6 +1,13 @@
+local home = os.getenv('HOME')
+
 return {
   settings = {
     intelephense = {
+      environment = {
+        includePaths = {
+          home .. '/src/github.com/WordPress/wordpress-develop/tests/phpunit/includes',
+        },
+      },
       stubs = {
         'apache',
         'bcmath',
