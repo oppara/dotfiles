@@ -14,7 +14,15 @@ require('jetpack.packer').add({
     opt = 1,
   }, -- bootstrap
 
-  'rebelot/kanagawa.nvim',
+  {
+    'rebelot/kanagawa.nvim',
+    config = function()
+      require('kanagawa').setup({
+        transparent = true,
+        -- dimInactive = true,
+      })
+    end,
+  },
   {
     'oppara/wombat.nvim',
     requires = 'rktjmp/lush.nvim',
