@@ -21,6 +21,7 @@ require('jetpack.packer').add({
         transparent = true,
         -- dimInactive = true,
       })
+      require('kanagawa').load()
     end,
   },
   {
