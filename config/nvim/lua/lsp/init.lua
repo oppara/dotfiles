@@ -9,6 +9,7 @@ local ensure_installed = {
   'jsonls',
   'marksman',
   'cssls',
+  'html',
   'pyright',
 }
 require('mason-lspconfig').setup({
