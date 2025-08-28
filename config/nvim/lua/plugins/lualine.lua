@@ -1,19 +1,18 @@
-
 -- https://github.com/nvim-lualine/lualine.nvim/blob/master/lua/lualine/themes/wombat.lua
 local colors = {
-  base02  = '#444444',
-  base3   = '#d0d0d0',
-  red     = '#e5786d',
-  black   = '#131313',
-  green   = '#95e454',
-  blue    = '#8ac6f2',
+  base02 = '#444444',
+  base3 = '#d0d0d0',
+  red = '#e5786d',
+  black = '#131313',
+  green = '#95e454',
+  blue = '#8ac6f2',
 }
 
-require('lualine').setup {
+require('lualine').setup({
   options = {
     theme = 'wombat',
     icons_enabled = false,
-    component_separators = {left = '|', right = '|'},
+    component_separators = { left = '|', right = '|' },
     section_separators = {},
     disabled_filetypes = {},
   },
@@ -44,7 +43,7 @@ require('lualine').setup {
           return vim.bo.readonly
         end,
         component_separators = {},
-        color = { fg = colors.base02, bg = colors.red, gui = 'bold'},
+        color = { fg = colors.base02, bg = colors.red, gui = 'bold' },
         padding = 0,
       },
     },
@@ -60,37 +59,37 @@ require('lualine').setup {
       {
         'diff',
         color = { bg = colors.base02 },
-      }
+      },
     },
     lualine_c = {
       {
         'diagnostics',
-        sources = {'nvim_diagnostic', 'coc', 'ale'},
-        symbols = {error = 'E:', warn = 'W:', info = 'I:', hint = 'H:'},
-      }
+        sources = { 'nvim_diagnostic', 'coc', 'ale' },
+        symbols = { error = 'E:', warn = 'W:', info = 'I:', hint = 'H:' },
+      },
     },
-    lualine_x = {'branch', 'encoding', 'fileformat', 'filetype'},
+    lualine_x = { 'branch', 'encoding', 'fileformat', 'filetype' },
     lualine_y = {
       {
         'progress',
-        color = { fg = colors.black},
+        color = { fg = colors.black },
       },
       {
         'location',
-        color = { fg = colors.black},
+        color = { fg = colors.black },
         padding = 0,
-      }
+      },
     },
-    lualine_z = {}
+    lualine_z = {},
   },
   inactive_sections = {
     lualine_c = {
       {
         'filename',
         path = 3,
-      }
+      },
     },
-    lualine_x = {'location'},
+    lualine_x = { 'location' },
   },
-  extensions = {'quickfix'}
-}
+  extensions = { 'quickfix' },
+})

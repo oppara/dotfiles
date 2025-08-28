@@ -198,11 +198,11 @@ require('jetpack.packer').add({
   {
     'FabijanZulj/blame.nvim',
     config = function()
-      require("blame").setup({
+      require('blame').setup({
         date_format = '%Y-%m-%d %H:%M',
         max_summary_width = 40,
       })
-    end
+    end,
   },
 
   {
