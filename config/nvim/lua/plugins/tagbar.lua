@@ -19,7 +19,6 @@ vim.g.tagbar_type_php = {
     'i:interfaces',
     't:traits',
     'c:classes',
-    'v:variables:1:0',
     'f:functions',
   },
   sort = 0,
