@@ -10,7 +10,7 @@ local colors = {
 
 require('lualine').setup({
   options = {
-    theme = 'wombat',
+    theme = 'everforest',
     icons_enabled = false,
     component_separators = { left = '|', right = '|' },
     section_separators = {},

@@ -15,13 +15,22 @@ require('jetpack.packer').add({
   }, -- bootstrap
 
   {
+    'neanias/everforest-nvim',
+    config = function()
+      require('everforest').setup({
+        transparent_background_level = 2,
+      })
+      require('everforest').load()
+    end,
+  },
+  {
     'rebelot/kanagawa.nvim',
     config = function()
       require('kanagawa').setup({
         transparent = true,
         -- dimInactive = true,
       })
-      require('kanagawa').load()
+      -- require('kanagawa').load()
     end,
   },
   {
