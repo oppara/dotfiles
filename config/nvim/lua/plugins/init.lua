@@ -325,6 +325,13 @@ require('jetpack.packer').add({
       require('plugins.quicker')
     end,
   },
+
+  {
+    'Jezda1337/nvim-html-css',
+    config = function()
+      require('plugins.nvim-html-css')
+    end,
+  },
 })
 
 --[[

@@ -23,6 +23,7 @@ cmp.setup({
     { name = 'buffer' },
     { name = 'path' },
     { name = 'cmdline' },
+    { name = 'html-css' },
   }),
 
   mapping = {
