@@ -79,14 +79,14 @@ function pcolor() {
 alias vv="_rgAndVim"
 _rgAndVim() {
   if [ -z "$1" ]; then
-    echo 'Usage: gg PATTERN'
+    echo 'Usage: vv PATTERN'
     return 0
   fi
   result=$(rg -n --hidden "${1}" | fzf)
   line=$(echo "$result" | awk -F ':' '{print $2}')
   file=$(echo "$result" | awk -F ':' '{print $1}')
   if [ -n "$file" ]; then
-    vim "$file" +"${line}"
+    nvim "$file" +"${line}"
   fi
 }
 
