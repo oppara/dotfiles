@@ -103,6 +103,9 @@ require('jetpack.packer').add({
     'neovim/nvim-lspconfig',
   },
   {
+    'b0o/schemastore.nvim',
+  },
+  {
     'stevearc/conform.nvim',
     config = function()
       require('plugins.conform')
