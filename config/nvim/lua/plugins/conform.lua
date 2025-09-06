@@ -14,25 +14,12 @@ require('conform').setup({
     scss = web_formatter,
     sass = web_formatter,
     less = web_formatter,
-    json = { 'prettier_jsonc' },
-    jsonc = { 'prettier_jsonc' },
     markdown = { 'markdownlint-cli2' },
     python = { 'ruff_format' },
     sql = { 'sql_formater' },
   },
 
   formatters = {
-    prettier_jsonc = {
-      command = 'prettier',
-      args = { '--parser', 'json' },
-      prepend_args = {
-        '--tab-width',
-        '2',
-        '--use-tabs',
-        'false',
-      },
-      stdin = true,
-    },
     php_cs_fixer = {
       command = 'php-cs-fixer',
       prepend_args = { '--using-cache=no', '--config=' .. vim.fn.expand('~/.config/php/php_cs.dist') },
