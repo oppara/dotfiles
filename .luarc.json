@@ -1,0 +1,17 @@
+{
+  "workspace": {
+    "ignoreDir": [
+      ".git",
+      "node_modules",
+      ".vscode",
+      "build",
+      "dist"
+    ],
+    "checkThirdParty": false
+  },
+  "diagnostics": {
+    "globals": [
+      "vim"
+    ]
+  }
+}
