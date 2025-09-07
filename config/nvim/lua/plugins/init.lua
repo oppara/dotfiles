@@ -307,6 +307,9 @@ require('jetpack.packer').add({
     end,
   },
 
+  --
+  -- markdown
+  --
   {
     'ixru/nvim-markdown',
     ft = 'markdown',
@@ -314,7 +317,6 @@ require('jetpack.packer').add({
       require('plugins.nvim-markdown')
     end,
   },
-
   {
     'iamcco/markdown-preview.nvim',
     ft = 'markdown',
@@ -324,6 +326,23 @@ require('jetpack.packer').add({
     config = function()
       require('plugins.markdown-preview')
     end,
+  },
+  {
+    'Kicamon/markdown-table-mode.nvim',
+    ft = 'markdown',
+    config = function()
+      require('markdown-table-mode').setup()
+      vim.api.nvim_create_autocmd('FileType', {
+        pattern = 'markdown',
+        callback = function()
+          vim.cmd('Mtm')
+        end,
+      })
+    end,
+  },
+  {
+    'mattn/vim-maketable',
+    ft = 'markdown',
   },
 
   {
@@ -385,10 +404,6 @@ require('jetpack.packer').add({
   Plug 'junegunn/vim-easy-align', {'on': ['EasyAlign']}
 
   Plug 'vim-test/vim-test'
-
-  Plug 'kannokanno/previm', {'for': ['markdown']}
-  Plug 'rhysd/vim-gfm-syntax'
-  Plug 'mattn/vim-maketable'
 
   Plug 'hail2u/vim-css3-syntax', {'for': ['css']}
 
