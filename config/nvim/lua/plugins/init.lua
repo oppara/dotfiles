@@ -170,6 +170,16 @@ require('jetpack.packer').add({
   },
 
   {
+    'gregorias/coerce.nvim',
+    requires = {
+      'gregorias/coop.nvim',
+    },
+    config = function()
+      require('coerce').setup()
+    end,
+  },
+
+  {
     'preservim/tagbar',
     config = function()
       require('plugins.tagbar')
@@ -357,7 +367,6 @@ require('jetpack.packer').add({
   "Plug 'anyakichi/vim-qfutil'
 
   Plug 'tpope/vim-unimpaired'
-  Plug 'tpope/vim-abolish'
   Plug 'tpope/vim-fugitive'
 
   Plug 'vim-scripts/sudo.vim'
