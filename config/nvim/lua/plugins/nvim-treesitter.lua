@@ -1,6 +1,7 @@
 -- tree-sitter によるシンタックスハイライトを行わないファイルタイプ
 local disabled_langs = {
   ['sql'] = true,
+  ['php'] = true,
 }
 
 require('nvim-treesitter.configs').setup({
