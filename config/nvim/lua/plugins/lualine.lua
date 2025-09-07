@@ -42,5 +42,8 @@ require('lualine').setup({
       },
     },
   },
-  extensions = { 'quickfix' },
+  extensions = {
+    'nvim-tree',
+    'quickfix',
+  },
 })
