@@ -389,13 +389,6 @@ require('jetpack.packer').add({
   Plug 'vim-test/vim-test'
 
 
-
-"" " http://www.karakaram.com/vim/phpunit-location-list/
-  Plug 'oppara/vim-quickrun-phpunit', { 'branch': 'fix-color', 'for': ['php']}
-  "Plug 'vim-scripts/phpfolding.vim', {'for': ['php']}
-  Plug 'oppara/php.vim', {'for': ['php']}
-  Plug 'jwalton512/vim-blade', {'for': ['php']}
-
   Plug 'oppara/sql_iabbr.vim', {'for': ['sql']}
   Plug 'mattn/vim-sqlfmt', {'on': 'SQLFmt'}
 
