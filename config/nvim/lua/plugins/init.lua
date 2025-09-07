@@ -216,6 +216,12 @@ require('jetpack.packer').add({
       })
     end,
   },
+  {
+    'rhysd/git-messenger.vim',
+    config = function()
+      require('plugins.git-messenger')
+    end,
+  },
 
   {
     'numToStr/Comment.nvim',
@@ -353,8 +359,6 @@ require('jetpack.packer').add({
   Plug 'tpope/vim-unimpaired'
   Plug 'tpope/vim-abolish'
   Plug 'tpope/vim-fugitive'
-
-  Plug 'rhysd/git-messenger.vim'
 
   "" Plug 'scrooloose/nerdtree'
   Plug 'scrooloose/nerdcommenter'
