@@ -388,10 +388,6 @@ require('jetpack.packer').add({
 
   Plug 'vim-test/vim-test'
 
-
-  Plug 'oppara/sql_iabbr.vim', {'for': ['sql']}
-  Plug 'mattn/vim-sqlfmt', {'on': 'SQLFmt'}
-
   Plug 'kannokanno/previm', {'for': ['markdown']}
   Plug 'rhysd/vim-gfm-syntax'
   Plug 'mattn/vim-maketable'
