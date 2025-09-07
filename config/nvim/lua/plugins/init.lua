@@ -14,6 +14,8 @@ require('jetpack.packer').add({
     opt = 1,
   }, -- bootstrap
 
+  'vim-jp/vimdoc-ja',
+
   {
     'neanias/everforest-nvim',
     config = function()
@@ -48,8 +50,12 @@ require('jetpack.packer').add({
       require('plugins.lualine')
     end,
   },
-
-  'vim-jp/vimdoc-ja',
+  {
+    'lukas-reineke/indent-blankline.nvim',
+    config = function()
+      require('plugins.indent-blankline')
+    end,
+  },
 
   {
     'junegunn/fzf.vim',
@@ -63,13 +69,6 @@ require('jetpack.packer').add({
   },
 
   {
-    'lukas-reineke/indent-blankline.nvim',
-    config = function()
-      require('plugins.indent-blankline')
-    end,
-  },
-
-  {
     'nvim-telescope/telescope.nvim',
     tag = '0.1.8',
     requires = {
@@ -79,7 +78,6 @@ require('jetpack.packer').add({
       require('plugins.telescope-nvim')
     end,
   },
-
   {
     'wsdjeg/mru.nvim',
     requires = {
