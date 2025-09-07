@@ -76,7 +76,7 @@ require('jetpack.packer').add({
       'nvim-lua/plenary.nvim',
     },
     config = function()
-      require('plugins.telescope')
+      require('plugins.telescope-nvim')
     end,
   },
 
@@ -396,15 +396,6 @@ require('jetpack.packer').add({
   "Plug 'akiyan/vim-textobj-xml-attribute', {'for': ['xml']}
 
   Plug 'junegunn/vim-easy-align', {'on': ['EasyAlign']}
-
-  Plug 'vim-test/vim-test'
-
-  Plug 'elzr/vim-json'
-  Plug 'kevinoid/vim-jsonc'
-  "Plug 'heavenshell/vim-jsdoc', {
-        "\ 'for': ['javascript', 'javascript.jsx','typescript'],
-        "\ 'do': 'make install'
-        "\}
 
   Plug 'hashivim/vim-terraform'
 
