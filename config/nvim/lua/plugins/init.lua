@@ -289,13 +289,6 @@ require('jetpack.packer').add({
   },
 
   {
-    'sheerun/vim-polyglot',
-    config = function()
-      require('plugins.polyglot')
-    end,
-  },
-
-  {
     'tpope/vim-endwise',
   },
   {
