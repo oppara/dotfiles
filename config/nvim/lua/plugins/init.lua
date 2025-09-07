@@ -339,8 +339,6 @@ require('jetpack.packer').add({
 
 --[[
 
-  Plug 'itchyny/lightline.vim'
-
   Plug 'mattn/vim-molder'
   Plug 'mattn/vim-molder-operations'
 
