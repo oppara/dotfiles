@@ -339,7 +339,6 @@ require('jetpack.packer').add({
 
 --[[
 
-  -- {'dracula/vim', as = 'dracula' },
   Plug 'itchyny/lightline.vim'
 
   Plug 'mattn/vim-molder'
