@@ -374,9 +374,6 @@ require('jetpack.packer').add({
 
 --[[
 
-  Plug 'mattn/vim-molder'
-  Plug 'mattn/vim-molder-operations'
-
   "Plug 'Shougo/context_filetype.vim'
 
   "Plug 'LeafCage/yankround.vim'
@@ -384,9 +381,6 @@ require('jetpack.packer').add({
   "Plug 'thinca/vim-qfreplace'
   "Plug 'fuenor/qfixgrep'
   "Plug 'anyakichi/vim-qfutil'
-
-  Plug 'tpope/vim-unimpaired'
-  Plug 'tpope/vim-fugitive'
 
   Plug 'vim-scripts/sudo.vim'
 
@@ -404,8 +398,6 @@ require('jetpack.packer').add({
   Plug 'junegunn/vim-easy-align', {'on': ['EasyAlign']}
 
   Plug 'vim-test/vim-test'
-
-  Plug 'hail2u/vim-css3-syntax', {'for': ['css']}
 
   Plug 'elzr/vim-json'
   Plug 'kevinoid/vim-jsonc'
