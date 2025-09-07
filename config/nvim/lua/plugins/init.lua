@@ -339,7 +339,6 @@ require('jetpack.packer').add({
 
 --[[
 
-  -- 'https://github.com/dense-analysis/ale',
   -- {'dracula/vim', as = 'dracula' },
   Plug 'itchyny/lightline.vim'
 
