@@ -360,20 +360,9 @@ require('jetpack.packer').add({
   Plug 'tpope/vim-abolish'
   Plug 'tpope/vim-fugitive'
 
-  "" Plug 'scrooloose/nerdtree'
-  Plug 'scrooloose/nerdcommenter'
   Plug 'vim-scripts/sudo.vim'
 
   Plug 'Valloric/MatchTagAlways'
-
-  Plug 'Yggdroot/indentLine'
-  "" Plug 'rhysd/migemo-search.vim'
-  "" if executable('cmigemo')
-    "" cnoremap <expr><CR> migemosearch#replace_search_word()."\<CR>"
-  "" endif
-
-  "Plug 'kana/vim-fakeclip', {'on':  ['<Plug>(fakeclip-']}
-
 
   "Plug 'kana/vim-textobj-user'
   "Plug 'kana/vim-textobj-jabraces', {'on': ['TextobjJabracesDefaultKeyMappings']}
@@ -402,9 +391,5 @@ require('jetpack.packer').add({
         "\}
 
   Plug 'hashivim/vim-terraform'
-
-  Plug 'luochen1990/rainbow'
-  Plug 'simeji/winresizer'
-
 
 ]]
