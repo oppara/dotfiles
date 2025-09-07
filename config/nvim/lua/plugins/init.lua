@@ -58,6 +58,14 @@ require('jetpack.packer').add({
   },
 
   {
+    'nvim-treesitter/nvim-treesitter',
+    run = ':TSUpdate',
+    config = function()
+      require('plugins.nvim-treesitter')
+    end,
+  },
+
+  {
     'junegunn/fzf.vim',
     config = function()
       vim.api.nvim_set_keymap('n', 'ffh', ':History<CR>', { noremap = true, silent = true })
