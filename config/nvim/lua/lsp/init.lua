@@ -17,6 +17,15 @@ require('mason-lspconfig').setup({
   ensure_installed = ensure_installed,
 })
 
+local util = require('lspconfig.util')
+local lspconfig = require('lspconfig')
+lspconfig.ts_ls.setup({
+  root_dir = function(fname)
+    return util.root_pattern('package.json', 'tsconfig.json', 'jsconfig.json', '.git')(fname)
+      or util.path.dirname(fname)
+  end,
+})
+
 vim.diagnostic.config({
   virtual_text = true,
 })
