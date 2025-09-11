@@ -47,7 +47,6 @@ require('conform').setup({
       'sh',
       'lua',
       'yaml',
-      'markdown',
       'python',
       'json',
       'jsonc',
