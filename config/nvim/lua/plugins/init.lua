@@ -318,11 +318,12 @@ require('jetpack.packer').add({
   },
   {
     'iamcco/markdown-preview.nvim',
-    ft = 'markdown',
+    ft = { 'markdown', 'plantuml' },
     run = function()
       vim.fn['mkdp#util#install']()
     end,
     config = function()
+      vim.g.mkdp_filetypes = { 'markdown', 'plantuml' }
       require('plugins.markdown-preview')
     end,
   },
@@ -342,6 +343,13 @@ require('jetpack.packer').add({
   {
     'mattn/vim-maketable',
     ft = 'markdown',
+  },
+
+  {
+    'aklt/plantuml-syntax',
+    config = function()
+      vim.g.plantuml_set_makeprg = 0
+    end,
   },
 
   {
