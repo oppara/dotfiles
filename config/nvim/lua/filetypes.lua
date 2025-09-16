@@ -171,3 +171,14 @@ autocmd({ 'BufRead', 'BufNew' }, {
   end,
   group = augroup('ft_jsonc', { clear = true }),
 })
+
+autocmd('FileType', {
+  pattern = { 'typescript', 'javascript', 'typescriptreact', 'json', 'jsonc' },
+  callback = function()
+    vim.bo.expandtab = true
+    vim.bo.shiftwidth = 2
+    vim.bo.softtabstop = 2
+    vim.bo.tabstop = 2
+  end,
+  group = augroup('ft_js', { clear = true }),
+})
