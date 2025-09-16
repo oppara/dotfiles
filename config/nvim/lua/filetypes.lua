@@ -165,7 +165,7 @@ autocmd({ 'BufRead', 'BufNew' }, {
 })
 
 autocmd({ 'BufRead', 'BufNew' }, {
-  pattern = '*settings.json',
+  pattern = { '*settings.json', 'tsconfig.json' },
   callback = function()
     vim.bo.filetype = 'jsonc'
   end,
