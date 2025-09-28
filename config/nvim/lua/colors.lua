@@ -10,3 +10,12 @@ vim.api.nvim_create_autocmd({ 'ColorScheme' }, {
   command = [[highlight default FullWidthWhitespace ctermbg=202 ctermfg=202 guibg=salmon]],
 })
 
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = { 'markdown' },
+  callback = function()
+    vim.cmd.colorscheme('kanagawa')
+    require('lualine').setup({
+      options = { theme = 'everforest' },
+    })
+  end,
+})
