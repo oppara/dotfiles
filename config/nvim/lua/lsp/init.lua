@@ -17,13 +17,10 @@ require('mason-lspconfig').setup({
   ensure_installed = ensure_installed,
 })
 
-local util = require('lspconfig.util')
-local lspconfig = require('lspconfig')
-lspconfig.ts_ls.setup({
-  root_dir = function(fname)
-    return util.root_pattern('package.json', 'tsconfig.json', 'jsconfig.json', '.git')(fname)
-      or util.path.dirname(fname)
-  end,
+vim.lsp.config('ts_ls', {
+  cmd = { 'typescript-language-server', '--stdio' },
+  root_markers = { 'package.json', 'tsconfig.json', 'jsconfig.json', '.git' },
+  filetypes = { 'javascript', 'javascriptreact', 'typescript', 'typescriptreact' },
 })
 
 vim.diagnostic.config({
