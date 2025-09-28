@@ -27,3 +27,7 @@ require('ibl').setup({
     char = '▏',
   },
 })
+
+require('ibl').overwrite({
+  exclude = { filetypes = { 'markdown' } },
+})
