@@ -51,18 +51,6 @@ augroup END
 " " autocmd vimrc BufRead *.git/COMMIT_EDITMSG DiffGitCached -p | only | split | b 1
 
 
-augroup vimrc-ft-gitrebase  "{{{2
-  autocmd!
-  " http://sssslide.com/speakerdeck.com/rhysd/do-you-know-about-vim-runtime-files
-  autocmd FileType gitrebase nnoremap <buffer>e :<C-u>Edit<CR>
-  autocmd FileType gitrebase nnoremap <buffer>s :<C-u>Squash<CR>
-  autocmd FileType gitrebase nnoremap <buffer>f :<C-u>Fixup<CR>
-  autocmd FileType gitrebase nnoremap <buffer>r :<C-u>Reword<CR>
-augroup END
-
-
-
-
 augroup vimrc-ft-php  "{{{2
   autocmd!
   " autocmd FileType php call s:set_php4_syntax_check()
@@ -155,6 +143,18 @@ augroup END
  "}}}"
 
 ]])
+
+autocmd({ 'FileType' }, {
+  pattern = 'gitrebase',
+  callback = function()
+    local opts = { buffer = true, noremap = true }
+    vim.keymap.set('n', 'e', ':<C-u>Edit<CR>', opts)
+    vim.keymap.set('n', 's', ':<C-u>Squash<CR>', opts)
+    vim.keymap.set('n', 'f', ':<C-u>Fixup<CR>', opts)
+    vim.keymap.set('n', 'r', ':<C-u>Reword<CR>', opts)
+  end,
+  group = augroup('vimrc-ft-gitrebase', { clear = true }),
+})
 
 autocmd({ 'BufRead', 'BufNew' }, {
   pattern = { '*.cf.yaml', '*.cf.yml', '*.cfn.yaml', '*.cfn.yml' },
