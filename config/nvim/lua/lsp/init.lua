@@ -13,6 +13,7 @@ local ensure_installed = {
   'pyright',
   'copilot',
   'gopls',
+  'docker_language_server',
 }
 require('mason-lspconfig').setup({
   automatic_installation = true,
