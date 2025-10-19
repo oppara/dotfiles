@@ -11,6 +11,7 @@ local ensure_installed = {
   'cssls',
   'html',
   'pyright',
+  'copilot',
 }
 require('mason-lspconfig').setup({
   automatic_installation = true,
