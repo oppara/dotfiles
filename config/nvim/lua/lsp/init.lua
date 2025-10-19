@@ -1,19 +1,19 @@
 require('mason').setup()
 
 local ensure_installed = {
-  'lua_ls',
-  'intelephense',
   'bashls',
-  'yamlls',
-  'ts_ls',
-  'jsonls',
-  'marksman',
-  'cssls',
-  'html',
-  'pyright',
   'copilot',
-  'gopls',
+  'cssls',
   'docker_language_server',
+  'gopls',
+  'html',
+  'intelephense',
+  'jsonls',
+  'lua_ls',
+  'marksman',
+  'pyright',
+  'ts_ls',
+  'yamlls',
 }
 require('mason-lspconfig').setup({
   automatic_installation = true,
