@@ -12,6 +12,7 @@ local ensure_installed = {
   'html',
   'pyright',
   'copilot',
+  'gopls',
 }
 require('mason-lspconfig').setup({
   automatic_installation = true,
