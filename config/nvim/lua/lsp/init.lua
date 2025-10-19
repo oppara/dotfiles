@@ -86,7 +86,7 @@ end
 vim.keymap.set('n', '<leader>lf', ShowAvailableFormatters, { desc = 'Show available formatters' })
 
 vim.api.nvim_create_user_command('LspClients', function()
-  local clients = vim.lsp.get_active_clients({ bufnr = 0 })
+  local clients = vim.lsp.get_clients({ bufnr = 0 })
   if vim.tbl_isempty(clients) then
     print('No active LSP clients')
   else
