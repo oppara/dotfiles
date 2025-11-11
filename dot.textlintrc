@@ -3,7 +3,7 @@
 filters:
   comments: true
   allowlist:
-    allow
+    allow:
       - "はじめに"
       - "もしくは"
       - ":::"
@@ -31,7 +31,6 @@ rules:
       before: true
       after: true
 
-
   # 全角と半角アルファベットを混在をチェックするルール
   # https://github.com/textlint-ja/textlint-rule-no-mixed-zenkaku-and-hankaku-alphabet
   no-mixed-zenkaku-and-hankaku-alphabet: true
@@ -58,7 +57,7 @@ rules:
 
   # サ抜き、サ入れ表現の誤用をチェックするルール
   # https://github.com/textlint-ja/textlint-rule-no-insert-dropping-sa
-  '@textlint-ja/textlint-rule-no-insert-dropping-sa': true
+  "@textlint-ja/textlint-rule-no-insert-dropping-sa": true
 
   # 文末の句点(。)の統一 OR 抜けをチェックするルール
   # https://github.com/textlint-ja/textlint-rule-ja-no-mixed-period/
