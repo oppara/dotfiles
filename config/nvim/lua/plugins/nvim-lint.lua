@@ -94,14 +94,25 @@ lint.linters_by_ft = {
   sql = { 'sqruff' },
 }
 
+vim.g.lint_on_save = true
+
+vim.api.nvim_create_user_command('ToggleLint', function()
+  vim.g.lint_on_save = not vim.g.lint_on_save
+  print('Lint on save: ' .. tostring(vim.g.lint_on_save))
+end, {})
+
 vim.api.nvim_create_autocmd({ 'BufWritePost' }, {
   callback = function()
-    require('lint').try_lint()
+    if vim.g.lint_on_save then
+      require('lint').try_lint()
+    end
   end,
 })
 vim.api.nvim_create_autocmd({ 'InsertLeave' }, {
   callback = function()
-    require('lint').try_lint()
+    if vim.g.lint_on_save then
+      require('lint').try_lint()
+    end
   end,
 })
 
