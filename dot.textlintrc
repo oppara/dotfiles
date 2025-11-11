@@ -8,10 +8,13 @@ filters:
       - "もしくは"
       - ":::"
       - "web"
+
 rules:
   # 日本語向けのルール
   # https://github.com/textlint-ja/textlint-rule-preset-japanese
-  preset-japanese: true
+  preset-japanese:
+    sentence-length:
+      max: 150
 
   # 日本語周りにおけるスペースの有無を決定するルール
   # https://github.com/textlint-ja/textlint-rule-spacing
@@ -28,55 +31,14 @@ rules:
       before: true
       after: true
 
-  # 一文に利用できる、の数を制限するルール
-  # https://github.com/textlint-ja/textlint-rule-max-ten
-  max-ten:
-    max: 3
-
-  # 敬体(ですます調)と常体(である調)の混在をチェックするルール
-  # https://github.com/textlint-ja/textlint-rule-no-mix-dearu-desumasu
-  no-mix-dearu-desumasu: true
-
-  # ら抜き言葉を検出するルール
-  # https://github.com/textlint-ja/textlint-rule-no-dropping-the-ra
-  no-dropping-the-ra: true
-
-  # 二重否定を検出するルール
-  # https://github.com/textlint-ja/textlint-rule-no-double-negative-ja
-  no-double-negative-ja: true
 
   # 全角と半角アルファベットを混在をチェックするルール
   # https://github.com/textlint-ja/textlint-rule-no-mixed-zenkaku-and-hankaku-alphabet
   no-mixed-zenkaku-and-hankaku-alphabet: true
 
-  # 逆接の接続助詞「が」が同一文中に複数回出現していないかどうかをチェックするルール
-  # https://github.com/takahashim/textlint-rule-no-doubled-conjunctive-particle-ga
-  no-doubled-conjunctive-particle-ga: true
-
-  # 同じ接続詞が連続して出現していないかどうかをチェックするルール
-  # https://github.com/takahashim/textlint-rule-no-doubled-conjunction
-  no-doubled-conjunction: true
-
-  # https://github.com/azu/textlint-rule-no-nfd
-  # ホ゜ケット エンシ゛ン
-  # のような、Mac OS XでPDFやFinderからのコピペで発生する濁点のチェック
-  no-nfd: true,
-
-  # https://github.com/textlint-rule/textlint-rule-no-zero-width-spaces
-  # ゼロ幅スペースの検出
-  no-zero-width-spaces: true,
-
-  # https://github.com/xl1/textlint-rule-no-kangxi-radicals
-  # 康煕部首の検出
-  no-kangxi-radicals: true
-
   # 半角カナの利用を禁止するルール
   # https://github.com/textlint-ja/textlint-rule-no-hankaku-kana
   no-hankaku-kana: true
-
-  # 1つの文中に同じ助詞が連続して出てくるのをチェックするルール
-  # https://github.com/textlint-ja/textlint-rule-no-doubled-joshi
-  no-doubled-joshi: true
 
   # よくある日本語の誤用をチェックする
   # https://github.com/textlint-ja/textlint-rule-ja-no-abusage
