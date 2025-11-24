@@ -48,4 +48,9 @@ if [ -f '/Users/oppara/tmp/gloud/google-cloud-sdk/completion.zsh.inc' ]; then . 
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+
+# pipx
+export PATH="$HOME/.local/bin:$PATH"
+
 # vim: ft=zsh
+
