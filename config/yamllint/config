@@ -1,9 +1,14 @@
----
 
 extends: relaxed
 
 rules:
+  document-start:
+    present: false
+
   comments-indentation: disable
+
+  comments:
+    require-starting-space: false
 
   indentation:
     spaces: 2
@@ -14,6 +19,8 @@ rules:
     level: warning
 
   empty-lines:
+    max: 2
+    max-start: 1
     max-end: 1
 
 # vi: set ft=yaml :
