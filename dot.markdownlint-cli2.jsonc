@@ -11,16 +11,30 @@
     "MD012": {
       "maximum": 2 // 2つまでの連続空行を許可
     },
-
     "MD013": false, // 行の長さ制限を無効
     "MD025": false, // 複数のH1を許可
     "MD033": false, // HTMLタグを許可
-    "MD034": false // 素のURLの記述を許可
+    "MD034": false, // 素のURLの記述を許可
+    // MD013  行の長さ
+    "line-length": false,
+    // MD010 Markdown中にTSVを書くとエラーになるため
+    "no-hard-tabs": false,
+    // MD026 ヘディングに句読点（.,;:!?）を許容したい
+    "no-trailing-punctuation": false,
+    // MD033 HTMLは許容
+    "no-inline-html": false,
+    // MD034 URLのリンク化条件
+    "no-bare-urls": false,
+    // MD037  $$など数式で問題になったため外す
+    "no-space-in-emphasis": false,
+    // MD051 相対パス設定
+    "link-fragments": false
   },
-
   // .gitignoreによって参照されるファイルを無視する
   "gitignore": true,
-
   // 除外するファイル/ディレクトリ
-  "ignores": ["node_modules/**", "dist/**"]
+  "ignores": [
+    "node_modules/**",
+    "dist/**"
+  ]
 }
