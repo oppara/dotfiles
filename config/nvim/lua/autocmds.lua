@@ -10,6 +10,26 @@ vim.api.nvim_create_autocmd({ 'WinLeave' }, {
   command = [[setlocal nocursorline]],
 })
 
+-- kanagawa の Visual ハイライト調整
+local function set_kanagawa_visual()
+  vim.api.nvim_set_hl(0, 'Visual', {
+    ctermbg = 241,
+    bg = '#545472',
+  })
+end
+vim.api.nvim_create_autocmd('ColorScheme', {
+  callback = function()
+    vim.defer_fn(function()
+      if vim.g.colors_name and vim.g.colors_name:match('^kanagawa') then
+        set_kanagawa_visual()
+      end
+    end, 50)
+  end,
+})
+if vim.g.colors_name and vim.g.colors_name:match('^kanagawa') then
+  set_kanagawa_visual()
+end
+
 vim.cmd([[
 
 
