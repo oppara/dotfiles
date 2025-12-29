@@ -18,6 +18,9 @@ require('jetpack.packer').add({
 
   {
     'neanias/everforest-nvim',
+    cond = function()
+      return vim.g.vscode == nil
+    end,
     config = function()
       require('everforest').setup({
         transparent_background_level = 2,
@@ -27,6 +30,9 @@ require('jetpack.packer').add({
   },
   {
     'rebelot/kanagawa.nvim',
+    cond = function()
+      return vim.g.vscode == nil
+    end,
     config = function()
       require('kanagawa').setup({
         transparent = true,
@@ -37,21 +43,33 @@ require('jetpack.packer').add({
   },
   {
     'oppara/wombat.nvim',
+    cond = function()
+      return vim.g.vscode == nil
+    end,
     requires = 'rktjmp/lush.nvim',
   },
 
   {
     'nvim-tree/nvim-web-devicons',
+    cond = function()
+      return vim.g.vscode == nil
+    end,
     opt = 1,
   },
   {
     'nvim-lualine/lualine.nvim',
+    cond = function()
+      return vim.g.vscode == nil
+    end,
     config = function()
       require('plugins.lualine')
     end,
   },
   {
     'lukas-reineke/indent-blankline.nvim',
+    cond = function()
+      return vim.g.vscode == nil
+    end,
     config = function()
       require('plugins.indent-blankline')
     end,
@@ -59,26 +77,38 @@ require('jetpack.packer').add({
 
   {
     'nvim-treesitter/nvim-treesitter',
+    cond = function()
+      return vim.g.vscode == nil
+    end,
     run = ':TSUpdate',
     branch = 'master',
     config = function()
-       require('plugins.nvim-treesitter')
+      require('plugins.nvim-treesitter')
     end,
   },
 
   {
     'junegunn/fzf.vim',
+    cond = function()
+      return vim.g.vscode == nil
+    end,
     config = function()
       vim.api.nvim_set_keymap('n', 'ffh', ':History<CR>', { noremap = true, silent = true })
     end,
   },
   {
     'junegunn/fzf',
+    cond = function()
+      return vim.g.vscode == nil
+    end,
     run = './install',
   },
 
   {
     'nvim-telescope/telescope.nvim',
+    cond = function()
+      return vim.g.vscode == nil
+    end,
     tag = '0.1.8',
     requires = {
       'nvim-lua/plenary.nvim',
@@ -89,6 +119,9 @@ require('jetpack.packer').add({
   },
   {
     'wsdjeg/mru.nvim',
+    cond = function()
+      return vim.g.vscode == nil
+    end,
     requires = {
       'nvim-telescope/telescope.nvim',
     },
@@ -102,24 +135,42 @@ require('jetpack.packer').add({
 
   {
     'williamboman/mason.nvim',
+    cond = function()
+      return vim.g.vscode == nil
+    end,
   },
   {
     'williamboman/mason-lspconfig.nvim',
+    cond = function()
+      return vim.g.vscode == nil
+    end,
   },
   {
     'neovim/nvim-lspconfig',
+    cond = function()
+      return vim.g.vscode == nil
+    end,
   },
   {
     'b0o/schemastore.nvim',
+    cond = function()
+      return vim.g.vscode == nil
+    end,
   },
   {
     'stevearc/conform.nvim',
+    cond = function()
+      return vim.g.vscode == nil
+    end,
     config = function()
       require('plugins.conform')
     end,
   },
   {
     'mfussenegger/nvim-lint',
+    cond = function()
+      return vim.g.vscode == nil
+    end,
     config = function()
       require('plugins.nvim-lint')
     end,
@@ -127,6 +178,9 @@ require('jetpack.packer').add({
 
   {
     'zbirenbaum/copilot.lua',
+    cond = function()
+      return vim.g.vscode == nil
+    end,
     cmd = 'Copilot',
     event = 'InsertEnter',
     config = function()
@@ -135,6 +189,9 @@ require('jetpack.packer').add({
   },
   {
     'hrsh7th/nvim-cmp',
+    cond = function()
+      return vim.g.vscode == nil
+    end,
     requires = {
       'dcampos/nvim-snippy',
       'dcampos/cmp-snippy',
@@ -149,6 +206,9 @@ require('jetpack.packer').add({
   },
   {
     'zbirenbaum/copilot-cmp',
+    cond = function()
+      return vim.g.vscode == nil
+    end,
     after = { 'copilot.lua', 'nvim-cmp' },
     config = function()
       require('copilot_cmp').setup({
@@ -188,6 +248,9 @@ require('jetpack.packer').add({
 
   {
     'preservim/tagbar',
+    cond = function()
+      return vim.g.vscode == nil
+    end,
     config = function()
       require('plugins.tagbar')
     end,
@@ -195,12 +258,18 @@ require('jetpack.packer').add({
 
   {
     'nvim-tree/nvim-tree.lua',
+    cond = function()
+      return vim.g.vscode == nil
+    end,
     config = function()
       require('plugins.nvim-tree')
     end,
   },
   {
     'b0o/nvim-tree-preview.lua',
+    cond = function()
+      return vim.g.vscode == nil
+    end,
     requires = {
       'nvim-lua/plenary.nvim',
     },
@@ -226,6 +295,9 @@ require('jetpack.packer').add({
   --
   {
     'FabijanZulj/blame.nvim',
+    cond = function()
+      return vim.g.vscode == nil
+    end,
     config = function()
       require('blame').setup({
         date_format = '%Y-%m-%d %H:%M',
@@ -235,6 +307,9 @@ require('jetpack.packer').add({
   },
   {
     'rhysd/git-messenger.vim',
+    cond = function()
+      return vim.g.vscode == nil
+    end,
     config = function()
       require('plugins.git-messenger')
     end,
@@ -312,6 +387,9 @@ require('jetpack.packer').add({
   --
   {
     'ixru/nvim-markdown',
+    cond = function()
+      return vim.g.vscode == nil
+    end,
     ft = 'markdown',
     config = function()
       require('plugins.nvim-markdown')
@@ -319,6 +397,9 @@ require('jetpack.packer').add({
   },
   {
     'iamcco/markdown-preview.nvim',
+    cond = function()
+      return vim.g.vscode == nil
+    end,
     ft = { 'markdown', 'plantuml' },
     run = function()
       vim.fn['mkdp#util#install']()
@@ -330,6 +411,9 @@ require('jetpack.packer').add({
   },
   {
     'Kicamon/markdown-table-mode.nvim',
+    cond = function()
+      return vim.g.vscode == nil
+    end,
     ft = 'markdown',
     config = function()
       require('markdown-table-mode').setup()
@@ -343,6 +427,9 @@ require('jetpack.packer').add({
   },
   {
     'mattn/vim-maketable',
+    cond = function()
+      return vim.g.vscode == nil
+    end,
     ft = 'markdown',
   },
 
@@ -367,6 +454,9 @@ require('jetpack.packer').add({
   'oppara/cloudformation-syntax.vim',
   {
     'stevearc/quicker.nvim',
+    cond = function()
+      return vim.g.vscode == nil
+    end,
     config = function()
       require('plugins.quicker')
     end,

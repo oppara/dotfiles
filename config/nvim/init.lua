@@ -38,4 +38,7 @@ require('mappings')
 require('commands')
 require('autocmds')
 require('filetypes')
-require('lsp')
+
+if vim.g.vscode == nil then
+  require('lsp')
+end
