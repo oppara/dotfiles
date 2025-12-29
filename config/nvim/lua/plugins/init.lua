@@ -60,8 +60,9 @@ require('jetpack.packer').add({
   {
     'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate',
+    branch = 'master',
     config = function()
-      require('plugins.nvim-treesitter')
+       require('plugins.nvim-treesitter')
     end,
   },
 
