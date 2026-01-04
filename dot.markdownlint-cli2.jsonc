@@ -2,37 +2,28 @@
 // markdownlint-cli2 --config /path/to/.markdownlint-cli2.jsonc "**/*.md"
 {
   "config": {
-    // 個別の設定
+    // 個別ルール設定
     "MD009": {
       "br_spaces": 2, // 改行のための末尾スペース数
-      "list_item_empty_lines": true, // リスト内空行の末尾スペースを許可
-      "strict": false // 改行用スペースは許可する
+      "list_item_empty_lines": true,
+      "strict": false
     },
     "MD012": {
-      "maximum": 2 // 2つまでの連続空行を許可
+      "maximum": 2 // 連続空行は2つまで
     },
-    "MD013": false, // 行の長さ制限を無効
-    "MD025": false, // 複数のH1を許可
-    "MD033": false, // HTMLタグを許可
-    "MD034": false, // 素のURLの記述を許可
-    // MD013  行の長さ
-    "line-length": false,
-    // MD010 Markdown中にTSVを書くとエラーになるため
-    "no-hard-tabs": false,
-    // MD026 ヘディングに句読点（.,;:!?）を許容したい
-    "no-trailing-punctuation": false,
-    // MD033 HTMLは許容
-    "no-inline-html": false,
-    // MD034 URLのリンク化条件
-    "no-bare-urls": false,
-    // MD037  $$など数式で問題になったため外す
-    "no-space-in-emphasis": false,
-    // MD051 相対パス設定
-    "link-fragments": false
+    // 無効化ルール
+    "MD010": false, // タブ文字を許可（TSV等）
+    "MD013": false, // 行長制限なし
+    "MD025": false, // 複数H1を許可
+    "MD026": false, // 見出しの句読点を許可
+    "MD033": false, // HTMLを許可
+    "MD034": false, // 素のURLを許可
+    "MD037": false, // 強調記法内のスペースを許可
+    "MD051": false // リンクのフラグメント検証を無効
   },
-  // .gitignoreによって参照されるファイルを無視する
+  // .gitignore を尊重
   "gitignore": true,
-  // 除外するファイル/ディレクトリ
+  // 除外パス
   "ignores": [
     "node_modules/**",
     "dist/**"
