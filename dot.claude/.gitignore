@@ -2,3 +2,6 @@ history.jsonl
 projects
 statsig
 todos
+stats-cache.json
+cache
+debug
