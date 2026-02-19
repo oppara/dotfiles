@@ -20,7 +20,14 @@ cmp.setup({
     { name = 'copilot' },
     { name = 'nvim_lsp' },
     { name = 'snippy' },
-    { name = 'buffer' },
+    {
+      name = 'buffer',
+      option = {
+        get_bufnrs = function()
+          return vim.api.nvim_list_bufs()
+        end,
+      },
+    },
     { name = 'path' },
     { name = 'cmdline' },
     { name = 'html-css' },
