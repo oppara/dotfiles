@@ -320,17 +320,17 @@ require('jetpack.packer').add({
     config = function()
       require('Comment').setup({
         toggler = {
-          line = '<leader>cc',
-          block = '<leader>bc',
+          line = 'gcc',
+          block = 'gbb',
         },
         opleader = {
-          line = '<leader>cc',
-          block = '<leader>bc',
+          line = 'gc',
+          block = 'gb',
         },
         extra = {
-          above = '<leader>cO',
-          below = '<leader>co',
-          eol = '<leader>cA',
+          above = 'gcO',
+          below = 'gco',
+          eol = 'gcA',
         },
       })
     end,
