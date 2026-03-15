@@ -89,6 +89,16 @@
 
 ## Development Philosophy
 
+### Code Intelligence
+
+- コードナビゲーションには Grep や Read よりも LSP を優先する
+  - `workspaceSymbol` — 定義箇所を探す
+  - `findReferences` — コードベース全体での使用箇所を確認する
+  - `goToDefinition` / `goToImplementation` — ソースへジャンプする
+  - `hover` — ファイルを開かずに型情報を確認する
+- LSP が使えない場合や、テキスト・パターン検索にのみ Grep を使う。
+- コードを書いたり編集したりした後は、LSP の診断結果を確認し、エラーを修正してから次に進む
+
 ### Before Implementation
 
 - 新しい機能を実装する前に、以下を必ず確認する：
