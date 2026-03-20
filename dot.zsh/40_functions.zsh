@@ -125,4 +125,33 @@ function ghq-fzf() {
 }
 zle -N ghq-fzf
 bindkey '^]' ghq-fzf
+
+## smm #{{{1
+function ssm() {
+  local profile selected instance_id
+
+  # 引数があればそれ、なければfzfで選択
+  if [ -n "$1" ]; then
+    profile="$1"
+  else
+    profile=$(aws configure list-profiles | fzf --prompt="profile > ")
+  fi
+
+  [ -z "$profile" ] && return
+
+  selected=$(aws ec2 describe-instances \
+    --profile "$profile" \
+    --filters "Name=instance-state-name,Values=running" \
+    --query "Reservations[].Instances[].{id:InstanceId,name:Tags[?Key=='Name']|[0].Value,ip:PrivateIpAddress}" \
+    --output text \
+    | awk '{printf "%-20s %-30s %s\n", $1, $2, $3}' \
+    | fzf --prompt="instance > ")
+
+  [ -z "$selected" ] && return
+
+  instance_id=$(echo "$selected" | awk '{print $1}')
+
+  aws ssm start-session --target "$instance_id" --profile "$profile"
+}
+
 # vim: ft=sh fdm=marker
