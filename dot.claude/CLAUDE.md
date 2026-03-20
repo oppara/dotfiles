@@ -87,6 +87,14 @@
 - GitHub のリソース（リポジトリ、Issue、PR、コード等）を操作する際は、`gh` コマンド（GitHub CLI）を使用する
 - WebFetch や WebSearch ではなく、`gh` コマンドを優先する
 
+## Git Commit Messages
+
+- コミットメッセージは `dot.gitmessage` のフォーマットに従う
+- 基本形式: `<type>[(optional scope)]: <description>`
+- スコープは適切なものを使用する（例: zsh, bash, config）
+- 本文には変更の詳細を箇条書きで記載する
+- 参考: https://www.conventionalcommits.org/ja/v1.0.0/
+
 ## Development Philosophy
 
 ### Code Intelligence
