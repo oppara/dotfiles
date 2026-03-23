@@ -126,7 +126,7 @@ function ghq-fzf() {
 zle -N ghq-fzf
 bindkey '^]' ghq-fzf
 
-## smm #{{{1
+## ssm #{{{1
 function ssm() {
   local profile selected instance_id
 
