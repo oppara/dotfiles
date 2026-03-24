@@ -30,7 +30,7 @@
       "Bash(unlink:*)",
       "Bash(shred:*)",
       "Bash(find:* -delete*)",
-      "Bash(rsync:* --delete*)",
+      "Bash(rsync:*)",
       "Bash(git push:*)",
       "Bash(git commit:*)",
       "Bash(git reset:*)",
