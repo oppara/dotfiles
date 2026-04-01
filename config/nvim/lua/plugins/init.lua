@@ -7,6 +7,21 @@ if vim.fn.filereadable(jetpackfile) == 0 then
   vim.fn.system(string.format('curl -fsSLo %s --create-dirs %s', jetpackfile, jetpackurl))
 end
 
+-- Workaround for Neovim 0.12+: vim.list/vim.dict are tables, not nil.
+-- https://github.com/tani/vim-jetpack/issues/141
+local content = table.concat(vim.fn.readfile(jetpackfile), '\n')
+if content:find('local list = vim%.list or') then
+  content = content:gsub(
+    'local dict = vim%.dict or function%(x%) return x end',
+    "local dict = (type(vim.dict) == 'function' and vim.dict) or function(x) return x end"
+  )
+  content = content:gsub(
+    'local list = vim%.list or function%(x%) return x end',
+    "local list = (type(vim.list) == 'function' and vim.list) or function(x) return x end"
+  )
+  vim.fn.writefile(vim.split(content, '\n'), jetpackfile)
+end
+
 vim.cmd('packadd vim-jetpack')
 require('jetpack.packer').add({
   {
