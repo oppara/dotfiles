@@ -1,33 +1,19 @@
--- https://github.com/tani/vim-jetpack
--- https://zenn.dev/dog/articles/jetpack_intro
+-- https://github.com/folke/lazy.nvim
 
-local jetpackfile = vim.fn.stdpath('data') .. '/site/pack/jetpack/opt/vim-jetpack/plugin/jetpack.vim'
-local jetpackurl = 'https://raw.githubusercontent.com/tani/vim-jetpack/master/plugin/jetpack.vim'
-if vim.fn.filereadable(jetpackfile) == 0 then
-  vim.fn.system(string.format('curl -fsSLo %s --create-dirs %s', jetpackfile, jetpackurl))
+local lazypath = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
+if not vim.uv.fs_stat(lazypath) then
+  vim.fn.system({
+    'git',
+    'clone',
+    '--filter=blob:none',
+    'https://github.com/folke/lazy.nvim.git',
+    '--branch=stable',
+    lazypath,
+  })
 end
+vim.opt.rtp:prepend(lazypath)
 
--- Workaround for Neovim 0.12+: vim.list/vim.dict are tables, not nil.
--- https://github.com/tani/vim-jetpack/issues/141
-local content = table.concat(vim.fn.readfile(jetpackfile), '\n')
-if content:find('local list = vim%.list or') then
-  content = content:gsub(
-    'local dict = vim%.dict or function%(x%) return x end',
-    "local dict = (type(vim.dict) == 'function' and vim.dict) or function(x) return x end"
-  )
-  content = content:gsub(
-    'local list = vim%.list or function%(x%) return x end',
-    "local list = (type(vim.list) == 'function' and vim.list) or function(x) return x end"
-  )
-  vim.fn.writefile(vim.split(content, '\n'), jetpackfile)
-end
-
-vim.cmd('packadd vim-jetpack')
-require('jetpack.packer').add({
-  {
-    'tani/vim-jetpack',
-    opt = 1,
-  }, -- bootstrap
+require('lazy').setup({
 
   'vim-jp/vimdoc-ja',
 
@@ -61,7 +47,7 @@ require('jetpack.packer').add({
     cond = function()
       return vim.g.vscode == nil
     end,
-    requires = 'rktjmp/lush.nvim',
+    dependencies = { 'rktjmp/lush.nvim' },
   },
 
   {
@@ -69,7 +55,7 @@ require('jetpack.packer').add({
     cond = function()
       return vim.g.vscode == nil
     end,
-    opt = 1,
+    lazy = true,
   },
   {
     'nvim-lualine/lualine.nvim',
@@ -95,7 +81,7 @@ require('jetpack.packer').add({
     cond = function()
       return vim.g.vscode == nil
     end,
-    run = ':TSUpdate',
+    build = ':TSUpdate',
     branch = 'master',
     config = function()
       require('plugins.nvim-treesitter')
@@ -116,7 +102,7 @@ require('jetpack.packer').add({
     cond = function()
       return vim.g.vscode == nil
     end,
-    run = './install',
+    build = './install',
   },
 
   {
@@ -125,7 +111,7 @@ require('jetpack.packer').add({
       return vim.g.vscode == nil
     end,
     tag = '0.1.8',
-    requires = {
+    dependencies = {
       'nvim-lua/plenary.nvim',
     },
     config = function()
@@ -137,7 +123,7 @@ require('jetpack.packer').add({
     cond = function()
       return vim.g.vscode == nil
     end,
-    requires = {
+    dependencies = {
       'nvim-telescope/telescope.nvim',
     },
     config = function()
@@ -207,7 +193,7 @@ require('jetpack.packer').add({
     cond = function()
       return vim.g.vscode == nil
     end,
-    requires = {
+    dependencies = {
       'dcampos/nvim-snippy',
       'dcampos/cmp-snippy',
       'hrsh7th/cmp-nvim-lsp',
@@ -224,7 +210,7 @@ require('jetpack.packer').add({
     cond = function()
       return vim.g.vscode == nil
     end,
-    after = { 'copilot.lua', 'nvim-cmp' },
+    dependencies = { 'zbirenbaum/copilot.lua', 'hrsh7th/nvim-cmp' },
     config = function()
       require('copilot_cmp').setup({
         event = { 'InsertEnter', 'LspAttach' },
@@ -234,11 +220,11 @@ require('jetpack.packer').add({
   },
   -- {
   --   "CopilotC-Nvim/CopilotChat.nvim",
-  --   requires = {
+  --   dependencies = {
   --      "zbirenbaum/copilot.lua",
   --      "nvim-lua/plenary.nvim",
   --   },
-  --   run = "make tiktoken",
+  --   build = "make tiktoken",
   --   config = function()
   --     require('plugins.copilot-chat')
   --   end
@@ -253,7 +239,7 @@ require('jetpack.packer').add({
 
   {
     'gregorias/coerce.nvim',
-    requires = {
+    dependencies = {
       'gregorias/coop.nvim',
     },
     config = function()
@@ -285,7 +271,7 @@ require('jetpack.packer').add({
     cond = function()
       return vim.g.vscode == nil
     end,
-    requires = {
+    dependencies = {
       'nvim-lua/plenary.nvim',
     },
   },
@@ -354,7 +340,7 @@ require('jetpack.packer').add({
   {
     'mattn/emmet-vim',
     ft = { 'html', 'xhtml', 'xml', 'css', 'less', 'sass', 'scss', 'slim', 'haml', 'jade', 'php' },
-    setup = function()
+    init = function()
       require('plugins.emmet')
     end,
   },
@@ -416,7 +402,7 @@ require('jetpack.packer').add({
       return vim.g.vscode == nil
     end,
     ft = { 'markdown', 'plantuml' },
-    run = function()
+    build = function()
       vim.fn['mkdp#util#install']()
     end,
     config = function()
@@ -461,7 +447,7 @@ require('jetpack.packer').add({
     config = function()
       require('plugins.pdv')
     end,
-    requires = 'tobyS/vmustache',
+    dependencies = { 'tobyS/vmustache' },
   },
 
   'jsborjesson/vim-uppercase-sql',
@@ -484,32 +470,3 @@ require('jetpack.packer').add({
     end,
   },
 })
-
---[[
-
-  "Plug 'Shougo/context_filetype.vim'
-
-  "Plug 'LeafCage/yankround.vim'
-  Plug 'thinca/vim-localrc'
-  "Plug 'thinca/vim-qfreplace'
-  "Plug 'fuenor/qfixgrep'
-  "Plug 'anyakichi/vim-qfutil'
-
-  Plug 'vim-scripts/sudo.vim'
-
-  Plug 'Valloric/MatchTagAlways'
-
-  "Plug 'kana/vim-textobj-user'
-  "Plug 'kana/vim-textobj-jabraces', {'on': ['TextobjJabracesDefaultKeyMappings']}
-  "Plug 'kana/vim-textobj-fold', {'on': ['TextobjFoldDefaultKeyMappings']}
-  "Plug 'anyakichi/vim-textobj-ifdef', {'on': ['TextobjIfdefDefaultKeyMappings']}
-  "Plug 'akiyan/vim-textobj-php', {'for': ['php']}
-  "Plug 'bps/vim-textobj-python', {'for': ['python']}
-  "Plug 'rhysd/vim-textobj-ruby', {'for': ['ruby']}
-  "Plug 'akiyan/vim-textobj-xml-attribute', {'for': ['xml']}
-
-  Plug 'junegunn/vim-easy-align', {'on': ['EasyAlign']}
-
-  Plug 'hashivim/vim-terraform'
-
-]]
