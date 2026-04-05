@@ -311,15 +311,6 @@ require('lazy').setup({
       })
     end,
   },
-  {
-    'rhysd/git-messenger.vim',
-    cond = function()
-      return vim.g.vscode == nil
-    end,
-    config = function()
-      require('plugins.git-messenger')
-    end,
-  },
 
   {
     'numToStr/Comment.nvim',
