@@ -343,6 +343,7 @@ require('lazy').setup({
 
   {
     'mattn/vim-sonictemplate',
+    cmd = { 'Template' },
     config = function()
       vim.g.sonictemplate_vim_template_dir = '$HOME/.config/nvim/sonictemplate'
     end,
