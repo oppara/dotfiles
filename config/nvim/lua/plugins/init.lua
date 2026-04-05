@@ -206,7 +206,8 @@ require('lazy').setup({
     end,
   },
   {
-    'zbirenbaum/copilot-cmp',
+    'oppara/copilot-cmp',
+    branch = 'deprication_fix',
     cond = function()
       return vim.g.vscode == nil
     end,
