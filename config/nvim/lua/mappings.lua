@@ -2,9 +2,6 @@ local keymap = vim.api.nvim_set_keymap
 local bmap = vim.api.nvim_buf_set_keymap
 local opts = { noremap = true, silent = true }
 
-vim.g.mapleader = ','
-vim.g.maplocalleader = ','
-
 -- sudo で保存
 vim.cmd([[cabbr w!! w !sudo tee > /dev/null %]])
 

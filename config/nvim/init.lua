@@ -9,6 +9,9 @@ vim.g.oppara_email = 'oppara <oppara _at_ oppara.tv>'
 vim.g.snips_author = vim.g.oppara_email
 vim.g.changelog_username = 'oppara'
 
+vim.g.mapleader = ','
+vim.g.maplocalleader = ','
+
 -- matchparen をやめる
 vim.g.loaded_matchparen = 1
 
