@@ -351,6 +351,7 @@ require('lazy').setup({
 
   {
     'thinca/vim-quickrun',
+    keys = { { '<leader>r', '<plug>(quickrun)', mode = 'n' } },
     config = function()
       require('plugins.quickrun')
     end,
