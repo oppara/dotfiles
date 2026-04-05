@@ -367,6 +367,7 @@ require('lazy').setup({
 
   {
     'enoatu/nvim-smartchr',
+    event = 'InsertEnter',
     config = function()
       require('plugins.smartchr')
     end,
@@ -374,9 +375,11 @@ require('lazy').setup({
 
   {
     'tpope/vim-endwise',
+    event = 'InsertEnter',
   },
   {
     'windwp/nvim-autopairs',
+    event = 'InsertEnter',
     config = function()
       require('nvim-autopairs').setup({})
     end,
