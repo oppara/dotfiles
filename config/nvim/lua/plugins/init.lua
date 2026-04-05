@@ -452,7 +452,6 @@ require('lazy').setup({
     ft = 'sql',
   },
 
-  'oppara/cloudformation-syntax.vim',
   {
     'stevearc/quicker.nvim',
     cond = function()
