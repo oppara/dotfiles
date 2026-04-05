@@ -448,6 +448,7 @@ require('lazy').setup({
 
   {
     'stevearc/quicker.nvim',
+    event = 'VeryLazy',
     cond = function()
       return vim.g.vscode == nil
     end,
