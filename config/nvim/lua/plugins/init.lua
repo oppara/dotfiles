@@ -216,6 +216,7 @@ require('lazy').setup({
 
   {
     'kylechui/nvim-surround',
+    event = 'VeryLazy',
     config = function()
       require('nvim-surround').setup({})
     end,
@@ -223,6 +224,7 @@ require('lazy').setup({
 
   {
     'gregorias/coerce.nvim',
+    event = 'VeryLazy',
     dependencies = {
       'gregorias/coop.nvim',
     },
@@ -298,6 +300,7 @@ require('lazy').setup({
 
   {
     'numToStr/Comment.nvim',
+    event = 'VeryLazy',
     config = function()
       require('Comment').setup({
         toggler = {
