@@ -287,6 +287,7 @@ require('lazy').setup({
     cond = function()
       return vim.g.vscode == nil
     end,
+    cmd = { 'BlameToggle' },
     config = function()
       require('blame').setup({
         date_format = '%Y-%m-%d %H:%M',
