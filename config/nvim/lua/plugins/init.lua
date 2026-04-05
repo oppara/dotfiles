@@ -15,7 +15,7 @@ vim.opt.rtp:prepend(lazypath)
 
 require('lazy').setup({
 
-  'vim-jp/vimdoc-ja',
+  { 'vim-jp/vimdoc-ja', ft = 'help' },
 
   {
     'neanias/everforest-nvim',
