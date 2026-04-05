@@ -252,6 +252,7 @@ require('lazy').setup({
     cond = function()
       return vim.g.vscode == nil
     end,
+    keys = { { '<leader>e', desc = 'NvimTree focus or toggle' } },
     config = function()
       require('plugins.nvim-tree')
     end,
