@@ -89,23 +89,6 @@ require('lazy').setup({
   },
 
   {
-    'junegunn/fzf.vim',
-    cond = function()
-      return vim.g.vscode == nil
-    end,
-    config = function()
-      vim.api.nvim_set_keymap('n', 'ffh', ':History<CR>', { noremap = true, silent = true })
-    end,
-  },
-  {
-    'junegunn/fzf',
-    cond = function()
-      return vim.g.vscode == nil
-    end,
-    build = './install',
-  },
-
-  {
     'nvim-telescope/telescope.nvim',
     cond = function()
       return vim.g.vscode == nil
