@@ -432,6 +432,7 @@ require('lazy').setup({
 
   {
     'aklt/plantuml-syntax',
+    ft = { 'markdown', 'plantuml' },
     config = function()
       vim.g.plantuml_set_makeprg = 0
     end,
