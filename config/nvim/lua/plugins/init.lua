@@ -465,6 +465,7 @@ require('lazy').setup({
 
   {
     'Jezda1337/nvim-html-css',
+    ft = { 'html', 'css' },
     config = function()
       require('plugins.nvim-html-css')
     end,
