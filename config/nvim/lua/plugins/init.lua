@@ -447,7 +447,10 @@ require('lazy').setup({
     dependencies = { 'tobyS/vmustache' },
   },
 
-  'jsborjesson/vim-uppercase-sql',
+  {
+    'jsborjesson/vim-uppercase-sql',
+    ft = 'sql',
+  },
 
   'oppara/cloudformation-syntax.vim',
   {
