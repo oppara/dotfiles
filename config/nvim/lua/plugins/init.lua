@@ -253,6 +253,10 @@ require('lazy').setup({
     cond = function()
       return vim.g.vscode == nil
     end,
+    cmd = 'TagbarOpenAutoClose',
+    keys = {
+      { '<leader>tl', '<cmd>TagbarOpenAutoClose<cr>', silent = true, desc = 'Tagbar open auto close' },
+    },
     config = function()
       require('plugins.tagbar')
     end,
