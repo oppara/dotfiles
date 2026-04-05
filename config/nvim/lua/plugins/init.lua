@@ -358,6 +358,7 @@ require('lazy').setup({
 
   {
     'tyru/open-browser.vim',
+    keys = { { '<leader>w', '<plug>(openbrowser-smart-search)', mode = 'n' } },
     config = function()
       vim.api.nvim_set_keymap('n', '<leader>w', '<plug>(openbrowser-smart-search)', { noremap = false, silent = true })
     end,
