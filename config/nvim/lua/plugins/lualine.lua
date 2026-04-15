@@ -19,7 +19,7 @@ end
 
 require('lualine').setup({
   options = {
-    theme = 'everforest',
+    theme = 'onedark',
     icons_enabled = false,
   },
   sections = {
