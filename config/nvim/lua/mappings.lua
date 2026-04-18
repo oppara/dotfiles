@@ -126,33 +126,3 @@ vim.keymap.set('n', '<leader>vv', function()
   vim.cmd('source $MYVIMRC')
   print('Reloaded config')
 end, { desc = 'reload!!' })
-
--- use({"ckipp01/stylua-im"})"
--- buf_set_keymap("n", "<leader>f", [[<cmd>lua require("stylua-im").format_file()<cr>]], opts)")]])
-
---[[
-
-" complete
-" 補完表示時にenterを押しても改行せずに確定
--- https://github.com/willelz/im-lua-guide-ja/blob/master/README.ja.md#:~:text=%E3%81%99%E3%82%8BAPI%E9%96%A2%E6%95%B0-,im_replace_termcodes(),-%E3%81%8C%E3%81%82%E3%82%8A%E3%81%BE%E3%81%99
-inoremap <expr><cr>  pumvisible() ? "<c-y>" : "<cr>"
-" c-n, c-p で補完候補を挿入せず、選択だけ行う
-inoremap <expr><c-n> pumvisible() ? "<down>" : "<c-n>"
-inoremap <expr><c-p> pumvisible() ? "<up>" : "<c-p>"
-
-
-" 検索結果をquickfixに表示
-" http://subtech.g.hatena.ne.jp/secondlife/20070601/1180700503
-nnoremap  q/ :exec ':vimgrep /' . getreg('/') . '/j %\|cwin'<cr>
-" nnoremap <unique> q/ :exec ':vimgrep /' . getreg('/') . '/j %\|cwin'<cr>
-
-" expand path
-cnoremap <c-x> <c-r>=expand('%:p:h')<cr>/
-" expand file (not ext)
-cnoremap <c-z> <c-r>=expand('%:p:r')<cr>
-
-
-" 現在使用中のバッファの表示
-nnoremap bb :ls<cr>:buffer
-
---]]
