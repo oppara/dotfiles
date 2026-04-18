@@ -18,18 +18,6 @@ require('lazy').setup({
   { 'vim-jp/vimdoc-ja', ft = 'help' },
 
   {
-    'neanias/everforest-nvim',
-    cond = function()
-      return vim.g.vscode == nil
-    end,
-    config = function()
-      require('everforest').setup({
-        transparent_background_level = 2,
-      })
-      require('everforest').load()
-    end,
-  },
-  {
     'rebelot/kanagawa.nvim',
     cond = function()
       return vim.g.vscode == nil
@@ -37,9 +25,19 @@ require('lazy').setup({
     config = function()
       require('kanagawa').setup({
         transparent = true,
-        -- dimInactive = true,
+        dimInactive = true,
+        theme = 'dragon',
+        background = {
+          dark = 'dragon',
+          light = 'lotus',
+        },
+        overrides = function(colors)
+          return {
+            NormalNC = { bg = colors.palette.sumiInk3 },
+          }
+        end,
       })
-      -- require('kanagawa').load()
+      require('kanagawa').load()
     end,
   },
   {
