@@ -122,25 +122,10 @@ keymap('n', '<leader>ri', [[:%s/\s*$//g<cr>:noh<cr>'']], opts)
 
 -- vimrc
 keymap('n', '<leader>ev', ':sp $MYVIMRC<CR>', opts)
-keymap('n', '<leader>vv', '', {
-  noremap = true,
-  silent = true,
-  callback = function()
-    vim.cmd([[source $MYVIMRC]])
-  end,
-})
---[[
-if (!exists('*SourceConfig'))
-  function SourceConfig() abort
-    " Your path will probably be different
-    for f in split(glob('~/.config/nvim/autoload/*'), '\n')
-      exe 'source' f
-    endfor
-
-    source $MYVIMRC
-  endfunction
-endif
-]]
+vim.keymap.set('n', '<leader>vv', function()
+  vim.cmd('source $MYVIMRC')
+  print('Reloaded config')
+end, { desc = 'reload!!' })
 
 -- use({"ckipp01/stylua-im"})"
 -- buf_set_keymap("n", "<leader>f", [[<cmd>lua require("stylua-im").format_file()<cr>]], opts)")]])
