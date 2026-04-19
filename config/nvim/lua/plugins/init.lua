@@ -391,9 +391,10 @@ require('lazy').setup({
       return vim.g.vscode == nil
     end,
     ft = { 'markdown', 'plantuml' },
-    build = function()
-      vim.fn['mkdp#util#install']()
-    end,
+    build = 'cd app && npm install',
+    -- build = function()
+    --   vim.fn['mkdp#util#install']()
+    -- end,
     config = function()
       vim.g.mkdp_filetypes = { 'markdown', 'plantuml' }
       require('plugins.markdown-preview')
