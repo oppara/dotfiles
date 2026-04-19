@@ -1,7 +1,17 @@
 {
   "sandbox": {
     "enabled": true,
-    "allowUnsandboxedCommands": false,
+    "allowUnsandboxedCommands": true,
+    "filesystem": {
+      "denyRead": [
+        "~/.ssh",
+        "~/.gnupg",
+        "~/.aws",
+        "~/.bash_history",
+        "~/.zsh_history",
+        "~/.config/gcloud"
+      ]
+    },
     "network": {
       "allowedDomains": [
         "github.com",
@@ -31,19 +41,38 @@
       "Bash(shred:*)",
       "Bash(find * -delete*)",
       "Bash(find * -exec rm*)",
-      "Bash(rsync:*)",
       "Bash(git push:*)",
-      "Bash(git commit:*)",
       "Bash(git reset:*)",
+      "Bash(git push -f *)",
+      "Bash(git push --force *)",
+      "Bash(git reset --hard *)",
       "Bash(git rebase:*)",
+      "Bash(git checkout .)",
+      "Bash(git clean -f *)",
+      "Bash(git add .)",
+      "Bash(git add -A)",
       "Bash(curl:*)",
       "Bash(wget:*)",
       "Bash(nc:*)",
+      "Bash(ssh *)",
+      "Bash(scp *)",
+      "Bash(rsync:*)",
       "Bash(npm uninstall:*)",
       "Bash(npm remove:*)",
-      "Bash(psql:*)",
-      "Bash(mysql:*)",
+      "Bash(npm publish *)",
+      "Bash(yarn publish *)",
+      "Bash(pnpm publish *)",
+      "Bash(*deploy*)",
       "Bash(mongod:*)",
+      "Bash(chmod 777 *)",
+      "Bash(chmod -R *)",
+      "Bash(chown -R *)",
+      "Bash(killall *)",
+      "Bash(pkill *)",
+      "Bash(kill -9 *)",
+      "Bash(open *)",
+      "Bash(osascript *)",
+      "Bash(defaults write *)",
       "Read(.ssh/**)",
       "Edit(.ssh/**)",
       "Write(.ssh/**)",
@@ -61,13 +90,41 @@
       "Read(id_ed25519)",
       "Read(**/*token*)",
       "Read(**/*key*)",
+      "Read(**/*.pem)",
+      "Read(**/credentials*)",
       "Read(.git-credentials)",
       "Read(.config/gh/**)",
       "Edit(.zshrc)",
       "Write(.zshrc)",
       "Edit(.bashrc)",
       "Write(.bashrc)",
-      "mcp__supabase__execute_sql"
+      "mcp__supabase__execute_sql",
+      "Bash(terraform apply *)",
+      "Bash(terraform destroy *)",
+      "Bash(kubectl apply *)",
+      "Bash(kubectl delete *)",
+      "Bash(helm install *)",
+      "Bash(helm upgrade *)",
+      "Bash(docker push *)",
+      "Bash(aws * --no-cli-pager)",
+      "Bash(gcloud * --quiet)"
+    ],
+    "ask": [
+      "Bash(psql *)",
+      "Bash(mysql *)"
+    ]
+  },
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/block-sensitive-reads.sh"
+          }
+        ]
+      }
     ]
   }
 }
