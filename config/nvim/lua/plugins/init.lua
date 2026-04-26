@@ -74,17 +74,20 @@ require('lazy').setup({
     end,
   },
 
-  -- {
-  --   'nvim-treesitter/nvim-treesitter',
-  --   cond = function()
-  --     return vim.g.vscode == nil
-  --   end,
-  --   build = ':TSUpdate',
-  --   branch = 'master',
-  --   config = function()
-  --     require('plugins.nvim-treesitter')
-  --   end,
-  -- },
+  {
+    'nvim-treesitter/nvim-treesitter',
+    cond = function()
+      return vim.g.vscode == nil
+    end,
+    build = ':TSUpdate',
+    branch = 'master',
+    dependencies = {
+      'windwp/nvim-ts-autotag',
+    },
+    config = function()
+      require('plugins.nvim-treesitter')
+    end,
+  },
 
   {
     'nvim-telescope/telescope.nvim',
