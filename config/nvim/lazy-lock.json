@@ -11,7 +11,7 @@
   "conform.nvim": { "branch": "master", "commit": "086a40dc7ed8242c03be9f47fbcee68699cc2395" },
   "coop.nvim": { "branch": "main", "commit": "0236fb01b50c2510b7da606dd7d381828adecbe6" },
   "copilot-cmp": { "branch": "deprication_fix", "commit": "ac40995e83e7ad096223f9f20bb06d6c1b9b4041" },
-  "copilot.lua": { "branch": "master", "commit": "ad7e729e9a6348f7da482be0271d452dbc4c8e2c" },
+  "copilot.lua": { "branch": "master", "commit": "aeca454727486d488a6ecbcde30db72e741e3524" },
   "emmet-vim": { "branch": "master", "commit": "92ef2f74f4093edc99db5e9e4cf7e40116a85bd6" },
   "indent-blankline.nvim": { "branch": "master", "commit": "d28a3f70721c79e3c5f6693057ae929f3d9c0a03" },
   "kanagawa.nvim": { "branch": "master", "commit": "aef7f5cec0a40dbe7f3304214850c472e2264b10" },
@@ -50,7 +50,7 @@
   "vim-quickrun": { "branch": "master", "commit": "77b4d6ea9972a206f02c736882c2398c36d2983c" },
   "vim-sonictemplate": { "branch": "master", "commit": "050450414ca69885df7c26936821d74678ff4904" },
   "vim-uppercase-sql": { "branch": "master", "commit": "58bfde1d679a1387dabfe292b38d51d84819b267" },
-  "vimdoc-ja": { "branch": "master", "commit": "28529b9da4a862428c0f595dbf15539722a9736b" },
+  "vimdoc-ja": { "branch": "master", "commit": "ee16ecb8f802287302ff0317e52e27c274c16194" },
   "vmustache": { "branch": "master", "commit": "d39f77bafef57ba7af304c74b3cfc91a83fd86e0" },
   "wombat.nvim": { "branch": "main", "commit": "5aa3bed97c6d0eb8c7860e350fd8c00bb701bc6a" }
 }
