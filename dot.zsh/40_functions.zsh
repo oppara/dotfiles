@@ -126,6 +126,25 @@ function ghq-fzf() {
 zle -N ghq-fzf
 bindkey '^]' ghq-fzf
 
+## gget #{{{1
+gget() {
+  if [[ -z $1 ]]; then
+    echo "usage: gget <repo>"
+    return 1
+  fi
+
+  local dir
+  dir=$(ghq list -p "$1" 2>/dev/null)
+
+  # まだ無ければ clone
+  if [[ -z $dir ]]; then
+    ghq get "$1" || return
+    dir=$(ghq list -p "$1") || return
+  fi
+
+  cd "$dir" || exit
+}
+
 ## ssm #{{{1
 function ssm() {
   local profile selected instance_id
