@@ -302,6 +302,27 @@ require('lazy').setup({
   },
 
   {
+    'christoomey/vim-tmux-navigator',
+    cond = function()
+      return vim.g.vscode == nil
+    end,
+    cmd = {
+      'TmuxNavigateLeft',
+      'TmuxNavigateDown',
+      'TmuxNavigateUp',
+      'TmuxNavigateRight',
+      'TmuxNavigatePrevious',
+      'TmuxNavigatorProcessList',
+    },
+    keys = {
+      { '<c-w>h', '<cmd>TmuxNavigateLeft<cr>' },
+      { '<c-w>j', '<cmd>TmuxNavigateDown<cr>' },
+      { '<c-w>k', '<cmd>TmuxNavigateUp<cr>' },
+      { '<c-w>l', '<cmd>TmuxNavigateRight<cr>' },
+    },
+  },
+
+  {
     'numToStr/Comment.nvim',
     event = 'VeryLazy',
     config = function()
