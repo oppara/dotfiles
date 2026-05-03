@@ -41,15 +41,6 @@ keymap('i', '<C-d>', '<DEL>', opts)
 keymap('c', '<C-a>', '<HOME>', opts)
 keymap('c', '<C-e>', '<END>', opts)
 
--- ウィンドウ移動と操作
-keymap('n', 'sj', '<C-w>j', opts)
-keymap('n', 'sk', '<C-w>k', opts)
-keymap('n', 'sl', '<C-w>l', opts)
-keymap('n', 'sh', '<C-w>h', opts)
-keymap('n', 'ss', ':<C-u>sp<CR><C-w>j', opts)
-keymap('n', 'sv', ':<C-u>vs<CR><C-w>l', opts)
-keymap('n', 'sq', ':<C-u>q<CR>', opts)
-
 -- list, number,  paste のトグル
 keymap('n', 'tl', ':set list!<cr>', opts)
 keymap('n', 'tm', ':set number!<cr>', opts)
