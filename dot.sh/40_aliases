@@ -141,4 +141,7 @@ command -v terraform > /dev/null && alias tf="terraform"
 ## https://github.com/yusukebe/gh-markdown-preview
 alias mp="gh markdown-preview"
 
+## tmux
+command -v tmux-session-open > /dev/null && alias tso="tmux-session-open"
+
 # vim: ft=zsh fdm=marker
