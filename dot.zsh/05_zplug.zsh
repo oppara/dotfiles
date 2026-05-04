@@ -19,6 +19,7 @@ bindkey "^s^s" anyframe-widget-insert-ssh-host
 bindkey "^g^g" anyframe-widget-insert-git-branch
 alias gco=anyframe-widget-checkout-git-branch
 
+zplug "yuki-ycino/tmk"
 
 if ! zplug check --verbose; then
     printf "Install? [y/N]: "
