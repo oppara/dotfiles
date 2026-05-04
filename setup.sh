@@ -36,11 +36,15 @@ for src in "${CURRENT}"/dot.*; do
   create_symbolic_link "$src" "$target"
 done
 
-for dir in "${CURRENT}"/config/* ; do
+for dir in "${CURRENT}"/config/*; do
   src="${dir}"
   target="${HOME}/.config/${dir##*/}"
 
   create_symbolic_link "$src" "$target"
+done
+
+for f in "${CURRENT}"/dot.local/bin/*; do
+  create_symbolic_link "$f" "${HOME}/.local/bin/$(basename "$f")"
 done
 
 if [ ! -e "${HOME}/.ssh/conf.d" ]; then
