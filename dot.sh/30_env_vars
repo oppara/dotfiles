@@ -10,6 +10,8 @@ unset wcwidth
 export BLOCKSIZE=k
 export TZ=JST-9
 
+export XDG_CONFIG_HOME="${HOME}/.config"
+
 export HISTSIZE=100000
 export SAVEHIST=${HISTSIZE}
 export HISTFILESIZE=${HISTSIZE}
