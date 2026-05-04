@@ -80,7 +80,7 @@ require('lazy').setup({
       return vim.g.vscode == nil
     end,
     build = ':TSUpdate',
-    branch = 'master',
+    branch = 'main',
     dependencies = {
       'windwp/nvim-ts-autotag',
     },
