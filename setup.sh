@@ -24,6 +24,8 @@ for src in "${CURRENT}"/dot.*; do
   file="${src##*/}"
   target="${HOME}/${file#dot}"
 
+  if echo "$file" | grep -q 'config$'; then continue; fi
+
   # osx用の設定
   if echo "$file" | grep 'mac\.' >/dev/null; then
     if [ "${OSTYPE%%[^a-z]*}" != 'darwin' ]; then
@@ -36,7 +38,7 @@ for src in "${CURRENT}"/dot.*; do
   create_symbolic_link "$src" "$target"
 done
 
-for dir in "${CURRENT}"/config/*; do
+for dir in "${CURRENT}"/dot.config/*; do
   src="${dir}"
   target="${HOME}/.config/${dir##*/}"
 
