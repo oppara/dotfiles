@@ -91,10 +91,14 @@ fi
 function update_vcs_info_msg() {
     local -a messages
     local color
+    local prompt_head
 
     LANG=en_US.UTF-8 vcs_info
+    prompt_head="%F{yellow}%~%f"
 
     if [[ -z ${vcs_info_msg_0_} ]]; then
+      PROMPT="${prompt_head}
+%# "
       RPROMPT=""
       return 0
     fi
@@ -115,7 +119,9 @@ function update_vcs_info_msg() {
     [[ -n "$vcs_info_msg_2_" ]] && messages+=( "%F{yellow}${vcs_info_msg_2_}%f" )
     [[ -n "$vcs_info_msg_3_" ]] && messages+=( "%F{red}${vcs_info_msg_3_}%f" )
 
-    RPROMPT="${(j: :)messages}"
+    PROMPT="${prompt_head} %F{white}>%f ${(j: :)messages}
+%# "
+    RPROMPT=""
 }
 add-zsh-hook precmd update_vcs_info_msg
 zle -N update_vcs_info_msg
