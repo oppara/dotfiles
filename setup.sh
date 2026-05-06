@@ -24,7 +24,7 @@ for src in "${CURRENT}"/dot.*; do
   file="${src##*/}"
   target="${HOME}/${file#dot}"
 
-  if echo "$file" | grep -q 'config$'; then continue; fi
+  if echo "$file" | grep -Eq '(config|local)$'; then continue; fi
 
   # osx用の設定
   if echo "$file" | grep 'mac\.' >/dev/null; then
