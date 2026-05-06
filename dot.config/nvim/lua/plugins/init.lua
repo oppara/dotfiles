@@ -94,7 +94,6 @@ require('lazy').setup({
     cond = function()
       return vim.g.vscode == nil
     end,
-    tag = '0.1.8',
     dependencies = {
       'nvim-lua/plenary.nvim',
     },
