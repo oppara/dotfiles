@@ -51,7 +51,7 @@
   "vim-sonictemplate": { "branch": "master", "commit": "050450414ca69885df7c26936821d74678ff4904" },
   "vim-tmux-navigator": { "branch": "master", "commit": "e41c431a0c7b7388ae7ba341f01a0d217eb3a432" },
   "vim-uppercase-sql": { "branch": "master", "commit": "58bfde1d679a1387dabfe292b38d51d84819b267" },
-  "vimdoc-ja": { "branch": "master", "commit": "9aeb23a40a2208190cc184d2b51e30db36f8501a" },
+  "vimdoc-ja": { "branch": "master", "commit": "ee16ecb8f802287302ff0317e52e27c274c16194" },
   "vmustache": { "branch": "master", "commit": "d39f77bafef57ba7af304c74b3cfc91a83fd86e0" },
   "wombat.nvim": { "branch": "main", "commit": "5aa3bed97c6d0eb8c7860e350fd8c00bb701bc6a" }
 }
