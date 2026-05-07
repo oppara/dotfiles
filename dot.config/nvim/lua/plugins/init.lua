@@ -325,7 +325,15 @@ require('lazy').setup({
     'numToStr/Comment.nvim',
     event = 'VeryLazy',
     config = function()
+      local comment_ft = require('Comment.ft')
+
       require('Comment').setup({
+        pre_hook = function(ctx)
+          local ok, parser = pcall(vim.treesitter.get_parser, vim.api.nvim_get_current_buf())
+          if not ok or parser == nil then
+            return comment_ft.get(vim.bo.filetype, ctx.ctype) or vim.bo.commentstring
+          end
+        end,
         toggler = {
           line = 'gcc',
           block = 'gbb',
