@@ -173,4 +173,70 @@ function ssm() {
   aws ssm start-session --target "$instance_id" --profile "$profile"
 }
 
+## _tmuxpopup #{{{1
+# https://blog.monochromegane.com/blog/2026/01/11/popup/
+autoload -Uz _tmuxpopup
+autoload -Uz _tmuxpopup-claude
+autoload -Uz _tmuxpopup-copilot
+
+function _tmuxpopup() {
+  local initial_cmd="${1:-}"
+  local title="${2:-}"
+
+  local width='80%'
+  local height='80%'
+
+  local session
+  session="$(tmux display-message -p -F '#{session_name}' 2>/dev/null)" || return 1
+
+  local pane_path
+  pane_path="$(tmux display-message -p -F '#{pane_current_path}')" || return 1
+
+  local home_src="${HOME}/src"
+  local key=""
+
+  if [[ $pane_path == ${home_src}/*/*/*(|/*) ]]; then
+    local rest="${pane_path#${home_src}/}"
+    local parts=(${(s:/:)rest})
+    local org="${parts[2]}"
+    local repo="${parts[3]}"
+    repo="${repo%-wt}"
+    key="${org}/${repo}"
+  else
+    key="${pane_path:t}"
+  fi
+
+  local safe_key="${key//\//_}"
+  safe_key="${safe_key//[^A-Za-z0-9_.-]/_}"
+
+  local popup_session="popup_${title}_${safe_key}"
+
+  if [[ $session == popup_* ]]; then
+    tmux detach-client
+    return 0
+  fi
+
+  local exec_cmd
+  if [[ -n $initial_cmd ]]; then
+    exec_cmd="tmux attach -t ${popup_session} || tmux new -s ${popup_session} '${initial_cmd}'"
+  else
+    exec_cmd="tmux attach -t ${popup_session} || tmux new -s ${popup_session}"
+  fi
+
+  tmux display-popup \
+    -d "#{pane_current_path}" \
+    -xC -yC \
+    -w "$width" -h "$height" \
+    -T "$title" \
+    -E "$exec_cmd"
+}
+
+function _tmuxpopup-claude() {
+  _tmuxpopup "claude" "claude"
+}
+
+function _tmuxpopup-copilot() {
+  _tmuxpopup "copilot" "copilot"
+}
+
 # vim: ft=sh fdm=marker
