@@ -1,28 +1,4 @@
 {
-  "sandbox": {
-    "enabled": true,
-    "allowUnsandboxedCommands": true,
-    "filesystem": {
-      "denyRead": [
-        "~/.ssh",
-        "~/.gnupg",
-        "~/.aws",
-        "~/.bash_history",
-        "~/.zsh_history",
-        "~/.config/gcloud"
-      ]
-    },
-    "network": {
-      "allowedDomains": [
-        "github.com",
-        "*.githubusercontent.com",
-        "*.npmjs.org",
-        "registry.yarnpkg.com",
-        "pypi.org",
-        "packagist.org"
-      ]
-    }
-  },
   "env": {
     "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1",
     "ENABLE_LSP_TOOL": "1"
@@ -126,5 +102,29 @@
         ]
       }
     ]
+  },
+  "sandbox": {
+    "enabled": true,
+    "allowUnsandboxedCommands": true,
+    "network": {
+      "allowedDomains": [
+        "github.com",
+        "*.githubusercontent.com",
+        "*.npmjs.org",
+        "registry.yarnpkg.com",
+        "pypi.org",
+        "packagist.org"
+      ]
+    },
+    "filesystem": {
+      "denyRead": [
+        "~/.ssh",
+        "~/.gnupg",
+        "~/.aws",
+        "~/.bash_history",
+        "~/.zsh_history",
+        "~/.config/gcloud"
+      ]
+    }
   }
 }
