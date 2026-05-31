@@ -6,3 +6,8 @@ stats-cache.json
 cache
 debug
 policy-limits.json
+
+.last-cleanup
+plans
+plugins
+tasks
