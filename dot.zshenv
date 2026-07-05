@@ -36,4 +36,8 @@ done
 unset file
 
 
+if command -v assume >/dev/null 2>&1; then
+    alias assume='. assume'
+fi
+
 # vim: ft=zsh
