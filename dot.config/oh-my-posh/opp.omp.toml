@@ -1,0 +1,64 @@
+# 
+# https://ohmyposh.dev/docs
+#
+# インストール
+# brew install jandedobbeleer/oh-my-posh/oh-my-pos
+# 
+# 設定 .zshenv
+# if command -v oh-my-posh &>/dev/null; then
+#   eval "$(oh-my-posh init zsh --config  $XDG_CONFIG_HOME/oh-my-posh/opp.omp.toml)"
+# fi
+#
+
+
+"$schema" = "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json"
+console_title_template = "{{ .UserName }}@{{ .HostName }}"
+terminal_background = ""
+version = 4
+
+[upgrade]
+source = "cdn"
+interval = "168h"
+auto = false
+notice = false
+
+
+[[blocks]]
+type = "prompt"
+alignment = "left"
+newline = true
+
+[[blocks.segments]]
+type = "path"
+style = "plain"
+template = "{{ .Path }} "
+foreground = "yellow"
+[blocks.segments.options]
+style = "full"
+
+[[blocks.segments]]
+type = "text"
+style = "plain"
+foreground = "white"
+template = "{{ cmd (printf \"%s/oh-my-posh/git-status.sh\" (env \"XDG_CONFIG_HOME\")) }}"
+
+[[blocks.segments]]
+type = "aws"
+style = "plain"
+foreground = "#FF9900"
+template = " ☁️  {{ .Profile }}"
+
+
+
+[[blocks]]
+type = "prompt"
+alignment = "left"
+newline = true
+
+[[blocks.segments]]
+type = "text"
+style = "plain"
+template = "% "
+foreground = "white"
+[blocks.segments.options]
+always_enabled = true
