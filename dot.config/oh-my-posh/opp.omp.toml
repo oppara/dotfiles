@@ -45,7 +45,7 @@ template = "{{ cmd (printf \"%s/oh-my-posh/git-status.sh\" (env \"XDG_CONFIG_HOM
 type = "aws"
 style = "plain"
 foreground = "#FF9900"
-template = " ☁️  {{ .Profile }}"
+template = "  ☁️ {{ .Profile }}"
 
 
 
