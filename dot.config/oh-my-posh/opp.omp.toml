@@ -57,7 +57,10 @@ newline = true
 [[blocks.segments]]
 type = "text"
 style = "plain"
-template = "% "
-foreground = "white"
+foreground = "#ffffff"
+template = "❯ "
+foreground_templates = [
+    "{{ if gt .Code 0 }}red{{ end }}",
+]
 [blocks.segments.options]
 always_enabled = true
