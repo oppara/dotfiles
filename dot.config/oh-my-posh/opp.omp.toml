@@ -2,7 +2,7 @@
 # https://ohmyposh.dev/docs
 #
 # インストール
-# brew install jandedobbeleer/oh-my-posh/oh-my-pos
+# brew install jandedobbeleer/oh-my-posh/oh-my-posh
 # 
 # 設定 .zshenv
 # if command -v oh-my-posh &>/dev/null; then
