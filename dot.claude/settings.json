@@ -126,5 +126,6 @@
         "~/.config/gcloud"
       ]
     }
-  }
+  },
+  "theme": "auto"
 }
