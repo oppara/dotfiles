@@ -1,0 +1,6 @@
+herdr-client.log
+[1m[35mherdr-client.sock[39;49m[0m
+herdr-server.log
+[1m[35mherdr.sock[39;49m[0m
+session.json
+.plugins.lock
