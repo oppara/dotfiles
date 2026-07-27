@@ -37,7 +37,15 @@ while IFS= read -r line; do
   fi
 done <<<"$status"
 
-printf "⣿ <%s>%s</>%s" \
+stash_count=$(git rev-list --walk-reflogs --count refs/stash 2>/dev/null)
+stash=""
+if [[ -n $stash_count && $stash_count -gt 0 ]]; then
+  head_color="cyan"
+  stash=" <cyan>+${stash_count}</>"
+fi
+
+printf "⣿ <%s>%s</>%s%s" \
   "$head_color" \
   "$branch" \
-  "${untracked:+ $untracked}"
+  "${untracked:+ $untracked}" \
+  "$stash"
