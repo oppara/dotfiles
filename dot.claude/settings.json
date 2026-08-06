@@ -99,7 +99,16 @@
     ]
   },
   "enabledPlugins": {
-    "frontend-design@claude-plugins-official": true
+    "frontend-design@claude-plugins-official": true,
+    "shiibar-cc@shiibar-cc": true
+  },
+  "extraKnownMarketplaces": {
+    "shiibar-cc": {
+      "source": {
+        "source": "github",
+        "repo": "oppara/shiibar-cc"
+      }
+    }
   },
   "sandbox": {
     "enabled": true,
