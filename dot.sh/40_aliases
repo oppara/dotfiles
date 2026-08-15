@@ -31,7 +31,7 @@ alias gs="git svn"
 alias gl="git ll|head -10 && echo"
 alias gd="git diff -b --no-index"
 alias or="git symbolic-ref --short HEAD | cut -d "_" -f 1 | xargs -I {} open https://redmine.e-2.jp/issues/{}"
-alias gt="git tag -a $(date '+%Y%m%d') -m $(date '+%Y%m%d')"
+alias gt='git tag -a $(date "+%Y%m%d") -m $(date "+%Y%m%d")'
 
 ## home brew
 alias b="brew"
@@ -52,7 +52,7 @@ docker() {
 }
 alias docker-psa="docker ps -a --format \"table {{.ID}}\t{{.Image}}\t{{.Names}}\t{{.Status}}\t{{.Ports}}\""
 alias docker-ims="docker images --format \"table {{.Size}}\t{{.ID}}\t{{.Repository}}:{{.Tag}}\" | sed -e '1d' | sort -h "
-alias docker-rme="docker rm `docker ps -aq -f status=exited`"
+alias docker-rme='docker rm $(docker ps -aq -f status=exited)'
 
 
 ## history
