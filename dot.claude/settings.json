@@ -4,7 +4,11 @@
     "ENABLE_LSP_TOOL": "1"
   },
   "permissions": {
-    "allow": [],
+    "allow": [
+      "Bash(curl * localhost*)",
+      "Bash(curl * 127.0.0.1*)",
+      "Bash(rm -f /tmp/claude-*)"
+    ],
     "deny": [
       "Bash(sudo:*)",
       "Bash(su:*)",
