@@ -104,13 +104,20 @@
   },
   "enabledPlugins": {
     "frontend-design@claude-plugins-official": true,
-    "shiibar-cc@shiibar-cc": true
+    "shiibar-cc@shiibar-cc": true,
+    "natural-japanese@natural-japanese": true
   },
   "extraKnownMarketplaces": {
     "shiibar-cc": {
       "source": {
         "source": "github",
         "repo": "oppara/shiibar-cc"
+      }
+    },
+    "natural-japanese": {
+      "source": {
+        "source": "github",
+        "repo": "coji/natural-japanese"
       }
     }
   },
