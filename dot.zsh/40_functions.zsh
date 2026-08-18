@@ -25,10 +25,17 @@ sudo() {
 unalias ssh 2>/dev/null
 function ssh() {
   if [[ -n $(printenv TMUX) ]]; then
-    tmux rename-window -- "$@[-1]" # zsh specified
-    # tmux rename-window -- "${!#}" # for bash
-    env TERM=xterm-256color command ssh $@
-    tmux set-window-option automatic-rename on
+    # window idを固定しておく。接続中に他のwindowへ移動されても
+    # rename-window / automatic-rename が誤ったwindowに適用されるのを防ぐ
+    local win=$(tmux display-message -p '#{window_id}')
+    {
+      tmux rename-window -t "$win" -- "$@[-1]" # zsh specified
+      # tmux rename-window -- "${!#}" # for bash
+      env TERM=xterm-256color command ssh $@
+    } always {
+      # Ctrl-Cでの中断や異常終了でもここは必ず実行される
+      tmux set-window-option -t "$win" automatic-rename on
+    }
   else
     env TERM=xterm-256color command ssh $@
   fi
