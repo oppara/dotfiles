@@ -34,7 +34,10 @@ description: ステージ済みの変更を分析し、Conventional Commits形�
    - type は `dot.gitmessage` の定義に従う: `build` `chore` `ci` `config` `deps` `docs` `feat` `fix` `mv` `perf` `prune` `refactor` `release` `revert` `security` `style` `test` `typo`
    - 本文には変更点を箇条書きで記載する
    - 参考: https://www.conventionalcommits.org/ja/v1.0.0/
-5. `git commit -m "message"` を実行する
+5. 作成したコミットメッセージをユーザーに提示し、AskUserQuestionで確認する: 「このメッセージでコミットしますか？」（選択肢: このままコミットする / AIに修正を依頼する）
+   - 「AIに修正を依頼する」が選ばれた場合は、修正内容をヒアリングして反映し、再度確認する
+   - ユーザーが選択肢の「その他」からコミットメッセージ本文を直接入力した場合は、その内容をそのまま採用する（ユーザー自身での修正）
+6. 確認が取れたメッセージで `git commit -m "message"` を実行する
 
 ## 制約
 
