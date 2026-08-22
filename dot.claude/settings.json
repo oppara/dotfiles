@@ -145,5 +145,6 @@
       ]
     }
   },
+  "tui": "fullscreen",
   "theme": "auto"
 }
