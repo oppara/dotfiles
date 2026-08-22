@@ -3,3 +3,6 @@
 # usage:
 #     $ pict test.txt| pict-format
 alias pict-format="column -s$'\t' -t | tee >(sed -n '1,1p') | sed '1,1d' | sort"
+
+# git-commit スキルを実行する
+alias aic='claude "/git-commit"'
