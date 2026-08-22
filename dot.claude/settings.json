@@ -87,7 +87,8 @@
       "Bash(rm -r:*)",
       "Bash(curl:*)",
       "Bash(wget:*)"
-    ]
+    ],
+    "defaultMode": "plan"
   },
   "hooks": {
     "PreToolUse": [
