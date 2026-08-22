@@ -335,17 +335,17 @@ require('lazy').setup({
           end
         end,
         toggler = {
-          line = 'gcc',
-          block = 'gbb',
+          line = '<leader>cc',
+          block = '<leader>bb',
         },
         opleader = {
-          line = 'gc',
-          block = 'gb',
+          line = '<leader>c',
+          block = '<leader>gb',
         },
         extra = {
-          above = 'gcO',
-          below = 'gco',
-          eol = 'gcA',
+          above = '<leader>cO',
+          below = '<leader>co',
+          eol = '<leader>cA',
         },
       })
     end,
