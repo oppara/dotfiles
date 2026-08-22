@@ -101,6 +101,28 @@
           }
         ]
       }
+    ],
+    "Stop": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "agentoast hook claude"
+          }
+        ]
+      }
+    ],
+    "Notification": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "agentoast hook claude"
+          }
+        ]
+      }
     ]
   },
   "enabledPlugins": {
