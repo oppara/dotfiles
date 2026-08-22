@@ -193,6 +193,13 @@
         "space": "plugin:toggle",
         "i": "plugin:install"
       }
+    },
+    {
+      "context": "Scroll",
+      "bindings": {
+        "j": "scroll:lineDown",
+        "k": "scroll:lineUp"
+      }
     }
   ]
 }
