@@ -32,7 +32,9 @@ description: ステージ済みの変更を分析し、Conventional Commits形�
    - 形式: `<type>[(optional scope)]: <description>`
    - スコープは変更範囲が明確な場合のみ付ける（例: `fix(zsh): ...`, `feat(bash): ...`）。複数領域にまたがる、または明確なスコープが無い場合はスコープを省略する（例: `chore: ...`）
    - type は `dot.gitmessage` の定義に従う: `build` `chore` `ci` `config` `deps` `docs` `feat` `fix` `mv` `perf` `prune` `refactor` `release` `revert` `security` `style` `test` `typo`
-   - 本文には変更点を箇条書きで記載する
+   - `feat` と `fix` の使い分けに注意する: 新しい機能・挙動を追加する場合は `feat`、既存の機能・挙動の不具合や不足を直す場合は `fix`
+   - 1行目（`<type>[(optional scope)]: <description>`）は短い英文で書く
+   - 本文には変更点を日本語の箇条書きで記載する
    - 参考: https://www.conventionalcommits.org/ja/v1.0.0/
 5. 作成したコミットメッセージをユーザーに提示し、AskUserQuestionで確認する: 「このメッセージでコミットしますか？」（選択肢: このままコミットする / AIに修正を依頼する）
    - 「AIに修正を依頼する」が選ばれた場合は、修正内容をヒアリングして反映し、再度確認する
