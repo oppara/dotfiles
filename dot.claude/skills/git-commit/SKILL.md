@@ -33,7 +33,7 @@ description: ステージ済みの変更を分析し、Conventional Commits形�
    - スコープは変更範囲が明確な場合のみ付ける（例: `fix(zsh): ...`, `feat(bash): ...`）。複数領域にまたがる、または明確なスコープが無い場合はスコープを省略する（例: `chore: ...`）
    - type は `dot.gitmessage` の定義に従う: `build` `chore` `ci` `config` `deps` `docs` `feat` `fix` `mv` `perf` `prune` `refactor` `release` `revert` `security` `style` `test` `typo`
    - `feat` と `fix` の使い分けに注意する: 新しい機能・挙動を追加する場合は `feat`、既存の機能・挙動の不具合や不足を直す場合は `fix`
-   - 1行目（`<type>[(optional scope)]: <description>`）は短い英文で書く
+   - 1行目（`<type>[(optional scope)]: <description>`）は理由や背景を含めず、短い英文の動詞句で書く（例: `fix(claude): unbind ctrl+j to fix scroll conflict`。NG例: `unbind ctrl+j newline so scroll works while typing` のように理由まで詰め込む）。理由・背景は本文の箇条書きに書く
    - 本文には変更点を日本語の箇条書きで記載する
    - 自明なコメントは書かない（diffを見れば分かることの言い換えではなく、変更の意図や理由が伝わる記述にする）
    - 参考: https://www.conventionalcommits.org/ja/v1.0.0/
