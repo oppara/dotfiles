@@ -14,4 +14,5 @@ dot.claude/sessions/
 dot.claude/backups
 dot.claude/file-history
 dot.claude/shell-snapshots/
+dot.claude/paste-cache/
 settings.local.json
