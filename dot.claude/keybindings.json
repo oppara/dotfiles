@@ -15,7 +15,6 @@
     {
       "context": "Chat",
       "bindings": {
-        "ctrl+j": null,
         "escape": "chat:cancel",
         "ctrl+f": "chat:killAgents",
         "shift+tab": "chat:cycleMode",
@@ -198,8 +197,8 @@
     {
       "context": "Scroll",
       "bindings": {
-        "ctrl+j": "scroll:lineDown",
-        "ctrl+k": "scroll:lineUp"
+        "alt+j": "scroll:lineDown",
+        "alt+k": "scroll:lineUp"
       }
     }
   ]
