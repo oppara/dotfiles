@@ -246,4 +246,46 @@ function _tmuxpopup-copilot() {
   _tmuxpopup "copilot" "copilot"
 }
 
+
+## chathist #{{{1
+## https://github.com/shuntaka9576/chathist
+## https://dev.classmethod.jp/articles/shuntaka-claude-code-tmux-personal-tips/
+function chathist-widget() {
+  local selection=$(chathist list | fzf-tmux --multi \
+    --delimiter=$'\t' \
+    --with-nth=2.. \
+    --header 'ctrl-s: cross-worktree / ctrl-a: all repos / ctrl-d: current project' \
+    --preview 'chathist pick {1} --stdout' \
+    --preview-window 'right:45%:wrap' \
+    --bind 'ctrl-s:reload(chathist list -w)+change-preview(chathist pick -w {1} --stdout)+change-header(cross-worktree | ctrl-a: all repos | ctrl-d: current project)' \
+    --bind 'ctrl-a:reload(chathist list --all)+change-preview(chathist pick --all {1} --stdout)+change-header(all repos | ctrl-s: cross-worktree | ctrl-d: current project)' \
+    --bind 'ctrl-d:reload(chathist list)+change-preview(chathist pick {1} --stdout)+change-header(current project | ctrl-s: cross-worktree | ctrl-a: all repos)' \
+    | cut -f1)
+
+  [ -z "$selection" ] && { zle reset-prompt; return; }
+
+  local action=$(printf 'resume\nopen' | fzf-tmux --prompt="Action: ")
+  [ -z "$action" ] && { zle reset-prompt; return; }
+
+  case "$action" in
+    resume)
+      local session_id=$(echo "$selection" | head -1)
+      chathist insert --all "$session_id" 2>/dev/null
+      BUFFER="claude --resume $session_id"
+      zle accept-line
+      return
+      ;;
+    open)
+      local template=$(chathist pick --list-templates | fzf-tmux --prompt="Template: ")
+      [ -z "$template" ] && { zle reset-prompt; return; }
+      echo "$selection" | chathist pick -w -t "$template"
+      ;;
+  esac
+
+  zle reset-prompt
+}
+
+zle -N chathist-widget
+bindkey "^h" chathist-widget
+
 # vim: ft=sh fdm=marker
