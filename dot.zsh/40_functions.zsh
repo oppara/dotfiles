@@ -288,4 +288,16 @@ function chathist-widget() {
 zle -N chathist-widget
 bindkey "^h" chathist-widget
 
+
+## cc #{{{1
+# 引数なしなら claude  を実行、引数があれば cc を実行する
+cc() {
+  if [ $# -eq 0 ]; then
+    claude
+  else
+    command cc "$@"
+  fi
+}
+
+
 # vim: ft=sh fdm=marker
