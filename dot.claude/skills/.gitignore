@@ -1,0 +1,6 @@
+*
+!.gitignore
+!git-commit/
+!git-commit/*
+!cfn-resource-import/
+!cfn-resource-import/*
