@@ -41,6 +41,32 @@ function ssh() {
   fi
 }
 
+## git  #{{{1
+# protect tmux window name from hijack during `git push` via ssh
+# (git push calls ssh directly via execvp, bypassing the zsh ssh() wrapper)
+unalias git 2>/dev/null
+function git() {
+  if [[ "$1" == "push" && -n $(printenv TMUX) ]]; then
+    # window idを固定しておく。接続中に他のwindowへ移動されても
+    # rename-window / automatic-rename が誤ったwindowに適用されるのを防ぐ
+    local win=$(tmux display-message -p '#{window_id}')
+    local name=$(tmux display-message -t "$win" -p '#{b:pane_current_path}')
+    {
+      # push中はwindow名の自動更新を止め、エスケープシーケンス等による
+      # 乗っ取り(git push時のssh経由で "github.com" 等に書き換わる)を防ぐ
+      tmux set-window-option -t "$win" automatic-rename off
+      command git "$@"
+    } always {
+      # Ctrl-Cでの中断や異常終了でもここは必ず実行される
+      # 万一push中に書き換えられていても、ここで正しい名前に戻す
+      tmux rename-window -t "$win" -- "$name"
+      tmux set-window-option -t "$win" automatic-rename on
+    }
+  else
+    command git "$@"
+  fi
+}
+
 ## gitignore #{{{1
 # https://github.com/joeblau/gitignore.io
 function gi() { curl -L -s https://www.gitignore.io/api/$@; }
