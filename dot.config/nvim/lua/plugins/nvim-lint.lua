@@ -101,20 +101,25 @@ vim.api.nvim_create_user_command('ToggleLint', function()
   print('Lint on save: ' .. tostring(vim.g.lint_on_save))
 end, {})
 
-vim.api.nvim_create_autocmd({ 'BufWritePost' }, {
-  callback = function()
-    if vim.g.lint_on_save then
-      require('lint').try_lint()
-    end
-  end,
-})
-vim.api.nvim_create_autocmd({ 'InsertLeave' }, {
-  callback = function()
-    if vim.g.lint_on_save then
-      require('lint').try_lint()
-    end
-  end,
-})
+-- Claude Codeのプロンプト編集用一時ファイル(claude-prompt-xxxxxxxxxxxxx.md)
+local function is_claude_prompt(bufnr)
+  local name = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(bufnr), ':t')
+  return name:match('^claude%-prompt%-.*%.md$') ~= nil
+end
+
+local function do_lint()
+  if not vim.g.lint_on_save then
+    return
+  end
+  -- Claude Codeのプロンプトではlintを走らせない
+  if is_claude_prompt(0) then
+    return
+  end
+  require('lint').try_lint()
+end
+
+vim.api.nvim_create_autocmd({ 'BufWritePost' }, { callback = do_lint })
+vim.api.nvim_create_autocmd({ 'InsertLeave' }, { callback = do_lint })
 
 vim.api.nvim_create_autocmd('BufReadPost', {
   pattern = '.github/workflows/*.yml',

@@ -26,6 +26,7 @@
   // 除外パス
   "ignores": [
     "node_modules/**",
-    "dist/**"
+    "dist/**",
+    "claude-prompt-*.md" // Claude Codeのプロンプト編集用一時ファイル
   ]
 }
