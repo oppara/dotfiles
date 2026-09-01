@@ -1,175 +1,175 @@
 {
-  "env": {
-    "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1",
-    "ENABLE_LSP_TOOL": "1"
-  },
-  "permissions": {
-    "allow": [
-      "Bash(curl * localhost*)",
-      "Bash(curl * 127.0.0.1*)",
-      "Bash(rm -f /tmp/claude-*)"
-    ],
-    "deny": [
-      "Bash(sudo:*)",
-      "Bash(su:*)",
-      "Bash(rm -rf:*)",
-      "Bash(rm -fr:*)",
-      "Bash(rmdir:*)",
-      "Bash(unlink:*)",
-      "Bash(shred:*)",
-      "Bash(find * -delete*)",
-      "Bash(find * -exec rm*)",
-      "Bash(git push:*)",
-      "Bash(git reset:*)",
-      "Bash(git push -f *)",
-      "Bash(git push --force *)",
-      "Bash(git reset --hard *)",
-      "Bash(git rebase:*)",
-      "Bash(git checkout .)",
-      "Bash(git clean -f *)",
-      "Bash(git add .)",
-      "Bash(git add -A)",
-      "Bash(nc:*)",
-      "Bash(ssh *)",
-      "Bash(scp *)",
-      "Bash(rsync:*)",
-      "Bash(npm uninstall:*)",
-      "Bash(npm remove:*)",
-      "Bash(npm publish *)",
-      "Bash(yarn publish *)",
-      "Bash(pnpm publish *)",
-      "Bash(*deploy*)",
-      "Bash(mongod:*)",
-      "Bash(chmod 777 *)",
-      "Bash(chmod -R *)",
-      "Bash(chown -R *)",
-      "Bash(killall *)",
-      "Bash(pkill *)",
-      "Bash(kill -9 *)",
-      "Bash(open *)",
-      "Bash(osascript *)",
-      "Bash(defaults write *)",
-      "Read(.ssh/**)",
-      "Edit(.ssh/**)",
-      "Read(.env*)",
-      "Edit(.env*)",
-      "Read(**/.env*)",
-      "Edit(**/.env*)",
-      "Read(secrets/**)",
-      "Edit(secrets/**)",
-      "Read(**/secrets/**)",
-      "Edit(**/secrets/**)",
-      "Read(id_rsa)",
-      "Read(id_ed25519)",
-      "Read(**/*token*)",
-      "Read(**/*key*)",
-      "Read(**/*.pem)",
-      "Read(**/credentials*)",
-      "Read(.git-credentials)",
-      "Read(.config/gh/**)",
-      "Edit(.zshrc)",
-      "Edit(.bashrc)",
-      "mcp__supabase__execute_sql",
-      "Bash(terraform apply *)",
-      "Bash(terraform destroy *)",
-      "Bash(kubectl apply *)",
-      "Bash(kubectl delete *)",
-      "Bash(helm install *)",
-      "Bash(helm upgrade *)",
-      "Bash(docker push *)",
-      "Bash(aws * --no-cli-pager)",
-      "Bash(gcloud * --quiet)"
-    ],
-    "ask": [
-      "Bash(psql *)",
-      "Bash(mysql *)",
-      "Bash(rm:*)",
-      "Bash(rm -r:*)",
-      "Bash(curl:*)",
-      "Bash(wget:*)"
-    ],
-    "defaultMode": "acceptEdits"
-  },
-  "hooks": {
-    "PreToolUse": [
-      {
-        "matcher": "Bash",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "~/.claude/hooks/block-sensitive-reads.sh"
-          }
-        ]
-      }
-    ],
-    "Stop": [
-      {
-        "matcher": "",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "agentoast hook claude"
-          }
-        ]
-      }
-    ],
-    "Notification": [
-      {
-        "matcher": "",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "agentoast hook claude"
-          }
-        ]
-      }
-    ]
-  },
   "enabledPlugins": {
     "frontend-design@claude-plugins-official": true,
     "natural-japanese@natural-japanese": true
   },
+  "env": {
+    "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1",
+    "ENABLE_LSP_TOOL": "1"
+  },
   "extraKnownMarketplaces": {
-    "shiibar-cc": {
-      "source": {
-        "source": "github",
-        "repo": "oppara/shiibar-cc"
-      }
-    },
     "natural-japanese": {
       "source": {
-        "source": "github",
-        "repo": "coji/natural-japanese"
+        "repo": "coji/natural-japanese",
+        "source": "github"
+      }
+    },
+    "shiibar-cc": {
+      "source": {
+        "repo": "oppara/shiibar-cc",
+        "source": "github"
       }
     }
   },
+  "hooks": {
+    "Notification": [
+      {
+        "hooks": [
+          {
+            "command": "agentoast hook claude",
+            "type": "command"
+          }
+        ],
+        "matcher": ""
+      }
+    ],
+    "PreToolUse": [
+      {
+        "hooks": [
+          {
+            "command": "~/.claude/hooks/block-sensitive-reads.sh",
+            "type": "command"
+          }
+        ],
+        "matcher": "Bash"
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "command": "agentoast hook claude",
+            "type": "command"
+          }
+        ],
+        "matcher": ""
+      }
+    ]
+  },
+  "permissions": {
+    "allow": [
+      "Bash(curl * 127.0.0.1*)",
+      "Bash(curl * localhost*)",
+      "Bash(rm -f /tmp/claude-*)"
+    ],
+    "ask": [
+      "Bash(curl:*)",
+      "Bash(mysql *)",
+      "Bash(psql *)",
+      "Bash(rm -r:*)",
+      "Bash(rm:*)",
+      "Bash(wget:*)"
+    ],
+    "defaultMode": "acceptEdits",
+    "deny": [
+      "Bash(*deploy*)",
+      "Bash(aws * --no-cli-pager)",
+      "Bash(chmod -R *)",
+      "Bash(chmod 777 *)",
+      "Bash(chown -R *)",
+      "Bash(defaults write *)",
+      "Bash(docker push *)",
+      "Bash(find * -delete*)",
+      "Bash(find * -exec rm*)",
+      "Bash(gcloud * --quiet)",
+      "Bash(git add -A)",
+      "Bash(git add .)",
+      "Bash(git checkout .)",
+      "Bash(git clean -f *)",
+      "Bash(git push --force *)",
+      "Bash(git push -f *)",
+      "Bash(git push:*)",
+      "Bash(git rebase:*)",
+      "Bash(git reset --hard *)",
+      "Bash(git reset:*)",
+      "Bash(helm install *)",
+      "Bash(helm upgrade *)",
+      "Bash(kill -9 *)",
+      "Bash(killall *)",
+      "Bash(kubectl apply *)",
+      "Bash(kubectl delete *)",
+      "Bash(mongod:*)",
+      "Bash(nc:*)",
+      "Bash(npm publish *)",
+      "Bash(npm remove:*)",
+      "Bash(npm uninstall:*)",
+      "Bash(open *)",
+      "Bash(osascript *)",
+      "Bash(pkill *)",
+      "Bash(pnpm publish *)",
+      "Bash(rm -fr:*)",
+      "Bash(rm -rf:*)",
+      "Bash(rmdir:*)",
+      "Bash(rsync:*)",
+      "Bash(scp *)",
+      "Bash(shred:*)",
+      "Bash(ssh *)",
+      "Bash(su:*)",
+      "Bash(sudo:*)",
+      "Bash(terraform apply *)",
+      "Bash(terraform destroy *)",
+      "Bash(unlink:*)",
+      "Bash(yarn publish *)",
+      "Edit(**/.env*)",
+      "Edit(**/secrets/**)",
+      "Edit(.bashrc)",
+      "Edit(.env*)",
+      "Edit(.ssh/**)",
+      "Edit(.zshrc)",
+      "Edit(secrets/**)",
+      "Read(**/*.pem)",
+      "Read(**/*key*)",
+      "Read(**/*token*)",
+      "Read(**/.env*)",
+      "Read(**/credentials*)",
+      "Read(**/secrets/**)",
+      "Read(.config/gh/**)",
+      "Read(.env*)",
+      "Read(.git-credentials)",
+      "Read(.ssh/**)",
+      "Read(id_ed25519)",
+      "Read(id_rsa)",
+      "Read(secrets/**)",
+      "mcp__supabase__execute_sql"
+    ]
+  },
   "sandbox": {
-    "enabled": true,
     "allowUnsandboxedCommands": true,
-    "network": {
-      "allowedDomains": [
-        "github.com",
-        "*.githubusercontent.com",
-        "*.npmjs.org",
-        "registry.yarnpkg.com",
-        "pypi.org",
-        "packagist.org"
-      ]
-    },
+    "enabled": true,
     "filesystem": {
       "denyRead": [
-        "~/.ssh",
-        "~/.gnupg",
         "~/.aws",
         "~/.bash_history",
-        "~/.zsh_history",
-        "~/.config/gcloud"
+        "~/.config/gcloud",
+        "~/.gnupg",
+        "~/.ssh",
+        "~/.zsh_history"
+      ]
+    },
+    "network": {
+      "allowedDomains": [
+        "*.githubusercontent.com",
+        "*.npmjs.org",
+        "github.com",
+        "packagist.org",
+        "pypi.org",
+        "registry.yarnpkg.com"
       ]
     }
   },
-  "theme": "auto",
   "statusLine": {
-    "type": "command",
-    "command": "bash ~/.claude/hooks/statusline.sh"
-  }
+    "command": "deno run --allow-run=git ~/.claude/hooks/statusline.ts",
+    "type": "command"
+  },
+  "theme": "auto"
 }
