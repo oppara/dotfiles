@@ -155,3 +155,7 @@
 [commit]
 	template = ~/.gitmessage
 	verbose = true
+
+[filter "jsonsort"]
+	; 外部ツールが整形や配列順を書き換えても差分が出ないよう index 側を正規化する
+	clean = jq -S 'walk(if type==\"array\" then sort else . end)'
