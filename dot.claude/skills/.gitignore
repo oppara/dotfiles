@@ -4,3 +4,5 @@
 !git-commit/*
 !cfn-resource-import/
 !cfn-resource-import/*
+!pr-critical-review/
+!pr-critical-review/*
