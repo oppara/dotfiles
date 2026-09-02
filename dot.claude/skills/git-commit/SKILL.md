@@ -34,6 +34,7 @@ description: ステージ済みの変更を分析し、Conventional Commits形�
    - type は `dot.gitmessage` の定義に従う: `build` `chore` `ci` `config` `deps` `docs` `feat` `fix` `mv` `perf` `prune` `refactor` `release` `revert` `security` `style` `test` `typo`
    - `feat` と `fix` の使い分けに注意する: 新しい機能・挙動を追加する場合は `feat`、既存の機能・挙動の不具合や不足を直す場合は `fix`
    - 1行目（`<type>[(optional scope)]: <description>`）は理由や背景を含めず、なるべく短い英文の動詞句で書く（例: `fix(claude): unbind ctrl+j to fix scroll conflict`。NG例: `unbind ctrl+j newline so scroll works while typing` のように理由まで詰め込む）。理由・背景は本文の箇条書きに書く
+   - `<description>` はなるべく短くする。基本的にすべて小文字で書く（固有名詞・略語などやむを得ない場合を除く）
    - 本文には変更点を日本語の箇条書きで記載する
    - 本文の各行は半角72文字換算（日本語等の全角文字は2文字扱い）に収める
    - 自明なコメントは書かない（diffを見れば分かることの言い換えではなく、変更の意図や理由が伝わる記述にする）
