@@ -17,3 +17,5 @@ teams
 rules
 chrome
 telemetry
+daemon*
+jobs
