@@ -60,6 +60,7 @@
     "allow": [
       "Bash(curl * 127.0.0.1*)",
       "Bash(curl * localhost*)",
+      "Bash(direnv allow*)",
       "Bash(rm -f /tmp/claude-*)"
     ],
     "ask": [
