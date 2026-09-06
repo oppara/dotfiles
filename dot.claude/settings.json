@@ -1,7 +1,8 @@
 {
   "enabledPlugins": {
     "frontend-design@claude-plugins-official": true,
-    "natural-japanese@natural-japanese": true
+    "natural-japanese@natural-japanese": true,
+    "ponytail@ponytail": true
   },
   "env": {
     "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1",
@@ -11,6 +12,12 @@
     "natural-japanese": {
       "source": {
         "repo": "coji/natural-japanese",
+        "source": "github"
+      }
+    },
+    "ponytail": {
+      "source": {
+        "repo": "DietrichGebert/ponytail",
         "source": "github"
       }
     },
