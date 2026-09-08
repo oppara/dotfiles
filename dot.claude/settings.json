@@ -1,6 +1,7 @@
 {
   "enabledPlugins": {
     "frontend-design@claude-plugins-official": true,
+    "genshijin@genshijin": true,
     "natural-japanese@natural-japanese": true,
     "ponytail@ponytail": true
   },
@@ -9,6 +10,12 @@
     "ENABLE_LSP_TOOL": "1"
   },
   "extraKnownMarketplaces": {
+    "genshijin": {
+      "source": {
+        "source": "git",
+        "url": "https://github.com/interfacex-co-jp/genshijin.git"
+      }
+    },
     "natural-japanese": {
       "source": {
         "repo": "coji/natural-japanese",
