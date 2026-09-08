@@ -36,10 +36,12 @@ foreground = "yellow"
 style = "full"
 
 [[blocks.segments]]
-type = "text"
+type = "git"
 style = "plain"
 foreground = "white"
-template = "{{ cmd (printf \"%s/oh-my-posh/git-status.sh\" (env \"XDG_CONFIG_HOME\")) }}"
+template = "{{ if gt .StashCount 0 }}<cyan>{{ .HEAD }}</>{{ else if or (gt .Working.Modified 0) (gt .Working.Deleted 0) (gt .Working.Unmerged 0) }}<red>{{ .HEAD }}</>{{ else if or (gt .Staging.Modified 0) (gt .Staging.Deleted 0) (gt .Staging.Added 0) (gt .Staging.Unmerged 0) }}<yellow>{{ .HEAD }}</>{{ else }}<green>{{ .HEAD }}</>{{ end }}{{ if gt .Working.Untracked 0 }} <white>?</>{{ end }}{{ if gt .StashCount 0 }} <cyan>+{{ .StashCount }}</>{{ end }}"
+[blocks.segments.options]
+branch_icon = ""
 
 [[blocks.segments]]
 type = "aws"
