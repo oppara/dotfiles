@@ -116,7 +116,10 @@ const segments = [
   `7d ${colorByPct(weekPct)}${symbolByPct(weekPct)} ${weekPct}%${R} (~${weekResetDisplay})`,
 ];
 
-// フッター（mode切り替え表示）との間に余白を作るため見た目上は空行の2行目を追加する
+// gitブランチ名の後ろで改行し、残りのセグメントは2行目に表示する
+console.log(segments.slice(0, 2).join(" | "));
+console.log(segments.slice(2).join(" | "));
+
+// フッター（mode切り替え表示）との間に余白を作るため見た目上は空行の3行目を追加する
 // (空白のみの行はharness側でトリムされ非表示になるため、ゼロ幅スペースを使う)
-console.log(segments.join(" | "));
 console.log("​");
