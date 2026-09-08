@@ -40,6 +40,13 @@ function symbolByPct(pct: number): string {
   return ICON.battery[idx];
 }
 
+function formatDuration(ms: number): string {
+  const totalMin = Math.floor(ms / 60000);
+  const h = Math.floor(totalMin / 60);
+  const m = totalMin % 60;
+  return h > 0 ? `${h}h${m}m` : `${m}m`;
+}
+
 function formatRemaining(resetAt: number | null): string {
   if (resetAt == null) return "-";
   const remaining = resetAt - Math.floor(Date.now() / 1000);
@@ -97,6 +104,8 @@ const dirSymbol = currentDir !== projectDir ? ICON.folderChanged : ICON.folder;
 
 const gitBranch = await getGitBranch(currentDir || undefined);
 const weekResetDisplay = formatRemaining(weekReset);
+const costUsd = input.cost?.total_cost_usd ?? 0;
+const durationDisplay = formatDuration(input.cost?.total_duration_ms ?? 0);
 
 const R = COLOR.reset;
 const segments = [
@@ -114,6 +123,9 @@ const segments = [
 
   // 週次（7日間）のレート制限使用率 + リセットまでの残り時間
   `7d ${colorByPct(weekPct)}${symbolByPct(weekPct)} ${weekPct}%${R} (~${weekResetDisplay})`,
+
+  // セッション累計コスト（USD） / 処理時間（放置時間を含まないAPI処理時間の累計）
+  `$${costUsd.toFixed(2)} / ${durationDisplay}`,
 ];
 
 // gitブランチ名の後ろで改行し、残りのセグメントは2行目に表示する
