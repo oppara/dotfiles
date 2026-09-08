@@ -1,5 +1,6 @@
 {
   "enabledPlugins": {
+    "dig@kuu-marketplace": true,
     "frontend-design@claude-plugins-official": true,
     "genshijin@genshijin": true,
     "natural-japanese@natural-japanese": true,
@@ -15,6 +16,12 @@
       "source": {
         "source": "git",
         "url": "https://github.com/interfacex-co-jp/genshijin.git"
+      }
+    },
+    "kuu-marketplace": {
+      "source": {
+        "source": "git",
+        "url": "https://github.com/fumiya-kume/claude-code.git"
       }
     },
     "natural-japanese": {
