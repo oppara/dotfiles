@@ -325,5 +325,18 @@ cc() {
   fi
 }
 
+## ccusage-month 今月のClaude Codeコストを表示 #{{{1
+# https://ccusage.com
+function ccusage-month() {
+  local month cost
+  month=$(date +%Y-%m)
+  cost=$(npx -y ccusage@latest monthly --json 2>/dev/null | jq -r --arg m "$month" '.monthly[] | select(.period == $m) | .totalCost')
+  if [ -z "$cost" ]; then
+    echo "no usage data for $month"
+    return 1
+  fi
+  printf '%s: $%.2f\n' "$month" "$cost"
+}
+
 
 # vim: ft=sh fdm=marker
