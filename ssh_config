@@ -14,9 +14,6 @@ Host *
     ControlPath ~/.ssh/control/%C
     controlpersist 4h
 
-    PermitLocalCommand yes
-    LocalCommand       tmux rename-window %n
-
 # Host foo
     # HostName           host or ip
     # IdentityFile       /path/to/id_rsa
