@@ -59,12 +59,6 @@ if command -v ngrok &>/dev/null; then
 fi
 
 
-# oh my posh
-# https://ohmyposh.dev/
-if command -v oh-my-posh &>/dev/null; then
-  eval "$(oh-my-posh init zsh --config  $XDG_CONFIG_HOME/oh-my-posh/opp.omp.toml)"
-fi
-
 # tirith
 # https://github.com/sheeki03/tirith
 if command -v tirith &>/dev/null; then
