@@ -48,3 +48,4 @@ description: ステージ済みの変更を分析し、Conventional Commits形�
 
 - `git add` は絶対に実行しない
 - ステージ済みの変更のみを対象とする
+- Step 5 の AskUserQuestion 確認なしに `git commit` を実行することは絶対に禁止。確認をスキップして直接コミットしてはならない
