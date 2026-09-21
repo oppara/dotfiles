@@ -1,0 +1,77 @@
+#!/usr/bin/env bash
+
+set -uo pipefail
+
+self="$0"
+
+project_root() {
+  local dir="$1"
+  while [ "$dir" != "/" ]; do
+    if [ "$dir" != "$HOME" ] && [ -d "$dir/.claude" ]; then
+      printf '%s' "$dir"
+      return 0
+    fi
+    dir="$(dirname "$dir")"
+  done
+  return 1
+}
+
+target_of() {
+  local line="$1" root="$2" url path
+
+  url="$(printf '%s' "$line" | grep -oE '(https?|file)://[^[:space:])"'"'"']+' | head -1)"
+  if [ -n "$url" ]; then
+    printf '%s' "$url"
+    return 0
+  fi
+
+  path="$(printf '%s' "$line" | grep -oE '(~[^[:space:]]*|/[^[:space:]]*|\./[^[:space:]]*|[A-Za-z0-9_.-]+\.[A-Za-z0-9]+)' | head -1)"
+  [ -z "$path" ] && return 1
+  case "$path" in
+    ~*) path="${path/#\~/$HOME}" ;;
+  esac
+
+  for candidate in "$path" "${root:+$root/$path}" "$PWD/$path"; do
+    [ -n "$candidate" ] && [ -e "$candidate" ] && { printf '%s' "$candidate"; return 0; }
+  done
+  return 1
+}
+
+root="$(project_root "$PWD" || true)"
+if [ -n "$root" ]; then
+  file="$root/.claude/devurls.md"
+else
+  file="$HOME/.claude/devurls.md"
+fi
+
+case "${1:-}" in
+  --open)
+    t="$(target_of "$2" "$root")" && open "$t"
+    exit 0
+    ;;
+  --browser)
+    t="$(target_of "$2" "$root")" && { open -a "Google Chrome" "$t" 2>/dev/null || open "$t"; }
+    exit 0
+    ;;
+esac
+
+if [ ! -s "$file" ]; then
+  printf 'devurls台帳が見つかりません: %s\n' "$file"
+  printf '\n\033[2m[任意のキーで閉じる]\033[0m'
+  read -rsn1 _
+  exit 0
+fi
+
+if [ "${1:-}" = "--plain" ]; then
+  cat "$file"
+  printf '\n\033[2m[任意のキーで閉じる]\033[0m'
+  read -rsn1 _
+  exit 0
+fi
+
+grep -vE '^[[:space:]]*(#|$)' "$file" \
+  | fzf --no-sort --reverse --height=100% --no-mouse \
+      --prompt='open> ' \
+      --header="$file  (Enter: 既定アプリで開く / ctrl-b: ブラウザで開く / Esc: 閉じる)" \
+      --bind="enter:execute-silent(bash '$self' --open {})+abort" \
+      --bind="ctrl-b:execute-silent(bash '$self' --browser {})+abort"
