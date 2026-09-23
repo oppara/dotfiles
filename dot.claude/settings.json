@@ -179,6 +179,9 @@
     "allowUnsandboxedCommands": true,
     "enabled": true,
     "filesystem": {
+      "allowWrite": [
+        "~/.cache/uv"
+      ],
       "denyRead": [
         "~/.aws",
         "~/.bash_history",
@@ -192,6 +195,7 @@
       "allowedDomains": [
         "*.githubusercontent.com",
         "*.npmjs.org",
+        "files.pythonhosted.org",
         "github.com",
         "packagist.org",
         "pypi.org",
