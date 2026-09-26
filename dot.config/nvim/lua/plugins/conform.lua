@@ -14,6 +14,12 @@ require('conform').setup({
     scss = web_formatter,
     sass = web_formatter,
     less = web_formatter,
+    markdown = function(bufnr)
+      if require('conform').get_formatter_info('prettierd', bufnr).available then
+        return { 'prettierd', 'injected' }
+      end
+      return { 'prettier', 'injected' }
+    end,
     python = { 'ruff_format' },
     sql = { 'sql_formater' },
   },
