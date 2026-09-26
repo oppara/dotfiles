@@ -14,7 +14,6 @@ require('conform').setup({
     scss = web_formatter,
     sass = web_formatter,
     less = web_formatter,
-    markdown = { 'markdownlint-cli2' },
     python = { 'ruff_format' },
     sql = { 'sql_formater' },
   },

@@ -88,7 +88,7 @@ lint.linters_by_ft = {
   scss = { 'stylelint' },
   sass = { 'stylelint' },
   less = { 'stylelint' },
-  markdown = { 'markdownlint-cli2', 'textlint' },
+  markdown = { 'mado', 'textlint' },
   python = { 'ruff', 'flake8' },
   -- brew install sqruff
   sql = { 'sqruff' },
