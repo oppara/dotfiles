@@ -1,0 +1,80 @@
+# 使い方
+# mado check .
+# mado --config /path/to/mado.toml check "path/to/*.md"
+#
+# .markdownlint-cli2.jsonc からの移植。
+# mado は無効化指定ができないため、有効なルールを列挙する方式になっている。
+
+[lint]
+# .gitignore / .ignore を尊重
+respect-ignore = true
+respect-gitignore = true
+
+# 除外パス
+exclude = [
+  "node_modules/**",
+  "dist/**",
+  # Claude Code のプロンプト編集用一時ファイル
+  "claude-prompt-*.md",
+]
+
+# 有効にするルール
+#
+# 除外したルールとその理由:
+#   MD002 先頭はH1         : markdownlint 側で廃止済み。MD041 で足りる
+#   MD006 リストを左端から : markdownlint 側で廃止済み
+#   MD009 末尾スペース     : 改行用の末尾2スペースを許可（mado は br_spaces 相当のオプションを持たない）
+#   MD010 タブ文字         : タブ文字を許可（TSV等）
+#   MD012 連続空行         : 連続空行を許可（mado は maximum 相当のオプションを持たない）
+#   MD013 行長             : 行長制限なし
+#   MD025 複数のH1         : 複数H1を許可
+#   MD026 見出し末尾の句読点: 見出しの句読点を許可
+#   MD029 順序付きリスト番号: `1. 1. 1.` と `1. 2. 3.` の両方を許可
+#                            （mado は markdownlint の one_or_ordered を持たない）
+#   MD033 インラインHTML   : HTMLを許可
+#   MD034 素のURL          : 素のURLを許可
+#   MD037 強調記法内スペース: 強調記法内のスペースを許可
+#
+# markdownlint-cli2 で無効化していた MD051（リンクのフラグメント検証）は mado 未対応のため記載不要。
+rules = [
+  "MD001",
+  "MD003",
+  "MD004",
+  "MD005",
+  "MD007",
+  "MD014",
+  "MD018",
+  "MD019",
+  "MD020",
+  "MD021",
+  "MD022",
+  "MD023",
+  "MD024",
+  "MD027",
+  "MD028",
+  "MD030",
+  "MD031",
+  "MD032",
+  "MD035",
+  "MD036",
+  "MD038",
+  "MD039",
+  "MD040",
+  "MD041",
+  "MD046",
+  "MD047",
+]
+
+# 以下は mado のデフォルトが markdownlint と異なるため明示する
+
+[lint.md007]
+# ネストしたリストのインデント幅（mado のデフォルトは 4）
+indent = 2
+
+[lint.md036]
+# 強調を見出し代わりに使っているかの判定に使う句読点。全角も含める
+punctuation = ".,;:!?。，；：！？"
+
+[lint.md046]
+# コードブロックの記法をファイル内で統一する（mado のデフォルトは fenced 固定）
+style = "consistent"
