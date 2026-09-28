@@ -77,6 +77,15 @@
       {
         "hooks": [
           {
+            "command": "guard-and-guide",
+            "type": "command"
+          }
+        ],
+        "matcher": ""
+      },
+      {
+        "hooks": [
+          {
             "command": "~/.claude/hooks/block-sensitive-reads.sh",
             "type": "command"
           }
