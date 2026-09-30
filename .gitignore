@@ -16,3 +16,8 @@ dot.claude/file-history
 dot.claude/shell-snapshots/
 dot.claude/paste-cache/
 settings.local.json
+
+CLAUDE.local.md
+
+.claude/settings.local.json
+.claude/devurls.md
