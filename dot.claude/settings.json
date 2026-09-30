@@ -9,9 +9,9 @@
     "dig@kuu-marketplace": true,
     "frontend-design@claude-plugins-official": true,
     "genshijin@genshijin": true,
-    "natural-japanese@natural-japanese": true,
     "ponytail@ponytail": true,
-    "superpowers@superpowers-marketplace": true
+    "superpowers@superpowers-marketplace": true,
+    "yomiyasu@yomiyasu": true
   },
   "env": {
     "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1",
@@ -57,6 +57,12 @@
     "superpowers-marketplace": {
       "source": {
         "repo": "obra/superpowers-marketplace",
+        "source": "github"
+      }
+    },
+    "yomiyasu": {
+      "source": {
+        "repo": "nanaism/yomiyasu",
         "source": "github"
       }
     }
