@@ -46,7 +46,7 @@ setopt hist_expand
 ## 履歴をインクリメンタルに追加
 setopt inc_append_history
 ## C-sでのヒストリ検索が潰されてしまうため、出力停止・開始用にC-s/C-qを使わない。
-setopt no_flow_control
+unsetopt flow_control
 
 ## ディレクトリ名だけで cd
 setopt auto_cd
@@ -67,8 +67,8 @@ setopt auto_menu
 setopt correct
 
 ## ビープを鳴らさない
-setopt nobeep
-setopt nolistbeep
+unsetopt beep
+unsetopt list_beep
 
 ## 補完候補を詰めて表示
 setopt list_packed
