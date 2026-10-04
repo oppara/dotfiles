@@ -10,20 +10,9 @@ unset DEV_PATH
 unset DEV_MANPATH
 
 
-for app in /usr/local/{mysql,postgresql}; do
-  test -d "${app}/bin" && PATH="${app}/bin:$PATH"
-  test -d "${app}/man" && MANPATH="${app}/man:$MANPATH"
-done
-unset app
-
-# php-osx.liip.ch
-test -d /usr/local/php5/bin && PATH="/usr/local/php5/bin:$PATH"
-
 test -d "${HOMEBREW_PREFIX}/share/npm/bin" && PATH="${HOMEBREW_PREFIX}/share/npm/bin:$PATH"
 test -d "${HOMEBREW_PREFIX}/opt/gettext/bin" && PATH="${HOMEBREW_PREFIX}/opt/gettext/bin:$PATH"
 
-test -d "$HOME/local/bin" && PATH="$HOME/local/bin:$PATH"
-test -d "$HOME/local/share/man" && MANPATH="$HOME/local/share/man:$MANPATH"
 test -d "$HOME/bin" && PATH="$HOME/bin:$PATH"
 
 ## composer
