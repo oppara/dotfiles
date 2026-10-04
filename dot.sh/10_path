@@ -13,14 +13,6 @@ unset DEV_MANPATH
 test -d "${HOMEBREW_PREFIX}/share/npm/bin" && PATH="${HOMEBREW_PREFIX}/share/npm/bin:$PATH"
 test -d "${HOMEBREW_PREFIX}/opt/gettext/bin" && PATH="${HOMEBREW_PREFIX}/opt/gettext/bin:$PATH"
 
-test -d "$HOME/bin" && PATH="$HOME/bin:$PATH"
-
-## composer
-test -d "$HOME/.composer/vendor/bin" && PATH="$HOME/.composer/vendor/bin:$PATH"
-
-## rust
-test -d "$HOME/.cargo/bin" && PATH="$HOME/.cargo/bin:$PATH"
-
 ## openjdk
 test -d "/opt/homebrew/opt/openjdk/bin" && PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
 # For compilers to find openjdk you may need to set:
