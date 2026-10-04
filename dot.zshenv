@@ -33,9 +33,6 @@ if [ -x /opt/homebrew/bin/brew ]; then
     eval $(/opt/homebrew/bin/brew shellenv)
 fi
 
-# Don't create core dumps
-ulimit -c 0
-
 
 for file in ${HOME}/.sh/[0-9]*; do
     source "$file"
