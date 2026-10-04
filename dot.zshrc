@@ -1,3 +1,7 @@
+# Everything below is human UX: aliases, plugins, prompt, keybinds, setopts.
+# AI agents get plain zsh; what they need (PATH, env) lives in .zshenv.
+is_human || return 0
+
 # in ~/.zshenv, executed `unsetopt GLOBAL_RCS` and ignored /etc/zshrc
 [ -r /etc/zshrc ] && . /etc/zshrc
 
