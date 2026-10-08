@@ -226,11 +226,13 @@
       "allowedDomains": [
         "*.githubusercontent.com",
         "*.npmjs.org",
+        "*.wordpress.org",
         "files.pythonhosted.org",
         "github.com",
         "packagist.org",
         "pypi.org",
-        "registry.yarnpkg.com"
+        "registry.yarnpkg.com",
+        "wpscan.com"
       ]
     }
   },
