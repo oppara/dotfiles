@@ -19,3 +19,10 @@ alias gco=anyframe-widget-checkout-git-branch
 
 [plugins.tmk]
 github = "yuki-yano/tmk"
+
+[plugins.ha]
+github = "kawarimidoll/ha"
+use = ["ha.sh"]
+hooks.post = '''
+compdef _ha ha
+'''
