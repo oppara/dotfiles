@@ -16,6 +16,9 @@ unsetopt GLOBAL_RCS
 
 export XDG_CONFIG_HOME="${HOME}/.config"
 
+# macOS tmp_cleaner deletes the socket under /tmp of a long-running tmux server
+export TMUX_TMPDIR="${HOME}/.local/state"
+
 # https://tellme.tokyo/post/2026/10/01/ai-agent-first-dotfiles/
 # A human is at the keyboard only if stdin/stdout are a TTY and no known
 # agent marker is set. $TERM or -o interactive can't tell: agents inherit
