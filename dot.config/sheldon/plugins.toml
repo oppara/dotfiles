@@ -18,4 +18,4 @@ alias gco=anyframe-widget-checkout-git-branch
 '''
 
 [plugins.tmk]
-github = "yuki-ycino/tmk"
+github = "yuki-yano/tmk"
