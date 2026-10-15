@@ -5,7 +5,7 @@ todos
 stats-cache.json
 cache
 debug
-policy-limits.json
+policy-limits.json*
 remote-settings.json
 installed_plugins.json
 
