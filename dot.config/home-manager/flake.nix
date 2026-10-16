@@ -7,12 +7,17 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nur-babarot = {
+      url = "github:babarot/nur-packages";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
     {
       nixpkgs,
       home-manager,
+      nur-babarot,
       ...
     }:
     let
@@ -21,6 +26,9 @@
     {
       homeConfigurations.oppara = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.${system};
+        extraSpecialArgs = {
+          nur-babarot = nur-babarot.packages.${system};
+        };
         modules = [ ./home.nix ];
       };
     };

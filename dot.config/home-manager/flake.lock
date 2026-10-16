@@ -36,10 +36,31 @@
         "type": "github"
       }
     },
+    "nur-babarot": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1791914183,
+        "narHash": "sha256-5l+0pzuUMdF/kLTFgyxLMry8VioQlQ2SrYWHhLIfIXI=",
+        "owner": "babarot",
+        "repo": "nur-packages",
+        "rev": "e35d2bea10a0eb11648b4fae9911c38f15a7af72",
+        "type": "github"
+      },
+      "original": {
+        "owner": "babarot",
+        "repo": "nur-packages",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "home-manager": "home-manager",
-        "nixpkgs": "nixpkgs"
+        "nixpkgs": "nixpkgs",
+        "nur-babarot": "nur-babarot"
       }
     }
   },
