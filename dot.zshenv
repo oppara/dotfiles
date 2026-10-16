@@ -44,6 +44,7 @@ path=(
     ~/.local/bin(N-/)
     ~/.composer/vendor/bin(N-/)
     ~/.cargo/bin(N-/)
+    ~/.nix-profile/bin(N-/)
     /etc/profiles/per-user/$USER/bin(N-/)
     /run/current-system/sw/bin(N-/)
     /nix/var/nix/profiles/default/bin(N-/)
