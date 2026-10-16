@@ -10,4 +10,7 @@
   home.packages = [
     nur-babarot.claude-recall
   ];
+
+  home.file.".claude/skills/claude-recall".source =
+    "${nur-babarot.claude-recall}/share/claude-plugin/claude-recall";
 }
