@@ -8,6 +8,7 @@ typeset -U path cdpath fpath manpath
 # brew info zsh-completions
 fpath=( \
     "${HOME}/.zsh/completions"
+    ${HOME}/.nix-profile/share/zsh/site-functions(N-/) \
     $(brew --prefix)/share/zsh-completions \
     $fpath \
     )
