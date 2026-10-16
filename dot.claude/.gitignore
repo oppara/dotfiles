@@ -21,3 +21,5 @@ daemon*
 jobs
 .ponytail-active
 .genshijin*
+state
+vault.*
