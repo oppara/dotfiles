@@ -85,3 +85,6 @@ rules:
   "@textlint-ja/preset-ai-writing":
     ai-tech-writing-guideline:
       severity: info
+
+  # https://github.com/p1ass/textlint-rule-preset-ai-words-ja
+  "preset-ai-words-ja": true
