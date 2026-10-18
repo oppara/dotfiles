@@ -1,4 +1,4 @@
-{ nur-babarot, ... }:
+{ nur-babarot, ax-pkg, ... }:
 
 {
   home.username = "oppara";
@@ -9,6 +9,7 @@
 
   home.packages = [
     nur-babarot.claude-recall
+    ax-pkg
   ];
 
   home.file.".claude/skills/claude-recall".source =

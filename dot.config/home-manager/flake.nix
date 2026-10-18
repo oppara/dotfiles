@@ -11,6 +11,10 @@
       url = "github:babarot/nur-packages";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    ax = {
+      url = "github:yusukebe/ax";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -18,6 +22,7 @@
       nixpkgs,
       home-manager,
       nur-babarot,
+      ax,
       ...
     }:
     let
@@ -28,6 +33,7 @@
         pkgs = nixpkgs.legacyPackages.${system};
         extraSpecialArgs = {
           nur-babarot = nur-babarot.packages.${system};
+          ax-pkg = ax.packages.${system}.default;
         };
         modules = [ ./home.nix ];
       };
