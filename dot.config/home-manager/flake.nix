@@ -11,6 +11,10 @@
       url = "github:babarot/nur-packages";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    agent-skills = {
+      url = "github:Kyure-A/agent-skills-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     ax = {
       url = "github:yusukebe/ax";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -22,6 +26,7 @@
       nixpkgs,
       home-manager,
       nur-babarot,
+      agent-skills,
       ax,
       ...
     }:
@@ -34,8 +39,12 @@
         extraSpecialArgs = {
           nur-babarot = nur-babarot.packages.${system};
           ax-pkg = ax.packages.${system}.default;
+          inputs = { inherit ax; };
         };
-        modules = [ ./home.nix ];
+        modules = [
+          agent-skills.homeManagerModules.default
+          ./home.nix
+        ];
       };
     };
 }
