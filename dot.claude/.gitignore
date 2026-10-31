@@ -20,6 +20,7 @@ telemetry
 daemon*
 jobs
 .ponytail-active
+ponytail-modes
 .genshijin*
 state
 vault.*
