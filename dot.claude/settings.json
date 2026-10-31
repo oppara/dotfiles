@@ -205,7 +205,7 @@
     ]
   },
   "sandbox": {
-    "allowUnsandboxedCommands": true,
+    "allowUnsandboxedCommands": false,
     "enabled": true,
     "excludedCommands": [
       "drawio"
@@ -218,7 +218,12 @@
         "~/.aws",
         "~/.bash_history",
         "~/.config/gcloud",
+        "~/.config/gh",
+        "~/.docker/config.json",
+        "~/.git-credentials",
         "~/.gnupg",
+        "~/.netrc",
+        "~/.npmrc",
         "~/.ssh",
         "~/.zsh_history"
       ]
