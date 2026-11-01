@@ -234,6 +234,7 @@
         "*.npmjs.org",
         "*.wordpress.org",
         "access.redhat.com",
+        "almalinux.org",
         "errata.almalinux.org",
         "errata.rockylinux.org",
         "explore.alas.aws.amazon.com",
