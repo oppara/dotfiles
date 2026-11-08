@@ -39,5 +39,9 @@ if [ -f '/Users/oppara/tmp/gloud/google-cloud-sdk/completion.zsh.inc' ]; then . 
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+if (( $+commands[colima] )) && colima status >/dev/null 2>&1; then
+    export SSH_AGENT_SOCK=$(colima ssh -- sh -c 'echo $SSH_AUTH_SOCK')
+fi
+
 # vim: ft=zsh
 
